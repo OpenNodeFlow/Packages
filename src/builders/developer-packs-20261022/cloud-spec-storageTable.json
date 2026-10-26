@@ -1,0 +1,147 @@
+{
+  "source": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/main/specification/storage/resource-manager/Microsoft.Storage/Storage/stable/2025-01-01/table.json",
+  "version": "2025-01-01",
+  "operations": [
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}/tableServices",
+      "method": "get",
+      "operationId": "TableServices_List",
+      "parameters": [
+        {},
+        {},
+        {},
+        {}
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}/tableServices/{tableServiceName}",
+      "method": "put",
+      "operationId": "TableServices_SetServiceProperties",
+      "parameters": [
+        {},
+        {},
+        {},
+        {},
+        {},
+        {
+          "name": "parameters",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}/tableServices/{tableServiceName}",
+      "method": "get",
+      "operationId": "TableServices_GetServiceProperties",
+      "parameters": [
+        {},
+        {},
+        {},
+        {},
+        {}
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}/tableServices/default/tables/{tableName}",
+      "method": "put",
+      "operationId": "Table_Create",
+      "parameters": [
+        {},
+        {},
+        {
+          "name": "parameters",
+          "in": "body",
+          "required": false
+        },
+        {},
+        {},
+        {}
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}/tableServices/default/tables/{tableName}",
+      "method": "patch",
+      "operationId": "Table_Update",
+      "parameters": [
+        {},
+        {},
+        {
+          "name": "parameters",
+          "in": "body",
+          "required": false
+        },
+        {},
+        {},
+        {}
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}/tableServices/default/tables/{tableName}",
+      "method": "get",
+      "operationId": "Table_Get",
+      "parameters": [
+        {},
+        {},
+        {},
+        {},
+        {}
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}/tableServices/default/tables/{tableName}",
+      "method": "delete",
+      "operationId": "Table_Delete",
+      "parameters": [
+        {},
+        {},
+        {},
+        {},
+        {}
+      ],
+      "responses": [
+        "204",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}/tableServices/default/tables",
+      "method": "get",
+      "operationId": "Table_List",
+      "parameters": [
+        {},
+        {},
+        {},
+        {}
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    }
+  ]
+}

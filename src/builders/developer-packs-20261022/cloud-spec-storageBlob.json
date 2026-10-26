@@ -1,0 +1,341 @@
+{
+  "source": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/main/specification/storage/resource-manager/Microsoft.Storage/Storage/stable/2025-01-01/blob.json",
+  "version": "2025-01-01",
+  "operations": [
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}/blobServices",
+      "method": "get",
+      "operationId": "BlobServices_List",
+      "parameters": [
+        {},
+        {},
+        {},
+        {}
+      ],
+      "responses": [
+        "200"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}/blobServices/{BlobServicesName}",
+      "method": "put",
+      "operationId": "BlobServices_SetServiceProperties",
+      "parameters": [
+        {},
+        {},
+        {},
+        {},
+        {},
+        {
+          "name": "parameters",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "responses": [
+        "200"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}/blobServices/{BlobServicesName}",
+      "method": "get",
+      "operationId": "BlobServices_GetServiceProperties",
+      "parameters": [
+        {},
+        {},
+        {},
+        {},
+        {}
+      ],
+      "responses": [
+        "200"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}/blobServices/default/containers",
+      "method": "get",
+      "operationId": "BlobContainers_List",
+      "parameters": [
+        {},
+        {},
+        {},
+        {},
+        {
+          "name": "$maxpagesize",
+          "in": "query"
+        },
+        {
+          "name": "$filter",
+          "in": "query"
+        },
+        {
+          "name": "$include",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "responses": [
+        "200"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}/blobServices/default/containers/{containerName}",
+      "method": "put",
+      "operationId": "BlobContainers_Create",
+      "parameters": [
+        {},
+        {},
+        {},
+        {
+          "name": "blobContainer",
+          "in": "body",
+          "required": true
+        },
+        {},
+        {}
+      ],
+      "responses": [
+        "200",
+        "201"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}/blobServices/default/containers/{containerName}",
+      "method": "patch",
+      "operationId": "BlobContainers_Update",
+      "parameters": [
+        {},
+        {},
+        {},
+        {
+          "name": "blobContainer",
+          "in": "body",
+          "required": true
+        },
+        {},
+        {}
+      ],
+      "responses": [
+        "200"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}/blobServices/default/containers/{containerName}",
+      "method": "get",
+      "operationId": "BlobContainers_Get",
+      "parameters": [
+        {},
+        {},
+        {},
+        {},
+        {}
+      ],
+      "responses": [
+        "200"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}/blobServices/default/containers/{containerName}",
+      "method": "delete",
+      "operationId": "BlobContainers_Delete",
+      "parameters": [
+        {},
+        {},
+        {},
+        {},
+        {}
+      ],
+      "responses": [
+        "200",
+        "204"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}/blobServices/default/containers/{containerName}/setLegalHold",
+      "method": "post",
+      "operationId": "BlobContainers_SetLegalHold",
+      "parameters": [
+        {},
+        {},
+        {},
+        {},
+        {},
+        {
+          "name": "LegalHold",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "responses": [
+        "200"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}/blobServices/default/containers/{containerName}/clearLegalHold",
+      "method": "post",
+      "operationId": "BlobContainers_ClearLegalHold",
+      "parameters": [
+        {},
+        {},
+        {},
+        {},
+        {},
+        {
+          "name": "LegalHold",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "responses": [
+        "200"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}/blobServices/default/containers/{containerName}/immutabilityPolicies/{immutabilityPolicyName}",
+      "method": "put",
+      "operationId": "BlobContainers_CreateOrUpdateImmutabilityPolicy",
+      "parameters": [
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {
+          "name": "parameters",
+          "in": "body"
+        },
+        {
+          "name": "If-Match",
+          "in": "header",
+          "required": false
+        }
+      ],
+      "responses": [
+        "200"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}/blobServices/default/containers/{containerName}/immutabilityPolicies/{immutabilityPolicyName}",
+      "method": "get",
+      "operationId": "BlobContainers_GetImmutabilityPolicy",
+      "parameters": [
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {
+          "name": "If-Match",
+          "in": "header",
+          "required": false
+        }
+      ],
+      "responses": [
+        "200"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}/blobServices/default/containers/{containerName}/immutabilityPolicies/{immutabilityPolicyName}",
+      "method": "delete",
+      "operationId": "BlobContainers_DeleteImmutabilityPolicy",
+      "parameters": [
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {
+          "name": "If-Match",
+          "in": "header",
+          "required": true
+        }
+      ],
+      "responses": [
+        "200"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}/blobServices/default/containers/{containerName}/immutabilityPolicies/default/lock",
+      "method": "post",
+      "operationId": "BlobContainers_LockImmutabilityPolicy",
+      "parameters": [
+        {},
+        {},
+        {},
+        {},
+        {},
+        {
+          "name": "If-Match",
+          "in": "header",
+          "required": true
+        }
+      ],
+      "responses": [
+        "200"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}/blobServices/default/containers/{containerName}/immutabilityPolicies/default/extend",
+      "method": "post",
+      "operationId": "BlobContainers_ExtendImmutabilityPolicy",
+      "parameters": [
+        {},
+        {},
+        {},
+        {},
+        {},
+        {
+          "name": "parameters",
+          "in": "body"
+        },
+        {
+          "name": "If-Match",
+          "in": "header",
+          "required": true
+        }
+      ],
+      "responses": [
+        "200"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}/blobServices/default/containers/{containerName}/lease",
+      "method": "post",
+      "operationId": "BlobContainers_Lease",
+      "parameters": [
+        {},
+        {},
+        {},
+        {},
+        {},
+        {
+          "name": "parameters",
+          "in": "body"
+        }
+      ],
+      "responses": [
+        "200"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}/blobServices/default/containers/{containerName}/migrate",
+      "method": "post",
+      "operationId": "BlobContainers_ObjectLevelWorm",
+      "parameters": [
+        {},
+        {},
+        {},
+        {},
+        {}
+      ],
+      "responses": [
+        "200",
+        "202",
+        "default"
+      ]
+    }
+  ]
+}

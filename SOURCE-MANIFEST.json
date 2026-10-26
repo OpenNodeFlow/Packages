@@ -1,0 +1,265 @@
+{
+  "format": "Explicit allowlisted public generic source files",
+  "files": [
+    {
+      "path": "src/builders/azure-pack-consolidation-20261022/catalog-policy.mjs",
+      "bytes": 1147,
+      "sha256": "2b9bb3b9de6de83f051eebe52cbfaf29da5719b61afb93dc510ee2a424655160"
+    },
+    {
+      "path": "src/builders/canonical-types.json",
+      "bytes": 58909,
+      "sha256": "9906de5781643cb135c73c9dad2ee93672dc7cec1e2e3f34d9de64b6207cc2d6"
+    },
+    {
+      "path": "src/builders/catalog-all.mjs",
+      "bytes": 2073,
+      "sha256": "23369058e2393b9765c81430ccb7b114789d4cc68288ad4bfd7df644c12429c3"
+    },
+    {
+      "path": "src/builders/core/catalog.mjs",
+      "bytes": 34829,
+      "sha256": "7d3c7de420ab4ce50cdcb3a6c3b139bc0c1e7957728aab3b6c75964ba0a88345"
+    },
+    {
+      "path": "src/builders/core/io.mjs",
+      "bytes": 19435,
+      "sha256": "a3074106e97f4bcc67f7c6e58235f765ff3db9aac59791f4ef5dd6a9761d0e06"
+    },
+    {
+      "path": "src/builders/developer-packs-20261022/builder.mjs",
+      "bytes": 14534,
+      "sha256": "d7c9674af629f8ffe7acb51728c35c8e718756bf9e560248a35dba00886b9065"
+    },
+    {
+      "path": "src/builders/developer-packs-20261022/catalog.mjs",
+      "bytes": 373,
+      "sha256": "9694acdb922302a40368aa4d2a18542263f514e96d20cf82f579c2b78e44df02"
+    },
+    {
+      "path": "src/builders/developer-packs-20261022/cloud-existing-types.json",
+      "bytes": 3888,
+      "sha256": "00e9e09e936c9f3208eb957efa784e8dfa211379953951c4d6dc47ddb9824f2a"
+    },
+    {
+      "path": "src/builders/developer-packs-20261022/cloud-spec-acr.json",
+      "bytes": 22827,
+      "sha256": "5ce733e375e7645918b0310b4daf53598799cfab9e606a9b3cc7df186c130035"
+    },
+    {
+      "path": "src/builders/developer-packs-20261022/cloud-spec-acrTasks.json",
+      "bytes": 6430,
+      "sha256": "916d926da34970b63409ab291cc0b82bd711495f40d0ea305594fc5e4f741f63"
+    },
+    {
+      "path": "src/builders/developer-packs-20261022/cloud-spec-actionGroups.json",
+      "bytes": 4108,
+      "sha256": "4a02d3269752760d129baeb9448f0e2e3fa57a831ea5d672baad8856550df92e"
+    },
+    {
+      "path": "src/builders/developer-packs-20261022/cloud-spec-activityLogs.json",
+      "bytes": 655,
+      "sha256": "ba897eacdba114c3dc3eed99ebef25bb9493bbb6e62ee61b3143f699a0e6c5e9"
+    },
+    {
+      "path": "src/builders/developer-packs-20261022/cloud-spec-aks.json",
+      "bytes": 27340,
+      "sha256": "3e81119af293b625b3fcc953ad8eae3a25605555e879afdd26ae31a2d4c5bbb4"
+    },
+    {
+      "path": "src/builders/developer-packs-20261022/cloud-spec-compute.json",
+      "bytes": 20005,
+      "sha256": "dcc9e649dbfa65908364dd24aaa78c78b6dde94b1a81970431681e55da7578e2"
+    },
+    {
+      "path": "src/builders/developer-packs-20261022/cloud-spec-keyvault.json",
+      "bytes": 4670,
+      "sha256": "13345b8b08d0aa2b7f8fedaf26ca1e615e4c97bc5fcfbcec90d3679934c34b6e"
+    },
+    {
+      "path": "src/builders/developer-packs-20261022/cloud-spec-keyvaultCertificates.json",
+      "bytes": 10772,
+      "sha256": "53e0033f8bfda5e40dc85cd2958b7f9439ae3fb4edaf8b7a60d640091879b661"
+    },
+    {
+      "path": "src/builders/developer-packs-20261022/cloud-spec-keyvaultKeys.json",
+      "bytes": 10140,
+      "sha256": "4e6469b1cb261d4c12ac44256fcd41a3cf5001e1973a8900e5210673356a408a"
+    },
+    {
+      "path": "src/builders/developer-packs-20261022/cloud-spec-metricAlerts.json",
+      "bytes": 3313,
+      "sha256": "11a902ac3674bd47848df0a30dc5464e37dd892cba2a33f5b949934ae1daaa5c"
+    },
+    {
+      "path": "src/builders/developer-packs-20261022/cloud-spec-metricDefinitions.json",
+      "bytes": 873,
+      "sha256": "4bab9d28ad04845971fb4f588a893e6f1420c39dae598a63053a1d533e899ed8"
+    },
+    {
+      "path": "src/builders/developer-packs-20261022/cloud-spec-metrics.json",
+      "bytes": 1612,
+      "sha256": "1947e53c7d6fdf350282401d4af4811d576987469e6229002e642d477e03b879"
+    },
+    {
+      "path": "src/builders/developer-packs-20261022/cloud-spec-resources.json",
+      "bytes": 21149,
+      "sha256": "07ad388bd24648b232a99902fd4a74e35db652ee781c7c3894cd3f511573901b"
+    },
+    {
+      "path": "src/builders/developer-packs-20261022/cloud-spec-servicebus.json",
+      "bytes": 5021,
+      "sha256": "76e3c1382e0e9cbee223c56c07c9a9a4d7403e6069f0202d09f019d483f87637"
+    },
+    {
+      "path": "src/builders/developer-packs-20261022/cloud-spec-servicebusQueue.json",
+      "bytes": 1920,
+      "sha256": "d277beda38fce7c6027e8da93b7f3540445d0bb95e7d989df48c3371facbb0a9"
+    },
+    {
+      "path": "src/builders/developer-packs-20261022/cloud-spec-servicebusRules.json",
+      "bytes": 2217,
+      "sha256": "de5a353385fd413c9b9fd265e66967203ce198a31cec2e0bdcbb4bc509bc65c4"
+    },
+    {
+      "path": "src/builders/developer-packs-20261022/cloud-spec-servicebusSubscriptions.json",
+      "bytes": 2125,
+      "sha256": "8859da9cd0102cef1342a86720177129eb04a83ba6aa7e9035f4b8691a61f8f1"
+    },
+    {
+      "path": "src/builders/developer-packs-20261022/cloud-spec-servicebusTopics.json",
+      "bytes": 1921,
+      "sha256": "e087674a5a1b6d73b6a6c8faea1f05f9b0ccdbf26ef36a3543dd3f3fdf8aa826"
+    },
+    {
+      "path": "src/builders/developer-packs-20261022/cloud-spec-sqlDatabases.json",
+      "bytes": 7355,
+      "sha256": "c03689486431f79c15261025797882528c7161f5a17a280a5145590804e12477"
+    },
+    {
+      "path": "src/builders/developer-packs-20261022/cloud-spec-sqlFirewall.json",
+      "bytes": 2698,
+      "sha256": "ada77598676d271d1dcd54564afbcfe3fa4e34e9fc88a0905b8eac99655e450b"
+    },
+    {
+      "path": "src/builders/developer-packs-20261022/cloud-spec-sqlPools.json",
+      "bytes": 3456,
+      "sha256": "30ee2084fbc50ad11a7fb42e06d40cfe3f2f0520984349cef992a632afd9446b"
+    },
+    {
+      "path": "src/builders/developer-packs-20261022/cloud-spec-sqlServers.json",
+      "bytes": 4081,
+      "sha256": "9130479a9e3ae6fe2735a9b8b70121fa9752a35efeac446b9ab80eb73132e534"
+    },
+    {
+      "path": "src/builders/developer-packs-20261022/cloud-spec-storage.json",
+      "bytes": 21888,
+      "sha256": "39355bf4473d74d8ac7e03c5569971b33d1f1d9c4f52d10e486a2e63f2d4503a"
+    },
+    {
+      "path": "src/builders/developer-packs-20261022/cloud-spec-storageBlob.json",
+      "bytes": 9029,
+      "sha256": "57827f1d606fd3b4c68520553d7c033495614e297b5cbbe714b77f35e3eeda08"
+    },
+    {
+      "path": "src/builders/developer-packs-20261022/cloud-spec-storageFile.json",
+      "bytes": 6694,
+      "sha256": "90478a176e1410d56ffbcee4cf4bf546ca3d7a205c9542ba5032a2681d4b3bc9"
+    },
+    {
+      "path": "src/builders/developer-packs-20261022/cloud-spec-storageQueue.json",
+      "bytes": 3917,
+      "sha256": "d513546628c7b18dcf9951720e4ddae8af5e3d557eea35af17fec8e64f3c56b4"
+    },
+    {
+      "path": "src/builders/developer-packs-20261022/cloud-spec-storageTable.json",
+      "bytes": 3776,
+      "sha256": "6d60afd9ad2aef9814882fb3fcd10e111d44d0a2e08d60e0e062d6faee8021dd"
+    },
+    {
+      "path": "src/builders/developer-packs-20261022/cloud-spec-subscriptions.json",
+      "bytes": 2301,
+      "sha256": "2d6c47d3ac4c1397bda7a062fdc7744c4e1a4b05d3716d68b273e2a23d961e06"
+    },
+    {
+      "path": "src/builders/developer-packs-20261022/cloud-spec-webApps.json",
+      "bytes": 274996,
+      "sha256": "be4e6dc8d0ab4ae69b632ef27be976ffe7f382afbd174991c8c4396d5c833235"
+    },
+    {
+      "path": "src/builders/developer-packs-20261022/cloud-spec-webPlans.json",
+      "bytes": 16401,
+      "sha256": "f45bbaf4ecfd387e5ed992fcefa51939fc83c779436dccbdf92bb18513db5e3e"
+    },
+    {
+      "path": "src/builders/developer-packs-20261022/cloud.mjs",
+      "bytes": 52492,
+      "sha256": "78fae81e1b0bf055b53268128ae34da976815407278720e449f3b441f73ca84a"
+    },
+    {
+      "path": "src/builders/developer-packs-20261022/collaboration.mjs",
+      "bytes": 51385,
+      "sha256": "84674433e7949e4d867fd15f5ea2351b559b6e373d80f4dc9da00f85361f6ebc"
+    },
+    {
+      "path": "src/builders/developer-packs-20261022/infrastructure.mjs",
+      "bytes": 44580,
+      "sha256": "3679e5389287e2e6ef848bc27d3c183fe1b3c00edb0aee035eeb389494dc91df"
+    },
+    {
+      "path": "src/builders/developer-packs-20261022/runtime.mjs",
+      "bytes": 18442,
+      "sha256": "21841a31c69c7c7dd1627e0e297621ff030e963a0e51442a8aa747ad1bb77345"
+    },
+    {
+      "path": "src/builders/developer-packs-20261022/schema.mjs",
+      "bytes": 1187,
+      "sha256": "8daf53c24471053dfd1953861093f78dc97dd4835119b578c14422993c4852eb"
+    },
+    {
+      "path": "src/builders/google/catalog.mjs",
+      "bytes": 52232,
+      "sha256": "81c7dd18eb443d62846428bf6f024b1a9041f545df4061e0dbdbd910223de7b9"
+    },
+    {
+      "path": "src/builders/library-quality.mjs",
+      "bytes": 17467,
+      "sha256": "c4a99359bf1cc79aa2c62c9ab5f77997d89bbee7f36bd0ef6fcbbefa879f1c9d"
+    },
+    {
+      "path": "src/builders/logic/catalog.mjs",
+      "bytes": 18394,
+      "sha256": "c4097733bee94cabd1c3e0eec46d86da5e668e6f0b35840406380a486fb27a2b"
+    },
+    {
+      "path": "src/builders/logic/utilities.mjs",
+      "bytes": 10061,
+      "sha256": "1a54ec924cce8e18218fa29eded957433f906242c0833ca3077233dc4169ce68"
+    },
+    {
+      "path": "src/builders/registry.json",
+      "bytes": 68625,
+      "sha256": "1cb5eff00d104d4036c66569f50ea3ffba5b3a4279cb14fed7f7de361cd5f7cd"
+    },
+    {
+      "path": "src/builders/subflows.mjs",
+      "bytes": 6121,
+      "sha256": "bb871e132a5217d65a38ff6815a46a0797ea63e2789dc71e3d2d8716088b9f68"
+    },
+    {
+      "path": "src/builders/teams-hubspot/catalog.mjs",
+      "bytes": 46413,
+      "sha256": "f3efe17b6d504336a25cd4bf1d279aaa5fca2c9911b71fd0dca1be305afe870f"
+    },
+    {
+      "path": "src/builders/websocket/catalog.mjs",
+      "bytes": 15219,
+      "sha256": "a6ce33aae1a96908251cd2c04df7eb650654126f61fbf714b677435142fc660f"
+    },
+    {
+      "path": "src/builders/xero/catalog.mjs",
+      "bytes": 38325,
+      "sha256": "631d9499da0abcb685c19f77aa2670256d15abcd5401cb8c81592ceba5408b74"
+    }
+  ]
+}

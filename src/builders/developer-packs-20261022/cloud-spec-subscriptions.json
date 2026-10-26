@@ -1,0 +1,108 @@
+{
+  "source": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/main/specification/resources/resource-manager/Microsoft.Resources/subscriptions/stable/2022-12-01/subscriptions.json",
+  "version": "2022-12-01",
+  "operations": [
+    {
+      "path": "/providers/Microsoft.Resources/checkResourceName",
+      "method": "post",
+      "operationId": "checkResourceName",
+      "parameters": [
+        {},
+        {
+          "name": "Resource Name Definition",
+          "in": "body",
+          "required": false
+        }
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    },
+    {
+      "path": "/providers/Microsoft.Resources/operations",
+      "method": "get",
+      "operationId": "Operations_List",
+      "parameters": [
+        {}
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions",
+      "method": "get",
+      "operationId": "Subscriptions_List",
+      "parameters": [
+        {}
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}",
+      "method": "get",
+      "operationId": "Subscriptions_Get",
+      "parameters": [
+        {},
+        {}
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/locations",
+      "method": "get",
+      "operationId": "Subscriptions_ListLocations",
+      "parameters": [
+        {},
+        {},
+        {
+          "name": "includeExtendedLocations",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/providers/Microsoft.Resources/checkZonePeers/",
+      "method": "post",
+      "operationId": "Subscriptions_CheckZonePeers",
+      "parameters": [
+        {},
+        {},
+        {
+          "name": "parameters",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    },
+    {
+      "path": "/tenants",
+      "method": "get",
+      "operationId": "Tenants_List",
+      "parameters": [
+        {}
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    }
+  ]
+}

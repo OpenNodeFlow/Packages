@@ -1,0 +1,490 @@
+{
+  "schemaVersion": 1,
+  "id": "onf.core",
+  "name": "OpenNodeFlow Core",
+  "version": "2.0.0",
+  "description": "Reviewed static core definitions. No provider calls on install.",
+  "permissions": {
+    "secrets": [],
+    "network": false,
+    "filesystem": false,
+    "description": "Pure built-in bodies; trigger transports are configured separately. Editing custom code can create arbitrary effects."
+  },
+  "definitions": [
+    {
+      "id": "trigger.manual",
+      "name": "Manual trigger",
+      "kind": "trigger",
+      "category": "Triggers",
+      "code": "console.log(\"Workflow started manually\");\nreturn { payload: context.input };",
+      "inputs": [],
+      "outputs": [
+        {
+          "id": "next",
+          "name": "Next",
+          "type": "control"
+        },
+        {
+          "id": "payload",
+          "name": "Payload",
+          "type": "object"
+        }
+      ],
+      "description": "Starts a workflow with the JSON payload supplied in the Run dialog.",
+      "documentation": "# Manual trigger\n\nStarts an explicitly selected workflow entry and exposes the run's JSON object as data. This asset does not register a listener or schedule. Choose the entry's manual mode in the trigger inspector; on a canvas with several triggers, select this node when running.\n\n## Sockets and configuration\n- No inputs or asset-specific configuration.\n- **payload** (object): the complete, unchanged `context.input` supplied for the run.\n- **next** (control): selected automatically after successful execution. Wire it to a downstream Execute input when that node must follow this entry.\n\n## Example\nRun with `{\"deviceId\":\"meter-example\",\"value\":95,\"unit\":\"kW\"}`. Connect payload to a parser's object input and next to its Execute input. The parser receives the same object; this trigger performs no decoding or schema enrichment.\n\n## Operational behavior\nAn individually paused trigger cannot be run until resumed. Manual runs can run while the workflow automation master is off. Only the selected trigger branch and its required non-trigger prerequisites execute; sibling trigger branches are skipped. Code logs a fixed startup message and stores no checkpoint, performs no network request and does not read secrets. Payloads still become run data: avoid including credentials or unnecessary personal data.\n\nThe object output is a broad type, not validation of a particular business event. Use a custom type or decoder downstream when an event contract matters. Runtime failures propagate normally; this asset has no dedicated error control output.",
+      "color": "#e5bd74",
+      "version": 1,
+      "builtin": false,
+      "createdAt": "2026-10-20T10:00:00.000Z",
+      "updatedAt": "2026-10-20T10:00:00.000Z"
+    },
+    {
+      "id": "trigger.webhook",
+      "name": "Webhook trigger",
+      "kind": "trigger",
+      "category": "Triggers",
+      "code": "console.log(\"Webhook received\");\nreturn { payload: context.input };",
+      "inputs": [],
+      "outputs": [
+        {
+          "id": "next",
+          "name": "Next",
+          "type": "control"
+        },
+        {
+          "id": "payload",
+          "name": "Payload",
+          "type": "object"
+        }
+      ],
+      "description": "Use with the workflow Webhook trigger. Requests require the workflow webhook key.",
+      "documentation": "# Webhook trigger\n\nPasses an accepted webhook body into a selected workflow branch. The server owns HTTP routing and acceptance; this code only logs receipt and returns the input object. Adding this asset alone does not expose an endpoint.\n\n## Sockets and configuration\n- No inputs or asset-specific configuration.\n- **payload** (object): unchanged webhook/run input from `context.input`.\n- **next** (control): automatic success route.\n\nSet this graph instance's entry mode to webhook. Automatic delivery requires both its per-node enabled flag and the workflow automation master. Requests target `/api/hooks/<workflowId>/<triggerNodeId>` and supply the workflow's protected `X-ONF-Webhook-Key` header. All webhook nodes in one workflow share that workflow key; never place its value in asset documentation or graph literals.\n\n## Example\nSend a JSON object such as `{\"eventId\":\"example-001\",\"action\":\"created\"}` through the configured endpoint. Wire payload into a typed event decoder and next into its Execute socket. A successful HTTP 202 means accepted, not completed; inspect the resulting run separately.\n\n## Boundaries\nThe trigger neither validates a domain event nor authenticates a sender inside its code. It does not deduplicate event IDs or checkpoint delivery. Retries can produce repeated runs, so downstream external actions need their own idempotency strategy. Paused, busy or mismatched entries reject acceptance; pausing does not cancel already accepted jobs. Payloads are retained in run input/output. There is no outbound network call, secret read or durable-state write in this body.",
+      "color": "#e5bd74",
+      "version": 1,
+      "builtin": false,
+      "createdAt": "2026-10-20T10:00:00.000Z",
+      "updatedAt": "2026-10-20T10:00:00.000Z"
+    },
+    {
+      "id": "trigger.schedule",
+      "name": "Schedule trigger",
+      "kind": "trigger",
+      "category": "Triggers",
+      "code": "return { timestamp: new Date().toISOString(), payload: context.input };",
+      "inputs": [],
+      "outputs": [
+        {
+          "id": "next",
+          "name": "Next",
+          "type": "control"
+        },
+        {
+          "id": "timestamp",
+          "name": "Timestamp",
+          "type": "string"
+        },
+        {
+          "id": "payload",
+          "name": "Payload",
+          "type": "object"
+        }
+      ],
+      "description": "Use with an enabled schedule workflow. Configure its interval or cron expression in workflow settings.",
+      "documentation": "# Schedule trigger\n\nProduces a current timestamp and passes through the input for one scheduled entry. Scheduling is provided by ONF's engine, not by this asset's code; the same body can also be exercised manually.\n\n## Sockets and configuration\n- No inputs or asset-specific configuration schema.\n- **timestamp** (string): a fresh ISO timestamp from `new Date().toISOString()` when the node executes.\n- **payload** (object): the entire `context.input`; scheduled invocations include scheduledAt.\n- **next** (control): automatic success route.\n\nConfigure the graph node's entry mode as schedule, with an interval or cron expression, then enable the entry and workflow automation. Intervals accept 5–31,536,000 seconds. Cron takes precedence over interval and uses the server timezone. The timestamp output records execution time and need not equal payload.scheduledAt.\n\n## Example\nFor a periodic report, set a 60-second interval and connect next to the report node's Execute input. Wire timestamp to a string input when the report needs an execution marker; use payload.scheduledAt separately when correlating schedule ticks.\n\n## Operational behavior\nDue times and non-overlap are tracked per trigger instance. A busy entry skips ticks instead of building a backfill queue. Pausing this entry leaves sibling entries alone and does not stop already accepted runs. No network requests, secret reads or durable-state changes are made by this body. It does not poll a data source or deduplicate external events. Only the selected branch runs on a multi-entry canvas; downstream failures are ordinary run failures, not automatically replayed schedule ticks.",
+      "color": "#e5bd74",
+      "version": 1,
+      "builtin": false,
+      "createdAt": "2026-10-20T10:00:00.000Z",
+      "updatedAt": "2026-10-20T10:00:00.000Z"
+    },
+    {
+      "id": "core.object",
+      "name": "Object",
+      "kind": "node",
+      "category": "Data",
+      "code": "return { value: config.value ?? {} };",
+      "inputs": [],
+      "outputs": [
+        {
+          "id": "value",
+          "name": "Value",
+          "type": "object"
+        }
+      ],
+      "description": "An editable object constant.",
+      "documentation": "# Object\n\nEmits a configured object constant. Use it to provide a reusable literal inside a graph, such as report options or an HTTP request body.\n\n## Sockets and configuration\n- No input sockets or control outputs.\n- **value** configuration (object): new instances default to `{}`.\n- **value** output (object): `config.value ?? {}`.\n\n## Example\nConfigure value as `{\"region\":\"example\",\"limit\":10}` and wire the output to an object-compatible input. The entire object is supplied; the asset does not spread fields into sockets, merge it with run input, evaluate expressions or interpolate strings.\n\n## Execution and validation\nThis node has no Execute input. When it belongs to the active branch or its prerequisite set, dependency readiness determines execution. A data wire both supplies the value and creates ordering; it is not a control route. Configuration is validated as an object and the output is checked as an object. JSON-compatible contents are required for transport; undefined properties cannot be preserved.\n\nThere is no network, secret access, logging or durable-state write in the body. Constants are ordinary graph configuration, visible in saved workflows, exports and execution data. Store credentials in ONF's secret store and read them in a purpose-built code node instead of putting them here. To produce another type, use Text, Number, Boolean or a custom asset.",
+      "color": "#a4a0ff",
+      "version": 1,
+      "builtin": false,
+      "createdAt": "2026-10-20T10:00:00.000Z",
+      "updatedAt": "2026-10-20T10:00:00.000Z",
+      "configSchema": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "object",
+            "title": "Value",
+            "default": {}
+          }
+        }
+      }
+    },
+    {
+      "id": "core.text",
+      "name": "Text",
+      "kind": "node",
+      "category": "Data",
+      "code": "return { value: config.value ?? \"\" };",
+      "inputs": [],
+      "outputs": [
+        {
+          "id": "value",
+          "name": "Value",
+          "type": "string"
+        }
+      ],
+      "description": "",
+      "documentation": "# Text\n\nProvides a configured string literal as graph data. Suitable for labels, message templates prepared elsewhere, URLs without credentials, or other fixed text.\n\n## Sockets and configuration\n- No inputs or control sockets.\n- **value** configuration (string): new-instance default `Hello, OpenNodeFlow`.\n- **value** output (string): the configured text; the code uses an empty-string fallback only when configuration value is nullish.\n\n## Example\nSet value to `Report ready` and wire it to a string-compatible input or the Log node's any input. The exact text is returned. Literal characters such as `${name}` are not expanded, and no JavaScript expression is evaluated. An empty string remains an empty string.\n\n## Execution and boundaries\nThere is no Execute input or next route. The node runs when selected as part of an active branch/prerequisite set and its dependencies are ready. Downstream data consumers wait for the value. Configuration and output types are validated; connections do not insert automatic string-to-number conversion.\n\nThe body has no network/file operations, secret reads, logging or checkpoints. The string is visible in workflow configuration, exports and run results, so it is not a protected credential field. Use a custom code node with `context.secrets.get` for a real secret, and avoid logging or returning that secret. Publishing a new text asset version does not change literal values already stored on graph instances.",
+      "color": "#a4a0ff",
+      "version": 1,
+      "builtin": false,
+      "createdAt": "2026-10-20T10:00:00.000Z",
+      "updatedAt": "2026-10-20T10:00:00.000Z",
+      "configSchema": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string",
+            "title": "Text",
+            "default": "Hello, OpenNodeFlow"
+          }
+        }
+      }
+    },
+    {
+      "id": "core.number",
+      "name": "Number",
+      "kind": "node",
+      "category": "Data",
+      "code": "return { value: Number(config.value ?? 0) };",
+      "inputs": [],
+      "outputs": [
+        {
+          "id": "value",
+          "name": "Value",
+          "type": "number"
+        }
+      ],
+      "description": "",
+      "documentation": "# Number\n\nEmits a numeric literal for calculations or comparisons. The declared configuration is numeric; this is not a general parser for arbitrary event fields.\n\n## Sockets and configuration\n- No inputs or control sockets.\n- **value** configuration (number): default 0.\n- **value** output (number): `Number(config.value ?? 0)`.\n\n## Example\nConfigure value as `80` and connect it to a custom numeric calculation. A Condition node's comparison constant is configured in that Condition itself; this Number node is useful when a downstream asset explicitly declares another numeric socket.\n\n## Validation and execution\nProvide a JSON number such as 12.5 rather than quoted text. Schema validation checks the configuration before the body executes, so the Number call does not make a string configuration valid. Non-finite values are not portable JSON numbers. This asset declares no minimum or maximum and does not apply rounding, units or range checks; add domain validation in a custom node/type when needed.\n\nThe node has no Execute input or next output. It executes when part of the selected branch/prerequisites and dependency-ready; its output data wire orders downstream execution. No network, secrets, logging or checkpoint changes are performed. The literal is ordinary saved configuration and retained run data. To convert a payload field, use a code transformation that validates the source value explicitly.",
+      "color": "#a4a0ff",
+      "version": 1,
+      "builtin": false,
+      "createdAt": "2026-10-20T10:00:00.000Z",
+      "updatedAt": "2026-10-20T10:00:00.000Z",
+      "configSchema": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "number",
+            "title": "Value",
+            "default": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "core.boolean",
+      "name": "Boolean",
+      "kind": "node",
+      "category": "Data",
+      "code": "return { value: Boolean(config.value) };",
+      "inputs": [],
+      "outputs": [
+        {
+          "id": "value",
+          "name": "Value",
+          "type": "boolean"
+        }
+      ],
+      "description": "",
+      "documentation": "# Boolean\n\nEmits a configured true/false literal. Use it for a fixed flag consumed by another node; changing it does not pause a trigger or the workflow automation master.\n\n## Sockets and configuration\n- No input or control sockets.\n- **value** configuration (boolean): new instances default to true.\n- **value** output (boolean): `Boolean(config.value)`.\n\n## Example\nConfigure value to false and connect it to a custom boolean input. To choose execution paths, connect value to a Condition configured with the truthy operator, then wire that node's True and False control outputs.\n\n## Validation and execution\nSupply JSON `true` or `false`, not the strings `\"true\"`/`\"false\"`. Configuration schema validation runs before execution, so JavaScript truthiness is not an alternative input parser. If configuration value is absent, the code's Boolean conversion yields false; the editor's fresh-instance default is true. Those are different creation/runtime fallback behaviors.\n\nWithout an Execute socket, this node runs when included in the selected branch/prerequisite set and dependency-ready. A data connection creates ordering but does not select a control route. It performs no network operations, secret access, logging or durable-state updates. The saved flag is visible in configuration/exports/history. This asset returns a value only; it never enables/disables entries or modifies another node's settings.",
+      "color": "#a4a0ff",
+      "version": 1,
+      "builtin": false,
+      "createdAt": "2026-10-20T10:00:00.000Z",
+      "updatedAt": "2026-10-20T10:00:00.000Z",
+      "configSchema": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "boolean",
+            "title": "Value",
+            "default": true
+          }
+        }
+      }
+    },
+    {
+      "id": "core.code",
+      "name": "TypeScript",
+      "kind": "node",
+      "category": "Code",
+      "code": "// Fork this node in the shared library to create your own.\nconsole.log(\"Received\", inputs.value);\nreturn { result: inputs.value };",
+      "inputs": [
+        {
+          "id": "exec",
+          "name": "Execute",
+          "type": "control"
+        },
+        {
+          "id": "value",
+          "name": "Value",
+          "type": "any"
+        }
+      ],
+      "outputs": [
+        {
+          "id": "next",
+          "name": "Next",
+          "type": "control"
+        },
+        {
+          "id": "result",
+          "name": "Result",
+          "type": "any"
+        }
+      ],
+      "description": "Reusable TypeScript transformation. Duplicate it in the library and define your own sockets.",
+      "documentation": "# TypeScript\n\nA starting point for a reusable TypeScript/JavaScript transformation. The shipped body logs its input and returns it unchanged. Duplicate it in the shared library, define meaningful sockets, and replace the body for a real transformation.\n\n## Sockets and configuration\n- **exec** (control, Execute): optional execution dependency selected by an upstream route.\n- **value** (any, optional): data to pass through.\n- **result** (any): unchanged inputs.value.\n- **next** (control): automatic success route.\n- No asset-specific configuration schema.\n\n## Example\nFor a custom doubler, add a required number input named value and number output named result, then use `return {result: inputs.value * 2};`. Enter an async function body, not a module/exported function. TypeScript syntax is transpiled; runtime sockets/types provide data validation.\n\n## Behavior and boundaries\nThe original logs `Received` plus the input. Avoid feeding credentials or sensitive full payloads into it just for experimentation. An absent optional input may disappear from serialized result; a consumer wired to a missing output skips. A wired Execute input gates this node; leaving it unwired lets data dependencies/root eligibility determine execution.\n\nThe original performs no network request, secret lookup or durable-state update. Custom code can use native fetch, `context.input`, state, secrets and routes under the host's trusted execution permissions. Errors/timeouts fail the node unless handled by a deliberately designed asset; this example has no error route. Publishing preserves existing graph pins until an explicit upgrade.",
+      "color": "#a4a0ff",
+      "version": 1,
+      "builtin": false,
+      "createdAt": "2026-10-20T10:00:00.000Z",
+      "updatedAt": "2026-10-20T10:00:00.000Z"
+    },
+    {
+      "id": "core.condition",
+      "name": "Condition",
+      "kind": "node",
+      "category": "Logic",
+      "code": "const value = inputs.value;\nconst compare = config.compare;\nconst op = config.operator || \"truthy\";\nconst passed = op === \"truthy\" ? Boolean(value) : op === \"equals\" ? value === compare : op === \"greater\" ? Number(value) > Number(compare) : op === \"less\" ? Number(value) < Number(compare) : op === \"contains\" ? String(value).includes(String(compare)) : false;\ncontext.emit(passed ? \"true\" : \"false\");\nconsole.log(\"Condition:\", passed);\nreturn { value, passed };",
+      "inputs": [
+        {
+          "id": "exec",
+          "name": "Execute",
+          "type": "control"
+        },
+        {
+          "id": "value",
+          "name": "Value",
+          "type": "any",
+          "required": true
+        }
+      ],
+      "outputs": [
+        {
+          "id": "true",
+          "name": "True",
+          "type": "control"
+        },
+        {
+          "id": "false",
+          "name": "False",
+          "type": "control"
+        },
+        {
+          "id": "value",
+          "name": "Value",
+          "type": "any"
+        },
+        {
+          "id": "passed",
+          "name": "Passed",
+          "type": "boolean"
+        }
+      ],
+      "description": "Selects exactly one control path while passing the input value through.",
+      "documentation": "# Condition\n\nChooses exactly one control route while returning the tested value and boolean result. Use it to gate branch execution; its data output alone does not distinguish the chosen branch.\n\n## Sockets and configuration\n- **exec** (control): optional upstream execution gate.\n- **value** (any, required): candidate value.\n- **true**, **false** (control): exactly one is explicitly emitted.\n- **value** (any): unchanged input. **passed** (boolean): comparison result.\n- **operator**: truthy (default), equals, greater, less or contains.\n- **compare**: comparison value; new instances default to 0 and accept any JSON shape.\n\n## Comparison semantics\ntruthy uses JavaScript Boolean(value). equals uses strict identity/type equality, not deep object comparison. greater/less convert both operands with Number before comparing. contains converts both operands to strings and uses case-sensitive substring matching; it does not search array membership as structured values.\n\n## Example\nFor a numeric threshold, set operator greater and compare 80. Wire a reading's number to value, True to the alert's Execute, and False to the normal branch's Execute. Input 80 selects False; 80.1 selects True. Wire the reading data separately to any branch needing it.\n\nThe asset logs the boolean outcome only and makes no external calls or state/secret changes. A missing required value fails validation. Unchosen control paths skip; a consumer with only a data wire can still run independently of True/False. Do not create an AND join by wiring both routes into one control input: incoming control routes use OR semantics. There is no next or error output.",
+      "color": "#a4a0ff",
+      "version": 1,
+      "builtin": false,
+      "createdAt": "2026-10-20T10:00:00.000Z",
+      "updatedAt": "2026-10-20T10:00:00.000Z",
+      "configSchema": {
+        "type": "object",
+        "properties": {
+          "operator": {
+            "type": "string",
+            "title": "Operator",
+            "enum": [
+              "truthy",
+              "equals",
+              "greater",
+              "less",
+              "contains"
+            ],
+            "default": "truthy"
+          },
+          "compare": {
+            "title": "Compare with",
+            "default": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "core.delay",
+      "name": "Delay",
+      "kind": "node",
+      "category": "Logic",
+      "code": "await context.sleep(Number(config.milliseconds ?? 1000));\nreturn { value: inputs.value };",
+      "inputs": [
+        {
+          "id": "exec",
+          "name": "Execute",
+          "type": "control"
+        },
+        {
+          "id": "value",
+          "name": "Value",
+          "type": "any"
+        }
+      ],
+      "outputs": [
+        {
+          "id": "next",
+          "name": "Next",
+          "type": "control"
+        },
+        {
+          "id": "value",
+          "name": "Value",
+          "type": "any"
+        }
+      ],
+      "description": "",
+      "documentation": "# Delay\n\nWaits before passing a value to the next step. This occupies a running node/worker; it is not a durable schedule or delayed-message queue.\n\n## Sockets and configuration\n- **exec** (control): optional execution gate.\n- **value** (any, optional): payload to pass through.\n- **value** (any): unchanged input after sleeping.\n- **next** (control): automatic success route after the wait completes.\n- **milliseconds** (number): fresh default 1000, schema minimum 0. The body also uses 1000 when the value is nullish.\n\n## Example\nSet milliseconds to 2000 and wire an upstream next to Execute. Wire this node's next to a follow-up operation, and its value to that operation's data input if needed. The downstream node becomes eligible only after the delay finishes and all other dependencies finish.\n\n## Limits and failures\nThe runtime sleep API clamps a requested delay to 0–300,000 ms. The entire wait counts against the per-attempt node timeout; ensure that timeout is greater than the requested wait, allowing execution overhead. A retry repeats the wait from the beginning. Cancellation or host interruption does not preserve remaining sleep time or promise a later resume.\n\nAn absent optional value may disappear after serialization and cause a wired data consumer to skip; a next-only consumer can still follow the completed delay. No error route is declared. The body does no network I/O, secret access, logging or checkpoint writes. For periodic work, use a schedule/poll entry rather than keeping a worker asleep.",
+      "color": "#a4a0ff",
+      "version": 1,
+      "builtin": false,
+      "createdAt": "2026-10-20T10:00:00.000Z",
+      "updatedAt": "2026-10-20T10:00:00.000Z",
+      "configSchema": {
+        "type": "object",
+        "properties": {
+          "milliseconds": {
+            "type": "number",
+            "title": "Milliseconds",
+            "default": 1000,
+            "minimum": 0
+          }
+        }
+      }
+    }
+  ],
+  "libraryPacks": [
+    {
+      "id": "onf.core",
+      "name": "Core",
+      "description": "Explicitly installed core triggers, constants and logic.",
+      "color": "#58afa6",
+      "revision": 1,
+      "createdAt": "2026-10-20T10:00:00.000Z",
+      "updatedAt": "2026-10-20T10:00:00.000Z"
+    }
+  ],
+  "libraryFolders": [],
+  "libraryMetadata": [
+    {
+      "definitionId": "trigger.manual",
+      "revision": 1,
+      "tags": [
+        "core"
+      ],
+      "packId": "onf.core",
+      "updatedAt": "2026-10-20T10:00:00.000Z"
+    },
+    {
+      "definitionId": "trigger.webhook",
+      "revision": 1,
+      "tags": [
+        "core"
+      ],
+      "packId": "onf.core",
+      "updatedAt": "2026-10-20T10:00:00.000Z"
+    },
+    {
+      "definitionId": "trigger.schedule",
+      "revision": 1,
+      "tags": [
+        "core"
+      ],
+      "packId": "onf.core",
+      "updatedAt": "2026-10-20T10:00:00.000Z"
+    },
+    {
+      "definitionId": "core.object",
+      "revision": 1,
+      "tags": [
+        "core"
+      ],
+      "packId": "onf.core",
+      "updatedAt": "2026-10-20T10:00:00.000Z"
+    },
+    {
+      "definitionId": "core.text",
+      "revision": 1,
+      "tags": [
+        "core"
+      ],
+      "packId": "onf.core",
+      "updatedAt": "2026-10-20T10:00:00.000Z"
+    },
+    {
+      "definitionId": "core.number",
+      "revision": 1,
+      "tags": [
+        "core"
+      ],
+      "packId": "onf.core",
+      "updatedAt": "2026-10-20T10:00:00.000Z"
+    },
+    {
+      "definitionId": "core.boolean",
+      "revision": 1,
+      "tags": [
+        "core"
+      ],
+      "packId": "onf.core",
+      "updatedAt": "2026-10-20T10:00:00.000Z"
+    },
+    {
+      "definitionId": "core.code",
+      "revision": 1,
+      "tags": [
+        "core"
+      ],
+      "packId": "onf.core",
+      "updatedAt": "2026-10-20T10:00:00.000Z"
+    },
+    {
+      "definitionId": "core.condition",
+      "revision": 1,
+      "tags": [
+        "core"
+      ],
+      "packId": "onf.core",
+      "updatedAt": "2026-10-20T10:00:00.000Z"
+    },
+    {
+      "definitionId": "core.delay",
+      "revision": 1,
+      "tags": [
+        "core"
+      ],
+      "packId": "onf.core",
+      "updatedAt": "2026-10-20T10:00:00.000Z"
+    }
+  ]
+}

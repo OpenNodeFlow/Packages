@@ -1,0 +1,1270 @@
+[
+  {
+    "name": "JSON Record",
+    "kind": "type",
+    "description": "ONF typed decoder outputs v1. Dynamic string-key dictionary; each value is a recursively validated JSON Value. Decode offers entries and key lookup.",
+    "documentation": "# JSON Record\n\nONF typed decoder outputs v1.\n\nDynamic string-key dictionary; each value is a recursively validated JSON Value. Decode offers entries and key lookup.\n\nUse this named type on matching Encode/Decode sockets. Values are JSON data;\nthis type performs no network request, model call, authentication, or business action.\nExact type ID and version must agree on both ends of a wire. JSON Schema rejects\nincompatible values; formats are informational in ONF. Missing optional fields\nand explicit null are different. Unknown fields remain lossless where permitted.\nThe matching codecs split useful properties or collection entries and reassemble\nthe original value. They never coerce strings/numbers or silently drop unknown data.\n\n## Schema\n```json\n{\n  \"type\": \"object\",\n  \"additionalProperties\": {\n    \"$ref\": \"#/definitions/json_value\"\n  },\n  \"definitions\": {\n    \"json_record\": {\n      \"type\": \"object\",\n      \"additionalProperties\": {\n        \"$ref\": \"#/definitions/json_value\"\n      }\n    },\n    \"json_list\": {\n      \"type\": \"array\",\n      \"items\": {\n        \"$ref\": \"#/definitions/json_value\"\n      }\n    },\n    \"json_value\": {\n      \"anyOf\": [\n        {\n          \"type\": \"string\"\n        },\n        {\n          \"type\": \"number\"\n        },\n        {\n          \"type\": \"boolean\"\n        },\n        {\n          \"type\": \"null\"\n        },\n        {\n          \"$ref\": \"#/definitions/json_record\"\n        },\n        {\n          \"$ref\": \"#/definitions/json_list\"\n        }\n      ]\n    }\n  }\n}\n```\n\n## Example JSON value\n```json\n{}\n```\n\nExamples are synthetic. Null, collection, union and presence rules are defined by\nthe complete schema above; an empty example is not a claim every field is required.\nDo not put credentials, tokens, or unnecessary business data into JSON records.\n",
+    "category": "Typed data codecs",
+    "color": "#6d9cbe",
+    "inputs": [],
+    "outputs": [],
+    "code": "",
+    "configSchema": {
+      "type": "object",
+      "properties": {},
+      "additionalProperties": false
+    },
+    "schema": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/definitions/json_value"
+      },
+      "definitions": {
+        "json_record": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/json_value"
+          }
+        },
+        "json_list": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/json_value"
+          }
+        },
+        "json_value": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "number"
+            },
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            },
+            {
+              "$ref": "#/definitions/json_record"
+            },
+            {
+              "$ref": "#/definitions/json_list"
+            }
+          ]
+        }
+      }
+    },
+    "id": "def_f9962f86c7f4",
+    "version": 1,
+    "createdAt": "2026-10-20T15:44:05.928Z",
+    "updatedAt": "2026-10-20T15:44:05.928Z",
+    "builtin": false
+  },
+  {
+    "name": "JSON Value",
+    "kind": "type",
+    "description": "ONF typed decoder outputs v1. Finite JSON scalar, null, typed record or typed list; arbitrary nesting is preserved.",
+    "documentation": "# JSON Value\n\nONF typed decoder outputs v1.\n\nFinite JSON scalar, null, typed record or typed list; arbitrary nesting is preserved.\n\nUse this named type on matching Encode/Decode sockets. Values are JSON data;\nthis type performs no network request, model call, authentication, or business action.\nExact type ID and version must agree on both ends of a wire. JSON Schema rejects\nincompatible values; formats are informational in ONF. Missing optional fields\nand explicit null are different. Unknown fields remain lossless where permitted.\nThe matching codecs split useful properties or collection entries and reassemble\nthe original value. They never coerce strings/numbers or silently drop unknown data.\n\n## Schema\n```json\n{\n  \"anyOf\": [\n    {\n      \"type\": \"string\"\n    },\n    {\n      \"type\": \"number\"\n    },\n    {\n      \"type\": \"boolean\"\n    },\n    {\n      \"type\": \"null\"\n    },\n    {\n      \"$ref\": \"#/definitions/json_record\"\n    },\n    {\n      \"$ref\": \"#/definitions/json_list\"\n    }\n  ],\n  \"definitions\": {\n    \"json_list\": {\n      \"type\": \"array\",\n      \"items\": {\n        \"$ref\": \"#/definitions/json_value\"\n      }\n    },\n    \"json_value\": {\n      \"anyOf\": [\n        {\n          \"type\": \"string\"\n        },\n        {\n          \"type\": \"number\"\n        },\n        {\n          \"type\": \"boolean\"\n        },\n        {\n          \"type\": \"null\"\n        },\n        {\n          \"$ref\": \"#/definitions/json_record\"\n        },\n        {\n          \"$ref\": \"#/definitions/json_list\"\n        }\n      ]\n    },\n    \"json_record\": {\n      \"type\": \"object\",\n      \"additionalProperties\": {\n        \"$ref\": \"#/definitions/json_value\"\n      }\n    }\n  }\n}\n```\n\n## Example JSON value\n```json\n\"example\"\n```\n\nExamples are synthetic. Null, collection, union and presence rules are defined by\nthe complete schema above; an empty example is not a claim every field is required.\nDo not put credentials, tokens, or unnecessary business data into JSON records.\n",
+    "category": "Typed data codecs",
+    "color": "#6d9cbe",
+    "inputs": [],
+    "outputs": [],
+    "code": "",
+    "configSchema": {
+      "type": "object",
+      "properties": {},
+      "additionalProperties": false
+    },
+    "schema": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "number"
+        },
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "null"
+        },
+        {
+          "$ref": "#/definitions/json_record"
+        },
+        {
+          "$ref": "#/definitions/json_list"
+        }
+      ],
+      "definitions": {
+        "json_list": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/json_value"
+          }
+        },
+        "json_value": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "number"
+            },
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            },
+            {
+              "$ref": "#/definitions/json_record"
+            },
+            {
+              "$ref": "#/definitions/json_list"
+            }
+          ]
+        },
+        "json_record": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/json_value"
+          }
+        }
+      }
+    },
+    "id": "def_c5fc8fea11ea",
+    "version": 1,
+    "createdAt": "2026-10-20T15:44:05.885Z",
+    "updatedAt": "2026-10-20T15:44:05.885Z",
+    "builtin": false
+  },
+  {
+    "name": "JSON List",
+    "kind": "type",
+    "description": "ONF typed decoder outputs v1. Ordered extensible JSON values; Decode offers typed index access.",
+    "documentation": "# JSON List\n\nONF typed decoder outputs v1.\n\nOrdered extensible JSON values; Decode offers typed index access.\n\nUse this named type on matching Encode/Decode sockets. Values are JSON data;\nthis type performs no network request, model call, authentication, or business action.\nExact type ID and version must agree on both ends of a wire. JSON Schema rejects\nincompatible values; formats are informational in ONF. Missing optional fields\nand explicit null are different. Unknown fields remain lossless where permitted.\nThe matching codecs split useful properties or collection entries and reassemble\nthe original value. They never coerce strings/numbers or silently drop unknown data.\n\n## Schema\n```json\n{\n  \"type\": \"array\",\n  \"items\": {\n    \"$ref\": \"#/definitions/json_value\"\n  },\n  \"definitions\": {\n    \"json_record\": {\n      \"type\": \"object\",\n      \"additionalProperties\": {\n        \"$ref\": \"#/definitions/json_value\"\n      }\n    },\n    \"json_list\": {\n      \"type\": \"array\",\n      \"items\": {\n        \"$ref\": \"#/definitions/json_value\"\n      }\n    },\n    \"json_value\": {\n      \"anyOf\": [\n        {\n          \"type\": \"string\"\n        },\n        {\n          \"type\": \"number\"\n        },\n        {\n          \"type\": \"boolean\"\n        },\n        {\n          \"type\": \"null\"\n        },\n        {\n          \"$ref\": \"#/definitions/json_record\"\n        },\n        {\n          \"$ref\": \"#/definitions/json_list\"\n        }\n      ]\n    }\n  }\n}\n```\n\n## Example JSON value\n```json\n[]\n```\n\nExamples are synthetic. Null, collection, union and presence rules are defined by\nthe complete schema above; an empty example is not a claim every field is required.\nDo not put credentials, tokens, or unnecessary business data into JSON records.\n",
+    "category": "Typed data codecs",
+    "color": "#6d9cbe",
+    "inputs": [],
+    "outputs": [],
+    "code": "",
+    "configSchema": {
+      "type": "object",
+      "properties": {},
+      "additionalProperties": false
+    },
+    "schema": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/json_value"
+      },
+      "definitions": {
+        "json_record": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/json_value"
+          }
+        },
+        "json_list": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/json_value"
+          }
+        },
+        "json_value": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "number"
+            },
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            },
+            {
+              "$ref": "#/definitions/json_record"
+            },
+            {
+              "$ref": "#/definitions/json_list"
+            }
+          ]
+        }
+      }
+    },
+    "id": "def_ffc66f61eee4",
+    "version": 1,
+    "createdAt": "2026-10-20T15:44:05.960Z",
+    "updatedAt": "2026-10-20T15:44:05.960Z",
+    "builtin": false
+  },
+  {
+    "name": "Text List",
+    "kind": "type",
+    "description": "ONF typed decoder outputs v1. Text List",
+    "documentation": "# Text List\n\nONF typed decoder outputs v1.\n\nText List\n\nUse this named type on matching Encode/Decode sockets. Values are JSON data;\nthis type performs no network request, model call, authentication, or business action.\nExact type ID and version must agree on both ends of a wire. JSON Schema rejects\nincompatible values; formats are informational in ONF. Missing optional fields\nand explicit null are different. Unknown fields remain lossless where permitted.\nThe matching codecs split useful properties or collection entries and reassemble\nthe original value. They never coerce strings/numbers or silently drop unknown data.\n\n## Schema\n```json\n{\n  \"type\": \"array\",\n  \"items\": {\n    \"type\": \"string\"\n  }\n}\n```\n\n## Example JSON value\n```json\n[]\n```\n\nExamples are synthetic. Null, collection, union and presence rules are defined by\nthe complete schema above; an empty example is not a claim every field is required.\nDo not put credentials, tokens, or unnecessary business data into JSON records.\n",
+    "category": "Typed data codecs",
+    "color": "#6d9cbe",
+    "inputs": [],
+    "outputs": [],
+    "code": "",
+    "configSchema": {
+      "type": "object",
+      "properties": {},
+      "additionalProperties": false
+    },
+    "schema": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "id": "def_e80efa95bff5",
+    "version": 1,
+    "createdAt": "2026-10-20T15:44:06.317Z",
+    "updatedAt": "2026-10-20T15:44:06.317Z",
+    "builtin": false
+  },
+  {
+    "name": "Nullable String",
+    "kind": "type",
+    "description": "ONF typed decoder outputs v1. Explicit null or String; omission remains a separate socket-presence state.",
+    "documentation": "# Nullable String\n\nONF typed decoder outputs v1.\n\nExplicit null or String; omission remains a separate socket-presence state.\n\nUse this named type on matching Encode/Decode sockets. Values are JSON data;\nthis type performs no network request, model call, authentication, or business action.\nExact type ID and version must agree on both ends of a wire. JSON Schema rejects\nincompatible values; formats are informational in ONF. Missing optional fields\nand explicit null are different. Unknown fields remain lossless where permitted.\nThe matching codecs split useful properties or collection entries and reassemble\nthe original value. They never coerce strings/numbers or silently drop unknown data.\n\n## Schema\n```json\n{\n  \"anyOf\": [\n    {\n      \"type\": \"string\"\n    },\n    {\n      \"type\": \"null\"\n    }\n  ]\n}\n```\n\n## Example JSON value\n```json\n\"example\"\n```\n\nExamples are synthetic. Null, collection, union and presence rules are defined by\nthe complete schema above; an empty example is not a claim every field is required.\nDo not put credentials, tokens, or unnecessary business data into JSON records.\n",
+    "category": "Typed data codecs",
+    "color": "#6d9cbe",
+    "inputs": [],
+    "outputs": [],
+    "code": "",
+    "configSchema": {
+      "type": "object",
+      "properties": {},
+      "additionalProperties": false
+    },
+    "schema": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "id": "def_a653164ce2cf",
+    "version": 1,
+    "createdAt": "2026-10-20T15:44:12.451Z",
+    "updatedAt": "2026-10-20T15:44:12.451Z",
+    "builtin": false
+  },
+  {
+    "name": "Nullable Number",
+    "kind": "type",
+    "description": "ONF typed decoder outputs v1. Explicit null or Number; omission remains a separate socket-presence state.",
+    "documentation": "# Nullable Number\n\nONF typed decoder outputs v1.\n\nExplicit null or Number; omission remains a separate socket-presence state.\n\nUse this named type on matching Encode/Decode sockets. Values are JSON data;\nthis type performs no network request, model call, authentication, or business action.\nExact type ID and version must agree on both ends of a wire. JSON Schema rejects\nincompatible values; formats are informational in ONF. Missing optional fields\nand explicit null are different. Unknown fields remain lossless where permitted.\nThe matching codecs split useful properties or collection entries and reassemble\nthe original value. They never coerce strings/numbers or silently drop unknown data.\n\n## Schema\n```json\n{\n  \"anyOf\": [\n    {\n      \"type\": \"number\"\n    },\n    {\n      \"type\": \"null\"\n    }\n  ]\n}\n```\n\n## Example JSON value\n```json\n0\n```\n\nExamples are synthetic. Null, collection, union and presence rules are defined by\nthe complete schema above; an empty example is not a claim every field is required.\nDo not put credentials, tokens, or unnecessary business data into JSON records.\n",
+    "category": "Typed data codecs",
+    "color": "#6d9cbe",
+    "inputs": [],
+    "outputs": [],
+    "code": "",
+    "configSchema": {
+      "type": "object",
+      "properties": {},
+      "additionalProperties": false
+    },
+    "schema": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "id": "def_a5280518223d",
+    "version": 1,
+    "createdAt": "2026-10-20T15:44:12.544Z",
+    "updatedAt": "2026-10-20T15:44:12.544Z",
+    "builtin": false
+  },
+  {
+    "name": "Nullable Boolean",
+    "kind": "type",
+    "description": "ONF typed decoder outputs v1. Explicit null or Boolean; omission remains a separate socket-presence state.",
+    "documentation": "# Nullable Boolean\n\nONF typed decoder outputs v1.\n\nExplicit null or Boolean; omission remains a separate socket-presence state.\n\nUse this named type on matching Encode/Decode sockets. Values are JSON data;\nthis type performs no network request, model call, authentication, or business action.\nExact type ID and version must agree on both ends of a wire. JSON Schema rejects\nincompatible values; formats are informational in ONF. Missing optional fields\nand explicit null are different. Unknown fields remain lossless where permitted.\nThe matching codecs split useful properties or collection entries and reassemble\nthe original value. They never coerce strings/numbers or silently drop unknown data.\n\n## Schema\n```json\n{\n  \"anyOf\": [\n    {\n      \"type\": \"boolean\"\n    },\n    {\n      \"type\": \"null\"\n    }\n  ]\n}\n```\n\n## Example JSON value\n```json\nfalse\n```\n\nExamples are synthetic. Null, collection, union and presence rules are defined by\nthe complete schema above; an empty example is not a claim every field is required.\nDo not put credentials, tokens, or unnecessary business data into JSON records.\n",
+    "category": "Typed data codecs",
+    "color": "#6d9cbe",
+    "inputs": [],
+    "outputs": [],
+    "code": "",
+    "configSchema": {
+      "type": "object",
+      "properties": {},
+      "additionalProperties": false
+    },
+    "schema": {
+      "anyOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "id": "def_23b3031131b2",
+    "version": 1,
+    "createdAt": "2026-10-20T15:44:12.497Z",
+    "updatedAt": "2026-10-20T15:44:12.497Z",
+    "builtin": false
+  },
+  {
+    "name": "Azure Project",
+    "kind": "type",
+    "description": "ONF typed decoder outputs v1. Azure Project",
+    "documentation": "# Azure Project\n\nONF typed decoder outputs v1.\n\nAzure Project\n\nUse this named type on matching Encode/Decode sockets. Values are JSON data;\nthis type performs no network request, model call, authentication, or business action.\nExact type ID and version must agree on both ends of a wire. JSON Schema rejects\nincompatible values; formats are informational in ONF. Missing optional fields\nand explicit null are different. Unknown fields remain lossless where permitted.\nThe matching codecs split useful properties or collection entries and reassemble\nthe original value. They never coerce strings/numbers or silently drop unknown data.\n\n## Schema\n```json\n{\n  \"type\": \"object\",\n  \"properties\": {\n    \"id\": {\n      \"anyOf\": [\n        {\n          \"anyOf\": [\n            {\n              \"type\": \"string\"\n            },\n            {\n              \"type\": \"null\"\n            }\n          ]\n        },\n        {\n          \"$ref\": \"#/definitions/json_value\"\n        }\n      ]\n    },\n    \"name\": {\n      \"anyOf\": [\n        {\n          \"anyOf\": [\n            {\n              \"type\": \"string\"\n            },\n            {\n              \"type\": \"null\"\n            }\n          ]\n        },\n        {\n          \"$ref\": \"#/definitions/json_value\"\n        }\n      ]\n    },\n    \"url\": {\n      \"anyOf\": [\n        {\n          \"anyOf\": [\n            {\n              \"type\": \"string\"\n            },\n            {\n              \"type\": \"null\"\n            }\n          ]\n        },\n        {\n          \"$ref\": \"#/definitions/json_value\"\n        }\n      ]\n    },\n    \"state\": {\n      \"anyOf\": [\n        {\n          \"anyOf\": [\n            {\n              \"type\": \"string\"\n            },\n            {\n              \"type\": \"null\"\n            }\n          ]\n        },\n        {\n          \"$ref\": \"#/definitions/json_value\"\n        }\n      ]\n    },\n    \"description\": {\n      \"anyOf\": [\n        {\n          \"anyOf\": [\n            {\n              \"type\": \"string\"\n            },\n            {\n              \"type\": \"null\"\n            }\n          ]\n        },\n        {\n          \"$ref\": \"#/definitions/json_value\"\n        }\n      ]\n    },\n    \"visibility\": {\n      \"anyOf\": [\n        {\n          \"anyOf\": [\n            {\n              \"type\": \"string\"\n            },\n            {\n              \"type\": \"null\"\n            }\n          ]\n        },\n        {\n          \"$ref\": \"#/definitions/json_value\"\n        }\n      ]\n    },\n    \"revision\": {\n      \"anyOf\": [\n        {\n          \"anyOf\": [\n            {\n              \"type\": \"number\"\n            },\n            {\n              \"type\": \"null\"\n            }\n          ]\n        },\n        {\n          \"$ref\": \"#/definitions/json_value\"\n        }\n      ]\n    },\n    \"lastUpdateTime\": {\n      \"anyOf\": [\n        {\n          \"anyOf\": [\n            {\n              \"type\": \"string\"\n            },\n            {\n              \"type\": \"null\"\n            }\n          ]\n        },\n        {\n          \"$ref\": \"#/definitions/json_value\"\n        }\n      ]\n    }\n  },\n  \"required\": [],\n  \"additionalProperties\": {\n    \"$ref\": \"#/definitions/json_value\"\n  },\n  \"definitions\": {\n    \"json_record\": {\n      \"type\": \"object\",\n      \"additionalProperties\": {\n        \"$ref\": \"#/definitions/json_value\"\n      }\n    },\n    \"json_list\": {\n      \"type\": \"array\",\n      \"items\": {\n        \"$ref\": \"#/definitions/json_value\"\n      }\n    },\n    \"json_value\": {\n      \"anyOf\": [\n        {\n          \"type\": \"string\"\n        },\n        {\n          \"type\": \"number\"\n        },\n        {\n          \"type\": \"boolean\"\n        },\n        {\n          \"type\": \"null\"\n        },\n        {\n          \"$ref\": \"#/definitions/json_record\"\n        },\n        {\n          \"$ref\": \"#/definitions/json_list\"\n        }\n      ]\n    }\n  }\n}\n```\n\n## Example JSON value\n```json\n{}\n```\n\nExamples are synthetic. Null, collection, union and presence rules are defined by\nthe complete schema above; an empty example is not a claim every field is required.\nDo not put credentials, tokens, or unnecessary business data into JSON records.\n",
+    "category": "Typed data codecs",
+    "color": "#6d9cbe",
+    "inputs": [],
+    "outputs": [],
+    "code": "",
+    "configSchema": {
+      "type": "object",
+      "properties": {},
+      "additionalProperties": false
+    },
+    "schema": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "anyOf": [
+            {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            {
+              "$ref": "#/definitions/json_value"
+            }
+          ]
+        },
+        "name": {
+          "anyOf": [
+            {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            {
+              "$ref": "#/definitions/json_value"
+            }
+          ]
+        },
+        "url": {
+          "anyOf": [
+            {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            {
+              "$ref": "#/definitions/json_value"
+            }
+          ]
+        },
+        "state": {
+          "anyOf": [
+            {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            {
+              "$ref": "#/definitions/json_value"
+            }
+          ]
+        },
+        "description": {
+          "anyOf": [
+            {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            {
+              "$ref": "#/definitions/json_value"
+            }
+          ]
+        },
+        "visibility": {
+          "anyOf": [
+            {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            {
+              "$ref": "#/definitions/json_value"
+            }
+          ]
+        },
+        "revision": {
+          "anyOf": [
+            {
+              "anyOf": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            {
+              "$ref": "#/definitions/json_value"
+            }
+          ]
+        },
+        "lastUpdateTime": {
+          "anyOf": [
+            {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            {
+              "$ref": "#/definitions/json_value"
+            }
+          ]
+        }
+      },
+      "required": [],
+      "additionalProperties": {
+        "$ref": "#/definitions/json_value"
+      },
+      "definitions": {
+        "json_record": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/json_value"
+          }
+        },
+        "json_list": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/json_value"
+          }
+        },
+        "json_value": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "number"
+            },
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            },
+            {
+              "$ref": "#/definitions/json_record"
+            },
+            {
+              "$ref": "#/definitions/json_list"
+            }
+          ]
+        }
+      }
+    },
+    "id": "def_b04c995df0e8",
+    "version": 1,
+    "createdAt": "2026-10-20T15:44:06.700Z",
+    "updatedAt": "2026-10-20T15:44:06.700Z",
+    "builtin": false
+  },
+  {
+    "name": "Azure Repository",
+    "kind": "type",
+    "description": "ONF typed decoder outputs v1. Azure Repository",
+    "documentation": "# Azure Repository\n\nONF typed decoder outputs v1.\n\nAzure Repository\n\nUse this named type on matching Encode/Decode sockets. Values are JSON data;\nthis type performs no network request, model call, authentication, or business action.\nExact type ID and version must agree on both ends of a wire. JSON Schema rejects\nincompatible values; formats are informational in ONF. Missing optional fields\nand explicit null are different. Unknown fields remain lossless where permitted.\nThe matching codecs split useful properties or collection entries and reassemble\nthe original value. They never coerce strings/numbers or silently drop unknown data.\n\n## Schema\n```json\n{\n  \"type\": \"object\",\n  \"properties\": {\n    \"id\": {\n      \"anyOf\": [\n        {\n          \"anyOf\": [\n            {\n              \"type\": \"string\"\n            },\n            {\n              \"type\": \"null\"\n            }\n          ]\n        },\n        {\n          \"$ref\": \"#/definitions/json_value\"\n        }\n      ]\n    },\n    \"name\": {\n      \"anyOf\": [\n        {\n          \"anyOf\": [\n            {\n              \"type\": \"string\"\n            },\n            {\n              \"type\": \"null\"\n            }\n          ]\n        },\n        {\n          \"$ref\": \"#/definitions/json_value\"\n        }\n      ]\n    },\n    \"url\": {\n      \"anyOf\": [\n        {\n          \"anyOf\": [\n            {\n              \"type\": \"string\"\n            },\n            {\n              \"type\": \"null\"\n            }\n          ]\n        },\n        {\n          \"$ref\": \"#/definitions/json_value\"\n        }\n      ]\n    },\n    \"project\": {\n      \"anyOf\": [\n        {\n          \"anyOf\": [\n            {\n              \"$ref\": \"#/definitions/azure_project\"\n            },\n            {\n              \"type\": \"null\"\n            }\n          ]\n        },\n        {\n          \"$ref\": \"#/definitions/json_value\"\n        }\n      ]\n    },\n    \"defaultBranch\": {\n      \"anyOf\": [\n        {\n          \"anyOf\": [\n            {\n              \"type\": \"string\"\n            },\n            {\n              \"type\": \"null\"\n            }\n          ]\n        },\n        {\n          \"$ref\": \"#/definitions/json_value\"\n        }\n      ]\n    },\n    \"remoteUrl\": {\n      \"anyOf\": [\n        {\n          \"anyOf\": [\n            {\n              \"type\": \"string\"\n            },\n            {\n              \"type\": \"null\"\n            }\n          ]\n        },\n        {\n          \"$ref\": \"#/definitions/json_value\"\n        }\n      ]\n    },\n    \"sshUrl\": {\n      \"anyOf\": [\n        {\n          \"anyOf\": [\n            {\n              \"type\": \"string\"\n            },\n            {\n              \"type\": \"null\"\n            }\n          ]\n        },\n        {\n          \"$ref\": \"#/definitions/json_value\"\n        }\n      ]\n    },\n    \"webUrl\": {\n      \"anyOf\": [\n        {\n          \"anyOf\": [\n            {\n              \"type\": \"string\"\n            },\n            {\n              \"type\": \"null\"\n            }\n          ]\n        },\n        {\n          \"$ref\": \"#/definitions/json_value\"\n        }\n      ]\n    },\n    \"size\": {\n      \"anyOf\": [\n        {\n          \"anyOf\": [\n            {\n              \"type\": \"number\"\n            },\n            {\n              \"type\": \"null\"\n            }\n          ]\n        },\n        {\n          \"$ref\": \"#/definitions/json_value\"\n        }\n      ]\n    },\n    \"isDisabled\": {\n      \"anyOf\": [\n        {\n          \"anyOf\": [\n            {\n              \"type\": \"boolean\"\n            },\n            {\n              \"type\": \"null\"\n            }\n          ]\n        },\n        {\n          \"$ref\": \"#/definitions/json_value\"\n        }\n      ]\n    },\n    \"isFork\": {\n      \"anyOf\": [\n        {\n          \"anyOf\": [\n            {\n              \"type\": \"boolean\"\n            },\n            {\n              \"type\": \"null\"\n            }\n          ]\n        },\n        {\n          \"$ref\": \"#/definitions/json_value\"\n        }\n      ]\n    },\n    \"parentRepository\": {\n      \"anyOf\": [\n        {\n          \"anyOf\": [\n            {\n              \"$ref\": \"#/definitions/json_record\"\n            },\n            {\n              \"type\": \"null\"\n            }\n          ]\n        },\n        {\n          \"$ref\": \"#/definitions/json_value\"\n        }\n      ]\n    },\n    \"_links\": {\n      \"anyOf\": [\n        {\n          \"anyOf\": [\n            {\n              \"$ref\": \"#/definitions/azure_links\"\n            },\n            {\n              \"type\": \"null\"\n            }\n          ]\n        },\n        {\n          \"$ref\": \"#/definitions/json_value\"\n        }\n      ]\n    },\n    \"type\": {\n      \"anyOf\": [\n        {\n          \"anyOf\": [\n            {\n              \"type\": \"string\"\n            },\n            {\n              \"type\": \"null\"\n            }\n          ]\n        },\n        {\n          \"$ref\": \"#/definitions/json_value\"\n        }\n      ]\n    }\n  },\n  \"required\": [],\n  \"additionalProperties\": {\n    \"$ref\": \"#/definitions/json_value\"\n  },\n  \"definitions\": {\n    \"json_record\": {\n      \"type\": \"object\",\n      \"additionalProperties\": {\n        \"$ref\": \"#/definitions/json_value\"\n      }\n    },\n    \"json_list\": {\n      \"type\": \"array\",\n      \"items\": {\n        \"$ref\": \"#/definitions/json_value\"\n      }\n    },\n    \"json_value\": {\n      \"anyOf\": [\n        {\n          \"type\": \"string\"\n        },\n        {\n          \"type\": \"number\"\n        },\n        {\n          \"type\": \"boolean\"\n        },\n        {\n          \"type\": \"null\"\n        },\n        {\n          \"$ref\": \"#/definitions/json_record\"\n        },\n        {\n          \"$ref\": \"#/definitions/json_list\"\n        }\n      ]\n    },\n    \"azure_project\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"id\": {\n          \"anyOf\": [\n            {\n              \"anyOf\": [\n                {\n                  \"type\": \"string\"\n                },\n                {\n                  \"type\": \"null\"\n                }\n              ]\n            },\n            {\n              \"$ref\": \"#/definitions/json_value\"\n            }\n          ]\n        },\n        \"name\": {\n          \"anyOf\": [\n            {\n              \"anyOf\": [\n                {\n                  \"type\": \"string\"\n                },\n                {\n                  \"type\": \"null\"\n                }\n              ]\n            },\n            {\n              \"$ref\": \"#/definitions/json_value\"\n            }\n          ]\n        },\n        \"url\": {\n          \"anyOf\": [\n            {\n              \"anyOf\": [\n                {\n                  \"type\": \"string\"\n                },\n                {\n                  \"type\": \"null\"\n                }\n              ]\n            },\n            {\n              \"$ref\": \"#/definitions/json_value\"\n            }\n          ]\n        },\n        \"state\": {\n          \"anyOf\": [\n            {\n              \"anyOf\": [\n                {\n                  \"type\": \"string\"\n                },\n                {\n                  \"type\": \"null\"\n                }\n              ]\n            },\n            {\n              \"$ref\": \"#/definitions/json_value\"\n            }\n          ]\n        },\n        \"description\": {\n          \"anyOf\": [\n            {\n              \"anyOf\": [\n                {\n                  \"type\": \"string\"\n                },\n                {\n                  \"type\": \"null\"\n                }\n              ]\n            },\n            {\n              \"$ref\": \"#/definitions/json_value\"\n            }\n          ]\n        },\n        \"visibility\": {\n          \"anyOf\": [\n            {\n              \"anyOf\": [\n                {\n                  \"type\": \"string\"\n                },\n                {\n                  \"type\": \"null\"\n                }\n              ]\n            },\n            {\n              \"$ref\": \"#/definitions/json_value\"\n            }\n          ]\n        },\n        \"revision\": {\n          \"anyOf\": [\n            {\n              \"anyOf\": [\n                {\n                  \"type\": \"number\"\n                },\n                {\n                  \"type\": \"null\"\n                }\n              ]\n            },\n            {\n              \"$ref\": \"#/definitions/json_value\"\n            }\n          ]\n        },\n        \"lastUpdateTime\": {\n          \"anyOf\": [\n            {\n              \"anyOf\": [\n                {\n                  \"type\": \"string\"\n                },\n                {\n                  \"type\": \"null\"\n                }\n              ]\n            },\n            {\n              \"$ref\": \"#/definitions/json_value\"\n            }\n          ]\n        }\n      },\n      \"required\": [],\n      \"additionalProperties\": {\n        \"$ref\": \"#/definitions/json_value\"\n      }\n    },\n    \"azure_links\": {\n      \"type\": \"object\",\n      \"additionalProperties\": {\n        \"$ref\": \"#/definitions/json_value\"\n      }\n    }\n  }\n}\n```\n\n## Example JSON value\n```json\n{}\n```\n\nExamples are synthetic. Null, collection, union and presence rules are defined by\nthe complete schema above; an empty example is not a claim every field is required.\nDo not put credentials, tokens, or unnecessary business data into JSON records.\n",
+    "category": "Typed data codecs",
+    "color": "#6d9cbe",
+    "inputs": [],
+    "outputs": [],
+    "code": "",
+    "configSchema": {
+      "type": "object",
+      "properties": {},
+      "additionalProperties": false
+    },
+    "schema": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "anyOf": [
+            {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            {
+              "$ref": "#/definitions/json_value"
+            }
+          ]
+        },
+        "name": {
+          "anyOf": [
+            {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            {
+              "$ref": "#/definitions/json_value"
+            }
+          ]
+        },
+        "url": {
+          "anyOf": [
+            {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            {
+              "$ref": "#/definitions/json_value"
+            }
+          ]
+        },
+        "project": {
+          "anyOf": [
+            {
+              "anyOf": [
+                {
+                  "$ref": "#/definitions/azure_project"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            {
+              "$ref": "#/definitions/json_value"
+            }
+          ]
+        },
+        "defaultBranch": {
+          "anyOf": [
+            {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            {
+              "$ref": "#/definitions/json_value"
+            }
+          ]
+        },
+        "remoteUrl": {
+          "anyOf": [
+            {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            {
+              "$ref": "#/definitions/json_value"
+            }
+          ]
+        },
+        "sshUrl": {
+          "anyOf": [
+            {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            {
+              "$ref": "#/definitions/json_value"
+            }
+          ]
+        },
+        "webUrl": {
+          "anyOf": [
+            {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            {
+              "$ref": "#/definitions/json_value"
+            }
+          ]
+        },
+        "size": {
+          "anyOf": [
+            {
+              "anyOf": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            {
+              "$ref": "#/definitions/json_value"
+            }
+          ]
+        },
+        "isDisabled": {
+          "anyOf": [
+            {
+              "anyOf": [
+                {
+                  "type": "boolean"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            {
+              "$ref": "#/definitions/json_value"
+            }
+          ]
+        },
+        "isFork": {
+          "anyOf": [
+            {
+              "anyOf": [
+                {
+                  "type": "boolean"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            {
+              "$ref": "#/definitions/json_value"
+            }
+          ]
+        },
+        "parentRepository": {
+          "anyOf": [
+            {
+              "anyOf": [
+                {
+                  "$ref": "#/definitions/json_record"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            {
+              "$ref": "#/definitions/json_value"
+            }
+          ]
+        },
+        "_links": {
+          "anyOf": [
+            {
+              "anyOf": [
+                {
+                  "$ref": "#/definitions/azure_links"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            {
+              "$ref": "#/definitions/json_value"
+            }
+          ]
+        },
+        "type": {
+          "anyOf": [
+            {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            {
+              "$ref": "#/definitions/json_value"
+            }
+          ]
+        }
+      },
+      "required": [],
+      "additionalProperties": {
+        "$ref": "#/definitions/json_value"
+      },
+      "definitions": {
+        "json_record": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/json_value"
+          }
+        },
+        "json_list": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/json_value"
+          }
+        },
+        "json_value": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "number"
+            },
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            },
+            {
+              "$ref": "#/definitions/json_record"
+            },
+            {
+              "$ref": "#/definitions/json_list"
+            }
+          ]
+        },
+        "azure_project": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "anyOf": [
+                {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                {
+                  "$ref": "#/definitions/json_value"
+                }
+              ]
+            },
+            "name": {
+              "anyOf": [
+                {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                {
+                  "$ref": "#/definitions/json_value"
+                }
+              ]
+            },
+            "url": {
+              "anyOf": [
+                {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                {
+                  "$ref": "#/definitions/json_value"
+                }
+              ]
+            },
+            "state": {
+              "anyOf": [
+                {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                {
+                  "$ref": "#/definitions/json_value"
+                }
+              ]
+            },
+            "description": {
+              "anyOf": [
+                {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                {
+                  "$ref": "#/definitions/json_value"
+                }
+              ]
+            },
+            "visibility": {
+              "anyOf": [
+                {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                {
+                  "$ref": "#/definitions/json_value"
+                }
+              ]
+            },
+            "revision": {
+              "anyOf": [
+                {
+                  "anyOf": [
+                    {
+                      "type": "number"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                {
+                  "$ref": "#/definitions/json_value"
+                }
+              ]
+            },
+            "lastUpdateTime": {
+              "anyOf": [
+                {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                {
+                  "$ref": "#/definitions/json_value"
+                }
+              ]
+            }
+          },
+          "required": [],
+          "additionalProperties": {
+            "$ref": "#/definitions/json_value"
+          }
+        },
+        "azure_links": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/json_value"
+          }
+        }
+      }
+    },
+    "id": "def_690ea53cafe0",
+    "version": 1,
+    "createdAt": "2026-10-20T15:44:06.778Z",
+    "updatedAt": "2026-10-20T15:44:06.778Z",
+    "builtin": false
+  },
+  {
+    "name": "Azure Pull Request",
+    "kind": "type",
+    "description": "Composable Azure DevOps contract v1. Shared raw-name PR properties across created, updated, merge-attempt and PR-comment events. Repository and identity stay nested.",
+    "documentation": "# Azure Pull Request\n\nShared raw-name PR properties across created, updated, merge-attempt and PR-comment events. Repository and identity stay nested.\n\nThis is a JSON Schema socket contract, not an executable node. Use the matching\nDecode / Encode nodes. Known optional properties preserve explicit null; absent\nand null remain distinct. Unknown properties remain in the owning component or\nEventConfig resource remainder, with no second complete event/resource copy.\nCustom socket IDs and versions must match; publish dependent nodes with explicit\ntypeVersion pins. This schema uses local JSON Schema only, no global `$ref`.\n\n## Accepted shape\n```json\n{\n  \"pullRequestId\": 123,\n  \"title\": \"Example\",\n  \"description\": null\n}\n```\n\n## Schema\n```json\n{\n  \"type\": \"object\",\n  \"properties\": {\n    \"pullRequestId\": {\n      \"type\": [\n        \"null\",\n        \"number\"\n      ]\n    },\n    \"codeReviewId\": {\n      \"type\": [\n        \"null\",\n        \"number\"\n      ]\n    },\n    \"status\": {\n      \"type\": [\n        \"null\",\n        \"string\"\n      ]\n    },\n    \"title\": {\n      \"type\": [\n        \"null\",\n        \"string\"\n      ]\n    },\n    \"description\": {\n      \"type\": [\n        \"null\",\n        \"string\"\n      ]\n    },\n    \"sourceRefName\": {\n      \"type\": [\n        \"null\",\n        \"string\"\n      ]\n    },\n    \"targetRefName\": {\n      \"type\": [\n        \"null\",\n        \"string\"\n      ]\n    },\n    \"creationDate\": {\n      \"type\": [\n        \"null\",\n        \"string\"\n      ]\n    },\n    \"closedDate\": {\n      \"type\": [\n        \"null\",\n        \"string\"\n      ]\n    },\n    \"mergeStatus\": {\n      \"type\": [\n        \"null\",\n        \"string\"\n      ]\n    },\n    \"mergeId\": {\n      \"type\": [\n        \"null\",\n        \"string\"\n      ]\n    },\n    \"mergeFailureMessage\": {\n      \"type\": [\n        \"null\",\n        \"string\"\n      ]\n    },\n    \"mergeFailureType\": {\n      \"type\": [\n        \"null\",\n        \"string\"\n      ]\n    },\n    \"url\": {\n      \"type\": [\n        \"null\",\n        \"string\"\n      ]\n    },\n    \"artifactId\": {\n      \"type\": [\n        \"null\",\n        \"string\"\n      ]\n    },\n    \"isDraft\": {\n      \"type\": [\n        \"boolean\",\n        \"null\"\n      ]\n    },\n    \"supportsIterations\": {\n      \"type\": [\n        \"boolean\",\n        \"null\"\n      ]\n    },\n    \"repository\": {\n      \"type\": [\n        \"null\",\n        \"object\"\n      ]\n    },\n    \"createdBy\": {\n      \"type\": [\n        \"null\",\n        \"object\"\n      ]\n    },\n    \"closedBy\": {\n      \"type\": [\n        \"null\",\n        \"object\"\n      ]\n    },\n    \"autoCompleteSetBy\": {\n      \"type\": [\n        \"null\",\n        \"object\"\n      ]\n    },\n    \"reviewers\": {\n      \"type\": [\n        \"array\",\n        \"null\"\n      ]\n    },\n    \"labels\": {\n      \"type\": [\n        \"array\",\n        \"null\"\n      ]\n    },\n    \"commits\": {\n      \"type\": [\n        \"array\",\n        \"null\"\n      ]\n    },\n    \"workItemRefs\": {\n      \"type\": [\n        \"array\",\n        \"null\"\n      ]\n    },\n    \"completionOptions\": {\n      \"type\": [\n        \"null\",\n        \"object\"\n      ]\n    },\n    \"mergeOptions\": {\n      \"type\": [\n        \"null\",\n        \"object\"\n      ]\n    },\n    \"lastMergeSourceCommit\": {\n      \"type\": [\n        \"null\",\n        \"object\"\n      ]\n    },\n    \"lastMergeTargetCommit\": {\n      \"type\": [\n        \"null\",\n        \"object\"\n      ]\n    },\n    \"lastMergeCommit\": {\n      \"type\": [\n        \"null\",\n        \"object\"\n      ]\n    },\n    \"forkSource\": {\n      \"type\": [\n        \"null\",\n        \"object\"\n      ]\n    },\n    \"_links\": {\n      \"type\": [\n        \"null\",\n        \"object\"\n      ]\n    }\n  },\n  \"additionalProperties\": false\n}\n```\n\nPure data; no requests, secrets or persistent state. Schema format annotations do\nnot enforce timestamp formatting in ONF. A type does not fetch missing Azure data.\n",
+    "category": "Azure DevOps composable",
+    "color": "#58afa6",
+    "inputs": [],
+    "outputs": [],
+    "code": "",
+    "configSchema": {
+      "type": "object",
+      "properties": {},
+      "additionalProperties": false
+    },
+    "schema": {
+      "type": "object",
+      "properties": {
+        "pullRequestId": {
+          "type": [
+            "null",
+            "number"
+          ]
+        },
+        "codeReviewId": {
+          "type": [
+            "null",
+            "number"
+          ]
+        },
+        "status": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "title": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "description": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "sourceRefName": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "targetRefName": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "creationDate": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "closedDate": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "mergeStatus": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "mergeId": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "mergeFailureMessage": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "mergeFailureType": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "url": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "artifactId": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "isDraft": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "supportsIterations": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "repository": {
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "createdBy": {
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "closedBy": {
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "autoCompleteSetBy": {
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "reviewers": {
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "labels": {
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "commits": {
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "workItemRefs": {
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "completionOptions": {
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "mergeOptions": {
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "lastMergeSourceCommit": {
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "lastMergeTargetCommit": {
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "lastMergeCommit": {
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "forkSource": {
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "_links": {
+          "type": [
+            "null",
+            "object"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "id": "def_9e98014d1ecd",
+    "version": 1,
+    "createdAt": "2026-10-20T14:54:21.410Z",
+    "updatedAt": "2026-10-20T14:54:21.410Z",
+    "builtin": false
+  },
+  {
+    "name": "Nullable JSON Record",
+    "kind": "type",
+    "description": "ONF typed decoder outputs v1. Explicit null or JSON Record; omission remains a separate socket-presence state.",
+    "documentation": "# Nullable JSON Record\n\nONF typed decoder outputs v1.\n\nExplicit null or JSON Record; omission remains a separate socket-presence state.\n\nUse this named type on matching Encode/Decode sockets. Values are JSON data;\nthis type performs no network request, model call, authentication, or business action.\nExact type ID and version must agree on both ends of a wire. JSON Schema rejects\nincompatible values; formats are informational in ONF. Missing optional fields\nand explicit null are different. Unknown fields remain lossless where permitted.\nThe matching codecs split useful properties or collection entries and reassemble\nthe original value. They never coerce strings/numbers or silently drop unknown data.\n\n## Schema\n```json\n{\n  \"anyOf\": [\n    {\n      \"$ref\": \"#/definitions/json_record\"\n    },\n    {\n      \"type\": \"null\"\n    }\n  ],\n  \"definitions\": {\n    \"json_list\": {\n      \"type\": \"array\",\n      \"items\": {\n        \"$ref\": \"#/definitions/json_value\"\n      }\n    },\n    \"json_value\": {\n      \"anyOf\": [\n        {\n          \"type\": \"string\"\n        },\n        {\n          \"type\": \"number\"\n        },\n        {\n          \"type\": \"boolean\"\n        },\n        {\n          \"type\": \"null\"\n        },\n        {\n          \"$ref\": \"#/definitions/json_record\"\n        },\n        {\n          \"$ref\": \"#/definitions/json_list\"\n        }\n      ]\n    },\n    \"json_record\": {\n      \"type\": \"object\",\n      \"additionalProperties\": {\n        \"$ref\": \"#/definitions/json_value\"\n      }\n    }\n  }\n}\n```\n\n## Example JSON value\n```json\n{}\n```\n\nExamples are synthetic. Null, collection, union and presence rules are defined by\nthe complete schema above; an empty example is not a claim every field is required.\nDo not put credentials, tokens, or unnecessary business data into JSON records.\n",
+    "category": "Typed data codecs",
+    "color": "#6d9cbe",
+    "inputs": [],
+    "outputs": [],
+    "code": "",
+    "configSchema": {
+      "type": "object",
+      "properties": {},
+      "additionalProperties": false
+    },
+    "schema": {
+      "anyOf": [
+        {
+          "$ref": "#/definitions/json_record"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "definitions": {
+        "json_list": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/json_value"
+          }
+        },
+        "json_value": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "number"
+            },
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            },
+            {
+              "$ref": "#/definitions/json_record"
+            },
+            {
+              "$ref": "#/definitions/json_list"
+            }
+          ]
+        },
+        "json_record": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/json_value"
+          }
+        }
+      }
+    },
+    "id": "def_3e907b41dc80",
+    "version": 1,
+    "createdAt": "2026-10-20T15:44:12.762Z",
+    "updatedAt": "2026-10-20T15:44:12.762Z",
+    "builtin": false
+  }
+]

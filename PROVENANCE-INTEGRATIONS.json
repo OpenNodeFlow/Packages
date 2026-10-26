@@ -1,0 +1,47 @@
+{
+  "factories": "Explicit allowlisted pure generic catalog factories from OpenNodeFlow-Library/work; no publishers, journals, databases, snapshots or private workflow code copied",
+  "identityMaps": [
+    {
+      "path": "work/published.json",
+      "sha256": "9787a4fd5341ecfb969ea52a42d4204dbb21fb9d00158f993bae0b6b43cfb374",
+      "exportedFields": [
+        "id",
+        "version"
+      ]
+    },
+    {
+      "path": "work/library-audit-publication.json",
+      "sha256": "1873992c67c0022d2c705e991a99fdabd0a6b96b5745bcbd2160fe996fee2c32",
+      "exportedFields": [
+        "id",
+        "version"
+      ]
+    },
+    {
+      "path": "work/logic-expansion-publication.json",
+      "sha256": "aaa76e7b2abcaf5abf89071f30e37fe5b7ed64ab5ca93ad07942b9f1b95833db",
+      "exportedFields": [
+        "id",
+        "version"
+      ]
+    }
+  ],
+  "literalTypeSource": {
+    "path": "work/baseline-package.json",
+    "selectedIds": [
+      "def_f9962f86c7f4",
+      "def_c5fc8fea11ea",
+      "def_ffc66f61eee4",
+      "def_e80efa95bff5",
+      "def_a653164ce2cf",
+      "def_a5280518223d",
+      "def_23b3031131b2",
+      "def_b04c995df0e8",
+      "def_690ea53cafe0",
+      "def_9e98014d1ecd",
+      "def_3e907b41dc80"
+    ],
+    "exportRule": "Only the 11 reviewed kind:type v1 definitions with empty code; no workflow or runtime records"
+  },
+  "catalogBaseline": "Historical generic audited source versions (21-22 October 2026). Latest 23 October structural overlay not included without separately reviewed complete bases."
+}

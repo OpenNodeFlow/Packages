@@ -1,0 +1,77 @@
+{
+  "source": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/main/specification/servicebus/resource-manager/Microsoft.ServiceBus/ServiceBus/stable/2024-01-01/topics.json",
+  "version": "2024-01-01",
+  "operations": [
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceBus/namespaces/{namespaceName}/topics",
+      "method": "get",
+      "operationId": "Topics_ListByNamespace",
+      "parameters": [
+        {},
+        {},
+        {},
+        {},
+        {},
+        {}
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceBus/namespaces/{namespaceName}/topics/{topicName}",
+      "method": "put",
+      "operationId": "Topics_CreateOrUpdate",
+      "parameters": [
+        {},
+        {},
+        {},
+        {
+          "name": "parameters",
+          "in": "body",
+          "required": true
+        },
+        {},
+        {}
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceBus/namespaces/{namespaceName}/topics/{topicName}",
+      "method": "delete",
+      "operationId": "Topics_Delete",
+      "parameters": [
+        {},
+        {},
+        {},
+        {},
+        {}
+      ],
+      "responses": [
+        "200",
+        "204",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceBus/namespaces/{namespaceName}/topics/{topicName}",
+      "method": "get",
+      "operationId": "Topics_Get",
+      "parameters": [
+        {},
+        {},
+        {},
+        {},
+        {}
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    }
+  ]
+}

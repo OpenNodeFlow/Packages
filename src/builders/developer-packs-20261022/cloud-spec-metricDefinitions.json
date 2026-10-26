@@ -1,0 +1,35 @@
+{
+  "source": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/main/specification/monitor/resource-manager/Microsoft.Insights/Insights/stable/2023-10-01/metricDefinitions_API.json",
+  "version": "2023-10-01",
+  "operations": [
+    {
+      "path": "/subscriptions/{subscriptionId}/providers/Microsoft.Insights/metricDefinitions",
+      "method": "get",
+      "operationId": "MetricDefinitions_ListAtSubscriptionScope",
+      "parameters": [
+        {},
+        {},
+        {},
+        {}
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    },
+    {
+      "path": "/{resourceUri}/providers/Microsoft.Insights/metricDefinitions",
+      "method": "get",
+      "operationId": "MetricDefinitions_List",
+      "parameters": [
+        {},
+        {},
+        {}
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    }
+  ]
+}

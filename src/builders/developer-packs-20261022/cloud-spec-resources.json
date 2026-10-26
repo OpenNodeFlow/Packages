@@ -1,0 +1,966 @@
+{
+  "source": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/main/specification/resources/resource-manager/Microsoft.Resources/resources/stable/2021-04-01/resources.json",
+  "version": "2021-04-01",
+  "operations": [
+    {
+      "path": "/providers/Microsoft.Resources/operations",
+      "method": "get",
+      "operationId": "Operations_List",
+      "parameters": [
+        {}
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/providers/{resourceProviderNamespace}/unregister",
+      "method": "post",
+      "operationId": "Providers_Unregister",
+      "parameters": [
+        {
+          "name": "resourceProviderNamespace",
+          "in": "path",
+          "required": true
+        },
+        {},
+        {}
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    },
+    {
+      "path": "/providers/Microsoft.Management/managementGroups/{groupId}/providers/{resourceProviderNamespace}/register",
+      "method": "post",
+      "operationId": "Providers_RegisterAtManagementGroupScope",
+      "parameters": [
+        {
+          "name": "resourceProviderNamespace",
+          "in": "path",
+          "required": true
+        },
+        {},
+        {}
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/providers/{resourceProviderNamespace}/providerPermissions",
+      "method": "get",
+      "operationId": "Providers_ProviderPermissions",
+      "parameters": [
+        {
+          "name": "resourceProviderNamespace",
+          "in": "path",
+          "required": true
+        },
+        {},
+        {}
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/providers/{resourceProviderNamespace}/register",
+      "method": "post",
+      "operationId": "Providers_Register",
+      "parameters": [
+        {
+          "name": "resourceProviderNamespace",
+          "in": "path",
+          "required": true
+        },
+        {},
+        {},
+        {
+          "name": "properties",
+          "in": "body",
+          "required": false
+        }
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/providers",
+      "method": "get",
+      "operationId": "Providers_List",
+      "parameters": [
+        {
+          "name": "$expand",
+          "in": "query",
+          "required": false
+        },
+        {},
+        {}
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    },
+    {
+      "path": "/providers",
+      "method": "get",
+      "operationId": "Providers_ListAtTenantScope",
+      "parameters": [
+        {
+          "name": "$expand",
+          "in": "query",
+          "required": false
+        },
+        {}
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/providers/{resourceProviderNamespace}",
+      "method": "get",
+      "operationId": "Providers_Get",
+      "parameters": [
+        {
+          "name": "$expand",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "resourceProviderNamespace",
+          "in": "path",
+          "required": true
+        },
+        {},
+        {}
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/providers/{resourceProviderNamespace}/resourceTypes",
+      "method": "get",
+      "operationId": "ProviderResourceTypes_List",
+      "parameters": [
+        {
+          "name": "$expand",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "resourceProviderNamespace",
+          "in": "path",
+          "required": true
+        },
+        {},
+        {}
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    },
+    {
+      "path": "/providers/{resourceProviderNamespace}",
+      "method": "get",
+      "operationId": "Providers_GetAtTenantScope",
+      "parameters": [
+        {
+          "name": "$expand",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "resourceProviderNamespace",
+          "in": "path",
+          "required": true
+        },
+        {}
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/resources",
+      "method": "get",
+      "operationId": "Resources_ListByResourceGroup",
+      "parameters": [
+        {
+          "name": "resourceGroupName",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "$filter",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "$expand",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "$top",
+          "in": "query",
+          "required": false
+        },
+        {},
+        {}
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}",
+      "method": "head",
+      "operationId": "ResourceGroups_CheckExistence",
+      "parameters": [
+        {
+          "name": "resourceGroupName",
+          "in": "path",
+          "required": true
+        },
+        {},
+        {}
+      ],
+      "responses": [
+        "204",
+        "404",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}",
+      "method": "put",
+      "operationId": "ResourceGroups_CreateOrUpdate",
+      "parameters": [
+        {
+          "name": "resourceGroupName",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "parameters",
+          "in": "body",
+          "required": true
+        },
+        {},
+        {}
+      ],
+      "responses": [
+        "200",
+        "201",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}",
+      "method": "delete",
+      "operationId": "ResourceGroups_Delete",
+      "parameters": [
+        {
+          "name": "resourceGroupName",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "forceDeletionTypes",
+          "in": "query",
+          "required": false
+        },
+        {},
+        {}
+      ],
+      "responses": [
+        "200",
+        "202",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}",
+      "method": "get",
+      "operationId": "ResourceGroups_Get",
+      "parameters": [
+        {
+          "name": "resourceGroupName",
+          "in": "path",
+          "required": true
+        },
+        {},
+        {}
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}",
+      "method": "patch",
+      "operationId": "ResourceGroups_Update",
+      "parameters": [
+        {
+          "name": "resourceGroupName",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "parameters",
+          "in": "body",
+          "required": true
+        },
+        {},
+        {}
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/exportTemplate",
+      "method": "post",
+      "operationId": "ResourceGroups_ExportTemplate",
+      "parameters": [
+        {},
+        {},
+        {},
+        {
+          "name": "parameters",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "responses": [
+        "200",
+        "202",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourcegroups",
+      "method": "get",
+      "operationId": "ResourceGroups_List",
+      "parameters": [
+        {
+          "name": "$filter",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "$top",
+          "in": "query",
+          "required": false
+        },
+        {},
+        {}
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{sourceResourceGroupName}/moveResources",
+      "method": "post",
+      "operationId": "Resources_MoveResources",
+      "parameters": [
+        {
+          "name": "sourceResourceGroupName",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "parameters",
+          "in": "body",
+          "required": true
+        },
+        {},
+        {}
+      ],
+      "responses": [
+        "202",
+        "204",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{sourceResourceGroupName}/validateMoveResources",
+      "method": "post",
+      "operationId": "Resources_ValidateMoveResources",
+      "parameters": [
+        {
+          "name": "sourceResourceGroupName",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "parameters",
+          "in": "body",
+          "required": true
+        },
+        {},
+        {}
+      ],
+      "responses": [
+        "202",
+        "204",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resources",
+      "method": "get",
+      "operationId": "Resources_List",
+      "parameters": [
+        {
+          "name": "$filter",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "$expand",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "$top",
+          "in": "query",
+          "required": false
+        },
+        {},
+        {}
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{parentResourcePath}/{resourceType}/{resourceName}",
+      "method": "head",
+      "operationId": "Resources_CheckExistence",
+      "parameters": [
+        {
+          "name": "resourceGroupName",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "resourceProviderNamespace",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "parentResourcePath",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "resourceType",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "resourceName",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "api-version",
+          "in": "query",
+          "required": true
+        },
+        {}
+      ],
+      "responses": [
+        "204",
+        "404",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{parentResourcePath}/{resourceType}/{resourceName}",
+      "method": "delete",
+      "operationId": "Resources_Delete",
+      "parameters": [
+        {
+          "name": "resourceGroupName",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "resourceProviderNamespace",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "parentResourcePath",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "resourceType",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "resourceName",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "api-version",
+          "in": "query",
+          "required": true
+        },
+        {}
+      ],
+      "responses": [
+        "200",
+        "202",
+        "204",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{parentResourcePath}/{resourceType}/{resourceName}",
+      "method": "put",
+      "operationId": "Resources_CreateOrUpdate",
+      "parameters": [
+        {
+          "name": "resourceGroupName",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "resourceProviderNamespace",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "parentResourcePath",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "resourceType",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "resourceName",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "api-version",
+          "in": "query",
+          "required": true
+        },
+        {
+          "name": "parameters",
+          "in": "body",
+          "required": true
+        },
+        {}
+      ],
+      "responses": [
+        "200",
+        "201",
+        "202",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{parentResourcePath}/{resourceType}/{resourceName}",
+      "method": "patch",
+      "operationId": "Resources_Update",
+      "parameters": [
+        {
+          "name": "resourceGroupName",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "resourceProviderNamespace",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "parentResourcePath",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "resourceType",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "resourceName",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "api-version",
+          "in": "query",
+          "required": true
+        },
+        {
+          "name": "parameters",
+          "in": "body",
+          "required": true
+        },
+        {}
+      ],
+      "responses": [
+        "200",
+        "202",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{parentResourcePath}/{resourceType}/{resourceName}",
+      "method": "get",
+      "operationId": "Resources_Get",
+      "parameters": [
+        {
+          "name": "resourceGroupName",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "resourceProviderNamespace",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "parentResourcePath",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "resourceType",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "resourceName",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "api-version",
+          "in": "query",
+          "required": true
+        },
+        {}
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    },
+    {
+      "path": "/{resourceId}",
+      "method": "head",
+      "operationId": "Resources_CheckExistenceById",
+      "parameters": [
+        {
+          "name": "resourceId",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "api-version",
+          "in": "query",
+          "required": true
+        }
+      ],
+      "responses": [
+        "204",
+        "404",
+        "default"
+      ]
+    },
+    {
+      "path": "/{resourceId}",
+      "method": "delete",
+      "operationId": "Resources_DeleteById",
+      "parameters": [
+        {
+          "name": "resourceId",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "api-version",
+          "in": "query",
+          "required": true
+        }
+      ],
+      "responses": [
+        "200",
+        "202",
+        "204",
+        "default"
+      ]
+    },
+    {
+      "path": "/{resourceId}",
+      "method": "put",
+      "operationId": "Resources_CreateOrUpdateById",
+      "parameters": [
+        {
+          "name": "resourceId",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "api-version",
+          "in": "query",
+          "required": true
+        },
+        {
+          "name": "parameters",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "responses": [
+        "200",
+        "201",
+        "202",
+        "default"
+      ]
+    },
+    {
+      "path": "/{resourceId}",
+      "method": "patch",
+      "operationId": "Resources_UpdateById",
+      "parameters": [
+        {
+          "name": "resourceId",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "api-version",
+          "in": "query",
+          "required": true
+        },
+        {
+          "name": "parameters",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "responses": [
+        "200",
+        "202",
+        "default"
+      ]
+    },
+    {
+      "path": "/{resourceId}",
+      "method": "get",
+      "operationId": "Resources_GetById",
+      "parameters": [
+        {
+          "name": "resourceId",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "api-version",
+          "in": "query",
+          "required": true
+        }
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/tagNames/{tagName}/tagValues/{tagValue}",
+      "method": "delete",
+      "operationId": "Tags_DeleteValue",
+      "parameters": [
+        {
+          "name": "tagName",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "tagValue",
+          "in": "path",
+          "required": true
+        },
+        {},
+        {}
+      ],
+      "responses": [
+        "200",
+        "204",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/tagNames/{tagName}/tagValues/{tagValue}",
+      "method": "put",
+      "operationId": "Tags_CreateOrUpdateValue",
+      "parameters": [
+        {
+          "name": "tagName",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "tagValue",
+          "in": "path",
+          "required": true
+        },
+        {},
+        {}
+      ],
+      "responses": [
+        "200",
+        "201",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/tagNames/{tagName}",
+      "method": "put",
+      "operationId": "Tags_CreateOrUpdate",
+      "parameters": [
+        {
+          "name": "tagName",
+          "in": "path",
+          "required": true
+        },
+        {},
+        {}
+      ],
+      "responses": [
+        "200",
+        "201",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/tagNames/{tagName}",
+      "method": "delete",
+      "operationId": "Tags_Delete",
+      "parameters": [
+        {
+          "name": "tagName",
+          "in": "path",
+          "required": true
+        },
+        {},
+        {}
+      ],
+      "responses": [
+        "200",
+        "204",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/tagNames",
+      "method": "get",
+      "operationId": "Tags_List",
+      "parameters": [
+        {},
+        {}
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    },
+    {
+      "path": "/{scope}/providers/Microsoft.Resources/tags/default",
+      "method": "put",
+      "operationId": "Tags_CreateOrUpdateAtScope",
+      "parameters": [
+        {},
+        {},
+        {
+          "name": "parameters",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    },
+    {
+      "path": "/{scope}/providers/Microsoft.Resources/tags/default",
+      "method": "patch",
+      "operationId": "Tags_UpdateAtScope",
+      "parameters": [
+        {},
+        {},
+        {
+          "name": "parameters",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    },
+    {
+      "path": "/{scope}/providers/Microsoft.Resources/tags/default",
+      "method": "get",
+      "operationId": "Tags_GetAtScope",
+      "parameters": [
+        {},
+        {}
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    },
+    {
+      "path": "/{scope}/providers/Microsoft.Resources/tags/default",
+      "method": "delete",
+      "operationId": "Tags_DeleteAtScope",
+      "parameters": [
+        {},
+        {}
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    }
+  ]
+}

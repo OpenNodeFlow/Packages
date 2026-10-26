@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "ownedDefinitionCount": 1704,
+  "packages": 36,
+  "historicalSourceBaseline": "Generic audited source factories 21-22 October 2026; canonical IDs/pins preserved; later structural overlay requires independent migration",
+  "excluded": [
+    "Private PR workflow controllers",
+    "Office endpoint/policy/model routing",
+    "Runtime exports/data/history/secrets",
+    "Live provider verification"
+  ]
+}

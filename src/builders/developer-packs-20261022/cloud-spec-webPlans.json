@@ -1,0 +1,684 @@
+{
+  "source": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/main/specification/web/resource-manager/Microsoft.Web/AppService/stable/2024-11-01/AppServicePlans.json",
+  "version": "2024-11-01",
+  "operations": [
+    {
+      "path": "/subscriptions/{subscriptionId}/providers/Microsoft.Web/serverfarms",
+      "method": "get",
+      "operationId": "AppServicePlans_List",
+      "parameters": [
+        {
+          "name": "detailed",
+          "in": "query"
+        },
+        {},
+        {}
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/serverfarms",
+      "method": "get",
+      "operationId": "AppServicePlans_ListByResourceGroup",
+      "parameters": [
+        {},
+        {},
+        {}
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/serverfarms/{name}",
+      "method": "get",
+      "operationId": "AppServicePlans_Get",
+      "parameters": [
+        {},
+        {
+          "name": "name",
+          "in": "path",
+          "required": true
+        },
+        {},
+        {}
+      ],
+      "responses": [
+        "200",
+        "404",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/serverfarms/{name}",
+      "method": "put",
+      "operationId": "AppServicePlans_CreateOrUpdate",
+      "parameters": [
+        {},
+        {
+          "name": "name",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "appServicePlan",
+          "in": "body",
+          "required": true
+        },
+        {},
+        {}
+      ],
+      "responses": [
+        "200",
+        "202",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/serverfarms/{name}",
+      "method": "delete",
+      "operationId": "AppServicePlans_Delete",
+      "parameters": [
+        {},
+        {
+          "name": "name",
+          "in": "path",
+          "required": true
+        },
+        {},
+        {}
+      ],
+      "responses": [
+        "200",
+        "204",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/serverfarms/{name}",
+      "method": "patch",
+      "operationId": "AppServicePlans_Update",
+      "parameters": [
+        {},
+        {
+          "name": "name",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "appServicePlan",
+          "in": "body",
+          "required": true
+        },
+        {},
+        {}
+      ],
+      "responses": [
+        "200",
+        "202",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/serverfarms/{name}/capabilities",
+      "method": "get",
+      "operationId": "AppServicePlans_ListCapabilities",
+      "parameters": [
+        {},
+        {
+          "name": "name",
+          "in": "path",
+          "required": true
+        },
+        {},
+        {}
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/serverfarms/{name}/hybridConnectionNamespaces/{namespaceName}/relays/{relayName}",
+      "method": "get",
+      "operationId": "AppServicePlans_GetHybridConnection",
+      "parameters": [
+        {},
+        {
+          "name": "name",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "namespaceName",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "relayName",
+          "in": "path",
+          "required": true
+        },
+        {},
+        {}
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/serverfarms/{name}/hybridConnectionNamespaces/{namespaceName}/relays/{relayName}",
+      "method": "delete",
+      "operationId": "AppServicePlans_DeleteHybridConnection",
+      "parameters": [
+        {},
+        {
+          "name": "name",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "namespaceName",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "relayName",
+          "in": "path",
+          "required": true
+        },
+        {},
+        {}
+      ],
+      "responses": [
+        "200",
+        "204",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/serverfarms/{name}/hybridConnectionNamespaces/{namespaceName}/relays/{relayName}/listKeys",
+      "method": "post",
+      "operationId": "AppServicePlans_ListHybridConnectionKeys",
+      "parameters": [
+        {},
+        {
+          "name": "name",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "namespaceName",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "relayName",
+          "in": "path",
+          "required": true
+        },
+        {},
+        {}
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/serverfarms/{name}/hybridConnectionNamespaces/{namespaceName}/relays/{relayName}/sites",
+      "method": "get",
+      "operationId": "AppServicePlans_ListWebAppsByHybridConnection",
+      "parameters": [
+        {},
+        {
+          "name": "name",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "namespaceName",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "relayName",
+          "in": "path",
+          "required": true
+        },
+        {},
+        {}
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/serverfarms/{name}/hybridConnectionPlanLimits/limit",
+      "method": "get",
+      "operationId": "AppServicePlans_GetHybridConnectionPlanLimit",
+      "parameters": [
+        {},
+        {
+          "name": "name",
+          "in": "path",
+          "required": true
+        },
+        {},
+        {}
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/serverfarms/{name}/hybridConnectionRelays",
+      "method": "get",
+      "operationId": "AppServicePlans_ListHybridConnections",
+      "parameters": [
+        {},
+        {
+          "name": "name",
+          "in": "path",
+          "required": true
+        },
+        {},
+        {}
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/serverfarms/{name}/restartSites",
+      "method": "post",
+      "operationId": "AppServicePlans_RestartWebApps",
+      "parameters": [
+        {},
+        {
+          "name": "name",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "softRestart",
+          "in": "query"
+        },
+        {},
+        {}
+      ],
+      "responses": [
+        "204",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/serverfarms/{name}/sites",
+      "method": "get",
+      "operationId": "AppServicePlans_ListWebApps",
+      "parameters": [
+        {},
+        {
+          "name": "name",
+          "in": "path",
+          "required": true
+        },
+        {},
+        {},
+        {
+          "name": "$skipToken",
+          "in": "query"
+        },
+        {
+          "name": "$filter",
+          "in": "query"
+        },
+        {
+          "name": "$top",
+          "in": "query"
+        }
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/serverfarms/{name}/skus",
+      "method": "get",
+      "operationId": "AppServicePlans_GetServerFarmSkus",
+      "parameters": [
+        {},
+        {
+          "name": "name",
+          "in": "path",
+          "required": true
+        },
+        {},
+        {}
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/serverfarms/{name}/usages",
+      "method": "get",
+      "operationId": "AppServicePlans_ListUsages",
+      "parameters": [
+        {},
+        {
+          "name": "name",
+          "in": "path",
+          "required": true
+        },
+        {},
+        {},
+        {
+          "name": "$filter",
+          "in": "query"
+        }
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/serverfarms/{name}/virtualNetworkConnections",
+      "method": "get",
+      "operationId": "AppServicePlans_ListVnets",
+      "parameters": [
+        {},
+        {
+          "name": "name",
+          "in": "path",
+          "required": true
+        },
+        {},
+        {}
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/serverfarms/{name}/virtualNetworkConnections/{vnetName}",
+      "method": "get",
+      "operationId": "AppServicePlans_GetVnetFromServerFarm",
+      "parameters": [
+        {},
+        {
+          "name": "name",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "vnetName",
+          "in": "path",
+          "required": true
+        },
+        {},
+        {}
+      ],
+      "responses": [
+        "200",
+        "404",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/serverfarms/{name}/virtualNetworkConnections/{vnetName}/gateways/{gatewayName}",
+      "method": "get",
+      "operationId": "AppServicePlans_GetVnetGateway",
+      "parameters": [
+        {},
+        {
+          "name": "name",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "vnetName",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "gatewayName",
+          "in": "path",
+          "required": true
+        },
+        {},
+        {}
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/serverfarms/{name}/virtualNetworkConnections/{vnetName}/gateways/{gatewayName}",
+      "method": "put",
+      "operationId": "AppServicePlans_UpdateVnetGateway",
+      "parameters": [
+        {},
+        {
+          "name": "name",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "vnetName",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "gatewayName",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "connectionEnvelope",
+          "in": "body",
+          "required": true
+        },
+        {},
+        {}
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/serverfarms/{name}/virtualNetworkConnections/{vnetName}/routes",
+      "method": "get",
+      "operationId": "AppServicePlans_ListRoutesForVnet",
+      "parameters": [
+        {},
+        {
+          "name": "name",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "vnetName",
+          "in": "path",
+          "required": true
+        },
+        {},
+        {}
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/serverfarms/{name}/virtualNetworkConnections/{vnetName}/routes/{routeName}",
+      "method": "get",
+      "operationId": "AppServicePlans_GetRouteForVnet",
+      "parameters": [
+        {},
+        {
+          "name": "name",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "vnetName",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "routeName",
+          "in": "path",
+          "required": true
+        },
+        {},
+        {}
+      ],
+      "responses": [
+        "200",
+        "404",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/serverfarms/{name}/virtualNetworkConnections/{vnetName}/routes/{routeName}",
+      "method": "put",
+      "operationId": "AppServicePlans_CreateOrUpdateVnetRoute",
+      "parameters": [
+        {},
+        {
+          "name": "name",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "vnetName",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "routeName",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "route",
+          "in": "body",
+          "required": true
+        },
+        {},
+        {}
+      ],
+      "responses": [
+        "200",
+        "400",
+        "404",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/serverfarms/{name}/virtualNetworkConnections/{vnetName}/routes/{routeName}",
+      "method": "delete",
+      "operationId": "AppServicePlans_DeleteVnetRoute",
+      "parameters": [
+        {},
+        {
+          "name": "name",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "vnetName",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "routeName",
+          "in": "path",
+          "required": true
+        },
+        {},
+        {}
+      ],
+      "responses": [
+        "200",
+        "404",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/serverfarms/{name}/virtualNetworkConnections/{vnetName}/routes/{routeName}",
+      "method": "patch",
+      "operationId": "AppServicePlans_UpdateVnetRoute",
+      "parameters": [
+        {},
+        {
+          "name": "name",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "vnetName",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "routeName",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "route",
+          "in": "body",
+          "required": true
+        },
+        {},
+        {}
+      ],
+      "responses": [
+        "200",
+        "400",
+        "404",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/serverfarms/{name}/workers/{workerName}/reboot",
+      "method": "post",
+      "operationId": "AppServicePlans_RebootWorker",
+      "parameters": [
+        {},
+        {
+          "name": "name",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "workerName",
+          "in": "path",
+          "required": true
+        },
+        {},
+        {}
+      ],
+      "responses": [
+        "204",
+        "default"
+      ]
+    }
+  ]
+}

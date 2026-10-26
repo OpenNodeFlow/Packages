@@ -1,0 +1,1061 @@
+{
+  "source": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/main/specification/containerservice/resource-manager/Microsoft.ContainerService/aks/stable/2024-10-01/managedClusters.json",
+  "version": "2024-10-01",
+  "operations": [
+    {
+      "path": "/providers/Microsoft.ContainerService/operations",
+      "method": "get",
+      "operationId": "Operations_List",
+      "parameters": [
+        {}
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/providers/Microsoft.ContainerService/locations/{location}/kubernetesVersions",
+      "method": "get",
+      "operationId": "ManagedClusters_ListKubernetesVersions",
+      "parameters": [
+        {},
+        {},
+        {}
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/providers/Microsoft.ContainerService/managedClusters",
+      "method": "get",
+      "operationId": "ManagedClusters_List",
+      "parameters": [
+        {},
+        {}
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters",
+      "method": "get",
+      "operationId": "ManagedClusters_ListByResourceGroup",
+      "parameters": [
+        {},
+        {},
+        {}
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{resourceName}/upgradeProfiles/default",
+      "method": "get",
+      "operationId": "ManagedClusters_GetUpgradeProfile",
+      "parameters": [
+        {},
+        {},
+        {},
+        {}
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{resourceName}/accessProfiles/{roleName}/listCredential",
+      "method": "post",
+      "operationId": "ManagedClusters_GetAccessProfile",
+      "parameters": [
+        {},
+        {},
+        {},
+        {},
+        {
+          "name": "roleName",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{resourceName}/listClusterAdminCredential",
+      "method": "post",
+      "operationId": "ManagedClusters_ListClusterAdminCredentials",
+      "parameters": [
+        {},
+        {},
+        {},
+        {},
+        {}
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{resourceName}/listClusterUserCredential",
+      "method": "post",
+      "operationId": "ManagedClusters_ListClusterUserCredentials",
+      "parameters": [
+        {},
+        {},
+        {},
+        {},
+        {},
+        {}
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{resourceName}/listClusterMonitoringUserCredential",
+      "method": "post",
+      "operationId": "ManagedClusters_ListClusterMonitoringUserCredentials",
+      "parameters": [
+        {},
+        {},
+        {},
+        {},
+        {}
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{resourceName}",
+      "method": "get",
+      "operationId": "ManagedClusters_Get",
+      "parameters": [
+        {},
+        {},
+        {},
+        {}
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{resourceName}",
+      "method": "put",
+      "operationId": "ManagedClusters_CreateOrUpdate",
+      "parameters": [
+        {},
+        {},
+        {},
+        {},
+        {
+          "name": "parameters",
+          "in": "body",
+          "required": true
+        },
+        {
+          "name": "If-Match",
+          "in": "header",
+          "required": false
+        },
+        {
+          "name": "If-None-Match",
+          "in": "header",
+          "required": false
+        }
+      ],
+      "responses": [
+        "200",
+        "201",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{resourceName}",
+      "method": "patch",
+      "operationId": "ManagedClusters_UpdateTags",
+      "parameters": [
+        {},
+        {},
+        {},
+        {},
+        {
+          "name": "parameters",
+          "in": "body",
+          "required": true
+        },
+        {
+          "name": "If-Match",
+          "in": "header",
+          "required": false
+        }
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{resourceName}",
+      "method": "delete",
+      "operationId": "ManagedClusters_Delete",
+      "parameters": [
+        {},
+        {},
+        {},
+        {},
+        {
+          "name": "If-Match",
+          "in": "header",
+          "required": false
+        }
+      ],
+      "responses": [
+        "202",
+        "204",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{resourceName}/maintenanceConfigurations",
+      "method": "get",
+      "operationId": "MaintenanceConfigurations_ListByManagedCluster",
+      "parameters": [
+        {},
+        {},
+        {},
+        {}
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{resourceName}/maintenanceConfigurations/{configName}",
+      "method": "get",
+      "operationId": "MaintenanceConfigurations_Get",
+      "parameters": [
+        {},
+        {},
+        {},
+        {},
+        {
+          "name": "configName",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{resourceName}/maintenanceConfigurations/{configName}",
+      "method": "put",
+      "operationId": "MaintenanceConfigurations_CreateOrUpdate",
+      "parameters": [
+        {},
+        {},
+        {},
+        {},
+        {
+          "name": "configName",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "parameters",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "responses": [
+        "200",
+        "201",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{resourceName}/maintenanceConfigurations/{configName}",
+      "method": "delete",
+      "operationId": "MaintenanceConfigurations_Delete",
+      "parameters": [
+        {},
+        {},
+        {},
+        {},
+        {
+          "name": "configName",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "responses": [
+        "200",
+        "204",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedclusters/{resourceName}/agentPools/{agentPoolName}/abort",
+      "method": "post",
+      "operationId": "AgentPools_AbortLatestOperation",
+      "parameters": [
+        {},
+        {},
+        {},
+        {},
+        {}
+      ],
+      "responses": [
+        "202",
+        "204",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{resourceName}/agentPools",
+      "method": "get",
+      "operationId": "AgentPools_List",
+      "parameters": [
+        {},
+        {},
+        {},
+        {}
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{resourceName}/agentPools/{agentPoolName}",
+      "method": "get",
+      "operationId": "AgentPools_Get",
+      "parameters": [
+        {},
+        {},
+        {},
+        {},
+        {}
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{resourceName}/agentPools/{agentPoolName}",
+      "method": "put",
+      "operationId": "AgentPools_CreateOrUpdate",
+      "parameters": [
+        {},
+        {},
+        {},
+        {},
+        {},
+        {
+          "name": "parameters",
+          "in": "body",
+          "required": true
+        },
+        {
+          "name": "If-Match",
+          "in": "header",
+          "required": false
+        },
+        {
+          "name": "If-None-Match",
+          "in": "header",
+          "required": false
+        }
+      ],
+      "responses": [
+        "200",
+        "201",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{resourceName}/agentPools/{agentPoolName}",
+      "method": "delete",
+      "operationId": "AgentPools_Delete",
+      "parameters": [
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {
+          "name": "If-Match",
+          "in": "header",
+          "required": false
+        }
+      ],
+      "responses": [
+        "202",
+        "204",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{resourceName}/agentPools/{agentPoolName}/upgradeProfiles/default",
+      "method": "get",
+      "operationId": "AgentPools_GetUpgradeProfile",
+      "parameters": [
+        {},
+        {},
+        {},
+        {},
+        {}
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{resourceName}/agentPools/{agentPoolName}/deleteMachines",
+      "method": "post",
+      "operationId": "AgentPools_DeleteMachines",
+      "parameters": [
+        {},
+        {},
+        {},
+        {},
+        {},
+        {
+          "name": "machines",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "responses": [
+        "202",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{resourceName}/availableAgentPoolVersions",
+      "method": "get",
+      "operationId": "AgentPools_GetAvailableAgentPoolVersions",
+      "parameters": [
+        {},
+        {},
+        {},
+        {}
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{resourceName}/resetServicePrincipalProfile",
+      "method": "post",
+      "operationId": "ManagedClusters_ResetServicePrincipalProfile",
+      "parameters": [
+        {},
+        {},
+        {},
+        {},
+        {
+          "name": "parameters",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "responses": [
+        "200",
+        "202",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{resourceName}/resetAADProfile",
+      "method": "post",
+      "operationId": "ManagedClusters_ResetAADProfile",
+      "parameters": [
+        {},
+        {},
+        {},
+        {},
+        {
+          "name": "parameters",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "responses": [
+        "200",
+        "202",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{resourceName}/rotateClusterCertificates",
+      "method": "post",
+      "operationId": "ManagedClusters_RotateClusterCertificates",
+      "parameters": [
+        {},
+        {},
+        {},
+        {}
+      ],
+      "responses": [
+        "202",
+        "204",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedclusters/{resourceName}/abort",
+      "method": "post",
+      "operationId": "ManagedClusters_AbortLatestOperation",
+      "parameters": [
+        {},
+        {},
+        {},
+        {}
+      ],
+      "responses": [
+        "202",
+        "204",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{resourceName}/rotateServiceAccountSigningKeys",
+      "method": "post",
+      "operationId": "ManagedClusters_RotateServiceAccountSigningKeys",
+      "parameters": [
+        {},
+        {},
+        {},
+        {}
+      ],
+      "responses": [
+        "202",
+        "204",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{resourceName}/stop",
+      "method": "post",
+      "operationId": "ManagedClusters_Stop",
+      "parameters": [
+        {},
+        {},
+        {},
+        {}
+      ],
+      "responses": [
+        "202",
+        "204",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{resourceName}/start",
+      "method": "post",
+      "operationId": "ManagedClusters_Start",
+      "parameters": [
+        {},
+        {},
+        {},
+        {}
+      ],
+      "responses": [
+        "202",
+        "204",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{resourceName}/privateEndpointConnections",
+      "method": "get",
+      "operationId": "PrivateEndpointConnections_List",
+      "parameters": [
+        {},
+        {},
+        {},
+        {}
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{resourceName}/privateEndpointConnections/{privateEndpointConnectionName}",
+      "method": "get",
+      "operationId": "PrivateEndpointConnections_Get",
+      "parameters": [
+        {},
+        {},
+        {},
+        {},
+        {
+          "name": "privateEndpointConnectionName",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{resourceName}/privateEndpointConnections/{privateEndpointConnectionName}",
+      "method": "put",
+      "operationId": "PrivateEndpointConnections_Update",
+      "parameters": [
+        {},
+        {},
+        {},
+        {},
+        {
+          "name": "privateEndpointConnectionName",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "parameters",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "responses": [
+        "200",
+        "201",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{resourceName}/privateEndpointConnections/{privateEndpointConnectionName}",
+      "method": "delete",
+      "operationId": "PrivateEndpointConnections_Delete",
+      "parameters": [
+        {},
+        {},
+        {},
+        {},
+        {
+          "name": "privateEndpointConnectionName",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "responses": [
+        "200",
+        "204",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{resourceName}/agentPools/{agentPoolName}/upgradeNodeImageVersion",
+      "method": "post",
+      "operationId": "AgentPools_UpgradeNodeImageVersion",
+      "parameters": [
+        {},
+        {},
+        {},
+        {},
+        {}
+      ],
+      "responses": [
+        "200",
+        "202",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{resourceName}/privateLinkResources",
+      "method": "get",
+      "operationId": "PrivateLinkResources_List",
+      "parameters": [
+        {},
+        {},
+        {},
+        {}
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{resourceName}/resolvePrivateLinkServiceId",
+      "method": "post",
+      "operationId": "ResolvePrivateLinkServiceId_POST",
+      "parameters": [
+        {},
+        {},
+        {},
+        {},
+        {
+          "name": "parameters",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{resourceName}/runCommand",
+      "method": "post",
+      "operationId": "ManagedClusters_RunCommand",
+      "parameters": [
+        {},
+        {},
+        {},
+        {},
+        {
+          "name": "requestPayload",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "responses": [
+        "200",
+        "202",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{resourceName}/commandResults/{commandId}",
+      "method": "get",
+      "operationId": "ManagedClusters_GetCommandResult",
+      "parameters": [
+        {},
+        {},
+        {},
+        {},
+        {
+          "name": "commandId",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "responses": [
+        "200",
+        "202",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{resourceName}/outboundNetworkDependenciesEndpoints",
+      "method": "get",
+      "operationId": "ManagedClusters_ListOutboundNetworkDependenciesEndpoints",
+      "parameters": [
+        {},
+        {},
+        {},
+        {}
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/providers/Microsoft.ContainerService/snapshots",
+      "method": "get",
+      "operationId": "Snapshots_List",
+      "parameters": [
+        {},
+        {}
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/snapshots",
+      "method": "get",
+      "operationId": "Snapshots_ListByResourceGroup",
+      "parameters": [
+        {},
+        {},
+        {}
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/snapshots/{resourceName}",
+      "method": "get",
+      "operationId": "Snapshots_Get",
+      "parameters": [
+        {},
+        {},
+        {},
+        {}
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/snapshots/{resourceName}",
+      "method": "put",
+      "operationId": "Snapshots_CreateOrUpdate",
+      "parameters": [
+        {},
+        {},
+        {},
+        {},
+        {
+          "name": "parameters",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "responses": [
+        "200",
+        "201",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/snapshots/{resourceName}",
+      "method": "patch",
+      "operationId": "Snapshots_UpdateTags",
+      "parameters": [
+        {},
+        {},
+        {},
+        {},
+        {
+          "name": "parameters",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/snapshots/{resourceName}",
+      "method": "delete",
+      "operationId": "Snapshots_Delete",
+      "parameters": [
+        {},
+        {},
+        {},
+        {}
+      ],
+      "responses": [
+        "200",
+        "204",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/providers/Microsoft.ContainerService/locations/{location}/meshRevisionProfiles",
+      "method": "get",
+      "operationId": "ManagedClusters_ListMeshRevisionProfiles",
+      "parameters": [
+        {},
+        {},
+        {}
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/providers/Microsoft.ContainerService/locations/{location}/meshRevisionProfiles/{mode}",
+      "method": "get",
+      "operationId": "ManagedClusters_GetMeshRevisionProfile",
+      "parameters": [
+        {},
+        {},
+        {},
+        {}
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{resourceName}/meshUpgradeProfiles",
+      "method": "get",
+      "operationId": "ManagedClusters_ListMeshUpgradeProfiles",
+      "parameters": [
+        {},
+        {},
+        {},
+        {}
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{resourceName}/meshUpgradeProfiles/{mode}",
+      "method": "get",
+      "operationId": "ManagedClusters_GetMeshUpgradeProfile",
+      "parameters": [
+        {},
+        {},
+        {},
+        {},
+        {}
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{resourceName}/trustedAccessRoleBindings",
+      "method": "get",
+      "operationId": "TrustedAccessRoleBindings_List",
+      "parameters": [
+        {},
+        {},
+        {},
+        {}
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{resourceName}/trustedAccessRoleBindings/{trustedAccessRoleBindingName}",
+      "method": "get",
+      "operationId": "TrustedAccessRoleBindings_Get",
+      "parameters": [
+        {},
+        {},
+        {},
+        {},
+        {}
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{resourceName}/trustedAccessRoleBindings/{trustedAccessRoleBindingName}",
+      "method": "put",
+      "operationId": "TrustedAccessRoleBindings_CreateOrUpdate",
+      "parameters": [
+        {},
+        {},
+        {},
+        {},
+        {},
+        {
+          "name": "trustedAccessRoleBinding",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "responses": [
+        "200",
+        "201",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{resourceName}/trustedAccessRoleBindings/{trustedAccessRoleBindingName}",
+      "method": "delete",
+      "operationId": "TrustedAccessRoleBindings_Delete",
+      "parameters": [
+        {},
+        {},
+        {},
+        {},
+        {}
+      ],
+      "responses": [
+        "202",
+        "204",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/providers/Microsoft.ContainerService/locations/{location}/trustedAccessRoles",
+      "method": "get",
+      "operationId": "TrustedAccessRoles_List",
+      "parameters": [
+        {},
+        {},
+        {}
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{resourceName}/agentPools/{agentPoolName}/machines",
+      "method": "get",
+      "operationId": "Machines_List",
+      "parameters": [
+        {},
+        {},
+        {},
+        {},
+        {}
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{resourceName}/agentPools/{agentPoolName}/machines/{machineName}",
+      "method": "get",
+      "operationId": "Machines_Get",
+      "parameters": [
+        {},
+        {},
+        {},
+        {},
+        {},
+        {}
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    }
+  ]
+}

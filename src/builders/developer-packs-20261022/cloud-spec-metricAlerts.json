@@ -1,0 +1,135 @@
+{
+  "source": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/main/specification/monitor/resource-manager/Microsoft.Insights/Insights/stable/2018-03-01/metricAlert_API.json",
+  "version": "2018-03-01",
+  "operations": [
+    {
+      "path": "/subscriptions/{subscriptionId}/providers/Microsoft.Insights/metricAlerts",
+      "method": "get",
+      "operationId": "MetricAlerts_ListBySubscription",
+      "parameters": [
+        {},
+        {}
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/metricAlerts",
+      "method": "get",
+      "operationId": "MetricAlerts_ListByResourceGroup",
+      "parameters": [
+        {},
+        {},
+        {}
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/metricAlerts/{ruleName}",
+      "method": "get",
+      "operationId": "MetricAlerts_Get",
+      "parameters": [
+        {},
+        {},
+        {},
+        {}
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/metricAlerts/{ruleName}",
+      "method": "put",
+      "operationId": "MetricAlerts_CreateOrUpdate",
+      "parameters": [
+        {},
+        {},
+        {},
+        {},
+        {
+          "name": "parameters",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/metricAlerts/{ruleName}",
+      "method": "patch",
+      "operationId": "MetricAlerts_Update",
+      "parameters": [
+        {},
+        {},
+        {},
+        {},
+        {
+          "name": "parameters",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/metricAlerts/{ruleName}",
+      "method": "delete",
+      "operationId": "MetricAlerts_Delete",
+      "parameters": [
+        {},
+        {},
+        {},
+        {}
+      ],
+      "responses": [
+        "200",
+        "204",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/metricAlerts/{ruleName}/status",
+      "method": "get",
+      "operationId": "MetricAlertsStatus_List",
+      "parameters": [
+        {},
+        {},
+        {},
+        {}
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/metricAlerts/{ruleName}/status/{statusName}",
+      "method": "get",
+      "operationId": "MetricAlertsStatus_ListByName",
+      "parameters": [
+        {},
+        {},
+        {},
+        {},
+        {}
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    }
+  ]
+}

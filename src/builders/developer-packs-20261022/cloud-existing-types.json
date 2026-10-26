@@ -1,0 +1,188 @@
+[
+  {
+    "id": "def_b04c995df0e8",
+    "version": 1,
+    "name": "Azure Project",
+    "schema": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "anyOf": [
+            {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            {
+              "$ref": "#/definitions/json_value"
+            }
+          ]
+        },
+        "name": {
+          "anyOf": [
+            {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            {
+              "$ref": "#/definitions/json_value"
+            }
+          ]
+        },
+        "url": {
+          "anyOf": [
+            {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            {
+              "$ref": "#/definitions/json_value"
+            }
+          ]
+        },
+        "state": {
+          "anyOf": [
+            {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            {
+              "$ref": "#/definitions/json_value"
+            }
+          ]
+        },
+        "description": {
+          "anyOf": [
+            {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            {
+              "$ref": "#/definitions/json_value"
+            }
+          ]
+        },
+        "visibility": {
+          "anyOf": [
+            {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            {
+              "$ref": "#/definitions/json_value"
+            }
+          ]
+        },
+        "revision": {
+          "anyOf": [
+            {
+              "anyOf": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            {
+              "$ref": "#/definitions/json_value"
+            }
+          ]
+        },
+        "lastUpdateTime": {
+          "anyOf": [
+            {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            {
+              "$ref": "#/definitions/json_value"
+            }
+          ]
+        }
+      },
+      "required": [],
+      "additionalProperties": {
+        "$ref": "#/definitions/json_value"
+      },
+      "definitions": {
+        "json_record": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/json_value"
+          }
+        },
+        "json_list": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/json_value"
+          }
+        },
+        "json_value": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "number"
+            },
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            },
+            {
+              "$ref": "#/definitions/json_record"
+            },
+            {
+              "$ref": "#/definitions/json_list"
+            }
+          ]
+        }
+      }
+    }
+  }
+]

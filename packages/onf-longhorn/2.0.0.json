@@ -1,0 +1,1298 @@
+{
+  "schemaVersion": 1,
+  "id": "onf.longhorn",
+  "name": "Longhorn",
+  "version": "2.0.0",
+  "description": "Read-only Longhorn operator inspection through explicit installed CRD endpoints. No reconcile, rollout, restore, backup execution or secret object reads.",
+  "permissions": {
+    "secrets": [],
+    "network": false,
+    "filesystem": false,
+    "description": "Provider operations may read/write/delete external resources, refresh OAuth tokens, send mail, access local files or mutate ONF state when deliberately executed. Required credential names are configured per node; inspect each pinned definition help and connection settings. Declarations are advisory, not a sandbox. Installation runs no code."
+  },
+  "definitions": [
+    {
+      "id": "def_139906346c9b",
+      "version": 1,
+      "name": "Kubernetes Resource",
+      "kind": "type",
+      "category": "Developer integrations",
+      "color": "#326ce5",
+      "runtime": "javascript",
+      "inputs": [],
+      "outputs": [],
+      "configSchema": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      },
+      "code": "",
+      "description": "Reusable Kubernetes Resource contract.",
+      "documentation": "Kubernetes Resource preserves known provider fields and explicit JSON extensions. It is shared across the Kubernetes operations that use this resource. Optional absence and explicit null are distinct.\n\nSchema:\n\n```json\n{\n  \"type\": \"object\",\n  \"properties\": {\n    \"apiVersion\": {\n      \"type\": \"string\"\n    },\n    \"kind\": {\n      \"type\": \"string\"\n    },\n    \"metadata\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"name\": {\n          \"type\": \"string\"\n        },\n        \"namespace\": {\n          \"type\": \"string\"\n        },\n        \"uid\": {\n          \"type\": \"string\"\n        },\n        \"resourceVersion\": {\n          \"type\": \"string\"\n        },\n        \"generation\": {\n          \"type\": \"number\"\n        },\n        \"labels\": {\n          \"type\": \"object\",\n          \"additionalProperties\": {\n            \"type\": \"string\"\n          }\n        },\n        \"annotations\": {\n          \"type\": \"object\",\n          \"additionalProperties\": {\n            \"type\": \"string\"\n          }\n        }\n      },\n      \"additionalProperties\": {\n        \"$ref\": \"#/definitions/ONFJsonValue\"\n      }\n    },\n    \"spec\": {\n      \"type\": \"object\",\n      \"additionalProperties\": {\n        \"$ref\": \"#/definitions/ONFJsonValue\"\n      }\n    },\n    \"status\": {\n      \"type\": \"object\",\n      \"additionalProperties\": {\n        \"$ref\": \"#/definitions/ONFJsonValue\"\n      }\n    },\n    \"data\": {\n      \"type\": \"object\",\n      \"additionalProperties\": {\n        \"type\": \"string\"\n      }\n    },\n    \"binaryData\": {\n      \"type\": \"object\",\n      \"additionalProperties\": {\n        \"type\": \"string\"\n      }\n    },\n    \"reason\": {\n      \"type\": \"string\"\n    },\n    \"message\": {\n      \"type\": \"string\"\n    },\n    \"type\": {\n      \"type\": \"string\"\n    },\n    \"count\": {\n      \"type\": \"number\"\n    },\n    \"lastTimestamp\": {\n      \"type\": \"string\"\n    },\n    \"involvedObject\": {\n      \"type\": \"object\",\n      \"additionalProperties\": {\n        \"$ref\": \"#/definitions/ONFJsonValue\"\n      }\n    }\n  },\n  \"additionalProperties\": {\n    \"$ref\": \"#/definitions/ONFJsonValue\"\n  },\n  \"definitions\": {\n    \"ONFJsonValue\": {\n      \"anyOf\": [\n        {\n          \"type\": \"null\"\n        },\n        {\n          \"type\": \"string\"\n        },\n        {\n          \"type\": \"number\"\n        },\n        {\n          \"type\": \"boolean\"\n        },\n        {\n          \"type\": \"array\",\n          \"items\": {\n            \"$ref\": \"#/definitions/ONFJsonValue\"\n          }\n        },\n        {\n          \"type\": \"object\",\n          \"additionalProperties\": {\n            \"$ref\": \"#/definitions/ONFJsonValue\"\n          }\n        }\n      ]\n    }\n  }\n}\n```\n\nSource: https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.34/ https://kubernetes.io/docs/reference/using-api/api-concepts/\n\nPure type; no credentials or external effects.",
+      "createdAt": "2026-10-22T00:00:00.000Z",
+      "updatedAt": "2026-10-22T00:00:00.000Z",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "apiVersion": {
+            "type": "string"
+          },
+          "kind": {
+            "type": "string"
+          },
+          "metadata": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "namespace": {
+                "type": "string"
+              },
+              "uid": {
+                "type": "string"
+              },
+              "resourceVersion": {
+                "type": "string"
+              },
+              "generation": {
+                "type": "number"
+              },
+              "labels": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                }
+              },
+              "annotations": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                }
+              }
+            },
+            "additionalProperties": {
+              "$ref": "#/definitions/ONFJsonValue"
+            }
+          },
+          "spec": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/definitions/ONFJsonValue"
+            }
+          },
+          "status": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/definitions/ONFJsonValue"
+            }
+          },
+          "data": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          },
+          "binaryData": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          },
+          "reason": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "count": {
+            "type": "number"
+          },
+          "lastTimestamp": {
+            "type": "string"
+          },
+          "involvedObject": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/definitions/ONFJsonValue"
+            }
+          }
+        },
+        "additionalProperties": {
+          "$ref": "#/definitions/ONFJsonValue"
+        },
+        "definitions": {
+          "ONFJsonValue": {
+            "anyOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "string"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/ONFJsonValue"
+                }
+              },
+              {
+                "type": "object",
+                "additionalProperties": {
+                  "$ref": "#/definitions/ONFJsonValue"
+                }
+              }
+            ]
+          }
+        }
+      },
+      "builtin": false
+    },
+    {
+      "id": "def_3d914764b270",
+      "version": 1,
+      "name": "Longhorn List Backups",
+      "kind": "node",
+      "category": "Developer integrations",
+      "color": "#5c4c9f",
+      "runtime": "javascript",
+      "inputs": [
+        {
+          "id": "exec",
+          "name": "Execute",
+          "type": "control"
+        },
+        {
+          "id": "namespace",
+          "name": "Namespace",
+          "type": "string",
+          "required": false
+        },
+        {
+          "id": "labelSelector",
+          "name": "LabelSelector",
+          "type": "string",
+          "required": false
+        },
+        {
+          "id": "limit",
+          "name": "Limit",
+          "type": "number",
+          "required": false
+        },
+        {
+          "id": "continuation",
+          "name": "Continuation",
+          "type": "string"
+        }
+      ],
+      "outputs": [
+        {
+          "id": "next",
+          "name": "Next",
+          "type": "control"
+        },
+        {
+          "id": "status",
+          "name": "Status",
+          "type": "number",
+          "required": true
+        },
+        {
+          "id": "request_id",
+          "name": "Request Id",
+          "type": "string"
+        },
+        {
+          "id": "operation_url",
+          "name": "Operation Url",
+          "type": "string"
+        },
+        {
+          "id": "items",
+          "name": "Items",
+          "type": "def_4b6da585e57e",
+          "typeVersion": 1,
+          "required": true
+        },
+        {
+          "id": "count",
+          "name": "Count",
+          "type": "number",
+          "required": true
+        },
+        {
+          "id": "has_more",
+          "name": "Has More",
+          "type": "boolean",
+          "required": true
+        },
+        {
+          "id": "continuation",
+          "name": "Continuation",
+          "type": "string"
+        },
+        {
+          "id": "error",
+          "name": "On error",
+          "type": "control"
+        }
+      ],
+      "configSchema": {
+        "type": "object",
+        "properties": {
+          "baseUrl": {
+            "type": "string",
+            "maxLength": 2000
+          },
+          "allowHttp": {
+            "type": "boolean",
+            "default": false
+          },
+          "tokenSecret": {
+            "type": "string",
+            "maxLength": 120
+          },
+          "username": {
+            "type": "string",
+            "maxLength": 160
+          },
+          "usernameSecret": {
+            "type": "string",
+            "maxLength": 120
+          },
+          "passwordSecret": {
+            "type": "string",
+            "maxLength": 120
+          },
+          "requestTimeoutMs": {
+            "type": "integer",
+            "minimum": 100,
+            "maximum": 120000,
+            "default": 15000
+          },
+          "maxBytes": {
+            "type": "integer",
+            "minimum": 1024,
+            "maximum": 3000000,
+            "default": 1048576
+          },
+          "maxPages": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 20,
+            "default": 1
+          },
+          "maxItems": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 5000,
+            "default": 1000
+          },
+          "confirmWrites": {
+            "type": "boolean",
+            "default": false
+          }
+        },
+        "additionalProperties": true
+      },
+      "code": "return await (async function runOperation(family,operation,inputs,config,context,fetcher=fetch){\n  const own=(o,k)=>o!==null&&typeof o==='object'&&Object.hasOwn(o,k);\n  const integer=(v,min,max,label)=>{if(!Number.isSafeInteger(v)||v<min||v>max)throw new Error(label+' outside bounds');return v;};\n  const get=(value,path=[])=>path.reduce((v,k)=>own(v,k)?v[k]:undefined,value);\n  const byteLength=v=>Buffer.byteLength(typeof v==='string'?v:JSON.stringify(v));\n  let connection;\n  if(config.$connection){if(!context.connections?.get)throw new Error('Connection profile unavailable');connection=await context.connections.get();}\n  const effective={...(connection?.config??{}),...config};\n  const maxBytes=integer(effective.maxBytes??1048576,1024,3000000,'maxBytes');\n  const maxPages=integer(effective.maxPages??1,1,20,'maxPages');\n  const maxItems=integer(effective.maxItems??1000,1,5000,'maxItems');\n  const timeout=integer(effective.requestTimeoutMs??15000,100,120000,'requestTimeoutMs');\n  const deadline=Date.now()+timeout;\n  if(operation.effect!=='read'){\n    if(effective.confirmWrites!==true)throw new Error('Enable confirmWrites for this external action');\n    if((effective.$retries??0)>0)throw new Error('External actions require $retries=0; reconcile uncertain completion before retry');\n  }\n  // A small self-contained JSON Schema validator for declared outbound argument bounds.\n  // Provider resource/socket schemas are also validated by ONF before/after execution.\n  const finiteJson=(value,seen=new Set(),depth=0)=>{if(depth>90)return false;if(value===null||typeof value==='string'||typeof value==='boolean')return true;if(typeof value==='number')return Number.isFinite(value);if(!value||typeof value!=='object'||seen.has(value))return false;seen.add(value);const valid=(Array.isArray(value)?value:Object.values(value)).every(v=>finiteJson(v,seen,depth+1));seen.delete(value);return valid;};\n  const matches=(schema,value,root=schema,depth=0)=>{\n    if(depth>100||schema===false)return false;if(schema===true||!schema)return true;\n    if(schema.$ref){if(!schema.$ref.startsWith('#/'))return false;const target=schema.$ref.slice(2).split('/').reduce((v,k)=>v?.[k.replaceAll('~1','/').replaceAll('~0','~')],root);return target!==undefined&&matches(target,value,root,depth+1);}\n    if(schema.anyOf&&!schema.anyOf.some(s=>matches(s,value,root,depth+1)))return false;\n    if(schema.oneOf&&schema.oneOf.filter(s=>matches(s,value,root,depth+1)).length!==1)return false;\n    if(schema.allOf&&!schema.allOf.every(s=>matches(s,value,root,depth+1)))return false;\n    if(schema.not&&matches(schema.not,value,root,depth+1))return false;\n    if(own(schema,'const')&&JSON.stringify(value)!==JSON.stringify(schema.const)||schema.enum&&!schema.enum.some(v=>JSON.stringify(v)===JSON.stringify(value)))return false;\n    const type=Array.isArray(value)?'array':value===null?'null':typeof value;\n    if(schema.type&&!([].concat(schema.type)).some(t=>t===type||t==='integer'&&type==='number'&&Number.isSafeInteger(value)))return false;\n    if(type==='number'&&(schema.minimum!==undefined&&value<schema.minimum||schema.maximum!==undefined&&value>schema.maximum||schema.exclusiveMinimum!==undefined&&value<=schema.exclusiveMinimum||schema.exclusiveMaximum!==undefined&&value>=schema.exclusiveMaximum))return false;\n    if(type==='string'&&(schema.minLength!==undefined&&[...value].length<schema.minLength||schema.maxLength!==undefined&&[...value].length>schema.maxLength||schema.pattern&&!(new RegExp(schema.pattern,'u')).test(value)))return false;\n    if(type==='array'){\n      if(schema.minItems!==undefined&&value.length<schema.minItems||schema.maxItems!==undefined&&value.length>schema.maxItems||schema.uniqueItems&&new Set(value.map(v=>JSON.stringify(v))).size!==value.length)return false;\n      if(schema.items&&!value.every((v,index)=>matches(Array.isArray(schema.items)?schema.items[index]??schema.additionalItems??true:schema.items,v,root,depth+1)))return false;\n    }\n    if(type==='object'){\n      if((schema.required??[]).some(k=>!own(value,k))||schema.minProperties!==undefined&&Object.keys(value).length<schema.minProperties||schema.maxProperties!==undefined&&Object.keys(value).length>schema.maxProperties)return false;\n      for(const[k,v]of Object.entries(value)){\n        if(own(schema.properties??{},k)){if(!matches(schema.properties[k],v,root,depth+1))return false;}\n        else{const patterns=Object.entries(schema.patternProperties??{}).filter(([pattern])=>(new RegExp(pattern,'u')).test(k));if(patterns.length){if(!patterns.every(([,s])=>matches(s,v,root,depth+1)))return false;}else if(schema.additionalProperties===false||schema.additionalProperties&&typeof schema.additionalProperties==='object'&&!matches(schema.additionalProperties,v,root,depth+1))return false;}\n      }\n    }\n    return true;\n  };\n  const values={};\n  for(const[key,descriptor]of Object.entries(operation.inputs??{})){\n    const value=own(inputs,key)?inputs[key]:own(effective,key)?effective[key]:descriptor.default;\n    if(value===undefined){if(descriptor.required)throw new Error('Missing input '+key);continue;}\n    const t=descriptor.type;\n    if(t==='string'&&typeof value!=='string'||t==='number'&&(typeof value!=='number'||!Number.isFinite(value))||t==='boolean'&&typeof value!=='boolean'||t==='record'&&(!value||typeof value!=='object'||Array.isArray(value))||t==='list'&&!Array.isArray(value))throw new Error('Invalid input '+key);\n    if(!finiteJson(value)||descriptor.schema&&!matches(descriptor.schema,value))throw new Error('Input '+key+' violates declared schema');\n    values[key]=value;\n  }\n  const template=value=>{\n    if(value&&typeof value==='object'&&!Array.isArray(value)&&typeof value.input==='string'){\n      const v=values[value.input];if(v===undefined&&!value.optional)throw new Error('Missing input '+value.input);return v;\n    }\n    if(Array.isArray(value))return value.map(template);\n    if(value&&typeof value==='object')return Object.fromEntries(Object.entries(value).map(([k,v])=>[k,template(v)]).filter(([,v])=>v!==undefined));\n    return value;\n  };\n  const baseText=effective.baseUrl??operation.baseUrl??family.baseUrl;\n  let base;try{base=new URL(baseText);}catch{throw new Error('Configure a valid baseUrl');}\n  const loopback=['localhost','127.0.0.1','[::1]'].includes(base.hostname);\n  const host=base.hostname.toLowerCase(),privateHost=/^(?:10\\.|192\\.168\\.|172\\.(?:1[6-9]|2\\d|3[01])\\.)/.test(host)||/^\\[(?:fc|fd)[0-9a-f:]+\\]$/i.test(host)||/\\.(?:cluster|lan|local)$/.test(host)||/^[a-z][a-z0-9-]*$/.test(host);\n  if(!['http:','https:'].includes(base.protocol)||base.username||base.password||base.search||base.hash||base.protocol==='http:'&&!loopback&&!(effective.allowHttp===true&&privateHost))throw new Error('Use HTTPS baseUrl without credentials, query or fragment; private HTTP requires allowHttp');\n  // Keep explicitly configured reverse-proxy API prefixes (e.g. Rancher proxy paths).\n  const root=base.pathname.replace(/\\/$/,'');\n  const segment=(name,greedy)=>{\n    const value=values[name];if(value===undefined||value===null||String(value)==='')throw new Error('Missing path input '+name);\n    const text=String(value);\n    if(/[?#\\\\\\u0000-\\u001f]/.test(text))throw new Error('Invalid path input '+name);\n    if(greedy&&!text.startsWith('/'))throw new Error('Resource path must begin with /');\n    const parts=greedy?text.slice(1).split('/'):[text];\n    if(parts.some(p=>!p||p==='.'||p==='..'||/%(?:2e|2f|5c)/i.test(p)))throw new Error('Invalid path segment '+name);\n    return(greedy?'/':'')+parts.map(encodeURIComponent).join('/');\n  };\n  const path=operation.path.replace(/\\{([A-Za-z_][A-Za-z0-9_]*)(\\*)?\\}/g,(_,key,greedy)=>segment(key,greedy));\n  if(!path.startsWith('/')||/[?#\\\\]/.test(path)||path.split('/').some(p=>p==='.'||p==='..'))throw new Error('Invalid operation path');\n  let url=new URL(base.origin+root+path);\n  for(const[k,v]of Object.entries(template(operation.query??{})))if(v!==undefined)url.searchParams.set(k,typeof v==='object'?JSON.stringify(v):String(v));\n  const paging=operation.paging;\n  const originalUrl=url.href;\n  const safeNext=text=>{let next;try{next=new URL(text,url);}catch{throw new Error('Invalid continuation URL');}if(next.origin!==base.origin||next.username||next.password||next.hash||root&&next.pathname!==root&&!next.pathname.startsWith(root+'/')||next.pathname!==new URL(originalUrl).pathname)throw new Error('Continuation leaves the configured API endpoint');return next;};\n  const continued=inputs.continuation??effective.continuation;\n  if(continued!==undefined&&continued!==''){\n    if(!paging)throw new Error('This operation does not support continuation');\n    if(['url','link'].includes(paging.kind))url=safeNext(String(continued));else if(paging.location!=='body')url.searchParams.set(paging.parameter,String(continued));\n  }\n  if(paging?.kind==='page'||paging?.kind==='offset'){\n    if(!url.searchParams.has(paging.parameter))url.searchParams.set(paging.parameter,paging.kind==='offset'?'0':'1');\n    if(paging.sizeParameter)url.searchParams.set(paging.sizeParameter,String(paging.size??100));\n  }\n  const headers=new Headers(template(operation.headers??{}));\n  headers.set('accept',operation.accept??'application/json');\n  const auth=family.auth??{kind:'none'},credentials=connection?.credentials??{};\n  const secret=(name,optional=false)=>{if(!name)return undefined;let v;try{v=context.secrets.get(name);}catch{if(optional)return undefined;throw new Error('Required credential secret is unavailable');}return v;};\n  const token=auth.kind==='none'||auth.kind==='basic'&&(credentials.password||effective.passwordSecret)?undefined:credentials.accessToken??credentials.apiKey??secret(effective.tokenSecret??auth.secret,auth.optional&&!effective.tokenSecret);\n  if(auth.kind==='bearer'||auth.kind==='header'){\n    if(!token&&!auth.optional)throw new Error('Configure credential secret or connection profile');\n    if(token){if(typeof token!=='string'||/[\\r\\n\\u0000]/.test(token))throw new Error('Credential is not a valid header value');try{headers.set(auth.kind==='bearer'?'authorization':auth.header,(auth.kind==='bearer'?'Bearer ':auth.prefix??'')+token);}catch{throw new Error('Credential is not a valid header value');}}\n  }else if(auth.kind==='basic'){\n    const username=credentials.username??(effective.usernameSecret?secret(effective.usernameSecret):effective.username??auth.username??'');\n    const password=credentials.password??(effective.passwordSecret?secret(effective.passwordSecret):token);\n    if(typeof password!=='string'||!password||/[\\r\\n]/.test(username))throw new Error('Configure Basic credential secrets or connection profile');\n    headers.set('authorization','Basic '+Buffer.from(username+':'+password).toString('base64'));\n  }else if(auth.kind!=='none')throw new Error('Unsupported authentication kind');\n  const rawBody=operation.body===undefined?undefined:template(operation.body);\n  if(paging?.location==='body'&&continued!==undefined&&continued!==''){if(!rawBody||typeof rawBody!=='object'||Array.isArray(rawBody))throw new Error('Body pagination requires a JSON object');rawBody[paging.parameter]=String(continued);}\n  const serializeBody=()=>{if(rawBody===undefined)return undefined;const value=operation.bodyMode==='text'?String(rawBody):JSON.stringify(rawBody);headers.set('content-type',operation.contentType??'application/json');if(byteLength(value)>maxBytes)throw new Error('Request exceeds maxBytes');return value;};\n  let body=serializeBody();\n  const method=operation.method??'GET';\n  let pages=0,totalBytes=0,items=[],lastResponse,data,continuation;\n  const seen=new Set();\n  do{\n    const requestIdentity=url.href+'\\n'+(body??'');if(seen.has(requestIdentity))throw new Error('Repeated continuation detected');seen.add(requestIdentity);\n    const remaining=deadline-Date.now();if(remaining<=0)throw new Error('Request deadline exceeded');\n    try{lastResponse=await fetcher(url,{method,headers,body,redirect:'error',signal:AbortSignal.timeout(remaining)});}catch{throw new Error(family.name+' transport failed'+(operation.effect==='read'?'':'; external completion is uncertain; reconcile before retry'));}\n    if(!lastResponse.ok&&!operation.acceptedStatuses?.includes(lastResponse.status)){try{await lastResponse.body?.cancel();}catch{}throw new Error(family.name+' HTTP '+lastResponse.status+(operation.effect==='read'?'':' ; action may have been accepted; reconcile before retry'));}\n    const advertised=Number(lastResponse.headers.get('content-length'));if(Number.isFinite(advertised)&&advertised>maxBytes-totalBytes){try{await lastResponse.body?.cancel();}catch{}throw new Error('Response exceeds maxBytes');}\n    const reader=lastResponse.body?.getReader();let text='';\n    if(reader){const chunks=[];let bytes=0;try{while(true){const part=await reader.read();if(part.done)break;bytes+=part.value.byteLength;totalBytes+=part.value.byteLength;if(totalBytes>maxBytes)throw new Error('Response exceeds maxBytes');chunks.push(part.value);}}catch(e){try{await reader.cancel();}catch{}throw new Error(e.message==='Response exceeds maxBytes'?e.message:family.name+' response interrupted'+(operation.effect==='read'?'':'; external completion uncertain'));}text=Buffer.concat(chunks.map(c=>Buffer.from(c)),bytes).toString('utf8');}\n    else{text=await lastResponse.text();totalBytes+=byteLength(text);if(totalBytes>maxBytes)throw new Error('Response exceeds maxBytes');}\n    if(operation.response.kind==='text')data=text;\n    else if(operation.response.kind==='empty'&&!operation.response.successPath)data=undefined;\n    else{try{data=text.length?JSON.parse(text):undefined;}catch{throw new Error(family.name+' returned invalid JSON');}}\n    if(operation.response.successPath&&get(data,operation.response.successPath)!==(operation.response.successValue??true))throw new Error(family.name+' returned an unsuccessful API result');\n    pages++;\n    continuation=undefined;\n    const value=get(data,operation.response.path);\n    const selected=value===undefined&&operation.response.fallbackPath?get(data,operation.response.fallbackPath):value;\n    if(operation.response.kind==='list'){\n      if(!Array.isArray(selected))throw new Error('Expected provider list at documented response path');\n      if(items.length+selected.length>maxItems)throw new Error('Response exceeds maxItems; request a smaller page');\n      items.push(...selected);\n      if(paging?.kind==='url'||paging?.kind==='token')continuation=get(data,paging.path);\n      else if(paging?.kind==='header')continuation=lastResponse.headers.get(paging.header)??undefined;\n      else if(paging?.kind==='link'){\n        const link=lastResponse.headers.get('link')??'';\n        continuation=link.split(',').map(p=>p.trim()).filter(p=>!/(?:^|;)\\s*results=\"?false\"?(?:;|$)/i.test(p)).map(p=>p.match(/^<([^>]+)>;\\s*rel=\"?next\"?(?:;.*)?$/)).find(Boolean)?.[1];\n      }else if(paging?.kind==='page'&&selected.length===(paging.size??100))continuation=String(Number(url.searchParams.get(paging.parameter)??1)+1);\n      else if(paging?.kind==='offset'){\n        const offset=Number(url.searchParams.get(paging.parameter)??0),size=Number(url.searchParams.get(paging.sizeParameter)??paging.size??100);\n        const more=paging.morePath?get(data,paging.morePath):paging.totalPath?offset+selected.length<get(data,paging.totalPath):selected.length===size;\n        if(more&&selected.length)continuation=String(offset+selected.length);\n      }\n    }\n    if(continuation===null||continuation==='')continuation=undefined;\n    if(continuation!==undefined&&typeof continuation!=='string'&&typeof continuation!=='number')throw new Error('Invalid continuation token');\n    if(!continuation||pages>=maxPages)break;\n    if(operation.effect!=='read')throw new Error('Cannot paginate an external action');\n    if(['url','link'].includes(paging.kind))url=safeNext(String(continuation));else if(paging.location==='body'){if(!rawBody||typeof rawBody!=='object'||Array.isArray(rawBody))throw new Error('Body pagination requires a JSON object');rawBody[paging.parameter]=String(continuation);body=serializeBody();}else url.searchParams.set(paging.parameter,String(continuation));\n  }while(true);\n  const result={status:lastResponse.status};\n  const requestId=lastResponse.headers.get('x-ms-request-id')??lastResponse.headers.get('x-request-id')??lastResponse.headers.get('x-github-request-id');if(requestId)result.request_id=requestId;\n  const operationLocation=lastResponse.headers.get('azure-asyncoperation')??lastResponse.headers.get('operation-location')??(lastResponse.status===202?lastResponse.headers.get('location'):undefined);if(operationLocation){const location=new URL(operationLocation,url);if(location.origin===base.origin&&!location.username&&!location.password&&!location.hash)result.operation_url=location.href;}\n  const value=get(data,operation.response.path),selected=value===undefined&&operation.response.fallbackPath?get(data,operation.response.fallbackPath):value;\n  if(operation.response.kind==='item'){if(selected===undefined&&operation.response.optional===true&&lastResponse.status===202){}else{if(selected===undefined||selected===null||typeof selected!=='object'||Array.isArray(selected))throw new Error('Expected provider object at documented response path');result.item=selected;}}\n  else if(operation.response.kind==='list'){result.items=items;result.count=items.length;result.has_more=continuation!==undefined;if(continuation!==undefined)result.continuation=String(continuation);}\n  else if(operation.response.kind==='json'){if(selected===undefined)throw new Error('Expected JSON at documented response path');result.value=selected;}\n  else if(operation.response.kind==='text')result.text=data;\n  for(const[key,path]of Object.entries(operation.response.select??{})){const v=get(data,path);if(v!==undefined&&v!==null){const type=operation.response.selectTypes?.[key]??'string';if(typeof v!==type)throw new Error('Unexpected scalar output '+key);result[key]=v;}}\n  for(const[key,header]of Object.entries(operation.response.headerSelect??{})){const v=lastResponse.headers.get(header);if(v!==null)result[key]=v;}\n  if(byteLength(result)>maxBytes)throw new Error('Outputs exceed maxBytes');\n  return result;\n})({\"id\":\"longhorn\",\"name\":\"Longhorn\",\"baseUrl\":\"https://kubernetes.example.com\",\"auth\":{\"kind\":\"bearer\",\"secret\":\"KUBERNETES_TOKEN\"}},{\"key\":\"list-backups\",\"name\":\"List Backups\",\"path\":\"/apis/longhorn.io/v1beta2/namespaces/{namespace}/backups\",\"method\":\"GET\",\"effect\":\"read\",\"inputs\":{\"namespace\":{\"type\":\"string\",\"required\":true},\"labelSelector\":{\"type\":\"string\"},\"limit\":{\"type\":\"number\",\"default\":100,\"schema\":{\"type\":\"integer\",\"minimum\":1,\"maximum\":500}}},\"response\":{\"kind\":\"list\",\"type\":\"@kubernetes.resource\",\"path\":[\"items\"]},\"query\":{\"labelSelector\":{\"input\":\"labelSelector\",\"optional\":true},\"limit\":{\"input\":\"limit\",\"optional\":true}},\"paging\":{\"kind\":\"token\",\"path\":[\"metadata\",\"continue\"],\"parameter\":\"continue\"}},inputs,config,context);",
+      "description": "Inspect backups desired configuration and observed operator state. Requires the longhorn.io/v1beta2 CRD served by the target Kubernetes API; returns the shared Resource envelope, with explicit JSON spec/status.",
+      "documentation": "Inspect backups desired configuration and observed operator state. Requires the longhorn.io/v1beta2 CRD served by the target Kubernetes API; returns the shared Resource envelope, with explicit JSON spec/status.\n\nGET /apis/longhorn.io/v1beta2/namespaces/{namespace}/backups. Read operation.\n\nInputs: namespace (optional), labelSelector (optional), limit (optional), continuation (optional). Missing inputs may come from the selected connection profile config or explicit node defaults. Outputs: status, request_id, operation_url, items, count, has_more, continuation. Optional outputs are absent when the provider omits them. HTTP202 is acceptance, not completed work; operation_url exposes a same-origin asynchronous status URL when supplied.\n\nSetup: configure baseUrl (https://kubernetes.example.com), bearer credentials through encrypted secret names or Connections. Default secret name: KUBERNETES_TOKEN. Connection credentials accessToken/apiKey or username/password are resolved at execution. Never put credentials in literal inputs, baseUrl or logs. Required access: Kubernetes list RBAC for backups.longhorn.io in the selected namespace.\n\nBounds: requestTimeoutMs=15000 (100..120000), maxBytes=1048576 (1024..3000000), maxItems=1000 (1..5000), maxPages=1 (1..20). Follow bounded provider continuation or pass continuation to fetch the next page. has_more reports an unconsumed continuation. HTTPS is required; private HTTP needs allowHttp=true. TLS validation remains enabled. Redirects, cross-origin/escaped continuation URLs and repeated continuations fail. No implicit retries. Error text contains provider/status only, never raw response bodies or credentials. Reconcile an uncertain external action before another attempt.\n\nSynthetic example inputs:\n\n```json\n{\n  \"namespace\": \"demo\"\n}\n```\n\nThis example is documentation, not a run. \n\nSource: https://raw.githubusercontent.com/longhorn/longhorn-manager/master/k8s/crds.yaml https://longhorn.io/docs/latest/references/longhorn-client/",
+      "createdAt": "2026-10-22T00:00:00.000Z",
+      "updatedAt": "2026-10-22T00:00:00.000Z",
+      "builtin": false
+    },
+    {
+      "id": "def_4b6da585e57e",
+      "version": 1,
+      "name": "Kubernetes Resource List",
+      "kind": "type",
+      "category": "Developer integrations",
+      "color": "#326ce5",
+      "runtime": "javascript",
+      "inputs": [],
+      "outputs": [],
+      "configSchema": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      },
+      "code": "",
+      "description": "Reusable Kubernetes Resource List contract.",
+      "documentation": "Kubernetes Resource List preserves known provider fields and explicit JSON extensions. It is shared across the Kubernetes operations that use this resource. Optional absence and explicit null are distinct.\n\nSchema:\n\n```json\n{\n  \"type\": \"array\",\n  \"items\": {\n    \"type\": \"object\",\n    \"properties\": {\n      \"apiVersion\": {\n        \"type\": \"string\"\n      },\n      \"kind\": {\n        \"type\": \"string\"\n      },\n      \"metadata\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"name\": {\n            \"type\": \"string\"\n          },\n          \"namespace\": {\n            \"type\": \"string\"\n          },\n          \"uid\": {\n            \"type\": \"string\"\n          },\n          \"resourceVersion\": {\n            \"type\": \"string\"\n          },\n          \"generation\": {\n            \"type\": \"number\"\n          },\n          \"labels\": {\n            \"type\": \"object\",\n            \"additionalProperties\": {\n              \"type\": \"string\"\n            }\n          },\n          \"annotations\": {\n            \"type\": \"object\",\n            \"additionalProperties\": {\n              \"type\": \"string\"\n            }\n          }\n        },\n        \"additionalProperties\": {\n          \"$ref\": \"#/definitions/ONFJsonValue\"\n        }\n      },\n      \"spec\": {\n        \"type\": \"object\",\n        \"additionalProperties\": {\n          \"$ref\": \"#/definitions/ONFJsonValue\"\n        }\n      },\n      \"status\": {\n        \"type\": \"object\",\n        \"additionalProperties\": {\n          \"$ref\": \"#/definitions/ONFJsonValue\"\n        }\n      },\n      \"data\": {\n        \"type\": \"object\",\n        \"additionalProperties\": {\n          \"type\": \"string\"\n        }\n      },\n      \"binaryData\": {\n        \"type\": \"object\",\n        \"additionalProperties\": {\n          \"type\": \"string\"\n        }\n      },\n      \"reason\": {\n        \"type\": \"string\"\n      },\n      \"message\": {\n        \"type\": \"string\"\n      },\n      \"type\": {\n        \"type\": \"string\"\n      },\n      \"count\": {\n        \"type\": \"number\"\n      },\n      \"lastTimestamp\": {\n        \"type\": \"string\"\n      },\n      \"involvedObject\": {\n        \"type\": \"object\",\n        \"additionalProperties\": {\n          \"$ref\": \"#/definitions/ONFJsonValue\"\n        }\n      }\n    },\n    \"additionalProperties\": {\n      \"$ref\": \"#/definitions/ONFJsonValue\"\n    },\n    \"definitions\": {\n      \"ONFJsonValue\": {\n        \"anyOf\": [\n          {\n            \"type\": \"null\"\n          },\n          {\n            \"type\": \"string\"\n          },\n          {\n            \"type\": \"number\"\n          },\n          {\n            \"type\": \"boolean\"\n          },\n          {\n            \"type\": \"array\",\n            \"items\": {\n              \"$ref\": \"#/definitions/ONFJsonValue\"\n            }\n          },\n          {\n            \"type\": \"object\",\n            \"additionalProperties\": {\n              \"$ref\": \"#/definitions/ONFJsonValue\"\n            }\n          }\n        ]\n      }\n    }\n  },\n  \"maxItems\": 5000,\n  \"definitions\": {\n    \"ONFJsonValue\": {\n      \"anyOf\": [\n        {\n          \"type\": \"null\"\n        },\n        {\n          \"type\": \"string\"\n        },\n        {\n          \"type\": \"number\"\n        },\n        {\n          \"type\": \"boolean\"\n        },\n        {\n          \"type\": \"array\",\n          \"items\": {\n            \"$ref\": \"#/definitions/ONFJsonValue\"\n          }\n        },\n        {\n          \"type\": \"object\",\n          \"additionalProperties\": {\n            \"$ref\": \"#/definitions/ONFJsonValue\"\n          }\n        }\n      ]\n    }\n  }\n}\n```\n\nSource: https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.34/ https://kubernetes.io/docs/reference/using-api/api-concepts/\n\nPure type; no credentials or external effects.",
+      "createdAt": "2026-10-22T00:00:00.000Z",
+      "updatedAt": "2026-10-22T00:00:00.000Z",
+      "schema": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "apiVersion": {
+              "type": "string"
+            },
+            "kind": {
+              "type": "string"
+            },
+            "metadata": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "namespace": {
+                  "type": "string"
+                },
+                "uid": {
+                  "type": "string"
+                },
+                "resourceVersion": {
+                  "type": "string"
+                },
+                "generation": {
+                  "type": "number"
+                },
+                "labels": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  }
+                },
+                "annotations": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  }
+                }
+              },
+              "additionalProperties": {
+                "$ref": "#/definitions/ONFJsonValue"
+              }
+            },
+            "spec": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/definitions/ONFJsonValue"
+              }
+            },
+            "status": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/definitions/ONFJsonValue"
+              }
+            },
+            "data": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            },
+            "binaryData": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            },
+            "reason": {
+              "type": "string"
+            },
+            "message": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string"
+            },
+            "count": {
+              "type": "number"
+            },
+            "lastTimestamp": {
+              "type": "string"
+            },
+            "involvedObject": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/definitions/ONFJsonValue"
+              }
+            }
+          },
+          "additionalProperties": {
+            "$ref": "#/definitions/ONFJsonValue"
+          },
+          "definitions": {
+            "ONFJsonValue": {
+              "anyOf": [
+                {
+                  "type": "null"
+                },
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "boolean"
+                },
+                {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/ONFJsonValue"
+                  }
+                },
+                {
+                  "type": "object",
+                  "additionalProperties": {
+                    "$ref": "#/definitions/ONFJsonValue"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        "maxItems": 5000,
+        "definitions": {
+          "ONFJsonValue": {
+            "anyOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "string"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/ONFJsonValue"
+                }
+              },
+              {
+                "type": "object",
+                "additionalProperties": {
+                  "$ref": "#/definitions/ONFJsonValue"
+                }
+              }
+            ]
+          }
+        }
+      },
+      "builtin": false
+    },
+    {
+      "id": "def_60e1d8e6aa4a",
+      "version": 1,
+      "name": "Longhorn Get Snapshot",
+      "kind": "node",
+      "category": "Developer integrations",
+      "color": "#5c4c9f",
+      "runtime": "javascript",
+      "inputs": [
+        {
+          "id": "exec",
+          "name": "Execute",
+          "type": "control"
+        },
+        {
+          "id": "namespace",
+          "name": "Namespace",
+          "type": "string",
+          "required": false
+        },
+        {
+          "id": "name",
+          "name": "Name",
+          "type": "string",
+          "required": false
+        }
+      ],
+      "outputs": [
+        {
+          "id": "next",
+          "name": "Next",
+          "type": "control"
+        },
+        {
+          "id": "status",
+          "name": "Status",
+          "type": "number",
+          "required": true
+        },
+        {
+          "id": "request_id",
+          "name": "Request Id",
+          "type": "string"
+        },
+        {
+          "id": "operation_url",
+          "name": "Operation Url",
+          "type": "string"
+        },
+        {
+          "id": "item",
+          "name": "Item",
+          "type": "def_139906346c9b",
+          "typeVersion": 1,
+          "required": true
+        },
+        {
+          "id": "error",
+          "name": "On error",
+          "type": "control"
+        }
+      ],
+      "configSchema": {
+        "type": "object",
+        "properties": {
+          "baseUrl": {
+            "type": "string",
+            "maxLength": 2000
+          },
+          "allowHttp": {
+            "type": "boolean",
+            "default": false
+          },
+          "tokenSecret": {
+            "type": "string",
+            "maxLength": 120
+          },
+          "username": {
+            "type": "string",
+            "maxLength": 160
+          },
+          "usernameSecret": {
+            "type": "string",
+            "maxLength": 120
+          },
+          "passwordSecret": {
+            "type": "string",
+            "maxLength": 120
+          },
+          "requestTimeoutMs": {
+            "type": "integer",
+            "minimum": 100,
+            "maximum": 120000,
+            "default": 15000
+          },
+          "maxBytes": {
+            "type": "integer",
+            "minimum": 1024,
+            "maximum": 3000000,
+            "default": 1048576
+          },
+          "maxPages": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 20,
+            "default": 1
+          },
+          "maxItems": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 5000,
+            "default": 1000
+          },
+          "confirmWrites": {
+            "type": "boolean",
+            "default": false
+          }
+        },
+        "additionalProperties": true
+      },
+      "code": "return await (async function runOperation(family,operation,inputs,config,context,fetcher=fetch){\n  const own=(o,k)=>o!==null&&typeof o==='object'&&Object.hasOwn(o,k);\n  const integer=(v,min,max,label)=>{if(!Number.isSafeInteger(v)||v<min||v>max)throw new Error(label+' outside bounds');return v;};\n  const get=(value,path=[])=>path.reduce((v,k)=>own(v,k)?v[k]:undefined,value);\n  const byteLength=v=>Buffer.byteLength(typeof v==='string'?v:JSON.stringify(v));\n  let connection;\n  if(config.$connection){if(!context.connections?.get)throw new Error('Connection profile unavailable');connection=await context.connections.get();}\n  const effective={...(connection?.config??{}),...config};\n  const maxBytes=integer(effective.maxBytes??1048576,1024,3000000,'maxBytes');\n  const maxPages=integer(effective.maxPages??1,1,20,'maxPages');\n  const maxItems=integer(effective.maxItems??1000,1,5000,'maxItems');\n  const timeout=integer(effective.requestTimeoutMs??15000,100,120000,'requestTimeoutMs');\n  const deadline=Date.now()+timeout;\n  if(operation.effect!=='read'){\n    if(effective.confirmWrites!==true)throw new Error('Enable confirmWrites for this external action');\n    if((effective.$retries??0)>0)throw new Error('External actions require $retries=0; reconcile uncertain completion before retry');\n  }\n  // A small self-contained JSON Schema validator for declared outbound argument bounds.\n  // Provider resource/socket schemas are also validated by ONF before/after execution.\n  const finiteJson=(value,seen=new Set(),depth=0)=>{if(depth>90)return false;if(value===null||typeof value==='string'||typeof value==='boolean')return true;if(typeof value==='number')return Number.isFinite(value);if(!value||typeof value!=='object'||seen.has(value))return false;seen.add(value);const valid=(Array.isArray(value)?value:Object.values(value)).every(v=>finiteJson(v,seen,depth+1));seen.delete(value);return valid;};\n  const matches=(schema,value,root=schema,depth=0)=>{\n    if(depth>100||schema===false)return false;if(schema===true||!schema)return true;\n    if(schema.$ref){if(!schema.$ref.startsWith('#/'))return false;const target=schema.$ref.slice(2).split('/').reduce((v,k)=>v?.[k.replaceAll('~1','/').replaceAll('~0','~')],root);return target!==undefined&&matches(target,value,root,depth+1);}\n    if(schema.anyOf&&!schema.anyOf.some(s=>matches(s,value,root,depth+1)))return false;\n    if(schema.oneOf&&schema.oneOf.filter(s=>matches(s,value,root,depth+1)).length!==1)return false;\n    if(schema.allOf&&!schema.allOf.every(s=>matches(s,value,root,depth+1)))return false;\n    if(schema.not&&matches(schema.not,value,root,depth+1))return false;\n    if(own(schema,'const')&&JSON.stringify(value)!==JSON.stringify(schema.const)||schema.enum&&!schema.enum.some(v=>JSON.stringify(v)===JSON.stringify(value)))return false;\n    const type=Array.isArray(value)?'array':value===null?'null':typeof value;\n    if(schema.type&&!([].concat(schema.type)).some(t=>t===type||t==='integer'&&type==='number'&&Number.isSafeInteger(value)))return false;\n    if(type==='number'&&(schema.minimum!==undefined&&value<schema.minimum||schema.maximum!==undefined&&value>schema.maximum||schema.exclusiveMinimum!==undefined&&value<=schema.exclusiveMinimum||schema.exclusiveMaximum!==undefined&&value>=schema.exclusiveMaximum))return false;\n    if(type==='string'&&(schema.minLength!==undefined&&[...value].length<schema.minLength||schema.maxLength!==undefined&&[...value].length>schema.maxLength||schema.pattern&&!(new RegExp(schema.pattern,'u')).test(value)))return false;\n    if(type==='array'){\n      if(schema.minItems!==undefined&&value.length<schema.minItems||schema.maxItems!==undefined&&value.length>schema.maxItems||schema.uniqueItems&&new Set(value.map(v=>JSON.stringify(v))).size!==value.length)return false;\n      if(schema.items&&!value.every((v,index)=>matches(Array.isArray(schema.items)?schema.items[index]??schema.additionalItems??true:schema.items,v,root,depth+1)))return false;\n    }\n    if(type==='object'){\n      if((schema.required??[]).some(k=>!own(value,k))||schema.minProperties!==undefined&&Object.keys(value).length<schema.minProperties||schema.maxProperties!==undefined&&Object.keys(value).length>schema.maxProperties)return false;\n      for(const[k,v]of Object.entries(value)){\n        if(own(schema.properties??{},k)){if(!matches(schema.properties[k],v,root,depth+1))return false;}\n        else{const patterns=Object.entries(schema.patternProperties??{}).filter(([pattern])=>(new RegExp(pattern,'u')).test(k));if(patterns.length){if(!patterns.every(([,s])=>matches(s,v,root,depth+1)))return false;}else if(schema.additionalProperties===false||schema.additionalProperties&&typeof schema.additionalProperties==='object'&&!matches(schema.additionalProperties,v,root,depth+1))return false;}\n      }\n    }\n    return true;\n  };\n  const values={};\n  for(const[key,descriptor]of Object.entries(operation.inputs??{})){\n    const value=own(inputs,key)?inputs[key]:own(effective,key)?effective[key]:descriptor.default;\n    if(value===undefined){if(descriptor.required)throw new Error('Missing input '+key);continue;}\n    const t=descriptor.type;\n    if(t==='string'&&typeof value!=='string'||t==='number'&&(typeof value!=='number'||!Number.isFinite(value))||t==='boolean'&&typeof value!=='boolean'||t==='record'&&(!value||typeof value!=='object'||Array.isArray(value))||t==='list'&&!Array.isArray(value))throw new Error('Invalid input '+key);\n    if(!finiteJson(value)||descriptor.schema&&!matches(descriptor.schema,value))throw new Error('Input '+key+' violates declared schema');\n    values[key]=value;\n  }\n  const template=value=>{\n    if(value&&typeof value==='object'&&!Array.isArray(value)&&typeof value.input==='string'){\n      const v=values[value.input];if(v===undefined&&!value.optional)throw new Error('Missing input '+value.input);return v;\n    }\n    if(Array.isArray(value))return value.map(template);\n    if(value&&typeof value==='object')return Object.fromEntries(Object.entries(value).map(([k,v])=>[k,template(v)]).filter(([,v])=>v!==undefined));\n    return value;\n  };\n  const baseText=effective.baseUrl??operation.baseUrl??family.baseUrl;\n  let base;try{base=new URL(baseText);}catch{throw new Error('Configure a valid baseUrl');}\n  const loopback=['localhost','127.0.0.1','[::1]'].includes(base.hostname);\n  const host=base.hostname.toLowerCase(),privateHost=/^(?:10\\.|192\\.168\\.|172\\.(?:1[6-9]|2\\d|3[01])\\.)/.test(host)||/^\\[(?:fc|fd)[0-9a-f:]+\\]$/i.test(host)||/\\.(?:cluster|lan|local)$/.test(host)||/^[a-z][a-z0-9-]*$/.test(host);\n  if(!['http:','https:'].includes(base.protocol)||base.username||base.password||base.search||base.hash||base.protocol==='http:'&&!loopback&&!(effective.allowHttp===true&&privateHost))throw new Error('Use HTTPS baseUrl without credentials, query or fragment; private HTTP requires allowHttp');\n  // Keep explicitly configured reverse-proxy API prefixes (e.g. Rancher proxy paths).\n  const root=base.pathname.replace(/\\/$/,'');\n  const segment=(name,greedy)=>{\n    const value=values[name];if(value===undefined||value===null||String(value)==='')throw new Error('Missing path input '+name);\n    const text=String(value);\n    if(/[?#\\\\\\u0000-\\u001f]/.test(text))throw new Error('Invalid path input '+name);\n    if(greedy&&!text.startsWith('/'))throw new Error('Resource path must begin with /');\n    const parts=greedy?text.slice(1).split('/'):[text];\n    if(parts.some(p=>!p||p==='.'||p==='..'||/%(?:2e|2f|5c)/i.test(p)))throw new Error('Invalid path segment '+name);\n    return(greedy?'/':'')+parts.map(encodeURIComponent).join('/');\n  };\n  const path=operation.path.replace(/\\{([A-Za-z_][A-Za-z0-9_]*)(\\*)?\\}/g,(_,key,greedy)=>segment(key,greedy));\n  if(!path.startsWith('/')||/[?#\\\\]/.test(path)||path.split('/').some(p=>p==='.'||p==='..'))throw new Error('Invalid operation path');\n  let url=new URL(base.origin+root+path);\n  for(const[k,v]of Object.entries(template(operation.query??{})))if(v!==undefined)url.searchParams.set(k,typeof v==='object'?JSON.stringify(v):String(v));\n  const paging=operation.paging;\n  const originalUrl=url.href;\n  const safeNext=text=>{let next;try{next=new URL(text,url);}catch{throw new Error('Invalid continuation URL');}if(next.origin!==base.origin||next.username||next.password||next.hash||root&&next.pathname!==root&&!next.pathname.startsWith(root+'/')||next.pathname!==new URL(originalUrl).pathname)throw new Error('Continuation leaves the configured API endpoint');return next;};\n  const continued=inputs.continuation??effective.continuation;\n  if(continued!==undefined&&continued!==''){\n    if(!paging)throw new Error('This operation does not support continuation');\n    if(['url','link'].includes(paging.kind))url=safeNext(String(continued));else if(paging.location!=='body')url.searchParams.set(paging.parameter,String(continued));\n  }\n  if(paging?.kind==='page'||paging?.kind==='offset'){\n    if(!url.searchParams.has(paging.parameter))url.searchParams.set(paging.parameter,paging.kind==='offset'?'0':'1');\n    if(paging.sizeParameter)url.searchParams.set(paging.sizeParameter,String(paging.size??100));\n  }\n  const headers=new Headers(template(operation.headers??{}));\n  headers.set('accept',operation.accept??'application/json');\n  const auth=family.auth??{kind:'none'},credentials=connection?.credentials??{};\n  const secret=(name,optional=false)=>{if(!name)return undefined;let v;try{v=context.secrets.get(name);}catch{if(optional)return undefined;throw new Error('Required credential secret is unavailable');}return v;};\n  const token=auth.kind==='none'||auth.kind==='basic'&&(credentials.password||effective.passwordSecret)?undefined:credentials.accessToken??credentials.apiKey??secret(effective.tokenSecret??auth.secret,auth.optional&&!effective.tokenSecret);\n  if(auth.kind==='bearer'||auth.kind==='header'){\n    if(!token&&!auth.optional)throw new Error('Configure credential secret or connection profile');\n    if(token){if(typeof token!=='string'||/[\\r\\n\\u0000]/.test(token))throw new Error('Credential is not a valid header value');try{headers.set(auth.kind==='bearer'?'authorization':auth.header,(auth.kind==='bearer'?'Bearer ':auth.prefix??'')+token);}catch{throw new Error('Credential is not a valid header value');}}\n  }else if(auth.kind==='basic'){\n    const username=credentials.username??(effective.usernameSecret?secret(effective.usernameSecret):effective.username??auth.username??'');\n    const password=credentials.password??(effective.passwordSecret?secret(effective.passwordSecret):token);\n    if(typeof password!=='string'||!password||/[\\r\\n]/.test(username))throw new Error('Configure Basic credential secrets or connection profile');\n    headers.set('authorization','Basic '+Buffer.from(username+':'+password).toString('base64'));\n  }else if(auth.kind!=='none')throw new Error('Unsupported authentication kind');\n  const rawBody=operation.body===undefined?undefined:template(operation.body);\n  if(paging?.location==='body'&&continued!==undefined&&continued!==''){if(!rawBody||typeof rawBody!=='object'||Array.isArray(rawBody))throw new Error('Body pagination requires a JSON object');rawBody[paging.parameter]=String(continued);}\n  const serializeBody=()=>{if(rawBody===undefined)return undefined;const value=operation.bodyMode==='text'?String(rawBody):JSON.stringify(rawBody);headers.set('content-type',operation.contentType??'application/json');if(byteLength(value)>maxBytes)throw new Error('Request exceeds maxBytes');return value;};\n  let body=serializeBody();\n  const method=operation.method??'GET';\n  let pages=0,totalBytes=0,items=[],lastResponse,data,continuation;\n  const seen=new Set();\n  do{\n    const requestIdentity=url.href+'\\n'+(body??'');if(seen.has(requestIdentity))throw new Error('Repeated continuation detected');seen.add(requestIdentity);\n    const remaining=deadline-Date.now();if(remaining<=0)throw new Error('Request deadline exceeded');\n    try{lastResponse=await fetcher(url,{method,headers,body,redirect:'error',signal:AbortSignal.timeout(remaining)});}catch{throw new Error(family.name+' transport failed'+(operation.effect==='read'?'':'; external completion is uncertain; reconcile before retry'));}\n    if(!lastResponse.ok&&!operation.acceptedStatuses?.includes(lastResponse.status)){try{await lastResponse.body?.cancel();}catch{}throw new Error(family.name+' HTTP '+lastResponse.status+(operation.effect==='read'?'':' ; action may have been accepted; reconcile before retry'));}\n    const advertised=Number(lastResponse.headers.get('content-length'));if(Number.isFinite(advertised)&&advertised>maxBytes-totalBytes){try{await lastResponse.body?.cancel();}catch{}throw new Error('Response exceeds maxBytes');}\n    const reader=lastResponse.body?.getReader();let text='';\n    if(reader){const chunks=[];let bytes=0;try{while(true){const part=await reader.read();if(part.done)break;bytes+=part.value.byteLength;totalBytes+=part.value.byteLength;if(totalBytes>maxBytes)throw new Error('Response exceeds maxBytes');chunks.push(part.value);}}catch(e){try{await reader.cancel();}catch{}throw new Error(e.message==='Response exceeds maxBytes'?e.message:family.name+' response interrupted'+(operation.effect==='read'?'':'; external completion uncertain'));}text=Buffer.concat(chunks.map(c=>Buffer.from(c)),bytes).toString('utf8');}\n    else{text=await lastResponse.text();totalBytes+=byteLength(text);if(totalBytes>maxBytes)throw new Error('Response exceeds maxBytes');}\n    if(operation.response.kind==='text')data=text;\n    else if(operation.response.kind==='empty'&&!operation.response.successPath)data=undefined;\n    else{try{data=text.length?JSON.parse(text):undefined;}catch{throw new Error(family.name+' returned invalid JSON');}}\n    if(operation.response.successPath&&get(data,operation.response.successPath)!==(operation.response.successValue??true))throw new Error(family.name+' returned an unsuccessful API result');\n    pages++;\n    continuation=undefined;\n    const value=get(data,operation.response.path);\n    const selected=value===undefined&&operation.response.fallbackPath?get(data,operation.response.fallbackPath):value;\n    if(operation.response.kind==='list'){\n      if(!Array.isArray(selected))throw new Error('Expected provider list at documented response path');\n      if(items.length+selected.length>maxItems)throw new Error('Response exceeds maxItems; request a smaller page');\n      items.push(...selected);\n      if(paging?.kind==='url'||paging?.kind==='token')continuation=get(data,paging.path);\n      else if(paging?.kind==='header')continuation=lastResponse.headers.get(paging.header)??undefined;\n      else if(paging?.kind==='link'){\n        const link=lastResponse.headers.get('link')??'';\n        continuation=link.split(',').map(p=>p.trim()).filter(p=>!/(?:^|;)\\s*results=\"?false\"?(?:;|$)/i.test(p)).map(p=>p.match(/^<([^>]+)>;\\s*rel=\"?next\"?(?:;.*)?$/)).find(Boolean)?.[1];\n      }else if(paging?.kind==='page'&&selected.length===(paging.size??100))continuation=String(Number(url.searchParams.get(paging.parameter)??1)+1);\n      else if(paging?.kind==='offset'){\n        const offset=Number(url.searchParams.get(paging.parameter)??0),size=Number(url.searchParams.get(paging.sizeParameter)??paging.size??100);\n        const more=paging.morePath?get(data,paging.morePath):paging.totalPath?offset+selected.length<get(data,paging.totalPath):selected.length===size;\n        if(more&&selected.length)continuation=String(offset+selected.length);\n      }\n    }\n    if(continuation===null||continuation==='')continuation=undefined;\n    if(continuation!==undefined&&typeof continuation!=='string'&&typeof continuation!=='number')throw new Error('Invalid continuation token');\n    if(!continuation||pages>=maxPages)break;\n    if(operation.effect!=='read')throw new Error('Cannot paginate an external action');\n    if(['url','link'].includes(paging.kind))url=safeNext(String(continuation));else if(paging.location==='body'){if(!rawBody||typeof rawBody!=='object'||Array.isArray(rawBody))throw new Error('Body pagination requires a JSON object');rawBody[paging.parameter]=String(continuation);body=serializeBody();}else url.searchParams.set(paging.parameter,String(continuation));\n  }while(true);\n  const result={status:lastResponse.status};\n  const requestId=lastResponse.headers.get('x-ms-request-id')??lastResponse.headers.get('x-request-id')??lastResponse.headers.get('x-github-request-id');if(requestId)result.request_id=requestId;\n  const operationLocation=lastResponse.headers.get('azure-asyncoperation')??lastResponse.headers.get('operation-location')??(lastResponse.status===202?lastResponse.headers.get('location'):undefined);if(operationLocation){const location=new URL(operationLocation,url);if(location.origin===base.origin&&!location.username&&!location.password&&!location.hash)result.operation_url=location.href;}\n  const value=get(data,operation.response.path),selected=value===undefined&&operation.response.fallbackPath?get(data,operation.response.fallbackPath):value;\n  if(operation.response.kind==='item'){if(selected===undefined&&operation.response.optional===true&&lastResponse.status===202){}else{if(selected===undefined||selected===null||typeof selected!=='object'||Array.isArray(selected))throw new Error('Expected provider object at documented response path');result.item=selected;}}\n  else if(operation.response.kind==='list'){result.items=items;result.count=items.length;result.has_more=continuation!==undefined;if(continuation!==undefined)result.continuation=String(continuation);}\n  else if(operation.response.kind==='json'){if(selected===undefined)throw new Error('Expected JSON at documented response path');result.value=selected;}\n  else if(operation.response.kind==='text')result.text=data;\n  for(const[key,path]of Object.entries(operation.response.select??{})){const v=get(data,path);if(v!==undefined&&v!==null){const type=operation.response.selectTypes?.[key]??'string';if(typeof v!==type)throw new Error('Unexpected scalar output '+key);result[key]=v;}}\n  for(const[key,header]of Object.entries(operation.response.headerSelect??{})){const v=lastResponse.headers.get(header);if(v!==null)result[key]=v;}\n  if(byteLength(result)>maxBytes)throw new Error('Outputs exceed maxBytes');\n  return result;\n})({\"id\":\"longhorn\",\"name\":\"Longhorn\",\"baseUrl\":\"https://kubernetes.example.com\",\"auth\":{\"kind\":\"bearer\",\"secret\":\"KUBERNETES_TOKEN\"}},{\"key\":\"get-snapshots\",\"name\":\"Get Snapshot\",\"path\":\"/apis/longhorn.io/v1beta2/namespaces/{namespace}/snapshots/{name}\",\"method\":\"GET\",\"effect\":\"read\",\"inputs\":{\"namespace\":{\"type\":\"string\",\"required\":true},\"name\":{\"type\":\"string\",\"required\":true}},\"response\":{\"kind\":\"item\",\"type\":\"@kubernetes.resource\",\"path\":[]}},inputs,config,context);",
+      "description": "Inspect snapshots desired configuration and observed operator state. Requires the longhorn.io/v1beta2 CRD served by the target Kubernetes API; returns the shared Resource envelope, with explicit JSON spec/status.",
+      "documentation": "Inspect snapshots desired configuration and observed operator state. Requires the longhorn.io/v1beta2 CRD served by the target Kubernetes API; returns the shared Resource envelope, with explicit JSON spec/status.\n\nGET /apis/longhorn.io/v1beta2/namespaces/{namespace}/snapshots/{name}. Read operation.\n\nInputs: namespace (optional), name (optional). Missing inputs may come from the selected connection profile config or explicit node defaults. Outputs: status, request_id, operation_url, item. Optional outputs are absent when the provider omits them. HTTP202 is acceptance, not completed work; operation_url exposes a same-origin asynchronous status URL when supplied.\n\nSetup: configure baseUrl (https://kubernetes.example.com), bearer credentials through encrypted secret names or Connections. Default secret name: KUBERNETES_TOKEN. Connection credentials accessToken/apiKey or username/password are resolved at execution. Never put credentials in literal inputs, baseUrl or logs. Required access: Kubernetes get RBAC for snapshots.longhorn.io in the selected namespace.\n\nBounds: requestTimeoutMs=15000 (100..120000), maxBytes=1048576 (1024..3000000), maxItems=1000 (1..5000), maxPages=1 (1..20). One bounded request; use the provider-specific explicit paging inputs where offered. HTTPS is required; private HTTP needs allowHttp=true. TLS validation remains enabled. Redirects, cross-origin/escaped continuation URLs and repeated continuations fail. No implicit retries. Error text contains provider/status only, never raw response bodies or credentials. Reconcile an uncertain external action before another attempt.\n\nSynthetic example inputs:\n\n```json\n{\n  \"namespace\": \"demo\",\n  \"name\": \"demo\"\n}\n```\n\nThis example is documentation, not a run. \n\nSource: https://raw.githubusercontent.com/longhorn/longhorn-manager/master/k8s/crds.yaml https://longhorn.io/docs/latest/references/longhorn-client/",
+      "createdAt": "2026-10-22T00:00:00.000Z",
+      "updatedAt": "2026-10-22T00:00:00.000Z",
+      "builtin": false
+    },
+    {
+      "id": "def_61756c5fa5bc",
+      "version": 1,
+      "name": "Longhorn List Volumes",
+      "kind": "node",
+      "category": "Developer integrations",
+      "color": "#5c4c9f",
+      "runtime": "javascript",
+      "inputs": [
+        {
+          "id": "exec",
+          "name": "Execute",
+          "type": "control"
+        },
+        {
+          "id": "namespace",
+          "name": "Namespace",
+          "type": "string",
+          "required": false
+        },
+        {
+          "id": "labelSelector",
+          "name": "LabelSelector",
+          "type": "string",
+          "required": false
+        },
+        {
+          "id": "limit",
+          "name": "Limit",
+          "type": "number",
+          "required": false
+        },
+        {
+          "id": "continuation",
+          "name": "Continuation",
+          "type": "string"
+        }
+      ],
+      "outputs": [
+        {
+          "id": "next",
+          "name": "Next",
+          "type": "control"
+        },
+        {
+          "id": "status",
+          "name": "Status",
+          "type": "number",
+          "required": true
+        },
+        {
+          "id": "request_id",
+          "name": "Request Id",
+          "type": "string"
+        },
+        {
+          "id": "operation_url",
+          "name": "Operation Url",
+          "type": "string"
+        },
+        {
+          "id": "items",
+          "name": "Items",
+          "type": "def_4b6da585e57e",
+          "typeVersion": 1,
+          "required": true
+        },
+        {
+          "id": "count",
+          "name": "Count",
+          "type": "number",
+          "required": true
+        },
+        {
+          "id": "has_more",
+          "name": "Has More",
+          "type": "boolean",
+          "required": true
+        },
+        {
+          "id": "continuation",
+          "name": "Continuation",
+          "type": "string"
+        },
+        {
+          "id": "error",
+          "name": "On error",
+          "type": "control"
+        }
+      ],
+      "configSchema": {
+        "type": "object",
+        "properties": {
+          "baseUrl": {
+            "type": "string",
+            "maxLength": 2000
+          },
+          "allowHttp": {
+            "type": "boolean",
+            "default": false
+          },
+          "tokenSecret": {
+            "type": "string",
+            "maxLength": 120
+          },
+          "username": {
+            "type": "string",
+            "maxLength": 160
+          },
+          "usernameSecret": {
+            "type": "string",
+            "maxLength": 120
+          },
+          "passwordSecret": {
+            "type": "string",
+            "maxLength": 120
+          },
+          "requestTimeoutMs": {
+            "type": "integer",
+            "minimum": 100,
+            "maximum": 120000,
+            "default": 15000
+          },
+          "maxBytes": {
+            "type": "integer",
+            "minimum": 1024,
+            "maximum": 3000000,
+            "default": 1048576
+          },
+          "maxPages": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 20,
+            "default": 1
+          },
+          "maxItems": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 5000,
+            "default": 1000
+          },
+          "confirmWrites": {
+            "type": "boolean",
+            "default": false
+          }
+        },
+        "additionalProperties": true
+      },
+      "code": "return await (async function runOperation(family,operation,inputs,config,context,fetcher=fetch){\n  const own=(o,k)=>o!==null&&typeof o==='object'&&Object.hasOwn(o,k);\n  const integer=(v,min,max,label)=>{if(!Number.isSafeInteger(v)||v<min||v>max)throw new Error(label+' outside bounds');return v;};\n  const get=(value,path=[])=>path.reduce((v,k)=>own(v,k)?v[k]:undefined,value);\n  const byteLength=v=>Buffer.byteLength(typeof v==='string'?v:JSON.stringify(v));\n  let connection;\n  if(config.$connection){if(!context.connections?.get)throw new Error('Connection profile unavailable');connection=await context.connections.get();}\n  const effective={...(connection?.config??{}),...config};\n  const maxBytes=integer(effective.maxBytes??1048576,1024,3000000,'maxBytes');\n  const maxPages=integer(effective.maxPages??1,1,20,'maxPages');\n  const maxItems=integer(effective.maxItems??1000,1,5000,'maxItems');\n  const timeout=integer(effective.requestTimeoutMs??15000,100,120000,'requestTimeoutMs');\n  const deadline=Date.now()+timeout;\n  if(operation.effect!=='read'){\n    if(effective.confirmWrites!==true)throw new Error('Enable confirmWrites for this external action');\n    if((effective.$retries??0)>0)throw new Error('External actions require $retries=0; reconcile uncertain completion before retry');\n  }\n  // A small self-contained JSON Schema validator for declared outbound argument bounds.\n  // Provider resource/socket schemas are also validated by ONF before/after execution.\n  const finiteJson=(value,seen=new Set(),depth=0)=>{if(depth>90)return false;if(value===null||typeof value==='string'||typeof value==='boolean')return true;if(typeof value==='number')return Number.isFinite(value);if(!value||typeof value!=='object'||seen.has(value))return false;seen.add(value);const valid=(Array.isArray(value)?value:Object.values(value)).every(v=>finiteJson(v,seen,depth+1));seen.delete(value);return valid;};\n  const matches=(schema,value,root=schema,depth=0)=>{\n    if(depth>100||schema===false)return false;if(schema===true||!schema)return true;\n    if(schema.$ref){if(!schema.$ref.startsWith('#/'))return false;const target=schema.$ref.slice(2).split('/').reduce((v,k)=>v?.[k.replaceAll('~1','/').replaceAll('~0','~')],root);return target!==undefined&&matches(target,value,root,depth+1);}\n    if(schema.anyOf&&!schema.anyOf.some(s=>matches(s,value,root,depth+1)))return false;\n    if(schema.oneOf&&schema.oneOf.filter(s=>matches(s,value,root,depth+1)).length!==1)return false;\n    if(schema.allOf&&!schema.allOf.every(s=>matches(s,value,root,depth+1)))return false;\n    if(schema.not&&matches(schema.not,value,root,depth+1))return false;\n    if(own(schema,'const')&&JSON.stringify(value)!==JSON.stringify(schema.const)||schema.enum&&!schema.enum.some(v=>JSON.stringify(v)===JSON.stringify(value)))return false;\n    const type=Array.isArray(value)?'array':value===null?'null':typeof value;\n    if(schema.type&&!([].concat(schema.type)).some(t=>t===type||t==='integer'&&type==='number'&&Number.isSafeInteger(value)))return false;\n    if(type==='number'&&(schema.minimum!==undefined&&value<schema.minimum||schema.maximum!==undefined&&value>schema.maximum||schema.exclusiveMinimum!==undefined&&value<=schema.exclusiveMinimum||schema.exclusiveMaximum!==undefined&&value>=schema.exclusiveMaximum))return false;\n    if(type==='string'&&(schema.minLength!==undefined&&[...value].length<schema.minLength||schema.maxLength!==undefined&&[...value].length>schema.maxLength||schema.pattern&&!(new RegExp(schema.pattern,'u')).test(value)))return false;\n    if(type==='array'){\n      if(schema.minItems!==undefined&&value.length<schema.minItems||schema.maxItems!==undefined&&value.length>schema.maxItems||schema.uniqueItems&&new Set(value.map(v=>JSON.stringify(v))).size!==value.length)return false;\n      if(schema.items&&!value.every((v,index)=>matches(Array.isArray(schema.items)?schema.items[index]??schema.additionalItems??true:schema.items,v,root,depth+1)))return false;\n    }\n    if(type==='object'){\n      if((schema.required??[]).some(k=>!own(value,k))||schema.minProperties!==undefined&&Object.keys(value).length<schema.minProperties||schema.maxProperties!==undefined&&Object.keys(value).length>schema.maxProperties)return false;\n      for(const[k,v]of Object.entries(value)){\n        if(own(schema.properties??{},k)){if(!matches(schema.properties[k],v,root,depth+1))return false;}\n        else{const patterns=Object.entries(schema.patternProperties??{}).filter(([pattern])=>(new RegExp(pattern,'u')).test(k));if(patterns.length){if(!patterns.every(([,s])=>matches(s,v,root,depth+1)))return false;}else if(schema.additionalProperties===false||schema.additionalProperties&&typeof schema.additionalProperties==='object'&&!matches(schema.additionalProperties,v,root,depth+1))return false;}\n      }\n    }\n    return true;\n  };\n  const values={};\n  for(const[key,descriptor]of Object.entries(operation.inputs??{})){\n    const value=own(inputs,key)?inputs[key]:own(effective,key)?effective[key]:descriptor.default;\n    if(value===undefined){if(descriptor.required)throw new Error('Missing input '+key);continue;}\n    const t=descriptor.type;\n    if(t==='string'&&typeof value!=='string'||t==='number'&&(typeof value!=='number'||!Number.isFinite(value))||t==='boolean'&&typeof value!=='boolean'||t==='record'&&(!value||typeof value!=='object'||Array.isArray(value))||t==='list'&&!Array.isArray(value))throw new Error('Invalid input '+key);\n    if(!finiteJson(value)||descriptor.schema&&!matches(descriptor.schema,value))throw new Error('Input '+key+' violates declared schema');\n    values[key]=value;\n  }\n  const template=value=>{\n    if(value&&typeof value==='object'&&!Array.isArray(value)&&typeof value.input==='string'){\n      const v=values[value.input];if(v===undefined&&!value.optional)throw new Error('Missing input '+value.input);return v;\n    }\n    if(Array.isArray(value))return value.map(template);\n    if(value&&typeof value==='object')return Object.fromEntries(Object.entries(value).map(([k,v])=>[k,template(v)]).filter(([,v])=>v!==undefined));\n    return value;\n  };\n  const baseText=effective.baseUrl??operation.baseUrl??family.baseUrl;\n  let base;try{base=new URL(baseText);}catch{throw new Error('Configure a valid baseUrl');}\n  const loopback=['localhost','127.0.0.1','[::1]'].includes(base.hostname);\n  const host=base.hostname.toLowerCase(),privateHost=/^(?:10\\.|192\\.168\\.|172\\.(?:1[6-9]|2\\d|3[01])\\.)/.test(host)||/^\\[(?:fc|fd)[0-9a-f:]+\\]$/i.test(host)||/\\.(?:cluster|lan|local)$/.test(host)||/^[a-z][a-z0-9-]*$/.test(host);\n  if(!['http:','https:'].includes(base.protocol)||base.username||base.password||base.search||base.hash||base.protocol==='http:'&&!loopback&&!(effective.allowHttp===true&&privateHost))throw new Error('Use HTTPS baseUrl without credentials, query or fragment; private HTTP requires allowHttp');\n  // Keep explicitly configured reverse-proxy API prefixes (e.g. Rancher proxy paths).\n  const root=base.pathname.replace(/\\/$/,'');\n  const segment=(name,greedy)=>{\n    const value=values[name];if(value===undefined||value===null||String(value)==='')throw new Error('Missing path input '+name);\n    const text=String(value);\n    if(/[?#\\\\\\u0000-\\u001f]/.test(text))throw new Error('Invalid path input '+name);\n    if(greedy&&!text.startsWith('/'))throw new Error('Resource path must begin with /');\n    const parts=greedy?text.slice(1).split('/'):[text];\n    if(parts.some(p=>!p||p==='.'||p==='..'||/%(?:2e|2f|5c)/i.test(p)))throw new Error('Invalid path segment '+name);\n    return(greedy?'/':'')+parts.map(encodeURIComponent).join('/');\n  };\n  const path=operation.path.replace(/\\{([A-Za-z_][A-Za-z0-9_]*)(\\*)?\\}/g,(_,key,greedy)=>segment(key,greedy));\n  if(!path.startsWith('/')||/[?#\\\\]/.test(path)||path.split('/').some(p=>p==='.'||p==='..'))throw new Error('Invalid operation path');\n  let url=new URL(base.origin+root+path);\n  for(const[k,v]of Object.entries(template(operation.query??{})))if(v!==undefined)url.searchParams.set(k,typeof v==='object'?JSON.stringify(v):String(v));\n  const paging=operation.paging;\n  const originalUrl=url.href;\n  const safeNext=text=>{let next;try{next=new URL(text,url);}catch{throw new Error('Invalid continuation URL');}if(next.origin!==base.origin||next.username||next.password||next.hash||root&&next.pathname!==root&&!next.pathname.startsWith(root+'/')||next.pathname!==new URL(originalUrl).pathname)throw new Error('Continuation leaves the configured API endpoint');return next;};\n  const continued=inputs.continuation??effective.continuation;\n  if(continued!==undefined&&continued!==''){\n    if(!paging)throw new Error('This operation does not support continuation');\n    if(['url','link'].includes(paging.kind))url=safeNext(String(continued));else if(paging.location!=='body')url.searchParams.set(paging.parameter,String(continued));\n  }\n  if(paging?.kind==='page'||paging?.kind==='offset'){\n    if(!url.searchParams.has(paging.parameter))url.searchParams.set(paging.parameter,paging.kind==='offset'?'0':'1');\n    if(paging.sizeParameter)url.searchParams.set(paging.sizeParameter,String(paging.size??100));\n  }\n  const headers=new Headers(template(operation.headers??{}));\n  headers.set('accept',operation.accept??'application/json');\n  const auth=family.auth??{kind:'none'},credentials=connection?.credentials??{};\n  const secret=(name,optional=false)=>{if(!name)return undefined;let v;try{v=context.secrets.get(name);}catch{if(optional)return undefined;throw new Error('Required credential secret is unavailable');}return v;};\n  const token=auth.kind==='none'||auth.kind==='basic'&&(credentials.password||effective.passwordSecret)?undefined:credentials.accessToken??credentials.apiKey??secret(effective.tokenSecret??auth.secret,auth.optional&&!effective.tokenSecret);\n  if(auth.kind==='bearer'||auth.kind==='header'){\n    if(!token&&!auth.optional)throw new Error('Configure credential secret or connection profile');\n    if(token){if(typeof token!=='string'||/[\\r\\n\\u0000]/.test(token))throw new Error('Credential is not a valid header value');try{headers.set(auth.kind==='bearer'?'authorization':auth.header,(auth.kind==='bearer'?'Bearer ':auth.prefix??'')+token);}catch{throw new Error('Credential is not a valid header value');}}\n  }else if(auth.kind==='basic'){\n    const username=credentials.username??(effective.usernameSecret?secret(effective.usernameSecret):effective.username??auth.username??'');\n    const password=credentials.password??(effective.passwordSecret?secret(effective.passwordSecret):token);\n    if(typeof password!=='string'||!password||/[\\r\\n]/.test(username))throw new Error('Configure Basic credential secrets or connection profile');\n    headers.set('authorization','Basic '+Buffer.from(username+':'+password).toString('base64'));\n  }else if(auth.kind!=='none')throw new Error('Unsupported authentication kind');\n  const rawBody=operation.body===undefined?undefined:template(operation.body);\n  if(paging?.location==='body'&&continued!==undefined&&continued!==''){if(!rawBody||typeof rawBody!=='object'||Array.isArray(rawBody))throw new Error('Body pagination requires a JSON object');rawBody[paging.parameter]=String(continued);}\n  const serializeBody=()=>{if(rawBody===undefined)return undefined;const value=operation.bodyMode==='text'?String(rawBody):JSON.stringify(rawBody);headers.set('content-type',operation.contentType??'application/json');if(byteLength(value)>maxBytes)throw new Error('Request exceeds maxBytes');return value;};\n  let body=serializeBody();\n  const method=operation.method??'GET';\n  let pages=0,totalBytes=0,items=[],lastResponse,data,continuation;\n  const seen=new Set();\n  do{\n    const requestIdentity=url.href+'\\n'+(body??'');if(seen.has(requestIdentity))throw new Error('Repeated continuation detected');seen.add(requestIdentity);\n    const remaining=deadline-Date.now();if(remaining<=0)throw new Error('Request deadline exceeded');\n    try{lastResponse=await fetcher(url,{method,headers,body,redirect:'error',signal:AbortSignal.timeout(remaining)});}catch{throw new Error(family.name+' transport failed'+(operation.effect==='read'?'':'; external completion is uncertain; reconcile before retry'));}\n    if(!lastResponse.ok&&!operation.acceptedStatuses?.includes(lastResponse.status)){try{await lastResponse.body?.cancel();}catch{}throw new Error(family.name+' HTTP '+lastResponse.status+(operation.effect==='read'?'':' ; action may have been accepted; reconcile before retry'));}\n    const advertised=Number(lastResponse.headers.get('content-length'));if(Number.isFinite(advertised)&&advertised>maxBytes-totalBytes){try{await lastResponse.body?.cancel();}catch{}throw new Error('Response exceeds maxBytes');}\n    const reader=lastResponse.body?.getReader();let text='';\n    if(reader){const chunks=[];let bytes=0;try{while(true){const part=await reader.read();if(part.done)break;bytes+=part.value.byteLength;totalBytes+=part.value.byteLength;if(totalBytes>maxBytes)throw new Error('Response exceeds maxBytes');chunks.push(part.value);}}catch(e){try{await reader.cancel();}catch{}throw new Error(e.message==='Response exceeds maxBytes'?e.message:family.name+' response interrupted'+(operation.effect==='read'?'':'; external completion uncertain'));}text=Buffer.concat(chunks.map(c=>Buffer.from(c)),bytes).toString('utf8');}\n    else{text=await lastResponse.text();totalBytes+=byteLength(text);if(totalBytes>maxBytes)throw new Error('Response exceeds maxBytes');}\n    if(operation.response.kind==='text')data=text;\n    else if(operation.response.kind==='empty'&&!operation.response.successPath)data=undefined;\n    else{try{data=text.length?JSON.parse(text):undefined;}catch{throw new Error(family.name+' returned invalid JSON');}}\n    if(operation.response.successPath&&get(data,operation.response.successPath)!==(operation.response.successValue??true))throw new Error(family.name+' returned an unsuccessful API result');\n    pages++;\n    continuation=undefined;\n    const value=get(data,operation.response.path);\n    const selected=value===undefined&&operation.response.fallbackPath?get(data,operation.response.fallbackPath):value;\n    if(operation.response.kind==='list'){\n      if(!Array.isArray(selected))throw new Error('Expected provider list at documented response path');\n      if(items.length+selected.length>maxItems)throw new Error('Response exceeds maxItems; request a smaller page');\n      items.push(...selected);\n      if(paging?.kind==='url'||paging?.kind==='token')continuation=get(data,paging.path);\n      else if(paging?.kind==='header')continuation=lastResponse.headers.get(paging.header)??undefined;\n      else if(paging?.kind==='link'){\n        const link=lastResponse.headers.get('link')??'';\n        continuation=link.split(',').map(p=>p.trim()).filter(p=>!/(?:^|;)\\s*results=\"?false\"?(?:;|$)/i.test(p)).map(p=>p.match(/^<([^>]+)>;\\s*rel=\"?next\"?(?:;.*)?$/)).find(Boolean)?.[1];\n      }else if(paging?.kind==='page'&&selected.length===(paging.size??100))continuation=String(Number(url.searchParams.get(paging.parameter)??1)+1);\n      else if(paging?.kind==='offset'){\n        const offset=Number(url.searchParams.get(paging.parameter)??0),size=Number(url.searchParams.get(paging.sizeParameter)??paging.size??100);\n        const more=paging.morePath?get(data,paging.morePath):paging.totalPath?offset+selected.length<get(data,paging.totalPath):selected.length===size;\n        if(more&&selected.length)continuation=String(offset+selected.length);\n      }\n    }\n    if(continuation===null||continuation==='')continuation=undefined;\n    if(continuation!==undefined&&typeof continuation!=='string'&&typeof continuation!=='number')throw new Error('Invalid continuation token');\n    if(!continuation||pages>=maxPages)break;\n    if(operation.effect!=='read')throw new Error('Cannot paginate an external action');\n    if(['url','link'].includes(paging.kind))url=safeNext(String(continuation));else if(paging.location==='body'){if(!rawBody||typeof rawBody!=='object'||Array.isArray(rawBody))throw new Error('Body pagination requires a JSON object');rawBody[paging.parameter]=String(continuation);body=serializeBody();}else url.searchParams.set(paging.parameter,String(continuation));\n  }while(true);\n  const result={status:lastResponse.status};\n  const requestId=lastResponse.headers.get('x-ms-request-id')??lastResponse.headers.get('x-request-id')??lastResponse.headers.get('x-github-request-id');if(requestId)result.request_id=requestId;\n  const operationLocation=lastResponse.headers.get('azure-asyncoperation')??lastResponse.headers.get('operation-location')??(lastResponse.status===202?lastResponse.headers.get('location'):undefined);if(operationLocation){const location=new URL(operationLocation,url);if(location.origin===base.origin&&!location.username&&!location.password&&!location.hash)result.operation_url=location.href;}\n  const value=get(data,operation.response.path),selected=value===undefined&&operation.response.fallbackPath?get(data,operation.response.fallbackPath):value;\n  if(operation.response.kind==='item'){if(selected===undefined&&operation.response.optional===true&&lastResponse.status===202){}else{if(selected===undefined||selected===null||typeof selected!=='object'||Array.isArray(selected))throw new Error('Expected provider object at documented response path');result.item=selected;}}\n  else if(operation.response.kind==='list'){result.items=items;result.count=items.length;result.has_more=continuation!==undefined;if(continuation!==undefined)result.continuation=String(continuation);}\n  else if(operation.response.kind==='json'){if(selected===undefined)throw new Error('Expected JSON at documented response path');result.value=selected;}\n  else if(operation.response.kind==='text')result.text=data;\n  for(const[key,path]of Object.entries(operation.response.select??{})){const v=get(data,path);if(v!==undefined&&v!==null){const type=operation.response.selectTypes?.[key]??'string';if(typeof v!==type)throw new Error('Unexpected scalar output '+key);result[key]=v;}}\n  for(const[key,header]of Object.entries(operation.response.headerSelect??{})){const v=lastResponse.headers.get(header);if(v!==null)result[key]=v;}\n  if(byteLength(result)>maxBytes)throw new Error('Outputs exceed maxBytes');\n  return result;\n})({\"id\":\"longhorn\",\"name\":\"Longhorn\",\"baseUrl\":\"https://kubernetes.example.com\",\"auth\":{\"kind\":\"bearer\",\"secret\":\"KUBERNETES_TOKEN\"}},{\"key\":\"list-volumes\",\"name\":\"List Volumes\",\"path\":\"/apis/longhorn.io/v1beta2/namespaces/{namespace}/volumes\",\"method\":\"GET\",\"effect\":\"read\",\"inputs\":{\"namespace\":{\"type\":\"string\",\"required\":true},\"labelSelector\":{\"type\":\"string\"},\"limit\":{\"type\":\"number\",\"default\":100,\"schema\":{\"type\":\"integer\",\"minimum\":1,\"maximum\":500}}},\"response\":{\"kind\":\"list\",\"type\":\"@kubernetes.resource\",\"path\":[\"items\"]},\"query\":{\"labelSelector\":{\"input\":\"labelSelector\",\"optional\":true},\"limit\":{\"input\":\"limit\",\"optional\":true}},\"paging\":{\"kind\":\"token\",\"path\":[\"metadata\",\"continue\"],\"parameter\":\"continue\"}},inputs,config,context);",
+      "description": "Inspect volumes desired configuration and observed operator state. Requires the longhorn.io/v1beta2 CRD served by the target Kubernetes API; returns the shared Resource envelope, with explicit JSON spec/status.",
+      "documentation": "Inspect volumes desired configuration and observed operator state. Requires the longhorn.io/v1beta2 CRD served by the target Kubernetes API; returns the shared Resource envelope, with explicit JSON spec/status.\n\nGET /apis/longhorn.io/v1beta2/namespaces/{namespace}/volumes. Read operation.\n\nInputs: namespace (optional), labelSelector (optional), limit (optional), continuation (optional). Missing inputs may come from the selected connection profile config or explicit node defaults. Outputs: status, request_id, operation_url, items, count, has_more, continuation. Optional outputs are absent when the provider omits them. HTTP202 is acceptance, not completed work; operation_url exposes a same-origin asynchronous status URL when supplied.\n\nSetup: configure baseUrl (https://kubernetes.example.com), bearer credentials through encrypted secret names or Connections. Default secret name: KUBERNETES_TOKEN. Connection credentials accessToken/apiKey or username/password are resolved at execution. Never put credentials in literal inputs, baseUrl or logs. Required access: Kubernetes list RBAC for volumes.longhorn.io in the selected namespace.\n\nBounds: requestTimeoutMs=15000 (100..120000), maxBytes=1048576 (1024..3000000), maxItems=1000 (1..5000), maxPages=1 (1..20). Follow bounded provider continuation or pass continuation to fetch the next page. has_more reports an unconsumed continuation. HTTPS is required; private HTTP needs allowHttp=true. TLS validation remains enabled. Redirects, cross-origin/escaped continuation URLs and repeated continuations fail. No implicit retries. Error text contains provider/status only, never raw response bodies or credentials. Reconcile an uncertain external action before another attempt.\n\nSynthetic example inputs:\n\n```json\n{\n  \"namespace\": \"demo\"\n}\n```\n\nThis example is documentation, not a run. \n\nSource: https://raw.githubusercontent.com/longhorn/longhorn-manager/master/k8s/crds.yaml https://longhorn.io/docs/latest/references/longhorn-client/",
+      "createdAt": "2026-10-22T00:00:00.000Z",
+      "updatedAt": "2026-10-22T00:00:00.000Z",
+      "builtin": false
+    },
+    {
+      "id": "def_775d810ee7c7",
+      "version": 1,
+      "name": "Longhorn Get Backup",
+      "kind": "node",
+      "category": "Developer integrations",
+      "color": "#5c4c9f",
+      "runtime": "javascript",
+      "inputs": [
+        {
+          "id": "exec",
+          "name": "Execute",
+          "type": "control"
+        },
+        {
+          "id": "namespace",
+          "name": "Namespace",
+          "type": "string",
+          "required": false
+        },
+        {
+          "id": "name",
+          "name": "Name",
+          "type": "string",
+          "required": false
+        }
+      ],
+      "outputs": [
+        {
+          "id": "next",
+          "name": "Next",
+          "type": "control"
+        },
+        {
+          "id": "status",
+          "name": "Status",
+          "type": "number",
+          "required": true
+        },
+        {
+          "id": "request_id",
+          "name": "Request Id",
+          "type": "string"
+        },
+        {
+          "id": "operation_url",
+          "name": "Operation Url",
+          "type": "string"
+        },
+        {
+          "id": "item",
+          "name": "Item",
+          "type": "def_139906346c9b",
+          "typeVersion": 1,
+          "required": true
+        },
+        {
+          "id": "error",
+          "name": "On error",
+          "type": "control"
+        }
+      ],
+      "configSchema": {
+        "type": "object",
+        "properties": {
+          "baseUrl": {
+            "type": "string",
+            "maxLength": 2000
+          },
+          "allowHttp": {
+            "type": "boolean",
+            "default": false
+          },
+          "tokenSecret": {
+            "type": "string",
+            "maxLength": 120
+          },
+          "username": {
+            "type": "string",
+            "maxLength": 160
+          },
+          "usernameSecret": {
+            "type": "string",
+            "maxLength": 120
+          },
+          "passwordSecret": {
+            "type": "string",
+            "maxLength": 120
+          },
+          "requestTimeoutMs": {
+            "type": "integer",
+            "minimum": 100,
+            "maximum": 120000,
+            "default": 15000
+          },
+          "maxBytes": {
+            "type": "integer",
+            "minimum": 1024,
+            "maximum": 3000000,
+            "default": 1048576
+          },
+          "maxPages": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 20,
+            "default": 1
+          },
+          "maxItems": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 5000,
+            "default": 1000
+          },
+          "confirmWrites": {
+            "type": "boolean",
+            "default": false
+          }
+        },
+        "additionalProperties": true
+      },
+      "code": "return await (async function runOperation(family,operation,inputs,config,context,fetcher=fetch){\n  const own=(o,k)=>o!==null&&typeof o==='object'&&Object.hasOwn(o,k);\n  const integer=(v,min,max,label)=>{if(!Number.isSafeInteger(v)||v<min||v>max)throw new Error(label+' outside bounds');return v;};\n  const get=(value,path=[])=>path.reduce((v,k)=>own(v,k)?v[k]:undefined,value);\n  const byteLength=v=>Buffer.byteLength(typeof v==='string'?v:JSON.stringify(v));\n  let connection;\n  if(config.$connection){if(!context.connections?.get)throw new Error('Connection profile unavailable');connection=await context.connections.get();}\n  const effective={...(connection?.config??{}),...config};\n  const maxBytes=integer(effective.maxBytes??1048576,1024,3000000,'maxBytes');\n  const maxPages=integer(effective.maxPages??1,1,20,'maxPages');\n  const maxItems=integer(effective.maxItems??1000,1,5000,'maxItems');\n  const timeout=integer(effective.requestTimeoutMs??15000,100,120000,'requestTimeoutMs');\n  const deadline=Date.now()+timeout;\n  if(operation.effect!=='read'){\n    if(effective.confirmWrites!==true)throw new Error('Enable confirmWrites for this external action');\n    if((effective.$retries??0)>0)throw new Error('External actions require $retries=0; reconcile uncertain completion before retry');\n  }\n  // A small self-contained JSON Schema validator for declared outbound argument bounds.\n  // Provider resource/socket schemas are also validated by ONF before/after execution.\n  const finiteJson=(value,seen=new Set(),depth=0)=>{if(depth>90)return false;if(value===null||typeof value==='string'||typeof value==='boolean')return true;if(typeof value==='number')return Number.isFinite(value);if(!value||typeof value!=='object'||seen.has(value))return false;seen.add(value);const valid=(Array.isArray(value)?value:Object.values(value)).every(v=>finiteJson(v,seen,depth+1));seen.delete(value);return valid;};\n  const matches=(schema,value,root=schema,depth=0)=>{\n    if(depth>100||schema===false)return false;if(schema===true||!schema)return true;\n    if(schema.$ref){if(!schema.$ref.startsWith('#/'))return false;const target=schema.$ref.slice(2).split('/').reduce((v,k)=>v?.[k.replaceAll('~1','/').replaceAll('~0','~')],root);return target!==undefined&&matches(target,value,root,depth+1);}\n    if(schema.anyOf&&!schema.anyOf.some(s=>matches(s,value,root,depth+1)))return false;\n    if(schema.oneOf&&schema.oneOf.filter(s=>matches(s,value,root,depth+1)).length!==1)return false;\n    if(schema.allOf&&!schema.allOf.every(s=>matches(s,value,root,depth+1)))return false;\n    if(schema.not&&matches(schema.not,value,root,depth+1))return false;\n    if(own(schema,'const')&&JSON.stringify(value)!==JSON.stringify(schema.const)||schema.enum&&!schema.enum.some(v=>JSON.stringify(v)===JSON.stringify(value)))return false;\n    const type=Array.isArray(value)?'array':value===null?'null':typeof value;\n    if(schema.type&&!([].concat(schema.type)).some(t=>t===type||t==='integer'&&type==='number'&&Number.isSafeInteger(value)))return false;\n    if(type==='number'&&(schema.minimum!==undefined&&value<schema.minimum||schema.maximum!==undefined&&value>schema.maximum||schema.exclusiveMinimum!==undefined&&value<=schema.exclusiveMinimum||schema.exclusiveMaximum!==undefined&&value>=schema.exclusiveMaximum))return false;\n    if(type==='string'&&(schema.minLength!==undefined&&[...value].length<schema.minLength||schema.maxLength!==undefined&&[...value].length>schema.maxLength||schema.pattern&&!(new RegExp(schema.pattern,'u')).test(value)))return false;\n    if(type==='array'){\n      if(schema.minItems!==undefined&&value.length<schema.minItems||schema.maxItems!==undefined&&value.length>schema.maxItems||schema.uniqueItems&&new Set(value.map(v=>JSON.stringify(v))).size!==value.length)return false;\n      if(schema.items&&!value.every((v,index)=>matches(Array.isArray(schema.items)?schema.items[index]??schema.additionalItems??true:schema.items,v,root,depth+1)))return false;\n    }\n    if(type==='object'){\n      if((schema.required??[]).some(k=>!own(value,k))||schema.minProperties!==undefined&&Object.keys(value).length<schema.minProperties||schema.maxProperties!==undefined&&Object.keys(value).length>schema.maxProperties)return false;\n      for(const[k,v]of Object.entries(value)){\n        if(own(schema.properties??{},k)){if(!matches(schema.properties[k],v,root,depth+1))return false;}\n        else{const patterns=Object.entries(schema.patternProperties??{}).filter(([pattern])=>(new RegExp(pattern,'u')).test(k));if(patterns.length){if(!patterns.every(([,s])=>matches(s,v,root,depth+1)))return false;}else if(schema.additionalProperties===false||schema.additionalProperties&&typeof schema.additionalProperties==='object'&&!matches(schema.additionalProperties,v,root,depth+1))return false;}\n      }\n    }\n    return true;\n  };\n  const values={};\n  for(const[key,descriptor]of Object.entries(operation.inputs??{})){\n    const value=own(inputs,key)?inputs[key]:own(effective,key)?effective[key]:descriptor.default;\n    if(value===undefined){if(descriptor.required)throw new Error('Missing input '+key);continue;}\n    const t=descriptor.type;\n    if(t==='string'&&typeof value!=='string'||t==='number'&&(typeof value!=='number'||!Number.isFinite(value))||t==='boolean'&&typeof value!=='boolean'||t==='record'&&(!value||typeof value!=='object'||Array.isArray(value))||t==='list'&&!Array.isArray(value))throw new Error('Invalid input '+key);\n    if(!finiteJson(value)||descriptor.schema&&!matches(descriptor.schema,value))throw new Error('Input '+key+' violates declared schema');\n    values[key]=value;\n  }\n  const template=value=>{\n    if(value&&typeof value==='object'&&!Array.isArray(value)&&typeof value.input==='string'){\n      const v=values[value.input];if(v===undefined&&!value.optional)throw new Error('Missing input '+value.input);return v;\n    }\n    if(Array.isArray(value))return value.map(template);\n    if(value&&typeof value==='object')return Object.fromEntries(Object.entries(value).map(([k,v])=>[k,template(v)]).filter(([,v])=>v!==undefined));\n    return value;\n  };\n  const baseText=effective.baseUrl??operation.baseUrl??family.baseUrl;\n  let base;try{base=new URL(baseText);}catch{throw new Error('Configure a valid baseUrl');}\n  const loopback=['localhost','127.0.0.1','[::1]'].includes(base.hostname);\n  const host=base.hostname.toLowerCase(),privateHost=/^(?:10\\.|192\\.168\\.|172\\.(?:1[6-9]|2\\d|3[01])\\.)/.test(host)||/^\\[(?:fc|fd)[0-9a-f:]+\\]$/i.test(host)||/\\.(?:cluster|lan|local)$/.test(host)||/^[a-z][a-z0-9-]*$/.test(host);\n  if(!['http:','https:'].includes(base.protocol)||base.username||base.password||base.search||base.hash||base.protocol==='http:'&&!loopback&&!(effective.allowHttp===true&&privateHost))throw new Error('Use HTTPS baseUrl without credentials, query or fragment; private HTTP requires allowHttp');\n  // Keep explicitly configured reverse-proxy API prefixes (e.g. Rancher proxy paths).\n  const root=base.pathname.replace(/\\/$/,'');\n  const segment=(name,greedy)=>{\n    const value=values[name];if(value===undefined||value===null||String(value)==='')throw new Error('Missing path input '+name);\n    const text=String(value);\n    if(/[?#\\\\\\u0000-\\u001f]/.test(text))throw new Error('Invalid path input '+name);\n    if(greedy&&!text.startsWith('/'))throw new Error('Resource path must begin with /');\n    const parts=greedy?text.slice(1).split('/'):[text];\n    if(parts.some(p=>!p||p==='.'||p==='..'||/%(?:2e|2f|5c)/i.test(p)))throw new Error('Invalid path segment '+name);\n    return(greedy?'/':'')+parts.map(encodeURIComponent).join('/');\n  };\n  const path=operation.path.replace(/\\{([A-Za-z_][A-Za-z0-9_]*)(\\*)?\\}/g,(_,key,greedy)=>segment(key,greedy));\n  if(!path.startsWith('/')||/[?#\\\\]/.test(path)||path.split('/').some(p=>p==='.'||p==='..'))throw new Error('Invalid operation path');\n  let url=new URL(base.origin+root+path);\n  for(const[k,v]of Object.entries(template(operation.query??{})))if(v!==undefined)url.searchParams.set(k,typeof v==='object'?JSON.stringify(v):String(v));\n  const paging=operation.paging;\n  const originalUrl=url.href;\n  const safeNext=text=>{let next;try{next=new URL(text,url);}catch{throw new Error('Invalid continuation URL');}if(next.origin!==base.origin||next.username||next.password||next.hash||root&&next.pathname!==root&&!next.pathname.startsWith(root+'/')||next.pathname!==new URL(originalUrl).pathname)throw new Error('Continuation leaves the configured API endpoint');return next;};\n  const continued=inputs.continuation??effective.continuation;\n  if(continued!==undefined&&continued!==''){\n    if(!paging)throw new Error('This operation does not support continuation');\n    if(['url','link'].includes(paging.kind))url=safeNext(String(continued));else if(paging.location!=='body')url.searchParams.set(paging.parameter,String(continued));\n  }\n  if(paging?.kind==='page'||paging?.kind==='offset'){\n    if(!url.searchParams.has(paging.parameter))url.searchParams.set(paging.parameter,paging.kind==='offset'?'0':'1');\n    if(paging.sizeParameter)url.searchParams.set(paging.sizeParameter,String(paging.size??100));\n  }\n  const headers=new Headers(template(operation.headers??{}));\n  headers.set('accept',operation.accept??'application/json');\n  const auth=family.auth??{kind:'none'},credentials=connection?.credentials??{};\n  const secret=(name,optional=false)=>{if(!name)return undefined;let v;try{v=context.secrets.get(name);}catch{if(optional)return undefined;throw new Error('Required credential secret is unavailable');}return v;};\n  const token=auth.kind==='none'||auth.kind==='basic'&&(credentials.password||effective.passwordSecret)?undefined:credentials.accessToken??credentials.apiKey??secret(effective.tokenSecret??auth.secret,auth.optional&&!effective.tokenSecret);\n  if(auth.kind==='bearer'||auth.kind==='header'){\n    if(!token&&!auth.optional)throw new Error('Configure credential secret or connection profile');\n    if(token){if(typeof token!=='string'||/[\\r\\n\\u0000]/.test(token))throw new Error('Credential is not a valid header value');try{headers.set(auth.kind==='bearer'?'authorization':auth.header,(auth.kind==='bearer'?'Bearer ':auth.prefix??'')+token);}catch{throw new Error('Credential is not a valid header value');}}\n  }else if(auth.kind==='basic'){\n    const username=credentials.username??(effective.usernameSecret?secret(effective.usernameSecret):effective.username??auth.username??'');\n    const password=credentials.password??(effective.passwordSecret?secret(effective.passwordSecret):token);\n    if(typeof password!=='string'||!password||/[\\r\\n]/.test(username))throw new Error('Configure Basic credential secrets or connection profile');\n    headers.set('authorization','Basic '+Buffer.from(username+':'+password).toString('base64'));\n  }else if(auth.kind!=='none')throw new Error('Unsupported authentication kind');\n  const rawBody=operation.body===undefined?undefined:template(operation.body);\n  if(paging?.location==='body'&&continued!==undefined&&continued!==''){if(!rawBody||typeof rawBody!=='object'||Array.isArray(rawBody))throw new Error('Body pagination requires a JSON object');rawBody[paging.parameter]=String(continued);}\n  const serializeBody=()=>{if(rawBody===undefined)return undefined;const value=operation.bodyMode==='text'?String(rawBody):JSON.stringify(rawBody);headers.set('content-type',operation.contentType??'application/json');if(byteLength(value)>maxBytes)throw new Error('Request exceeds maxBytes');return value;};\n  let body=serializeBody();\n  const method=operation.method??'GET';\n  let pages=0,totalBytes=0,items=[],lastResponse,data,continuation;\n  const seen=new Set();\n  do{\n    const requestIdentity=url.href+'\\n'+(body??'');if(seen.has(requestIdentity))throw new Error('Repeated continuation detected');seen.add(requestIdentity);\n    const remaining=deadline-Date.now();if(remaining<=0)throw new Error('Request deadline exceeded');\n    try{lastResponse=await fetcher(url,{method,headers,body,redirect:'error',signal:AbortSignal.timeout(remaining)});}catch{throw new Error(family.name+' transport failed'+(operation.effect==='read'?'':'; external completion is uncertain; reconcile before retry'));}\n    if(!lastResponse.ok&&!operation.acceptedStatuses?.includes(lastResponse.status)){try{await lastResponse.body?.cancel();}catch{}throw new Error(family.name+' HTTP '+lastResponse.status+(operation.effect==='read'?'':' ; action may have been accepted; reconcile before retry'));}\n    const advertised=Number(lastResponse.headers.get('content-length'));if(Number.isFinite(advertised)&&advertised>maxBytes-totalBytes){try{await lastResponse.body?.cancel();}catch{}throw new Error('Response exceeds maxBytes');}\n    const reader=lastResponse.body?.getReader();let text='';\n    if(reader){const chunks=[];let bytes=0;try{while(true){const part=await reader.read();if(part.done)break;bytes+=part.value.byteLength;totalBytes+=part.value.byteLength;if(totalBytes>maxBytes)throw new Error('Response exceeds maxBytes');chunks.push(part.value);}}catch(e){try{await reader.cancel();}catch{}throw new Error(e.message==='Response exceeds maxBytes'?e.message:family.name+' response interrupted'+(operation.effect==='read'?'':'; external completion uncertain'));}text=Buffer.concat(chunks.map(c=>Buffer.from(c)),bytes).toString('utf8');}\n    else{text=await lastResponse.text();totalBytes+=byteLength(text);if(totalBytes>maxBytes)throw new Error('Response exceeds maxBytes');}\n    if(operation.response.kind==='text')data=text;\n    else if(operation.response.kind==='empty'&&!operation.response.successPath)data=undefined;\n    else{try{data=text.length?JSON.parse(text):undefined;}catch{throw new Error(family.name+' returned invalid JSON');}}\n    if(operation.response.successPath&&get(data,operation.response.successPath)!==(operation.response.successValue??true))throw new Error(family.name+' returned an unsuccessful API result');\n    pages++;\n    continuation=undefined;\n    const value=get(data,operation.response.path);\n    const selected=value===undefined&&operation.response.fallbackPath?get(data,operation.response.fallbackPath):value;\n    if(operation.response.kind==='list'){\n      if(!Array.isArray(selected))throw new Error('Expected provider list at documented response path');\n      if(items.length+selected.length>maxItems)throw new Error('Response exceeds maxItems; request a smaller page');\n      items.push(...selected);\n      if(paging?.kind==='url'||paging?.kind==='token')continuation=get(data,paging.path);\n      else if(paging?.kind==='header')continuation=lastResponse.headers.get(paging.header)??undefined;\n      else if(paging?.kind==='link'){\n        const link=lastResponse.headers.get('link')??'';\n        continuation=link.split(',').map(p=>p.trim()).filter(p=>!/(?:^|;)\\s*results=\"?false\"?(?:;|$)/i.test(p)).map(p=>p.match(/^<([^>]+)>;\\s*rel=\"?next\"?(?:;.*)?$/)).find(Boolean)?.[1];\n      }else if(paging?.kind==='page'&&selected.length===(paging.size??100))continuation=String(Number(url.searchParams.get(paging.parameter)??1)+1);\n      else if(paging?.kind==='offset'){\n        const offset=Number(url.searchParams.get(paging.parameter)??0),size=Number(url.searchParams.get(paging.sizeParameter)??paging.size??100);\n        const more=paging.morePath?get(data,paging.morePath):paging.totalPath?offset+selected.length<get(data,paging.totalPath):selected.length===size;\n        if(more&&selected.length)continuation=String(offset+selected.length);\n      }\n    }\n    if(continuation===null||continuation==='')continuation=undefined;\n    if(continuation!==undefined&&typeof continuation!=='string'&&typeof continuation!=='number')throw new Error('Invalid continuation token');\n    if(!continuation||pages>=maxPages)break;\n    if(operation.effect!=='read')throw new Error('Cannot paginate an external action');\n    if(['url','link'].includes(paging.kind))url=safeNext(String(continuation));else if(paging.location==='body'){if(!rawBody||typeof rawBody!=='object'||Array.isArray(rawBody))throw new Error('Body pagination requires a JSON object');rawBody[paging.parameter]=String(continuation);body=serializeBody();}else url.searchParams.set(paging.parameter,String(continuation));\n  }while(true);\n  const result={status:lastResponse.status};\n  const requestId=lastResponse.headers.get('x-ms-request-id')??lastResponse.headers.get('x-request-id')??lastResponse.headers.get('x-github-request-id');if(requestId)result.request_id=requestId;\n  const operationLocation=lastResponse.headers.get('azure-asyncoperation')??lastResponse.headers.get('operation-location')??(lastResponse.status===202?lastResponse.headers.get('location'):undefined);if(operationLocation){const location=new URL(operationLocation,url);if(location.origin===base.origin&&!location.username&&!location.password&&!location.hash)result.operation_url=location.href;}\n  const value=get(data,operation.response.path),selected=value===undefined&&operation.response.fallbackPath?get(data,operation.response.fallbackPath):value;\n  if(operation.response.kind==='item'){if(selected===undefined&&operation.response.optional===true&&lastResponse.status===202){}else{if(selected===undefined||selected===null||typeof selected!=='object'||Array.isArray(selected))throw new Error('Expected provider object at documented response path');result.item=selected;}}\n  else if(operation.response.kind==='list'){result.items=items;result.count=items.length;result.has_more=continuation!==undefined;if(continuation!==undefined)result.continuation=String(continuation);}\n  else if(operation.response.kind==='json'){if(selected===undefined)throw new Error('Expected JSON at documented response path');result.value=selected;}\n  else if(operation.response.kind==='text')result.text=data;\n  for(const[key,path]of Object.entries(operation.response.select??{})){const v=get(data,path);if(v!==undefined&&v!==null){const type=operation.response.selectTypes?.[key]??'string';if(typeof v!==type)throw new Error('Unexpected scalar output '+key);result[key]=v;}}\n  for(const[key,header]of Object.entries(operation.response.headerSelect??{})){const v=lastResponse.headers.get(header);if(v!==null)result[key]=v;}\n  if(byteLength(result)>maxBytes)throw new Error('Outputs exceed maxBytes');\n  return result;\n})({\"id\":\"longhorn\",\"name\":\"Longhorn\",\"baseUrl\":\"https://kubernetes.example.com\",\"auth\":{\"kind\":\"bearer\",\"secret\":\"KUBERNETES_TOKEN\"}},{\"key\":\"get-backups\",\"name\":\"Get Backup\",\"path\":\"/apis/longhorn.io/v1beta2/namespaces/{namespace}/backups/{name}\",\"method\":\"GET\",\"effect\":\"read\",\"inputs\":{\"namespace\":{\"type\":\"string\",\"required\":true},\"name\":{\"type\":\"string\",\"required\":true}},\"response\":{\"kind\":\"item\",\"type\":\"@kubernetes.resource\",\"path\":[]}},inputs,config,context);",
+      "description": "Inspect backups desired configuration and observed operator state. Requires the longhorn.io/v1beta2 CRD served by the target Kubernetes API; returns the shared Resource envelope, with explicit JSON spec/status.",
+      "documentation": "Inspect backups desired configuration and observed operator state. Requires the longhorn.io/v1beta2 CRD served by the target Kubernetes API; returns the shared Resource envelope, with explicit JSON spec/status.\n\nGET /apis/longhorn.io/v1beta2/namespaces/{namespace}/backups/{name}. Read operation.\n\nInputs: namespace (optional), name (optional). Missing inputs may come from the selected connection profile config or explicit node defaults. Outputs: status, request_id, operation_url, item. Optional outputs are absent when the provider omits them. HTTP202 is acceptance, not completed work; operation_url exposes a same-origin asynchronous status URL when supplied.\n\nSetup: configure baseUrl (https://kubernetes.example.com), bearer credentials through encrypted secret names or Connections. Default secret name: KUBERNETES_TOKEN. Connection credentials accessToken/apiKey or username/password are resolved at execution. Never put credentials in literal inputs, baseUrl or logs. Required access: Kubernetes get RBAC for backups.longhorn.io in the selected namespace.\n\nBounds: requestTimeoutMs=15000 (100..120000), maxBytes=1048576 (1024..3000000), maxItems=1000 (1..5000), maxPages=1 (1..20). One bounded request; use the provider-specific explicit paging inputs where offered. HTTPS is required; private HTTP needs allowHttp=true. TLS validation remains enabled. Redirects, cross-origin/escaped continuation URLs and repeated continuations fail. No implicit retries. Error text contains provider/status only, never raw response bodies or credentials. Reconcile an uncertain external action before another attempt.\n\nSynthetic example inputs:\n\n```json\n{\n  \"namespace\": \"demo\",\n  \"name\": \"demo\"\n}\n```\n\nThis example is documentation, not a run. \n\nSource: https://raw.githubusercontent.com/longhorn/longhorn-manager/master/k8s/crds.yaml https://longhorn.io/docs/latest/references/longhorn-client/",
+      "createdAt": "2026-10-22T00:00:00.000Z",
+      "updatedAt": "2026-10-22T00:00:00.000Z",
+      "builtin": false
+    },
+    {
+      "id": "def_cbd29d99d9a5",
+      "version": 1,
+      "name": "Longhorn Get Volume",
+      "kind": "node",
+      "category": "Developer integrations",
+      "color": "#5c4c9f",
+      "runtime": "javascript",
+      "inputs": [
+        {
+          "id": "exec",
+          "name": "Execute",
+          "type": "control"
+        },
+        {
+          "id": "namespace",
+          "name": "Namespace",
+          "type": "string",
+          "required": false
+        },
+        {
+          "id": "name",
+          "name": "Name",
+          "type": "string",
+          "required": false
+        }
+      ],
+      "outputs": [
+        {
+          "id": "next",
+          "name": "Next",
+          "type": "control"
+        },
+        {
+          "id": "status",
+          "name": "Status",
+          "type": "number",
+          "required": true
+        },
+        {
+          "id": "request_id",
+          "name": "Request Id",
+          "type": "string"
+        },
+        {
+          "id": "operation_url",
+          "name": "Operation Url",
+          "type": "string"
+        },
+        {
+          "id": "item",
+          "name": "Item",
+          "type": "def_139906346c9b",
+          "typeVersion": 1,
+          "required": true
+        },
+        {
+          "id": "error",
+          "name": "On error",
+          "type": "control"
+        }
+      ],
+      "configSchema": {
+        "type": "object",
+        "properties": {
+          "baseUrl": {
+            "type": "string",
+            "maxLength": 2000
+          },
+          "allowHttp": {
+            "type": "boolean",
+            "default": false
+          },
+          "tokenSecret": {
+            "type": "string",
+            "maxLength": 120
+          },
+          "username": {
+            "type": "string",
+            "maxLength": 160
+          },
+          "usernameSecret": {
+            "type": "string",
+            "maxLength": 120
+          },
+          "passwordSecret": {
+            "type": "string",
+            "maxLength": 120
+          },
+          "requestTimeoutMs": {
+            "type": "integer",
+            "minimum": 100,
+            "maximum": 120000,
+            "default": 15000
+          },
+          "maxBytes": {
+            "type": "integer",
+            "minimum": 1024,
+            "maximum": 3000000,
+            "default": 1048576
+          },
+          "maxPages": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 20,
+            "default": 1
+          },
+          "maxItems": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 5000,
+            "default": 1000
+          },
+          "confirmWrites": {
+            "type": "boolean",
+            "default": false
+          }
+        },
+        "additionalProperties": true
+      },
+      "code": "return await (async function runOperation(family,operation,inputs,config,context,fetcher=fetch){\n  const own=(o,k)=>o!==null&&typeof o==='object'&&Object.hasOwn(o,k);\n  const integer=(v,min,max,label)=>{if(!Number.isSafeInteger(v)||v<min||v>max)throw new Error(label+' outside bounds');return v;};\n  const get=(value,path=[])=>path.reduce((v,k)=>own(v,k)?v[k]:undefined,value);\n  const byteLength=v=>Buffer.byteLength(typeof v==='string'?v:JSON.stringify(v));\n  let connection;\n  if(config.$connection){if(!context.connections?.get)throw new Error('Connection profile unavailable');connection=await context.connections.get();}\n  const effective={...(connection?.config??{}),...config};\n  const maxBytes=integer(effective.maxBytes??1048576,1024,3000000,'maxBytes');\n  const maxPages=integer(effective.maxPages??1,1,20,'maxPages');\n  const maxItems=integer(effective.maxItems??1000,1,5000,'maxItems');\n  const timeout=integer(effective.requestTimeoutMs??15000,100,120000,'requestTimeoutMs');\n  const deadline=Date.now()+timeout;\n  if(operation.effect!=='read'){\n    if(effective.confirmWrites!==true)throw new Error('Enable confirmWrites for this external action');\n    if((effective.$retries??0)>0)throw new Error('External actions require $retries=0; reconcile uncertain completion before retry');\n  }\n  // A small self-contained JSON Schema validator for declared outbound argument bounds.\n  // Provider resource/socket schemas are also validated by ONF before/after execution.\n  const finiteJson=(value,seen=new Set(),depth=0)=>{if(depth>90)return false;if(value===null||typeof value==='string'||typeof value==='boolean')return true;if(typeof value==='number')return Number.isFinite(value);if(!value||typeof value!=='object'||seen.has(value))return false;seen.add(value);const valid=(Array.isArray(value)?value:Object.values(value)).every(v=>finiteJson(v,seen,depth+1));seen.delete(value);return valid;};\n  const matches=(schema,value,root=schema,depth=0)=>{\n    if(depth>100||schema===false)return false;if(schema===true||!schema)return true;\n    if(schema.$ref){if(!schema.$ref.startsWith('#/'))return false;const target=schema.$ref.slice(2).split('/').reduce((v,k)=>v?.[k.replaceAll('~1','/').replaceAll('~0','~')],root);return target!==undefined&&matches(target,value,root,depth+1);}\n    if(schema.anyOf&&!schema.anyOf.some(s=>matches(s,value,root,depth+1)))return false;\n    if(schema.oneOf&&schema.oneOf.filter(s=>matches(s,value,root,depth+1)).length!==1)return false;\n    if(schema.allOf&&!schema.allOf.every(s=>matches(s,value,root,depth+1)))return false;\n    if(schema.not&&matches(schema.not,value,root,depth+1))return false;\n    if(own(schema,'const')&&JSON.stringify(value)!==JSON.stringify(schema.const)||schema.enum&&!schema.enum.some(v=>JSON.stringify(v)===JSON.stringify(value)))return false;\n    const type=Array.isArray(value)?'array':value===null?'null':typeof value;\n    if(schema.type&&!([].concat(schema.type)).some(t=>t===type||t==='integer'&&type==='number'&&Number.isSafeInteger(value)))return false;\n    if(type==='number'&&(schema.minimum!==undefined&&value<schema.minimum||schema.maximum!==undefined&&value>schema.maximum||schema.exclusiveMinimum!==undefined&&value<=schema.exclusiveMinimum||schema.exclusiveMaximum!==undefined&&value>=schema.exclusiveMaximum))return false;\n    if(type==='string'&&(schema.minLength!==undefined&&[...value].length<schema.minLength||schema.maxLength!==undefined&&[...value].length>schema.maxLength||schema.pattern&&!(new RegExp(schema.pattern,'u')).test(value)))return false;\n    if(type==='array'){\n      if(schema.minItems!==undefined&&value.length<schema.minItems||schema.maxItems!==undefined&&value.length>schema.maxItems||schema.uniqueItems&&new Set(value.map(v=>JSON.stringify(v))).size!==value.length)return false;\n      if(schema.items&&!value.every((v,index)=>matches(Array.isArray(schema.items)?schema.items[index]??schema.additionalItems??true:schema.items,v,root,depth+1)))return false;\n    }\n    if(type==='object'){\n      if((schema.required??[]).some(k=>!own(value,k))||schema.minProperties!==undefined&&Object.keys(value).length<schema.minProperties||schema.maxProperties!==undefined&&Object.keys(value).length>schema.maxProperties)return false;\n      for(const[k,v]of Object.entries(value)){\n        if(own(schema.properties??{},k)){if(!matches(schema.properties[k],v,root,depth+1))return false;}\n        else{const patterns=Object.entries(schema.patternProperties??{}).filter(([pattern])=>(new RegExp(pattern,'u')).test(k));if(patterns.length){if(!patterns.every(([,s])=>matches(s,v,root,depth+1)))return false;}else if(schema.additionalProperties===false||schema.additionalProperties&&typeof schema.additionalProperties==='object'&&!matches(schema.additionalProperties,v,root,depth+1))return false;}\n      }\n    }\n    return true;\n  };\n  const values={};\n  for(const[key,descriptor]of Object.entries(operation.inputs??{})){\n    const value=own(inputs,key)?inputs[key]:own(effective,key)?effective[key]:descriptor.default;\n    if(value===undefined){if(descriptor.required)throw new Error('Missing input '+key);continue;}\n    const t=descriptor.type;\n    if(t==='string'&&typeof value!=='string'||t==='number'&&(typeof value!=='number'||!Number.isFinite(value))||t==='boolean'&&typeof value!=='boolean'||t==='record'&&(!value||typeof value!=='object'||Array.isArray(value))||t==='list'&&!Array.isArray(value))throw new Error('Invalid input '+key);\n    if(!finiteJson(value)||descriptor.schema&&!matches(descriptor.schema,value))throw new Error('Input '+key+' violates declared schema');\n    values[key]=value;\n  }\n  const template=value=>{\n    if(value&&typeof value==='object'&&!Array.isArray(value)&&typeof value.input==='string'){\n      const v=values[value.input];if(v===undefined&&!value.optional)throw new Error('Missing input '+value.input);return v;\n    }\n    if(Array.isArray(value))return value.map(template);\n    if(value&&typeof value==='object')return Object.fromEntries(Object.entries(value).map(([k,v])=>[k,template(v)]).filter(([,v])=>v!==undefined));\n    return value;\n  };\n  const baseText=effective.baseUrl??operation.baseUrl??family.baseUrl;\n  let base;try{base=new URL(baseText);}catch{throw new Error('Configure a valid baseUrl');}\n  const loopback=['localhost','127.0.0.1','[::1]'].includes(base.hostname);\n  const host=base.hostname.toLowerCase(),privateHost=/^(?:10\\.|192\\.168\\.|172\\.(?:1[6-9]|2\\d|3[01])\\.)/.test(host)||/^\\[(?:fc|fd)[0-9a-f:]+\\]$/i.test(host)||/\\.(?:cluster|lan|local)$/.test(host)||/^[a-z][a-z0-9-]*$/.test(host);\n  if(!['http:','https:'].includes(base.protocol)||base.username||base.password||base.search||base.hash||base.protocol==='http:'&&!loopback&&!(effective.allowHttp===true&&privateHost))throw new Error('Use HTTPS baseUrl without credentials, query or fragment; private HTTP requires allowHttp');\n  // Keep explicitly configured reverse-proxy API prefixes (e.g. Rancher proxy paths).\n  const root=base.pathname.replace(/\\/$/,'');\n  const segment=(name,greedy)=>{\n    const value=values[name];if(value===undefined||value===null||String(value)==='')throw new Error('Missing path input '+name);\n    const text=String(value);\n    if(/[?#\\\\\\u0000-\\u001f]/.test(text))throw new Error('Invalid path input '+name);\n    if(greedy&&!text.startsWith('/'))throw new Error('Resource path must begin with /');\n    const parts=greedy?text.slice(1).split('/'):[text];\n    if(parts.some(p=>!p||p==='.'||p==='..'||/%(?:2e|2f|5c)/i.test(p)))throw new Error('Invalid path segment '+name);\n    return(greedy?'/':'')+parts.map(encodeURIComponent).join('/');\n  };\n  const path=operation.path.replace(/\\{([A-Za-z_][A-Za-z0-9_]*)(\\*)?\\}/g,(_,key,greedy)=>segment(key,greedy));\n  if(!path.startsWith('/')||/[?#\\\\]/.test(path)||path.split('/').some(p=>p==='.'||p==='..'))throw new Error('Invalid operation path');\n  let url=new URL(base.origin+root+path);\n  for(const[k,v]of Object.entries(template(operation.query??{})))if(v!==undefined)url.searchParams.set(k,typeof v==='object'?JSON.stringify(v):String(v));\n  const paging=operation.paging;\n  const originalUrl=url.href;\n  const safeNext=text=>{let next;try{next=new URL(text,url);}catch{throw new Error('Invalid continuation URL');}if(next.origin!==base.origin||next.username||next.password||next.hash||root&&next.pathname!==root&&!next.pathname.startsWith(root+'/')||next.pathname!==new URL(originalUrl).pathname)throw new Error('Continuation leaves the configured API endpoint');return next;};\n  const continued=inputs.continuation??effective.continuation;\n  if(continued!==undefined&&continued!==''){\n    if(!paging)throw new Error('This operation does not support continuation');\n    if(['url','link'].includes(paging.kind))url=safeNext(String(continued));else if(paging.location!=='body')url.searchParams.set(paging.parameter,String(continued));\n  }\n  if(paging?.kind==='page'||paging?.kind==='offset'){\n    if(!url.searchParams.has(paging.parameter))url.searchParams.set(paging.parameter,paging.kind==='offset'?'0':'1');\n    if(paging.sizeParameter)url.searchParams.set(paging.sizeParameter,String(paging.size??100));\n  }\n  const headers=new Headers(template(operation.headers??{}));\n  headers.set('accept',operation.accept??'application/json');\n  const auth=family.auth??{kind:'none'},credentials=connection?.credentials??{};\n  const secret=(name,optional=false)=>{if(!name)return undefined;let v;try{v=context.secrets.get(name);}catch{if(optional)return undefined;throw new Error('Required credential secret is unavailable');}return v;};\n  const token=auth.kind==='none'||auth.kind==='basic'&&(credentials.password||effective.passwordSecret)?undefined:credentials.accessToken??credentials.apiKey??secret(effective.tokenSecret??auth.secret,auth.optional&&!effective.tokenSecret);\n  if(auth.kind==='bearer'||auth.kind==='header'){\n    if(!token&&!auth.optional)throw new Error('Configure credential secret or connection profile');\n    if(token){if(typeof token!=='string'||/[\\r\\n\\u0000]/.test(token))throw new Error('Credential is not a valid header value');try{headers.set(auth.kind==='bearer'?'authorization':auth.header,(auth.kind==='bearer'?'Bearer ':auth.prefix??'')+token);}catch{throw new Error('Credential is not a valid header value');}}\n  }else if(auth.kind==='basic'){\n    const username=credentials.username??(effective.usernameSecret?secret(effective.usernameSecret):effective.username??auth.username??'');\n    const password=credentials.password??(effective.passwordSecret?secret(effective.passwordSecret):token);\n    if(typeof password!=='string'||!password||/[\\r\\n]/.test(username))throw new Error('Configure Basic credential secrets or connection profile');\n    headers.set('authorization','Basic '+Buffer.from(username+':'+password).toString('base64'));\n  }else if(auth.kind!=='none')throw new Error('Unsupported authentication kind');\n  const rawBody=operation.body===undefined?undefined:template(operation.body);\n  if(paging?.location==='body'&&continued!==undefined&&continued!==''){if(!rawBody||typeof rawBody!=='object'||Array.isArray(rawBody))throw new Error('Body pagination requires a JSON object');rawBody[paging.parameter]=String(continued);}\n  const serializeBody=()=>{if(rawBody===undefined)return undefined;const value=operation.bodyMode==='text'?String(rawBody):JSON.stringify(rawBody);headers.set('content-type',operation.contentType??'application/json');if(byteLength(value)>maxBytes)throw new Error('Request exceeds maxBytes');return value;};\n  let body=serializeBody();\n  const method=operation.method??'GET';\n  let pages=0,totalBytes=0,items=[],lastResponse,data,continuation;\n  const seen=new Set();\n  do{\n    const requestIdentity=url.href+'\\n'+(body??'');if(seen.has(requestIdentity))throw new Error('Repeated continuation detected');seen.add(requestIdentity);\n    const remaining=deadline-Date.now();if(remaining<=0)throw new Error('Request deadline exceeded');\n    try{lastResponse=await fetcher(url,{method,headers,body,redirect:'error',signal:AbortSignal.timeout(remaining)});}catch{throw new Error(family.name+' transport failed'+(operation.effect==='read'?'':'; external completion is uncertain; reconcile before retry'));}\n    if(!lastResponse.ok&&!operation.acceptedStatuses?.includes(lastResponse.status)){try{await lastResponse.body?.cancel();}catch{}throw new Error(family.name+' HTTP '+lastResponse.status+(operation.effect==='read'?'':' ; action may have been accepted; reconcile before retry'));}\n    const advertised=Number(lastResponse.headers.get('content-length'));if(Number.isFinite(advertised)&&advertised>maxBytes-totalBytes){try{await lastResponse.body?.cancel();}catch{}throw new Error('Response exceeds maxBytes');}\n    const reader=lastResponse.body?.getReader();let text='';\n    if(reader){const chunks=[];let bytes=0;try{while(true){const part=await reader.read();if(part.done)break;bytes+=part.value.byteLength;totalBytes+=part.value.byteLength;if(totalBytes>maxBytes)throw new Error('Response exceeds maxBytes');chunks.push(part.value);}}catch(e){try{await reader.cancel();}catch{}throw new Error(e.message==='Response exceeds maxBytes'?e.message:family.name+' response interrupted'+(operation.effect==='read'?'':'; external completion uncertain'));}text=Buffer.concat(chunks.map(c=>Buffer.from(c)),bytes).toString('utf8');}\n    else{text=await lastResponse.text();totalBytes+=byteLength(text);if(totalBytes>maxBytes)throw new Error('Response exceeds maxBytes');}\n    if(operation.response.kind==='text')data=text;\n    else if(operation.response.kind==='empty'&&!operation.response.successPath)data=undefined;\n    else{try{data=text.length?JSON.parse(text):undefined;}catch{throw new Error(family.name+' returned invalid JSON');}}\n    if(operation.response.successPath&&get(data,operation.response.successPath)!==(operation.response.successValue??true))throw new Error(family.name+' returned an unsuccessful API result');\n    pages++;\n    continuation=undefined;\n    const value=get(data,operation.response.path);\n    const selected=value===undefined&&operation.response.fallbackPath?get(data,operation.response.fallbackPath):value;\n    if(operation.response.kind==='list'){\n      if(!Array.isArray(selected))throw new Error('Expected provider list at documented response path');\n      if(items.length+selected.length>maxItems)throw new Error('Response exceeds maxItems; request a smaller page');\n      items.push(...selected);\n      if(paging?.kind==='url'||paging?.kind==='token')continuation=get(data,paging.path);\n      else if(paging?.kind==='header')continuation=lastResponse.headers.get(paging.header)??undefined;\n      else if(paging?.kind==='link'){\n        const link=lastResponse.headers.get('link')??'';\n        continuation=link.split(',').map(p=>p.trim()).filter(p=>!/(?:^|;)\\s*results=\"?false\"?(?:;|$)/i.test(p)).map(p=>p.match(/^<([^>]+)>;\\s*rel=\"?next\"?(?:;.*)?$/)).find(Boolean)?.[1];\n      }else if(paging?.kind==='page'&&selected.length===(paging.size??100))continuation=String(Number(url.searchParams.get(paging.parameter)??1)+1);\n      else if(paging?.kind==='offset'){\n        const offset=Number(url.searchParams.get(paging.parameter)??0),size=Number(url.searchParams.get(paging.sizeParameter)??paging.size??100);\n        const more=paging.morePath?get(data,paging.morePath):paging.totalPath?offset+selected.length<get(data,paging.totalPath):selected.length===size;\n        if(more&&selected.length)continuation=String(offset+selected.length);\n      }\n    }\n    if(continuation===null||continuation==='')continuation=undefined;\n    if(continuation!==undefined&&typeof continuation!=='string'&&typeof continuation!=='number')throw new Error('Invalid continuation token');\n    if(!continuation||pages>=maxPages)break;\n    if(operation.effect!=='read')throw new Error('Cannot paginate an external action');\n    if(['url','link'].includes(paging.kind))url=safeNext(String(continuation));else if(paging.location==='body'){if(!rawBody||typeof rawBody!=='object'||Array.isArray(rawBody))throw new Error('Body pagination requires a JSON object');rawBody[paging.parameter]=String(continuation);body=serializeBody();}else url.searchParams.set(paging.parameter,String(continuation));\n  }while(true);\n  const result={status:lastResponse.status};\n  const requestId=lastResponse.headers.get('x-ms-request-id')??lastResponse.headers.get('x-request-id')??lastResponse.headers.get('x-github-request-id');if(requestId)result.request_id=requestId;\n  const operationLocation=lastResponse.headers.get('azure-asyncoperation')??lastResponse.headers.get('operation-location')??(lastResponse.status===202?lastResponse.headers.get('location'):undefined);if(operationLocation){const location=new URL(operationLocation,url);if(location.origin===base.origin&&!location.username&&!location.password&&!location.hash)result.operation_url=location.href;}\n  const value=get(data,operation.response.path),selected=value===undefined&&operation.response.fallbackPath?get(data,operation.response.fallbackPath):value;\n  if(operation.response.kind==='item'){if(selected===undefined&&operation.response.optional===true&&lastResponse.status===202){}else{if(selected===undefined||selected===null||typeof selected!=='object'||Array.isArray(selected))throw new Error('Expected provider object at documented response path');result.item=selected;}}\n  else if(operation.response.kind==='list'){result.items=items;result.count=items.length;result.has_more=continuation!==undefined;if(continuation!==undefined)result.continuation=String(continuation);}\n  else if(operation.response.kind==='json'){if(selected===undefined)throw new Error('Expected JSON at documented response path');result.value=selected;}\n  else if(operation.response.kind==='text')result.text=data;\n  for(const[key,path]of Object.entries(operation.response.select??{})){const v=get(data,path);if(v!==undefined&&v!==null){const type=operation.response.selectTypes?.[key]??'string';if(typeof v!==type)throw new Error('Unexpected scalar output '+key);result[key]=v;}}\n  for(const[key,header]of Object.entries(operation.response.headerSelect??{})){const v=lastResponse.headers.get(header);if(v!==null)result[key]=v;}\n  if(byteLength(result)>maxBytes)throw new Error('Outputs exceed maxBytes');\n  return result;\n})({\"id\":\"longhorn\",\"name\":\"Longhorn\",\"baseUrl\":\"https://kubernetes.example.com\",\"auth\":{\"kind\":\"bearer\",\"secret\":\"KUBERNETES_TOKEN\"}},{\"key\":\"get-volumes\",\"name\":\"Get Volume\",\"path\":\"/apis/longhorn.io/v1beta2/namespaces/{namespace}/volumes/{name}\",\"method\":\"GET\",\"effect\":\"read\",\"inputs\":{\"namespace\":{\"type\":\"string\",\"required\":true},\"name\":{\"type\":\"string\",\"required\":true}},\"response\":{\"kind\":\"item\",\"type\":\"@kubernetes.resource\",\"path\":[]}},inputs,config,context);",
+      "description": "Inspect volumes desired configuration and observed operator state. Requires the longhorn.io/v1beta2 CRD served by the target Kubernetes API; returns the shared Resource envelope, with explicit JSON spec/status.",
+      "documentation": "Inspect volumes desired configuration and observed operator state. Requires the longhorn.io/v1beta2 CRD served by the target Kubernetes API; returns the shared Resource envelope, with explicit JSON spec/status.\n\nGET /apis/longhorn.io/v1beta2/namespaces/{namespace}/volumes/{name}. Read operation.\n\nInputs: namespace (optional), name (optional). Missing inputs may come from the selected connection profile config or explicit node defaults. Outputs: status, request_id, operation_url, item. Optional outputs are absent when the provider omits them. HTTP202 is acceptance, not completed work; operation_url exposes a same-origin asynchronous status URL when supplied.\n\nSetup: configure baseUrl (https://kubernetes.example.com), bearer credentials through encrypted secret names or Connections. Default secret name: KUBERNETES_TOKEN. Connection credentials accessToken/apiKey or username/password are resolved at execution. Never put credentials in literal inputs, baseUrl or logs. Required access: Kubernetes get RBAC for volumes.longhorn.io in the selected namespace.\n\nBounds: requestTimeoutMs=15000 (100..120000), maxBytes=1048576 (1024..3000000), maxItems=1000 (1..5000), maxPages=1 (1..20). One bounded request; use the provider-specific explicit paging inputs where offered. HTTPS is required; private HTTP needs allowHttp=true. TLS validation remains enabled. Redirects, cross-origin/escaped continuation URLs and repeated continuations fail. No implicit retries. Error text contains provider/status only, never raw response bodies or credentials. Reconcile an uncertain external action before another attempt.\n\nSynthetic example inputs:\n\n```json\n{\n  \"namespace\": \"demo\",\n  \"name\": \"demo\"\n}\n```\n\nThis example is documentation, not a run. \n\nSource: https://raw.githubusercontent.com/longhorn/longhorn-manager/master/k8s/crds.yaml https://longhorn.io/docs/latest/references/longhorn-client/",
+      "createdAt": "2026-10-22T00:00:00.000Z",
+      "updatedAt": "2026-10-22T00:00:00.000Z",
+      "builtin": false
+    },
+    {
+      "id": "def_ceebeea35db0",
+      "version": 1,
+      "name": "Longhorn List Snapshots",
+      "kind": "node",
+      "category": "Developer integrations",
+      "color": "#5c4c9f",
+      "runtime": "javascript",
+      "inputs": [
+        {
+          "id": "exec",
+          "name": "Execute",
+          "type": "control"
+        },
+        {
+          "id": "namespace",
+          "name": "Namespace",
+          "type": "string",
+          "required": false
+        },
+        {
+          "id": "labelSelector",
+          "name": "LabelSelector",
+          "type": "string",
+          "required": false
+        },
+        {
+          "id": "limit",
+          "name": "Limit",
+          "type": "number",
+          "required": false
+        },
+        {
+          "id": "continuation",
+          "name": "Continuation",
+          "type": "string"
+        }
+      ],
+      "outputs": [
+        {
+          "id": "next",
+          "name": "Next",
+          "type": "control"
+        },
+        {
+          "id": "status",
+          "name": "Status",
+          "type": "number",
+          "required": true
+        },
+        {
+          "id": "request_id",
+          "name": "Request Id",
+          "type": "string"
+        },
+        {
+          "id": "operation_url",
+          "name": "Operation Url",
+          "type": "string"
+        },
+        {
+          "id": "items",
+          "name": "Items",
+          "type": "def_4b6da585e57e",
+          "typeVersion": 1,
+          "required": true
+        },
+        {
+          "id": "count",
+          "name": "Count",
+          "type": "number",
+          "required": true
+        },
+        {
+          "id": "has_more",
+          "name": "Has More",
+          "type": "boolean",
+          "required": true
+        },
+        {
+          "id": "continuation",
+          "name": "Continuation",
+          "type": "string"
+        },
+        {
+          "id": "error",
+          "name": "On error",
+          "type": "control"
+        }
+      ],
+      "configSchema": {
+        "type": "object",
+        "properties": {
+          "baseUrl": {
+            "type": "string",
+            "maxLength": 2000
+          },
+          "allowHttp": {
+            "type": "boolean",
+            "default": false
+          },
+          "tokenSecret": {
+            "type": "string",
+            "maxLength": 120
+          },
+          "username": {
+            "type": "string",
+            "maxLength": 160
+          },
+          "usernameSecret": {
+            "type": "string",
+            "maxLength": 120
+          },
+          "passwordSecret": {
+            "type": "string",
+            "maxLength": 120
+          },
+          "requestTimeoutMs": {
+            "type": "integer",
+            "minimum": 100,
+            "maximum": 120000,
+            "default": 15000
+          },
+          "maxBytes": {
+            "type": "integer",
+            "minimum": 1024,
+            "maximum": 3000000,
+            "default": 1048576
+          },
+          "maxPages": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 20,
+            "default": 1
+          },
+          "maxItems": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 5000,
+            "default": 1000
+          },
+          "confirmWrites": {
+            "type": "boolean",
+            "default": false
+          }
+        },
+        "additionalProperties": true
+      },
+      "code": "return await (async function runOperation(family,operation,inputs,config,context,fetcher=fetch){\n  const own=(o,k)=>o!==null&&typeof o==='object'&&Object.hasOwn(o,k);\n  const integer=(v,min,max,label)=>{if(!Number.isSafeInteger(v)||v<min||v>max)throw new Error(label+' outside bounds');return v;};\n  const get=(value,path=[])=>path.reduce((v,k)=>own(v,k)?v[k]:undefined,value);\n  const byteLength=v=>Buffer.byteLength(typeof v==='string'?v:JSON.stringify(v));\n  let connection;\n  if(config.$connection){if(!context.connections?.get)throw new Error('Connection profile unavailable');connection=await context.connections.get();}\n  const effective={...(connection?.config??{}),...config};\n  const maxBytes=integer(effective.maxBytes??1048576,1024,3000000,'maxBytes');\n  const maxPages=integer(effective.maxPages??1,1,20,'maxPages');\n  const maxItems=integer(effective.maxItems??1000,1,5000,'maxItems');\n  const timeout=integer(effective.requestTimeoutMs??15000,100,120000,'requestTimeoutMs');\n  const deadline=Date.now()+timeout;\n  if(operation.effect!=='read'){\n    if(effective.confirmWrites!==true)throw new Error('Enable confirmWrites for this external action');\n    if((effective.$retries??0)>0)throw new Error('External actions require $retries=0; reconcile uncertain completion before retry');\n  }\n  // A small self-contained JSON Schema validator for declared outbound argument bounds.\n  // Provider resource/socket schemas are also validated by ONF before/after execution.\n  const finiteJson=(value,seen=new Set(),depth=0)=>{if(depth>90)return false;if(value===null||typeof value==='string'||typeof value==='boolean')return true;if(typeof value==='number')return Number.isFinite(value);if(!value||typeof value!=='object'||seen.has(value))return false;seen.add(value);const valid=(Array.isArray(value)?value:Object.values(value)).every(v=>finiteJson(v,seen,depth+1));seen.delete(value);return valid;};\n  const matches=(schema,value,root=schema,depth=0)=>{\n    if(depth>100||schema===false)return false;if(schema===true||!schema)return true;\n    if(schema.$ref){if(!schema.$ref.startsWith('#/'))return false;const target=schema.$ref.slice(2).split('/').reduce((v,k)=>v?.[k.replaceAll('~1','/').replaceAll('~0','~')],root);return target!==undefined&&matches(target,value,root,depth+1);}\n    if(schema.anyOf&&!schema.anyOf.some(s=>matches(s,value,root,depth+1)))return false;\n    if(schema.oneOf&&schema.oneOf.filter(s=>matches(s,value,root,depth+1)).length!==1)return false;\n    if(schema.allOf&&!schema.allOf.every(s=>matches(s,value,root,depth+1)))return false;\n    if(schema.not&&matches(schema.not,value,root,depth+1))return false;\n    if(own(schema,'const')&&JSON.stringify(value)!==JSON.stringify(schema.const)||schema.enum&&!schema.enum.some(v=>JSON.stringify(v)===JSON.stringify(value)))return false;\n    const type=Array.isArray(value)?'array':value===null?'null':typeof value;\n    if(schema.type&&!([].concat(schema.type)).some(t=>t===type||t==='integer'&&type==='number'&&Number.isSafeInteger(value)))return false;\n    if(type==='number'&&(schema.minimum!==undefined&&value<schema.minimum||schema.maximum!==undefined&&value>schema.maximum||schema.exclusiveMinimum!==undefined&&value<=schema.exclusiveMinimum||schema.exclusiveMaximum!==undefined&&value>=schema.exclusiveMaximum))return false;\n    if(type==='string'&&(schema.minLength!==undefined&&[...value].length<schema.minLength||schema.maxLength!==undefined&&[...value].length>schema.maxLength||schema.pattern&&!(new RegExp(schema.pattern,'u')).test(value)))return false;\n    if(type==='array'){\n      if(schema.minItems!==undefined&&value.length<schema.minItems||schema.maxItems!==undefined&&value.length>schema.maxItems||schema.uniqueItems&&new Set(value.map(v=>JSON.stringify(v))).size!==value.length)return false;\n      if(schema.items&&!value.every((v,index)=>matches(Array.isArray(schema.items)?schema.items[index]??schema.additionalItems??true:schema.items,v,root,depth+1)))return false;\n    }\n    if(type==='object'){\n      if((schema.required??[]).some(k=>!own(value,k))||schema.minProperties!==undefined&&Object.keys(value).length<schema.minProperties||schema.maxProperties!==undefined&&Object.keys(value).length>schema.maxProperties)return false;\n      for(const[k,v]of Object.entries(value)){\n        if(own(schema.properties??{},k)){if(!matches(schema.properties[k],v,root,depth+1))return false;}\n        else{const patterns=Object.entries(schema.patternProperties??{}).filter(([pattern])=>(new RegExp(pattern,'u')).test(k));if(patterns.length){if(!patterns.every(([,s])=>matches(s,v,root,depth+1)))return false;}else if(schema.additionalProperties===false||schema.additionalProperties&&typeof schema.additionalProperties==='object'&&!matches(schema.additionalProperties,v,root,depth+1))return false;}\n      }\n    }\n    return true;\n  };\n  const values={};\n  for(const[key,descriptor]of Object.entries(operation.inputs??{})){\n    const value=own(inputs,key)?inputs[key]:own(effective,key)?effective[key]:descriptor.default;\n    if(value===undefined){if(descriptor.required)throw new Error('Missing input '+key);continue;}\n    const t=descriptor.type;\n    if(t==='string'&&typeof value!=='string'||t==='number'&&(typeof value!=='number'||!Number.isFinite(value))||t==='boolean'&&typeof value!=='boolean'||t==='record'&&(!value||typeof value!=='object'||Array.isArray(value))||t==='list'&&!Array.isArray(value))throw new Error('Invalid input '+key);\n    if(!finiteJson(value)||descriptor.schema&&!matches(descriptor.schema,value))throw new Error('Input '+key+' violates declared schema');\n    values[key]=value;\n  }\n  const template=value=>{\n    if(value&&typeof value==='object'&&!Array.isArray(value)&&typeof value.input==='string'){\n      const v=values[value.input];if(v===undefined&&!value.optional)throw new Error('Missing input '+value.input);return v;\n    }\n    if(Array.isArray(value))return value.map(template);\n    if(value&&typeof value==='object')return Object.fromEntries(Object.entries(value).map(([k,v])=>[k,template(v)]).filter(([,v])=>v!==undefined));\n    return value;\n  };\n  const baseText=effective.baseUrl??operation.baseUrl??family.baseUrl;\n  let base;try{base=new URL(baseText);}catch{throw new Error('Configure a valid baseUrl');}\n  const loopback=['localhost','127.0.0.1','[::1]'].includes(base.hostname);\n  const host=base.hostname.toLowerCase(),privateHost=/^(?:10\\.|192\\.168\\.|172\\.(?:1[6-9]|2\\d|3[01])\\.)/.test(host)||/^\\[(?:fc|fd)[0-9a-f:]+\\]$/i.test(host)||/\\.(?:cluster|lan|local)$/.test(host)||/^[a-z][a-z0-9-]*$/.test(host);\n  if(!['http:','https:'].includes(base.protocol)||base.username||base.password||base.search||base.hash||base.protocol==='http:'&&!loopback&&!(effective.allowHttp===true&&privateHost))throw new Error('Use HTTPS baseUrl without credentials, query or fragment; private HTTP requires allowHttp');\n  // Keep explicitly configured reverse-proxy API prefixes (e.g. Rancher proxy paths).\n  const root=base.pathname.replace(/\\/$/,'');\n  const segment=(name,greedy)=>{\n    const value=values[name];if(value===undefined||value===null||String(value)==='')throw new Error('Missing path input '+name);\n    const text=String(value);\n    if(/[?#\\\\\\u0000-\\u001f]/.test(text))throw new Error('Invalid path input '+name);\n    if(greedy&&!text.startsWith('/'))throw new Error('Resource path must begin with /');\n    const parts=greedy?text.slice(1).split('/'):[text];\n    if(parts.some(p=>!p||p==='.'||p==='..'||/%(?:2e|2f|5c)/i.test(p)))throw new Error('Invalid path segment '+name);\n    return(greedy?'/':'')+parts.map(encodeURIComponent).join('/');\n  };\n  const path=operation.path.replace(/\\{([A-Za-z_][A-Za-z0-9_]*)(\\*)?\\}/g,(_,key,greedy)=>segment(key,greedy));\n  if(!path.startsWith('/')||/[?#\\\\]/.test(path)||path.split('/').some(p=>p==='.'||p==='..'))throw new Error('Invalid operation path');\n  let url=new URL(base.origin+root+path);\n  for(const[k,v]of Object.entries(template(operation.query??{})))if(v!==undefined)url.searchParams.set(k,typeof v==='object'?JSON.stringify(v):String(v));\n  const paging=operation.paging;\n  const originalUrl=url.href;\n  const safeNext=text=>{let next;try{next=new URL(text,url);}catch{throw new Error('Invalid continuation URL');}if(next.origin!==base.origin||next.username||next.password||next.hash||root&&next.pathname!==root&&!next.pathname.startsWith(root+'/')||next.pathname!==new URL(originalUrl).pathname)throw new Error('Continuation leaves the configured API endpoint');return next;};\n  const continued=inputs.continuation??effective.continuation;\n  if(continued!==undefined&&continued!==''){\n    if(!paging)throw new Error('This operation does not support continuation');\n    if(['url','link'].includes(paging.kind))url=safeNext(String(continued));else if(paging.location!=='body')url.searchParams.set(paging.parameter,String(continued));\n  }\n  if(paging?.kind==='page'||paging?.kind==='offset'){\n    if(!url.searchParams.has(paging.parameter))url.searchParams.set(paging.parameter,paging.kind==='offset'?'0':'1');\n    if(paging.sizeParameter)url.searchParams.set(paging.sizeParameter,String(paging.size??100));\n  }\n  const headers=new Headers(template(operation.headers??{}));\n  headers.set('accept',operation.accept??'application/json');\n  const auth=family.auth??{kind:'none'},credentials=connection?.credentials??{};\n  const secret=(name,optional=false)=>{if(!name)return undefined;let v;try{v=context.secrets.get(name);}catch{if(optional)return undefined;throw new Error('Required credential secret is unavailable');}return v;};\n  const token=auth.kind==='none'||auth.kind==='basic'&&(credentials.password||effective.passwordSecret)?undefined:credentials.accessToken??credentials.apiKey??secret(effective.tokenSecret??auth.secret,auth.optional&&!effective.tokenSecret);\n  if(auth.kind==='bearer'||auth.kind==='header'){\n    if(!token&&!auth.optional)throw new Error('Configure credential secret or connection profile');\n    if(token){if(typeof token!=='string'||/[\\r\\n\\u0000]/.test(token))throw new Error('Credential is not a valid header value');try{headers.set(auth.kind==='bearer'?'authorization':auth.header,(auth.kind==='bearer'?'Bearer ':auth.prefix??'')+token);}catch{throw new Error('Credential is not a valid header value');}}\n  }else if(auth.kind==='basic'){\n    const username=credentials.username??(effective.usernameSecret?secret(effective.usernameSecret):effective.username??auth.username??'');\n    const password=credentials.password??(effective.passwordSecret?secret(effective.passwordSecret):token);\n    if(typeof password!=='string'||!password||/[\\r\\n]/.test(username))throw new Error('Configure Basic credential secrets or connection profile');\n    headers.set('authorization','Basic '+Buffer.from(username+':'+password).toString('base64'));\n  }else if(auth.kind!=='none')throw new Error('Unsupported authentication kind');\n  const rawBody=operation.body===undefined?undefined:template(operation.body);\n  if(paging?.location==='body'&&continued!==undefined&&continued!==''){if(!rawBody||typeof rawBody!=='object'||Array.isArray(rawBody))throw new Error('Body pagination requires a JSON object');rawBody[paging.parameter]=String(continued);}\n  const serializeBody=()=>{if(rawBody===undefined)return undefined;const value=operation.bodyMode==='text'?String(rawBody):JSON.stringify(rawBody);headers.set('content-type',operation.contentType??'application/json');if(byteLength(value)>maxBytes)throw new Error('Request exceeds maxBytes');return value;};\n  let body=serializeBody();\n  const method=operation.method??'GET';\n  let pages=0,totalBytes=0,items=[],lastResponse,data,continuation;\n  const seen=new Set();\n  do{\n    const requestIdentity=url.href+'\\n'+(body??'');if(seen.has(requestIdentity))throw new Error('Repeated continuation detected');seen.add(requestIdentity);\n    const remaining=deadline-Date.now();if(remaining<=0)throw new Error('Request deadline exceeded');\n    try{lastResponse=await fetcher(url,{method,headers,body,redirect:'error',signal:AbortSignal.timeout(remaining)});}catch{throw new Error(family.name+' transport failed'+(operation.effect==='read'?'':'; external completion is uncertain; reconcile before retry'));}\n    if(!lastResponse.ok&&!operation.acceptedStatuses?.includes(lastResponse.status)){try{await lastResponse.body?.cancel();}catch{}throw new Error(family.name+' HTTP '+lastResponse.status+(operation.effect==='read'?'':' ; action may have been accepted; reconcile before retry'));}\n    const advertised=Number(lastResponse.headers.get('content-length'));if(Number.isFinite(advertised)&&advertised>maxBytes-totalBytes){try{await lastResponse.body?.cancel();}catch{}throw new Error('Response exceeds maxBytes');}\n    const reader=lastResponse.body?.getReader();let text='';\n    if(reader){const chunks=[];let bytes=0;try{while(true){const part=await reader.read();if(part.done)break;bytes+=part.value.byteLength;totalBytes+=part.value.byteLength;if(totalBytes>maxBytes)throw new Error('Response exceeds maxBytes');chunks.push(part.value);}}catch(e){try{await reader.cancel();}catch{}throw new Error(e.message==='Response exceeds maxBytes'?e.message:family.name+' response interrupted'+(operation.effect==='read'?'':'; external completion uncertain'));}text=Buffer.concat(chunks.map(c=>Buffer.from(c)),bytes).toString('utf8');}\n    else{text=await lastResponse.text();totalBytes+=byteLength(text);if(totalBytes>maxBytes)throw new Error('Response exceeds maxBytes');}\n    if(operation.response.kind==='text')data=text;\n    else if(operation.response.kind==='empty'&&!operation.response.successPath)data=undefined;\n    else{try{data=text.length?JSON.parse(text):undefined;}catch{throw new Error(family.name+' returned invalid JSON');}}\n    if(operation.response.successPath&&get(data,operation.response.successPath)!==(operation.response.successValue??true))throw new Error(family.name+' returned an unsuccessful API result');\n    pages++;\n    continuation=undefined;\n    const value=get(data,operation.response.path);\n    const selected=value===undefined&&operation.response.fallbackPath?get(data,operation.response.fallbackPath):value;\n    if(operation.response.kind==='list'){\n      if(!Array.isArray(selected))throw new Error('Expected provider list at documented response path');\n      if(items.length+selected.length>maxItems)throw new Error('Response exceeds maxItems; request a smaller page');\n      items.push(...selected);\n      if(paging?.kind==='url'||paging?.kind==='token')continuation=get(data,paging.path);\n      else if(paging?.kind==='header')continuation=lastResponse.headers.get(paging.header)??undefined;\n      else if(paging?.kind==='link'){\n        const link=lastResponse.headers.get('link')??'';\n        continuation=link.split(',').map(p=>p.trim()).filter(p=>!/(?:^|;)\\s*results=\"?false\"?(?:;|$)/i.test(p)).map(p=>p.match(/^<([^>]+)>;\\s*rel=\"?next\"?(?:;.*)?$/)).find(Boolean)?.[1];\n      }else if(paging?.kind==='page'&&selected.length===(paging.size??100))continuation=String(Number(url.searchParams.get(paging.parameter)??1)+1);\n      else if(paging?.kind==='offset'){\n        const offset=Number(url.searchParams.get(paging.parameter)??0),size=Number(url.searchParams.get(paging.sizeParameter)??paging.size??100);\n        const more=paging.morePath?get(data,paging.morePath):paging.totalPath?offset+selected.length<get(data,paging.totalPath):selected.length===size;\n        if(more&&selected.length)continuation=String(offset+selected.length);\n      }\n    }\n    if(continuation===null||continuation==='')continuation=undefined;\n    if(continuation!==undefined&&typeof continuation!=='string'&&typeof continuation!=='number')throw new Error('Invalid continuation token');\n    if(!continuation||pages>=maxPages)break;\n    if(operation.effect!=='read')throw new Error('Cannot paginate an external action');\n    if(['url','link'].includes(paging.kind))url=safeNext(String(continuation));else if(paging.location==='body'){if(!rawBody||typeof rawBody!=='object'||Array.isArray(rawBody))throw new Error('Body pagination requires a JSON object');rawBody[paging.parameter]=String(continuation);body=serializeBody();}else url.searchParams.set(paging.parameter,String(continuation));\n  }while(true);\n  const result={status:lastResponse.status};\n  const requestId=lastResponse.headers.get('x-ms-request-id')??lastResponse.headers.get('x-request-id')??lastResponse.headers.get('x-github-request-id');if(requestId)result.request_id=requestId;\n  const operationLocation=lastResponse.headers.get('azure-asyncoperation')??lastResponse.headers.get('operation-location')??(lastResponse.status===202?lastResponse.headers.get('location'):undefined);if(operationLocation){const location=new URL(operationLocation,url);if(location.origin===base.origin&&!location.username&&!location.password&&!location.hash)result.operation_url=location.href;}\n  const value=get(data,operation.response.path),selected=value===undefined&&operation.response.fallbackPath?get(data,operation.response.fallbackPath):value;\n  if(operation.response.kind==='item'){if(selected===undefined&&operation.response.optional===true&&lastResponse.status===202){}else{if(selected===undefined||selected===null||typeof selected!=='object'||Array.isArray(selected))throw new Error('Expected provider object at documented response path');result.item=selected;}}\n  else if(operation.response.kind==='list'){result.items=items;result.count=items.length;result.has_more=continuation!==undefined;if(continuation!==undefined)result.continuation=String(continuation);}\n  else if(operation.response.kind==='json'){if(selected===undefined)throw new Error('Expected JSON at documented response path');result.value=selected;}\n  else if(operation.response.kind==='text')result.text=data;\n  for(const[key,path]of Object.entries(operation.response.select??{})){const v=get(data,path);if(v!==undefined&&v!==null){const type=operation.response.selectTypes?.[key]??'string';if(typeof v!==type)throw new Error('Unexpected scalar output '+key);result[key]=v;}}\n  for(const[key,header]of Object.entries(operation.response.headerSelect??{})){const v=lastResponse.headers.get(header);if(v!==null)result[key]=v;}\n  if(byteLength(result)>maxBytes)throw new Error('Outputs exceed maxBytes');\n  return result;\n})({\"id\":\"longhorn\",\"name\":\"Longhorn\",\"baseUrl\":\"https://kubernetes.example.com\",\"auth\":{\"kind\":\"bearer\",\"secret\":\"KUBERNETES_TOKEN\"}},{\"key\":\"list-snapshots\",\"name\":\"List Snapshots\",\"path\":\"/apis/longhorn.io/v1beta2/namespaces/{namespace}/snapshots\",\"method\":\"GET\",\"effect\":\"read\",\"inputs\":{\"namespace\":{\"type\":\"string\",\"required\":true},\"labelSelector\":{\"type\":\"string\"},\"limit\":{\"type\":\"number\",\"default\":100,\"schema\":{\"type\":\"integer\",\"minimum\":1,\"maximum\":500}}},\"response\":{\"kind\":\"list\",\"type\":\"@kubernetes.resource\",\"path\":[\"items\"]},\"query\":{\"labelSelector\":{\"input\":\"labelSelector\",\"optional\":true},\"limit\":{\"input\":\"limit\",\"optional\":true}},\"paging\":{\"kind\":\"token\",\"path\":[\"metadata\",\"continue\"],\"parameter\":\"continue\"}},inputs,config,context);",
+      "description": "Inspect snapshots desired configuration and observed operator state. Requires the longhorn.io/v1beta2 CRD served by the target Kubernetes API; returns the shared Resource envelope, with explicit JSON spec/status.",
+      "documentation": "Inspect snapshots desired configuration and observed operator state. Requires the longhorn.io/v1beta2 CRD served by the target Kubernetes API; returns the shared Resource envelope, with explicit JSON spec/status.\n\nGET /apis/longhorn.io/v1beta2/namespaces/{namespace}/snapshots. Read operation.\n\nInputs: namespace (optional), labelSelector (optional), limit (optional), continuation (optional). Missing inputs may come from the selected connection profile config or explicit node defaults. Outputs: status, request_id, operation_url, items, count, has_more, continuation. Optional outputs are absent when the provider omits them. HTTP202 is acceptance, not completed work; operation_url exposes a same-origin asynchronous status URL when supplied.\n\nSetup: configure baseUrl (https://kubernetes.example.com), bearer credentials through encrypted secret names or Connections. Default secret name: KUBERNETES_TOKEN. Connection credentials accessToken/apiKey or username/password are resolved at execution. Never put credentials in literal inputs, baseUrl or logs. Required access: Kubernetes list RBAC for snapshots.longhorn.io in the selected namespace.\n\nBounds: requestTimeoutMs=15000 (100..120000), maxBytes=1048576 (1024..3000000), maxItems=1000 (1..5000), maxPages=1 (1..20). Follow bounded provider continuation or pass continuation to fetch the next page. has_more reports an unconsumed continuation. HTTPS is required; private HTTP needs allowHttp=true. TLS validation remains enabled. Redirects, cross-origin/escaped continuation URLs and repeated continuations fail. No implicit retries. Error text contains provider/status only, never raw response bodies or credentials. Reconcile an uncertain external action before another attempt.\n\nSynthetic example inputs:\n\n```json\n{\n  \"namespace\": \"demo\"\n}\n```\n\nThis example is documentation, not a run. \n\nSource: https://raw.githubusercontent.com/longhorn/longhorn-manager/master/k8s/crds.yaml https://longhorn.io/docs/latest/references/longhorn-client/",
+      "createdAt": "2026-10-22T00:00:00.000Z",
+      "updatedAt": "2026-10-22T00:00:00.000Z",
+      "builtin": false
+    }
+  ],
+  "libraryPacks": [
+    {
+      "id": "pack_kubernetes",
+      "name": "Kubernetes",
+      "description": "Core, apps, batch and networking v1 operations. Use trusted API CA and namespace RBAC; no kubeconfig/private key transport or TLS bypass.",
+      "color": "#326ce5",
+      "revision": 1,
+      "createdAt": "2026-10-22T00:00:00.000Z",
+      "updatedAt": "2026-10-22T00:00:00.000Z"
+    },
+    {
+      "id": "pack_longhorn",
+      "name": "Longhorn",
+      "description": "Read-only Longhorn operator inspection through explicit installed CRD endpoints. No reconcile, rollout, restore, backup execution or secret object reads.",
+      "color": "#5c4c9f",
+      "revision": 1,
+      "createdAt": "2026-10-22T00:00:00.000Z",
+      "updatedAt": "2026-10-22T00:00:00.000Z"
+    }
+  ],
+  "libraryFolders": [],
+  "libraryMetadata": [
+    {
+      "definitionId": "def_139906346c9b",
+      "revision": 1,
+      "tags": [
+        "developer-packs",
+        "kubernetes",
+        "type"
+      ],
+      "packId": "pack_kubernetes",
+      "updatedAt": "2026-10-22T00:00:00.000Z"
+    },
+    {
+      "definitionId": "def_3d914764b270",
+      "revision": 1,
+      "tags": [
+        "developer-packs",
+        "longhorn",
+        "read"
+      ],
+      "packId": "pack_longhorn",
+      "updatedAt": "2026-10-22T00:00:00.000Z"
+    },
+    {
+      "definitionId": "def_4b6da585e57e",
+      "revision": 1,
+      "tags": [
+        "developer-packs",
+        "kubernetes",
+        "type"
+      ],
+      "packId": "pack_kubernetes",
+      "updatedAt": "2026-10-22T00:00:00.000Z"
+    },
+    {
+      "definitionId": "def_60e1d8e6aa4a",
+      "revision": 1,
+      "tags": [
+        "developer-packs",
+        "longhorn",
+        "read"
+      ],
+      "packId": "pack_longhorn",
+      "updatedAt": "2026-10-22T00:00:00.000Z"
+    },
+    {
+      "definitionId": "def_61756c5fa5bc",
+      "revision": 1,
+      "tags": [
+        "developer-packs",
+        "longhorn",
+        "read"
+      ],
+      "packId": "pack_longhorn",
+      "updatedAt": "2026-10-22T00:00:00.000Z"
+    },
+    {
+      "definitionId": "def_775d810ee7c7",
+      "revision": 1,
+      "tags": [
+        "developer-packs",
+        "longhorn",
+        "read"
+      ],
+      "packId": "pack_longhorn",
+      "updatedAt": "2026-10-22T00:00:00.000Z"
+    },
+    {
+      "definitionId": "def_cbd29d99d9a5",
+      "revision": 1,
+      "tags": [
+        "developer-packs",
+        "longhorn",
+        "read"
+      ],
+      "packId": "pack_longhorn",
+      "updatedAt": "2026-10-22T00:00:00.000Z"
+    },
+    {
+      "definitionId": "def_ceebeea35db0",
+      "revision": 1,
+      "tags": [
+        "developer-packs",
+        "longhorn",
+        "read"
+      ],
+      "packId": "pack_longhorn",
+      "updatedAt": "2026-10-22T00:00:00.000Z"
+    }
+  ]
+}

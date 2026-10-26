@@ -1,0 +1,190 @@
+{
+  "at": "2026-10-26T21:01:39.978Z",
+  "transport": "Mocked GitHub HTTP",
+  "database": "Fresh temporary SQLite, no production records",
+  "nodeBodiesExecuted": 0,
+  "packages": [
+    {
+      "id": "onf.core",
+      "sha256": "7bb9036674d0adfe84c96935988a8e2e034b22a9c89be9fda840e320dd730d09",
+      "definitions": 10
+    },
+    {
+      "id": "onf.runtime",
+      "sha256": "c6fdb798b1c326f1b7fa73bb29767181c98df109e0a2bb4d845dcde0664294ad",
+      "definitions": 224
+    },
+    {
+      "id": "onf.types",
+      "sha256": "4b45294fc424bdd842df614b8428a07d4691413a4b51d6d01ca28b4fb81d8e7e",
+      "definitions": 11
+    },
+    {
+      "id": "onf.utilities",
+      "sha256": "a4f170af9c44523299370f30207c824015f20afb0429a7798233e8a9646c0676",
+      "definitions": 178
+    },
+    {
+      "id": "onf.microsoft-teams",
+      "sha256": "b83e298340f92d785710956d9fc027530310c25fc66a835ea2df57e8ee85870f",
+      "definitions": 153
+    },
+    {
+      "id": "onf.hubspot",
+      "sha256": "6c5d916d4503b56e45f99a9bf2abb1bac0ebd3533c23f300a6ff240363145a44",
+      "definitions": 231
+    },
+    {
+      "id": "onf.xero",
+      "sha256": "6ef832787cf2f8fb126dee26461431c8a008a32377ea032c0732dd15fc4a2f65",
+      "definitions": 89
+    },
+    {
+      "id": "onf.google-analytics",
+      "sha256": "eac0967fb4cafe05a9405e087ab9ca7949206aadb5a9cbc86be08dd051765eee",
+      "definitions": 68
+    },
+    {
+      "id": "onf.google-ads",
+      "sha256": "71924734e49b4e6b5b35c3233ebc18ee05b2c2ce71bbf60d844a0ba38959aa54",
+      "definitions": 36
+    },
+    {
+      "id": "onf.websocket",
+      "sha256": "7120541476758443f5775eee7f1140d9f0524c2d668395954fa8cfbd9f0b8a59",
+      "definitions": 27
+    },
+    {
+      "id": "onf.azure",
+      "sha256": "a1c2ab515ebecab51c1ded98929924ece028fffdfe6680ae89905eb582eee262",
+      "definitions": 229
+    },
+    {
+      "id": "onf.azure-devops",
+      "sha256": "4a2a5b348e85242437887f612a9433648b094a7ded37a534743f3fcf627bceab",
+      "definitions": 51
+    },
+    {
+      "id": "onf.kubernetes",
+      "sha256": "cd22bd459153ee3ce3c35830569188f7696b97dae004d885c7a66d151c5485ab",
+      "definitions": 40
+    },
+    {
+      "id": "onf.prometheus",
+      "sha256": "252ae842d6407c4bb880ba5566aa3b4f98453aa0aee0b9f6bd67c18ad7ce2c26",
+      "definitions": 37
+    },
+    {
+      "id": "onf.loki",
+      "sha256": "1443898e8b9e56dc573e8928a7b2efa943bbadf7448750c546fa82820eecea1a",
+      "definitions": 15
+    },
+    {
+      "id": "onf.grafana",
+      "sha256": "4a90ea2ce9bdff1c70a3cac2dd2a071ab453390e77971de1d48905b4fb5b7358",
+      "definitions": 41
+    },
+    {
+      "id": "onf.alertmanager",
+      "sha256": "1513c848f373d2c9b5cb54a50f2713442f922912a362e9d1a098fa31952e6cdc",
+      "definitions": 29
+    },
+    {
+      "id": "onf.docker",
+      "sha256": "fc731a0210b07bfb36508eaa5b122c79dcca2d51ef2588ab91de7fc556af5191",
+      "definitions": 46
+    },
+    {
+      "id": "onf.rancher",
+      "sha256": "c22aa7f870c56d0a02e28e55ae0d1282b7dcfa9806ff79802ad20979511c77fc",
+      "definitions": 28
+    },
+    {
+      "id": "onf.netbird",
+      "sha256": "1179580ebeaa4e089a94a9ec2a626553dd1c650c0bd420187309cad05f74fd29",
+      "definitions": 53
+    },
+    {
+      "id": "onf.pushgateway",
+      "sha256": "98a1a65b2a46af466de5fd1e510fedb92a7a61084d6bdd74c62872a05fcbc730",
+      "definitions": 4
+    },
+    {
+      "id": "onf.cert-manager",
+      "sha256": "ea88ae9e7adfcf8c4502314398da95512bb38ff9f5bfc9e42723802a67401566",
+      "definitions": 10
+    },
+    {
+      "id": "onf.cloudnative-pg",
+      "sha256": "7f36070979e69a900c3662376e1f5cd34b6c2908525263ae949945efa7507ddf",
+      "definitions": 10
+    },
+    {
+      "id": "onf.longhorn",
+      "sha256": "583cc03c0d7ee28a7087779637f9d112ca57f8a0c1df9f7c1dd0240081b0ddc9",
+      "definitions": 8
+    },
+    {
+      "id": "onf.traefik",
+      "sha256": "8a387225a0d988247cef0555c1e8f998aff69679bb72cb6bdf3da4bdae250699",
+      "definitions": 10
+    },
+    {
+      "id": "onf.fleet",
+      "sha256": "e9c6cfd2b5642b9686d3dff0a26db42e013073e8c71265f818fa2fbab5d24f7b",
+      "definitions": 10
+    },
+    {
+      "id": "onf.github",
+      "sha256": "60cf5d6883a8eb5a402e687f76ce57d386d8b9e3df140fbc2da0eaef1b923361",
+      "definitions": 48
+    },
+    {
+      "id": "onf.gitlab",
+      "sha256": "7de761985b7555edd8b0dd8fe280f4e7ade808b4676d07eacf7abd48809854a0",
+      "definitions": 46
+    },
+    {
+      "id": "onf.gitea",
+      "sha256": "d48576e883931d84ef9d7e4d60c3724d8b4344b27815a55e439b574a944e070e",
+      "definitions": 38
+    },
+    {
+      "id": "onf.jira",
+      "sha256": "9dda72f519c81a8513b978594c46faa93b0052ab81e56f890fef5aef6986e2c7",
+      "definitions": 32
+    },
+    {
+      "id": "onf.confluence",
+      "sha256": "3e2122b5ff4eaa16b7185a8027f15810c02c96ae4152e391b5120ec73b9a7d02",
+      "definitions": 33
+    },
+    {
+      "id": "onf.slack",
+      "sha256": "1577efc8df3211a5e8458de954f6c2740470a29e6effd7be1b73360125b6c2c7",
+      "definitions": 32
+    },
+    {
+      "id": "onf.discord",
+      "sha256": "55edecb3011bfaf4f9207ae7f25501479bd6ed8f7aef5ed5730a7ebb3eed2c8c",
+      "definitions": 31
+    },
+    {
+      "id": "onf.notion",
+      "sha256": "c7c099073c2df6491da57d3423c9fca8284aa390b8a76e5efc494574047cfee8",
+      "definitions": 42
+    },
+    {
+      "id": "onf.sentry",
+      "sha256": "c29c8043d7020c517470e6f4b553b3e7d6ab6a404fc8c477e9a53ce26ef76fce",
+      "definitions": 40
+    },
+    {
+      "id": "onf.pagerduty",
+      "sha256": "7e241ff53f9929945b70738e9633e742495ef8275f549109988ee18f16ef7cb2",
+      "definitions": 40
+    }
+  ],
+  "immutableDefinitionVersions": 1938,
+  "workflows": 0
+}

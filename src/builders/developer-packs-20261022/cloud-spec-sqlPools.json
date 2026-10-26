@@ -1,0 +1,142 @@
+{
+  "source": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/main/specification/sql/resource-manager/Microsoft.Sql/SQL/stable/2023-08-01/ElasticPools.json",
+  "version": "2023-08-01",
+  "operations": [
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/elasticPools",
+      "method": "get",
+      "operationId": "ElasticPools_ListByServer",
+      "parameters": [
+        {},
+        {},
+        {
+          "name": "$skip",
+          "in": "query",
+          "required": false
+        },
+        {},
+        {}
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/elasticPools/{elasticPoolName}",
+      "method": "get",
+      "operationId": "ElasticPools_Get",
+      "parameters": [
+        {},
+        {},
+        {
+          "name": "elasticPoolName",
+          "in": "path",
+          "required": true
+        },
+        {},
+        {}
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/elasticPools/{elasticPoolName}",
+      "method": "put",
+      "operationId": "ElasticPools_CreateOrUpdate",
+      "parameters": [
+        {},
+        {},
+        {
+          "name": "elasticPoolName",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "parameters",
+          "in": "body",
+          "required": true
+        },
+        {},
+        {}
+      ],
+      "responses": [
+        "200",
+        "201",
+        "202",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/elasticPools/{elasticPoolName}",
+      "method": "delete",
+      "operationId": "ElasticPools_Delete",
+      "parameters": [
+        {},
+        {},
+        {
+          "name": "elasticPoolName",
+          "in": "path",
+          "required": true
+        },
+        {},
+        {}
+      ],
+      "responses": [
+        "200",
+        "202",
+        "204",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/elasticPools/{elasticPoolName}",
+      "method": "patch",
+      "operationId": "ElasticPools_Update",
+      "parameters": [
+        {},
+        {},
+        {
+          "name": "elasticPoolName",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "parameters",
+          "in": "body",
+          "required": true
+        },
+        {},
+        {}
+      ],
+      "responses": [
+        "200",
+        "202",
+        "default"
+      ]
+    },
+    {
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/elasticPools/{elasticPoolName}/failover",
+      "method": "post",
+      "operationId": "ElasticPools_Failover",
+      "parameters": [
+        {},
+        {},
+        {
+          "name": "elasticPoolName",
+          "in": "path",
+          "required": true
+        },
+        {},
+        {}
+      ],
+      "responses": [
+        "200",
+        "202",
+        "default"
+      ]
+    }
+  ]
+}

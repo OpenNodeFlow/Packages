@@ -1,0 +1,48 @@
+{
+  "source": "OpenNodeFlow v1 shared/seed.ts (static source, no runtime export)",
+  "sourceSha256": "d8d5f1f426d4f337dc6103e4eeecc4abbeac24457ec84bd5fbeb121c37b4cc80",
+  "definitionPins": [
+    {
+      "id": "trigger.manual",
+      "version": 1
+    },
+    {
+      "id": "trigger.webhook",
+      "version": 1
+    },
+    {
+      "id": "trigger.schedule",
+      "version": 1
+    },
+    {
+      "id": "core.object",
+      "version": 1
+    },
+    {
+      "id": "core.text",
+      "version": 1
+    },
+    {
+      "id": "core.number",
+      "version": 1
+    },
+    {
+      "id": "core.boolean",
+      "version": 1
+    },
+    {
+      "id": "core.code",
+      "version": 1
+    },
+    {
+      "id": "core.condition",
+      "version": 1
+    },
+    {
+      "id": "core.delay",
+      "version": 1
+    }
+  ],
+  "reviewedEffects": "No provider/filesystem/secret access. Uses console, context.input, context.emit and bounded context.sleep.",
+  "excluded": "Runtime databases, master.key, production exports, publisher journals, provider catalogs and work rehearsal directories."
+}

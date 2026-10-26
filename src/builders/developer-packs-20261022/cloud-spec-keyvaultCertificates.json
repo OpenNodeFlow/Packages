@@ -1,0 +1,520 @@
+{
+  "source": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/main/specification/keyvault/data-plane/Legacy/stable/7.4/certificates.json",
+  "version": "7.4",
+  "operations": [
+    {
+      "path": "/certificates",
+      "method": "get",
+      "operationId": "GetCertificates",
+      "parameters": [
+        {
+          "name": "maxresults",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "includePending",
+          "in": "query",
+          "required": false
+        },
+        {}
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    },
+    {
+      "path": "/certificates/{certificate-name}",
+      "method": "delete",
+      "operationId": "DeleteCertificate",
+      "parameters": [
+        {
+          "name": "certificate-name",
+          "in": "path",
+          "required": true
+        },
+        {}
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    },
+    {
+      "path": "/certificates/contacts",
+      "method": "put",
+      "operationId": "SetCertificateContacts",
+      "parameters": [
+        {
+          "name": "contacts",
+          "in": "body",
+          "required": true
+        },
+        {}
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    },
+    {
+      "path": "/certificates/contacts",
+      "method": "get",
+      "operationId": "GetCertificateContacts",
+      "parameters": [
+        {}
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    },
+    {
+      "path": "/certificates/contacts",
+      "method": "delete",
+      "operationId": "DeleteCertificateContacts",
+      "parameters": [
+        {}
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    },
+    {
+      "path": "/certificates/issuers",
+      "method": "get",
+      "operationId": "GetCertificateIssuers",
+      "parameters": [
+        {
+          "name": "maxresults",
+          "in": "query",
+          "required": false
+        },
+        {}
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    },
+    {
+      "path": "/certificates/issuers/{issuer-name}",
+      "method": "put",
+      "operationId": "SetCertificateIssuer",
+      "parameters": [
+        {
+          "name": "issuer-name",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "parameter",
+          "in": "body",
+          "required": true
+        },
+        {}
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    },
+    {
+      "path": "/certificates/issuers/{issuer-name}",
+      "method": "patch",
+      "operationId": "UpdateCertificateIssuer",
+      "parameters": [
+        {
+          "name": "issuer-name",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "parameter",
+          "in": "body",
+          "required": true
+        },
+        {}
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    },
+    {
+      "path": "/certificates/issuers/{issuer-name}",
+      "method": "get",
+      "operationId": "GetCertificateIssuer",
+      "parameters": [
+        {
+          "name": "issuer-name",
+          "in": "path",
+          "required": true
+        },
+        {}
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    },
+    {
+      "path": "/certificates/issuers/{issuer-name}",
+      "method": "delete",
+      "operationId": "DeleteCertificateIssuer",
+      "parameters": [
+        {
+          "name": "issuer-name",
+          "in": "path",
+          "required": true
+        },
+        {}
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    },
+    {
+      "path": "/certificates/{certificate-name}/create",
+      "method": "post",
+      "operationId": "CreateCertificate",
+      "parameters": [
+        {
+          "name": "certificate-name",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "parameters",
+          "in": "body",
+          "required": true
+        },
+        {}
+      ],
+      "responses": [
+        "202",
+        "default"
+      ]
+    },
+    {
+      "path": "/certificates/{certificate-name}/import",
+      "method": "post",
+      "operationId": "ImportCertificate",
+      "parameters": [
+        {
+          "name": "certificate-name",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "parameters",
+          "in": "body",
+          "required": true
+        },
+        {}
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    },
+    {
+      "path": "/certificates/{certificate-name}/versions",
+      "method": "get",
+      "operationId": "GetCertificateVersions",
+      "parameters": [
+        {
+          "name": "certificate-name",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "maxresults",
+          "in": "query",
+          "required": false
+        },
+        {}
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    },
+    {
+      "path": "/certificates/{certificate-name}/policy",
+      "method": "get",
+      "operationId": "GetCertificatePolicy",
+      "parameters": [
+        {
+          "name": "certificate-name",
+          "in": "path",
+          "required": true
+        },
+        {}
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    },
+    {
+      "path": "/certificates/{certificate-name}/policy",
+      "method": "patch",
+      "operationId": "UpdateCertificatePolicy",
+      "parameters": [
+        {
+          "name": "certificate-name",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "certificatePolicy",
+          "in": "body",
+          "required": true
+        },
+        {}
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    },
+    {
+      "path": "/certificates/{certificate-name}/{certificate-version}",
+      "method": "patch",
+      "operationId": "UpdateCertificate",
+      "parameters": [
+        {
+          "name": "certificate-name",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "certificate-version",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "parameters",
+          "in": "body",
+          "required": true
+        },
+        {}
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    },
+    {
+      "path": "/certificates/{certificate-name}/{certificate-version}",
+      "method": "get",
+      "operationId": "GetCertificate",
+      "parameters": [
+        {
+          "name": "certificate-name",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "certificate-version",
+          "in": "path",
+          "required": true
+        },
+        {}
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    },
+    {
+      "path": "/certificates/{certificate-name}/pending",
+      "method": "patch",
+      "operationId": "UpdateCertificateOperation",
+      "parameters": [
+        {
+          "name": "certificate-name",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "certificateOperation",
+          "in": "body",
+          "required": true
+        },
+        {}
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    },
+    {
+      "path": "/certificates/{certificate-name}/pending",
+      "method": "get",
+      "operationId": "GetCertificateOperation",
+      "parameters": [
+        {
+          "name": "certificate-name",
+          "in": "path",
+          "required": true
+        },
+        {}
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    },
+    {
+      "path": "/certificates/{certificate-name}/pending",
+      "method": "delete",
+      "operationId": "DeleteCertificateOperation",
+      "parameters": [
+        {
+          "name": "certificate-name",
+          "in": "path",
+          "required": true
+        },
+        {}
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    },
+    {
+      "path": "/certificates/{certificate-name}/pending/merge",
+      "method": "post",
+      "operationId": "MergeCertificate",
+      "parameters": [
+        {
+          "name": "certificate-name",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "parameters",
+          "in": "body",
+          "required": true
+        },
+        {}
+      ],
+      "responses": [
+        "201",
+        "default"
+      ]
+    },
+    {
+      "path": "/certificates/{certificate-name}/backup",
+      "method": "post",
+      "operationId": "BackupCertificate",
+      "parameters": [
+        {
+          "name": "certificate-name",
+          "in": "path",
+          "required": true
+        },
+        {}
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    },
+    {
+      "path": "/certificates/restore",
+      "method": "post",
+      "operationId": "RestoreCertificate",
+      "parameters": [
+        {
+          "name": "parameters",
+          "in": "body",
+          "required": true
+        },
+        {}
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    },
+    {
+      "path": "/deletedcertificates",
+      "method": "get",
+      "operationId": "GetDeletedCertificates",
+      "parameters": [
+        {
+          "name": "maxresults",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "includePending",
+          "in": "query",
+          "required": false
+        },
+        {}
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    },
+    {
+      "path": "/deletedcertificates/{certificate-name}",
+      "method": "get",
+      "operationId": "GetDeletedCertificate",
+      "parameters": [
+        {
+          "name": "certificate-name",
+          "in": "path",
+          "required": true
+        },
+        {}
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    },
+    {
+      "path": "/deletedcertificates/{certificate-name}",
+      "method": "delete",
+      "operationId": "PurgeDeletedCertificate",
+      "parameters": [
+        {
+          "name": "certificate-name",
+          "in": "path",
+          "required": true
+        },
+        {}
+      ],
+      "responses": [
+        "204",
+        "default"
+      ]
+    },
+    {
+      "path": "/deletedcertificates/{certificate-name}/recover",
+      "method": "post",
+      "operationId": "RecoverDeletedCertificate",
+      "parameters": [
+        {
+          "name": "certificate-name",
+          "in": "path",
+          "required": true
+        },
+        {}
+      ],
+      "responses": [
+        "200",
+        "default"
+      ]
+    }
+  ]
+}

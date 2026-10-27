@@ -1,0 +1,2278 @@
+{
+  "schemaVersion": 1,
+  "id": "onf.websocket",
+  "name": "WebSockets",
+  "version": "2.3.0",
+  "description": "WebSockets integration assets",
+  "permissions": {
+    "secrets": [],
+    "network": true,
+    "filesystem": false,
+    "description": "Installation runs no code. Execution includes configured network requests. Shipped bodies perform no direct local file access. Secret names listed are known defaults/alternatives, not all mandatory credentials; connection profiles or node configuration may select other names. Secret values are never packaged. Review each node for required scopes, external writes and retry/recovery behavior. These declarations are review information, not a runtime sandbox."
+  },
+  "definitions": [
+    {
+      "runtime": "javascript",
+      "color": "#58afa6",
+      "category": "WebSockets",
+      "inputs": [
+        {
+          "id": "exec",
+          "name": "Execute",
+          "type": "control"
+        },
+        {
+          "id": "value",
+          "name": "value",
+          "type": "def_ab30e9fd6b53",
+          "required": true,
+          "typeVersion": 2
+        }
+      ],
+      "outputs": [
+        {
+          "id": "next",
+          "name": "Next",
+          "type": "control"
+        },
+        {
+          "id": "kind",
+          "name": "kind",
+          "type": "string",
+          "required": true
+        },
+        {
+          "id": "encoding",
+          "name": "encoding",
+          "type": "string",
+          "required": true
+        },
+        {
+          "id": "data",
+          "name": "data",
+          "type": "string",
+          "required": true
+        },
+        {
+          "id": "error",
+          "name": "On error",
+          "type": "control"
+        }
+      ],
+      "code": "return Object.fromEntries([\"kind\",\"encoding\",\"data\"].map(k=>[k,inputs.value[k]]));",
+      "name": "Decode WebSocket Outgoing Message",
+      "kind": "node",
+      "documentation": "Pure functional decode of a compact named block. Field enums/required/null behavior are enforced by the named type schema. No side effect.\n\nUses native Node 24 WebSocket client. No arbitrary handshake headers, TLS bypass, distributed listener or exactly-once guarantee. Use urlSecret/subscribeSecret for protected values. Errors and health omit raw remote errors, URLs and credential payloads. wss:// required except ws:// loopback mocks. Existing provider JSON types are reused. These v1 assets preserve exact socket/type/executor pins. Verified with isolated fixtures; external account access is unverified.\n\n## Audited socket contract (21 October 2026)\n\nInputs:\n- `value`: `@websocket.type.message`; required.\n\nOutputs:\n- `kind`: `string`; required.\n- `encoding`: `string`; required.\n- `data`: `string`; required.\n\nConfiguration:\nNo asset-specific configuration.\n\nKnown provider records and list elements have structural schemas. Explicit dynamic payloads, selected query results and provider extensions retain the recursive JSON Value vocabulary; they do not imply a known provider entity. Null is distinct from omission. Runtime validates the exact selected immutable type version; reading newer documentation never repins existing graphs. This audit used synthetic fixtures/local mocks and does not establish live provider authorization or delivery.\n\nLibrary registry key: `websocket.codec.message.decode`.",
+      "description": "Decode WebSocket Outgoing Message",
+      "id": "def_1fd7ed667c14",
+      "version": 2,
+      "createdAt": "2026-10-22T00:00:00.000Z",
+      "updatedAt": "2026-10-22T00:00:00.000Z",
+      "builtin": false
+    },
+    {
+      "runtime": "javascript",
+      "color": "#58afa6",
+      "category": "WebSockets",
+      "inputs": [],
+      "outputs": [],
+      "code": "",
+      "name": "WebSocket Send Receipt",
+      "kind": "type",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "sent": {
+            "type": "boolean"
+          },
+          "byteLength": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "acknowledged": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "sent",
+          "byteLength",
+          "acknowledged"
+        ],
+        "additionalProperties": false
+      },
+      "documentation": "Named WebSocket Send Receipt block. Required fields are present; no undeclared fields. \n\nUses native Node 24 WebSocket client. No arbitrary handshake headers, TLS bypass, distributed listener or exactly-once guarantee. Use urlSecret/subscribeSecret for protected values. Errors and health omit raw remote errors, URLs and credential payloads. wss:// required except ws:// loopback mocks. Existing provider JSON types are reused. These v1 assets preserve exact socket/type/executor pins. Verified with isolated fixtures; external account access is unverified.\n\n## Audited socket contract (21 October 2026)\n\nInputs:\nNo data sockets.\n\nOutputs:\nNo data sockets.\n\nConfiguration:\nNo asset-specific configuration.\n\nKnown provider records and list elements have structural schemas. Explicit dynamic payloads, selected query results and provider extensions retain the recursive JSON Value vocabulary; they do not imply a known provider entity. Null is distinct from omission. Runtime validates the exact selected immutable type version; reading newer documentation never repins existing graphs. This audit used synthetic fixtures/local mocks and does not establish live provider authorization or delivery.\n\nAuthoritative JSON Schema:\n\n```json\n{\n  \"type\": \"object\",\n  \"properties\": {\n    \"sent\": {\n      \"type\": \"boolean\"\n    },\n    \"byteLength\": {\n      \"type\": \"integer\",\n      \"minimum\": 0\n    },\n    \"acknowledged\": {\n      \"type\": \"boolean\"\n    }\n  },\n  \"required\": [\n    \"sent\",\n    \"byteLength\",\n    \"acknowledged\"\n  ],\n  \"additionalProperties\": false\n}\n```\n\nLibrary registry key: `websocket.type.receipt`.",
+      "description": "WebSocket Send Receipt",
+      "id": "def_312e28429fd9",
+      "version": 2,
+      "createdAt": "2026-10-22T00:00:00.000Z",
+      "updatedAt": "2026-10-22T00:00:00.000Z",
+      "builtin": false
+    },
+    {
+      "runtime": "javascript",
+      "color": "#58afa6",
+      "category": "WebSockets",
+      "inputs": [
+        {
+          "id": "exec",
+          "name": "Execute",
+          "type": "control"
+        },
+        {
+          "id": "value",
+          "name": "value",
+          "type": "def_312e28429fd9",
+          "required": true,
+          "typeVersion": 2
+        }
+      ],
+      "outputs": [
+        {
+          "id": "next",
+          "name": "Next",
+          "type": "control"
+        },
+        {
+          "id": "sent",
+          "name": "sent",
+          "type": "boolean",
+          "required": true
+        },
+        {
+          "id": "byteLength",
+          "name": "byteLength",
+          "type": "number",
+          "required": true
+        },
+        {
+          "id": "acknowledged",
+          "name": "acknowledged",
+          "type": "boolean",
+          "required": true
+        },
+        {
+          "id": "error",
+          "name": "On error",
+          "type": "control"
+        }
+      ],
+      "code": "return Object.fromEntries([\"sent\",\"byteLength\",\"acknowledged\"].map(k=>[k,inputs.value[k]]));",
+      "name": "Decode WebSocket Send Receipt",
+      "kind": "node",
+      "documentation": "Pure functional decode of a compact named block. Field enums/required/null behavior are enforced by the named type schema. No side effect.\n\nUses native Node 24 WebSocket client. No arbitrary handshake headers, TLS bypass, distributed listener or exactly-once guarantee. Use urlSecret/subscribeSecret for protected values. Errors and health omit raw remote errors, URLs and credential payloads. wss:// required except ws:// loopback mocks. Existing provider JSON types are reused. These v1 assets preserve exact socket/type/executor pins. Verified with isolated fixtures; external account access is unverified.\n\n## Audited socket contract (21 October 2026)\n\nInputs:\n- `value`: `@websocket.type.receipt`; required.\n\nOutputs:\n- `sent`: `boolean`; required.\n- `byteLength`: `number`; required.\n- `acknowledged`: `boolean`; required.\n\nConfiguration:\nNo asset-specific configuration.\n\nKnown provider records and list elements have structural schemas. Explicit dynamic payloads, selected query results and provider extensions retain the recursive JSON Value vocabulary; they do not imply a known provider entity. Null is distinct from omission. Runtime validates the exact selected immutable type version; reading newer documentation never repins existing graphs. This audit used synthetic fixtures/local mocks and does not establish live provider authorization or delivery.\n\nLibrary registry key: `websocket.codec.receipt.decode`.",
+      "description": "Decode WebSocket Send Receipt",
+      "id": "def_3c06390f51bc",
+      "version": 2,
+      "createdAt": "2026-10-22T00:00:00.000Z",
+      "updatedAt": "2026-10-22T00:00:00.000Z",
+      "builtin": false
+    },
+    {
+      "runtime": "javascript",
+      "color": "#58afa6",
+      "category": "WebSockets",
+      "inputs": [
+        {
+          "id": "exec",
+          "name": "Execute",
+          "type": "control"
+        },
+        {
+          "id": "value",
+          "name": "value",
+          "type": "def_a8f9e5ea7f8f",
+          "required": true,
+          "typeVersion": 2
+        }
+      ],
+      "outputs": [
+        {
+          "id": "next",
+          "name": "Next",
+          "type": "control"
+        },
+        {
+          "id": "eventId",
+          "name": "eventId",
+          "type": "string",
+          "required": true
+        },
+        {
+          "id": "kind",
+          "name": "kind",
+          "type": "string",
+          "required": true
+        },
+        {
+          "id": "encoding",
+          "name": "encoding",
+          "type": "string",
+          "required": true
+        },
+        {
+          "id": "data",
+          "name": "data",
+          "type": "string",
+          "required": true
+        },
+        {
+          "id": "byteLength",
+          "name": "byteLength",
+          "type": "number",
+          "required": true
+        },
+        {
+          "id": "receivedAt",
+          "name": "receivedAt",
+          "type": "string",
+          "required": true
+        },
+        {
+          "id": "error",
+          "name": "On error",
+          "type": "control"
+        }
+      ],
+      "code": "return Object.fromEntries([\"eventId\",\"kind\",\"encoding\",\"data\",\"byteLength\",\"receivedAt\"].map(k=>[k,inputs.value[k]]));",
+      "name": "Decode WebSocket Received Frame",
+      "kind": "node",
+      "documentation": "Pure functional decode of a compact named block. Field enums/required/null behavior are enforced by the named type schema. No side effect.\n\nUses native Node 24 WebSocket client. No arbitrary handshake headers, TLS bypass, distributed listener or exactly-once guarantee. Use urlSecret/subscribeSecret for protected values. Errors and health omit raw remote errors, URLs and credential payloads. wss:// required except ws:// loopback mocks. Existing provider JSON types are reused. These v1 assets preserve exact socket/type/executor pins. Verified with isolated fixtures; external account access is unverified.\n\n## Audited socket contract (21 October 2026)\n\nInputs:\n- `value`: `@websocket.type.frame`; required.\n\nOutputs:\n- `eventId`: `string`; required.\n- `kind`: `string`; required.\n- `encoding`: `string`; required.\n- `data`: `string`; required.\n- `byteLength`: `number`; required.\n- `receivedAt`: `string`; required.\n\nConfiguration:\nNo asset-specific configuration.\n\nKnown provider records and list elements have structural schemas. Explicit dynamic payloads, selected query results and provider extensions retain the recursive JSON Value vocabulary; they do not imply a known provider entity. Null is distinct from omission. Runtime validates the exact selected immutable type version; reading newer documentation never repins existing graphs. This audit used synthetic fixtures/local mocks and does not establish live provider authorization or delivery.\n\nLibrary registry key: `websocket.codec.frame.decode`.",
+      "description": "Decode WebSocket Received Frame",
+      "id": "def_3e6c880e8af6",
+      "version": 2,
+      "createdAt": "2026-10-22T00:00:00.000Z",
+      "updatedAt": "2026-10-22T00:00:00.000Z",
+      "builtin": false
+    },
+    {
+      "kind": "type",
+      "name": "HTTP Request Envelope / body Value",
+      "description": "Exact body field of HTTP Request Envelope.",
+      "category": "Types",
+      "color": "#58afa6",
+      "inputs": [],
+      "outputs": [],
+      "code": "",
+      "schema": {
+        "$ref": "#/definitions/ONFJsonValue",
+        "description": "Explicit opaque JSON Value. This field is data-dependent, not a known provider record.",
+        "definitions": {
+          "ONFJsonValue": {
+            "description": "Opaque JSON Value: null, text, finite JSON number, boolean, recursively typed list or dictionary. Only used for explicitly dynamic payloads and extension fields.",
+            "anyOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "string"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/ONFJsonValue"
+                }
+              },
+              {
+                "type": "object",
+                "additionalProperties": {
+                  "$ref": "#/definitions/ONFJsonValue"
+                }
+              }
+            ]
+          }
+        }
+      },
+      "documentation": "# HTTP Request Envelope / body Value\n\nExact structural field contract extracted from HTTP Request Envelope. Optional presence belongs to the containing node socket; null is accepted only when this schema explicitly allows it. Required object fields and list element schemas are checked at runtime. Extension values use the explicit recursive ONFJsonValue vocabulary. This type has pure JSON Encode/Decode codecs.\n\n## Audited socket contract (21 October 2026)\n\nInputs:\nNo data sockets.\n\nOutputs:\nNo data sockets.\n\nConfiguration:\nNo asset-specific configuration.\n\nKnown provider records and list elements have structural schemas. Explicit dynamic payloads, selected query results and provider extensions retain the recursive JSON Value vocabulary; they do not imply a known provider entity. Null is distinct from omission. Runtime validates the exact selected immutable type version; reading newer documentation never repins existing graphs. This audit used synthetic fixtures/local mocks and does not establish live provider authorization or delivery.\n\nAuthoritative JSON Schema:\n\n```json\n{\n  \"$ref\": \"#/definitions/ONFJsonValue\",\n  \"description\": \"Explicit opaque JSON Value. This field is data-dependent, not a known provider record.\",\n  \"definitions\": {\n    \"ONFJsonValue\": {\n      \"description\": \"Opaque JSON Value: null, text, finite JSON number, boolean, recursively typed list or dictionary. Only used for explicitly dynamic payloads and extension fields.\",\n      \"anyOf\": [\n        {\n          \"type\": \"null\"\n        },\n        {\n          \"type\": \"string\"\n        },\n        {\n          \"type\": \"number\"\n        },\n        {\n          \"type\": \"boolean\"\n        },\n        {\n          \"type\": \"array\",\n          \"items\": {\n            \"$ref\": \"#/definitions/ONFJsonValue\"\n          }\n        },\n        {\n          \"type\": \"object\",\n          \"additionalProperties\": {\n            \"$ref\": \"#/definitions/ONFJsonValue\"\n          }\n        }\n      ]\n    }\n  }\n}\n```\n\nLibrary registry key: `core.type.httpRequest.field.body`.",
+      "id": "def_498cab514ce2",
+      "version": 1,
+      "createdAt": "2026-10-22T00:00:00.000Z",
+      "updatedAt": "2026-10-22T00:00:00.000Z",
+      "builtin": false
+    },
+    {
+      "runtime": "javascript",
+      "color": "#58afa6",
+      "category": "WebSockets",
+      "inputs": [
+        {
+          "id": "exec",
+          "name": "Execute",
+          "type": "control"
+        },
+        {
+          "id": "value",
+          "name": "value",
+          "type": "def_fec2bdb24d84",
+          "required": true,
+          "typeVersion": 2
+        }
+      ],
+      "outputs": [
+        {
+          "id": "next",
+          "name": "Next",
+          "type": "control"
+        },
+        {
+          "id": "frames",
+          "name": "frames",
+          "type": "def_a544aca42932",
+          "required": true,
+          "typeVersion": 2
+        },
+        {
+          "id": "complete",
+          "name": "complete",
+          "type": "boolean",
+          "required": true
+        },
+        {
+          "id": "reason",
+          "name": "reason",
+          "type": "string",
+          "required": true
+        },
+        {
+          "id": "error",
+          "name": "On error",
+          "type": "control"
+        }
+      ],
+      "code": "return Object.fromEntries([\"frames\",\"complete\",\"reason\"].map(k=>[k,inputs.value[k]]));",
+      "name": "Decode WebSocket Receive Result",
+      "kind": "node",
+      "documentation": "Pure functional decode of a compact named block. Field enums/required/null behavior are enforced by the named type schema. No side effect.\n\nUses native Node 24 WebSocket client. No arbitrary handshake headers, TLS bypass, distributed listener or exactly-once guarantee. Use urlSecret/subscribeSecret for protected values. Errors and health omit raw remote errors, URLs and credential payloads. wss:// required except ws:// loopback mocks. Existing provider JSON types are reused. These v1 assets preserve exact socket/type/executor pins. Verified with isolated fixtures; external account access is unverified.\n\n## Audited socket contract (21 October 2026)\n\nInputs:\n- `value`: `@websocket.type.result`; required.\n\nOutputs:\n- `frames`: `@websocket.type.frames`; required.\n- `complete`: `boolean`; required.\n- `reason`: `string`; required.\n\nConfiguration:\nNo asset-specific configuration.\n\nKnown provider records and list elements have structural schemas. Explicit dynamic payloads, selected query results and provider extensions retain the recursive JSON Value vocabulary; they do not imply a known provider entity. Null is distinct from omission. Runtime validates the exact selected immutable type version; reading newer documentation never repins existing graphs. This audit used synthetic fixtures/local mocks and does not establish live provider authorization or delivery.\n\nLibrary registry key: `websocket.codec.result.decode`.",
+      "description": "Decode WebSocket Receive Result",
+      "id": "def_5c502cf1436b",
+      "version": 2,
+      "createdAt": "2026-10-22T00:00:00.000Z",
+      "updatedAt": "2026-10-22T00:00:00.000Z",
+      "builtin": false
+    },
+    {
+      "runtime": "javascript",
+      "color": "#58afa6",
+      "category": "WebSockets",
+      "inputs": [
+        {
+          "id": "exec",
+          "name": "Execute",
+          "type": "control"
+        },
+        {
+          "id": "kind",
+          "name": "kind",
+          "type": "string",
+          "required": true
+        },
+        {
+          "id": "encoding",
+          "name": "encoding",
+          "type": "string",
+          "required": true
+        },
+        {
+          "id": "data",
+          "name": "data",
+          "type": "string",
+          "required": true
+        }
+      ],
+      "outputs": [
+        {
+          "id": "next",
+          "name": "Next",
+          "type": "control"
+        },
+        {
+          "id": "value",
+          "name": "value",
+          "type": "def_ab30e9fd6b53",
+          "required": true,
+          "typeVersion": 2
+        },
+        {
+          "id": "error",
+          "name": "On error",
+          "type": "control"
+        }
+      ],
+      "code": "return {value:Object.fromEntries([\"kind\",\"encoding\",\"data\"].map(k=>[k,inputs[k]]))};",
+      "name": "Encode WebSocket Outgoing Message",
+      "kind": "node",
+      "documentation": "Pure functional encode of a compact named block. Field enums/required/null behavior are enforced by the named type schema. No side effect.\n\nUses native Node 24 WebSocket client. No arbitrary handshake headers, TLS bypass, distributed listener or exactly-once guarantee. Use urlSecret/subscribeSecret for protected values. Errors and health omit raw remote errors, URLs and credential payloads. wss:// required except ws:// loopback mocks. Existing provider JSON types are reused. These v1 assets preserve exact socket/type/executor pins. Verified with isolated fixtures; external account access is unverified.\n\n## Audited socket contract (21 October 2026)\n\nInputs:\n- `kind`: `string`; required.\n- `encoding`: `string`; required.\n- `data`: `string`; required.\n\nOutputs:\n- `value`: `@websocket.type.message`; required.\n\nConfiguration:\nNo asset-specific configuration.\n\nKnown provider records and list elements have structural schemas. Explicit dynamic payloads, selected query results and provider extensions retain the recursive JSON Value vocabulary; they do not imply a known provider entity. Null is distinct from omission. Runtime validates the exact selected immutable type version; reading newer documentation never repins existing graphs. This audit used synthetic fixtures/local mocks and does not establish live provider authorization or delivery.\n\nLibrary registry key: `websocket.codec.message.encode`.",
+      "description": "Encode WebSocket Outgoing Message",
+      "id": "def_688de9a947ce",
+      "version": 2,
+      "createdAt": "2026-10-22T00:00:00.000Z",
+      "updatedAt": "2026-10-22T00:00:00.000Z",
+      "builtin": false
+    },
+    {
+      "runtime": "javascript",
+      "color": "#58afa6",
+      "category": "WebSockets",
+      "inputs": [
+        {
+          "id": "exec",
+          "name": "Execute",
+          "type": "control"
+        },
+        {
+          "id": "json",
+          "name": "json",
+          "type": "def_c5fc8fea11ea",
+          "required": true,
+          "typeVersion": 1
+        }
+      ],
+      "outputs": [
+        {
+          "id": "next",
+          "name": "Next",
+          "type": "control"
+        },
+        {
+          "id": "message",
+          "name": "message",
+          "type": "def_ab30e9fd6b53",
+          "required": true,
+          "typeVersion": 2
+        },
+        {
+          "id": "error",
+          "name": "On error",
+          "type": "control"
+        }
+      ],
+      "code": "return {message:{kind:'text',encoding:'utf8',data:JSON.stringify(inputs.json)}};",
+      "name": "WebSocket Encode JSON Message",
+      "kind": "node",
+      "documentation": "Pure JSON-to-text-frame builder; does not open a connection.\n\nUses native Node 24 WebSocket client. No arbitrary handshake headers, TLS bypass, distributed listener or exactly-once guarantee. Use urlSecret/subscribeSecret for protected values. Errors and health omit raw remote errors, URLs and credential payloads. wss:// required except ws:// loopback mocks. Existing provider JSON types are reused. These v1 assets preserve exact socket/type/executor pins. Verified with isolated fixtures; external account access is unverified.\n\n## Audited socket contract (21 October 2026)\n\nInputs:\n- `json`: `def_c5fc8fea11ea`; required.\n\nOutputs:\n- `message`: `@websocket.type.message`; required.\n\nConfiguration:\nNo asset-specific configuration.\n\nKnown provider records and list elements have structural schemas. Explicit dynamic payloads, selected query results and provider extensions retain the recursive JSON Value vocabulary; they do not imply a known provider entity. Null is distinct from omission. Runtime validates the exact selected immutable type version; reading newer documentation never repins existing graphs. This audit used synthetic fixtures/local mocks and does not establish live provider authorization or delivery.\n\nLibrary registry key: `websocket.message.json.encode`.",
+      "description": "WebSocket Encode JSON Message",
+      "id": "def_95bc4fb560bc",
+      "version": 2,
+      "createdAt": "2026-10-22T00:00:00.000Z",
+      "updatedAt": "2026-10-22T00:00:00.000Z",
+      "builtin": false
+    },
+    {
+      "runtime": "javascript",
+      "color": "#58afa6",
+      "category": "WebSockets",
+      "inputs": [
+        {
+          "id": "exec",
+          "name": "exec",
+          "type": "control",
+          "required": false
+        },
+        {
+          "id": "message",
+          "name": "message",
+          "type": "def_ab30e9fd6b53",
+          "required": true,
+          "typeVersion": 2
+        }
+      ],
+      "outputs": [
+        {
+          "id": "next",
+          "name": "next",
+          "type": "control",
+          "required": false
+        },
+        {
+          "id": "error",
+          "name": "error",
+          "type": "control",
+          "required": false
+        },
+        {
+          "id": "receipt",
+          "name": "receipt",
+          "type": "def_312e28429fd9",
+          "required": true,
+          "typeVersion": 2
+        }
+      ],
+      "code": "\nconst mode=\"send\";if(Number(config.$retries??0)!==0)throw new Error('Finite WebSocket operations do not support automatic retry');\nif(Boolean(config.url)===Boolean(config.urlSecret))throw new Error('Specify exactly one URL or urlSecret');\nlet raw=config.urlSecret?context.secrets.get(config.urlSecret):config.url;let url;try{url=new URL(raw);}catch{throw new Error('Invalid WebSocket URL');}\nif(url.username||url.password||url.hash||String(raw).length>8192)throw new Error('Invalid WebSocket URL');if(url.protocol!=='wss:'&&!(url.protocol==='ws:'&&['127.0.0.1','[::1]','localhost'].includes(url.hostname)))throw new Error('WebSocket requires wss:// or loopback ws://');if(!config.urlSecret&&[...url.searchParams.keys()].some(k=>/token|secret|password|authorization|api.?key|signature|^sig$|^key$/i.test(k)))throw new Error('Credential URL requires urlSecret');\nconst timeout=config.timeoutMs??10000,maximum=config.maxMessageBytes??262144,maxFrames=config.maxFrames??1;if(!Number.isInteger(timeout)||timeout<100||timeout>60000||!Number.isInteger(maximum)||maximum<1||maximum>1048576||!Number.isInteger(maxFrames)||maxFrames<1||maxFrames>100)throw new Error('Invalid WebSocket limits');\nconst subscribe=config.subscribeSecret?context.secrets.get(config.subscribeSecret):undefined;if(subscribe!==undefined&&Buffer.byteLength(subscribe)>maximum)throw new Error('Subscription payload exceeds bound');\nif(inputs.match){const pointer=inputs.match.pointer;if(typeof pointer!=='string'||(pointer!==''&&!pointer.startsWith('/'))||/~(?:[^01]|$)/.test(pointer))throw new Error('Correlation requires a valid RFC6901 JSON pointer');}\nconst m=inputs.message;let outgoing;if(mode!=='receive'){if(!m||!['text','binary'].includes(m.kind)||m.encoding!==(m.kind==='text'?'utf8':'base64'))throw new Error('Invalid outgoing message encoding');if(m.kind==='binary'&&!/^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$/.test(m.data))throw new Error('Invalid base64');outgoing=m.kind==='text'?m.data:Buffer.from(m.data,'base64');if(Buffer.byteLength(outgoing)>maximum)throw new Error('Outgoing frame exceeds bound');}\nlet socket,timer,poll,settled=false;const frames=[];let bytes=0;const {randomUUID}=await import('node:crypto');\nconst matches=frame=>{if(!inputs.match)return true;if(frame.kind!=='text')return false;let value;try{value=JSON.parse(frame.data);}catch{return false;}const pointer=inputs.match.pointer;if(pointer!==''&&!pointer.startsWith('/'))throw new Error('Correlation pointer must be empty or begin with /');for(const token of pointer===''?[]:pointer.slice(1).split('/').map(s=>s.replace(/~1/g,'/').replace(/~0/g,'~'))){if(value===null||typeof value!=='object'||!Object.hasOwn(value,token))return false;value=value[token];}return JSON.stringify(value)===JSON.stringify(inputs.match.value);};\ntry{return await new Promise((resolve,reject)=>{\nconst finish=(error,value)=>{if(settled)return;settled=true;clearTimeout(timer);clearInterval(poll);error?reject(new Error(error)):resolve(value);};\ntimer=setTimeout(()=>mode==='receive'?finish(null,{result:{frames,complete:false,reason:'timeout'}}):finish('WebSocket timeout - external completion uncertain'),timeout);\ntry{socket=new WebSocket(url,config.protocols??[]);socket.binaryType='arraybuffer';}catch{finish('WebSocket connection failed');return;}\nsocket.addEventListener('open',()=>{if(settled)return;try{if(subscribe!==undefined)socket.send(subscribe);if(mode!=='receive'){socket.send(outgoing);if(mode==='send'){poll=setInterval(()=>{if(socket.bufferedAmount===0)finish(null,{receipt:{sent:true,byteLength:Buffer.byteLength(outgoing),acknowledged:false}});},5);}}}catch{finish('WebSocket send failed - external completion uncertain');}});\nsocket.addEventListener('message',event=>{if(settled)return;const text=typeof event.data==='string';if(!text&&!(event.data instanceof ArrayBuffer)){finish('Unsupported WebSocket frame');return;}const size=text?Buffer.byteLength(event.data):event.data.byteLength;if(size>maximum){finish('Received WebSocket frame exceeds byte bound');return;}bytes+=text?size:4*Math.ceil(size/3);if(bytes>2097152){finish('WebSocket result exceeds 2MB bound');return;}const frame={eventId:randomUUID(),kind:text?'text':'binary',encoding:text?'utf8':'base64',data:text?event.data:Buffer.from(event.data).toString('base64'),byteLength:size,receivedAt:new Date().toISOString()};\ntry{if(mode==='request'){if(matches(frame))finish(null,{frame});}else if(mode==='receive'){frames.push(frame);if(frames.length>=maxFrames)finish(null,{result:{frames,complete:true,reason:'limit'}});}}catch{finish('Invalid WebSocket correlation');}});\nsocket.addEventListener('error',()=>finish('WebSocket transport error'+(mode==='receive'?'':' - external completion uncertain')));\nsocket.addEventListener('close',()=>{if(mode==='receive')finish(null,{result:{frames,complete:false,reason:'peer_closed'}});else finish('WebSocket closed before completion - external completion uncertain');});\n});}finally{settled=true;clearTimeout(timer);clearInterval(poll);try{socket?.close(1000);}catch{}}\n",
+      "name": "WebSocket Send Frame",
+      "kind": "node",
+      "configSchema": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string",
+            "description": "Public wss:// URL; use urlSecret when credential-bearing."
+          },
+          "urlSecret": {
+            "type": "string"
+          },
+          "protocols": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 10
+          },
+          "subscribeSecret": {
+            "type": "string"
+          },
+          "timeoutMs": {
+            "type": "integer",
+            "minimum": 100,
+            "maximum": 60000,
+            "default": 10000
+          },
+          "maxMessageBytes": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 1048576,
+            "default": 262144
+          },
+          "maxFrames": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 100,
+            "default": 1
+          },
+          "confirmWrites": {
+            "type": "boolean",
+            "default": false
+          }
+        },
+        "required": [
+          "confirmWrites"
+        ],
+        "additionalProperties": false
+      },
+      "documentation": "Open, send one text/binary frame, wait for local bufferedAmount to drain, then close in finally. Receipt proves local send only; peer processing is not acknowledged.\n\nUses native Node 24 WebSocket client. No arbitrary handshake headers, TLS bypass, distributed listener or exactly-once guarantee. Use urlSecret/subscribeSecret for protected values. Errors and health omit raw remote errors, URLs and credential payloads. wss:// required except ws:// loopback mocks. Existing provider JSON types are reused. These v1 assets preserve exact socket/type/executor pins. Verified with isolated fixtures; external account access is unverified.\n\n## Audited socket contract (21 October 2026)\n\nInputs:\n- `message`: `@websocket.type.message`; required.\n\nOutputs:\n- `receipt`: `@websocket.type.receipt`; required.\n\nConfiguration:\n- `url`: string; no automatic default. Public wss:// URL; use urlSecret when credential-bearing.\n- `urlSecret`: string; no automatic default\n- `protocols`: array; no automatic default\n- `subscribeSecret`: string; no automatic default\n- `timeoutMs`: integer; default 10000\n- `maxMessageBytes`: integer; default 262144\n- `maxFrames`: integer; default 1\n- `confirmWrites`: boolean; default false\n\nKnown provider records and list elements have structural schemas. Explicit dynamic payloads, selected query results and provider extensions retain the recursive JSON Value vocabulary; they do not imply a known provider entity. Null is distinct from omission. Runtime validates the exact selected immutable type version; reading newer documentation never repins existing graphs. This audit used synthetic fixtures/local mocks and does not establish live provider authorization or delivery.\n\nLibrary registry key: `websocket.send`.",
+      "executorId": "def_b72673f897b2",
+      "executorVersion": 2,
+      "description": "WebSocket Send Frame",
+      "id": "def_9af54e41bd50",
+      "version": 2,
+      "createdAt": "2026-10-22T00:00:00.000Z",
+      "updatedAt": "2026-10-22T00:00:00.000Z",
+      "builtin": false
+    },
+    {
+      "runtime": "javascript",
+      "color": "#58afa6",
+      "category": "WebSockets",
+      "inputs": [],
+      "outputs": [],
+      "code": "",
+      "name": "WebSocket Frame List",
+      "kind": "type",
+      "schema": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "eventId": {
+              "type": "string"
+            },
+            "kind": {
+              "type": "string",
+              "enum": [
+                "text",
+                "binary"
+              ]
+            },
+            "encoding": {
+              "type": "string",
+              "enum": [
+                "utf8",
+                "base64"
+              ]
+            },
+            "data": {
+              "type": "string"
+            },
+            "byteLength": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "receivedAt": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "eventId",
+            "kind",
+            "encoding",
+            "data",
+            "byteLength",
+            "receivedAt"
+          ],
+          "additionalProperties": false
+        },
+        "maxItems": 100
+      },
+      "documentation": "Named WebSocket Frame List block. Required fields are present; no undeclared fields. \n\nUses native Node 24 WebSocket client. No arbitrary handshake headers, TLS bypass, distributed listener or exactly-once guarantee. Use urlSecret/subscribeSecret for protected values. Errors and health omit raw remote errors, URLs and credential payloads. wss:// required except ws:// loopback mocks. Existing provider JSON types are reused. These v1 assets preserve exact socket/type/executor pins. Verified with isolated fixtures; external account access is unverified.\n\n## Audited socket contract (21 October 2026)\n\nInputs:\nNo data sockets.\n\nOutputs:\nNo data sockets.\n\nConfiguration:\nNo asset-specific configuration.\n\nKnown provider records and list elements have structural schemas. Explicit dynamic payloads, selected query results and provider extensions retain the recursive JSON Value vocabulary; they do not imply a known provider entity. Null is distinct from omission. Runtime validates the exact selected immutable type version; reading newer documentation never repins existing graphs. This audit used synthetic fixtures/local mocks and does not establish live provider authorization or delivery.\n\nAuthoritative JSON Schema:\n\n```json\n{\n  \"type\": \"array\",\n  \"items\": {\n    \"type\": \"object\",\n    \"properties\": {\n      \"eventId\": {\n        \"type\": \"string\"\n      },\n      \"kind\": {\n        \"type\": \"string\",\n        \"enum\": [\n          \"text\",\n          \"binary\"\n        ]\n      },\n      \"encoding\": {\n        \"type\": \"string\",\n        \"enum\": [\n          \"utf8\",\n          \"base64\"\n        ]\n      },\n      \"data\": {\n        \"type\": \"string\"\n      },\n      \"byteLength\": {\n        \"type\": \"integer\",\n        \"minimum\": 0\n      },\n      \"receivedAt\": {\n        \"type\": \"string\"\n      }\n    },\n    \"required\": [\n      \"eventId\",\n      \"kind\",\n      \"encoding\",\n      \"data\",\n      \"byteLength\",\n      \"receivedAt\"\n    ],\n    \"additionalProperties\": false\n  },\n  \"maxItems\": 100\n}\n```\n\nLibrary registry key: `websocket.type.frames`.",
+      "description": "WebSocket Frame List",
+      "id": "def_a544aca42932",
+      "version": 2,
+      "createdAt": "2026-10-22T00:00:00.000Z",
+      "updatedAt": "2026-10-22T00:00:00.000Z",
+      "builtin": false
+    },
+    {
+      "runtime": "javascript",
+      "color": "#58afa6",
+      "category": "WebSockets",
+      "inputs": [
+        {
+          "id": "exec",
+          "name": "Execute",
+          "type": "control"
+        },
+        {
+          "id": "eventId",
+          "name": "eventId",
+          "type": "string",
+          "required": true
+        },
+        {
+          "id": "kind",
+          "name": "kind",
+          "type": "string",
+          "required": true
+        },
+        {
+          "id": "encoding",
+          "name": "encoding",
+          "type": "string",
+          "required": true
+        },
+        {
+          "id": "data",
+          "name": "data",
+          "type": "string",
+          "required": true
+        },
+        {
+          "id": "byteLength",
+          "name": "byteLength",
+          "type": "number",
+          "required": true
+        },
+        {
+          "id": "receivedAt",
+          "name": "receivedAt",
+          "type": "string",
+          "required": true
+        }
+      ],
+      "outputs": [
+        {
+          "id": "next",
+          "name": "Next",
+          "type": "control"
+        },
+        {
+          "id": "value",
+          "name": "value",
+          "type": "def_a8f9e5ea7f8f",
+          "required": true,
+          "typeVersion": 2
+        },
+        {
+          "id": "error",
+          "name": "On error",
+          "type": "control"
+        }
+      ],
+      "code": "return {value:Object.fromEntries([\"eventId\",\"kind\",\"encoding\",\"data\",\"byteLength\",\"receivedAt\"].map(k=>[k,inputs[k]]))};",
+      "name": "Encode WebSocket Received Frame",
+      "kind": "node",
+      "documentation": "Pure functional encode of a compact named block. Field enums/required/null behavior are enforced by the named type schema. No side effect.\n\nUses native Node 24 WebSocket client. No arbitrary handshake headers, TLS bypass, distributed listener or exactly-once guarantee. Use urlSecret/subscribeSecret for protected values. Errors and health omit raw remote errors, URLs and credential payloads. wss:// required except ws:// loopback mocks. Existing provider JSON types are reused. These v1 assets preserve exact socket/type/executor pins. Verified with isolated fixtures; external account access is unverified.\n\n## Audited socket contract (21 October 2026)\n\nInputs:\n- `eventId`: `string`; required.\n- `kind`: `string`; required.\n- `encoding`: `string`; required.\n- `data`: `string`; required.\n- `byteLength`: `number`; required.\n- `receivedAt`: `string`; required.\n\nOutputs:\n- `value`: `@websocket.type.frame`; required.\n\nConfiguration:\nNo asset-specific configuration.\n\nKnown provider records and list elements have structural schemas. Explicit dynamic payloads, selected query results and provider extensions retain the recursive JSON Value vocabulary; they do not imply a known provider entity. Null is distinct from omission. Runtime validates the exact selected immutable type version; reading newer documentation never repins existing graphs. This audit used synthetic fixtures/local mocks and does not establish live provider authorization or delivery.\n\nLibrary registry key: `websocket.codec.frame.encode`.",
+      "description": "Encode WebSocket Received Frame",
+      "id": "def_a8e1299b9384",
+      "version": 2,
+      "createdAt": "2026-10-22T00:00:00.000Z",
+      "updatedAt": "2026-10-22T00:00:00.000Z",
+      "builtin": false
+    },
+    {
+      "runtime": "javascript",
+      "color": "#58afa6",
+      "category": "WebSockets",
+      "inputs": [],
+      "outputs": [],
+      "code": "",
+      "name": "WebSocket Received Frame",
+      "kind": "type",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "eventId": {
+            "type": "string"
+          },
+          "kind": {
+            "type": "string",
+            "enum": [
+              "text",
+              "binary"
+            ]
+          },
+          "encoding": {
+            "type": "string",
+            "enum": [
+              "utf8",
+              "base64"
+            ]
+          },
+          "data": {
+            "type": "string"
+          },
+          "byteLength": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "receivedAt": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "eventId",
+          "kind",
+          "encoding",
+          "data",
+          "byteLength",
+          "receivedAt"
+        ],
+        "additionalProperties": false
+      },
+      "documentation": "Named WebSocket Received Frame block. Required fields are present; no undeclared fields. \n\nUses native Node 24 WebSocket client. No arbitrary handshake headers, TLS bypass, distributed listener or exactly-once guarantee. Use urlSecret/subscribeSecret for protected values. Errors and health omit raw remote errors, URLs and credential payloads. wss:// required except ws:// loopback mocks. Existing provider JSON types are reused. These v1 assets preserve exact socket/type/executor pins. Verified with isolated fixtures; external account access is unverified.\n\n## Audited socket contract (21 October 2026)\n\nInputs:\nNo data sockets.\n\nOutputs:\nNo data sockets.\n\nConfiguration:\nNo asset-specific configuration.\n\nKnown provider records and list elements have structural schemas. Explicit dynamic payloads, selected query results and provider extensions retain the recursive JSON Value vocabulary; they do not imply a known provider entity. Null is distinct from omission. Runtime validates the exact selected immutable type version; reading newer documentation never repins existing graphs. This audit used synthetic fixtures/local mocks and does not establish live provider authorization or delivery.\n\nAuthoritative JSON Schema:\n\n```json\n{\n  \"type\": \"object\",\n  \"properties\": {\n    \"eventId\": {\n      \"type\": \"string\"\n    },\n    \"kind\": {\n      \"type\": \"string\",\n      \"enum\": [\n        \"text\",\n        \"binary\"\n      ]\n    },\n    \"encoding\": {\n      \"type\": \"string\",\n      \"enum\": [\n        \"utf8\",\n        \"base64\"\n      ]\n    },\n    \"data\": {\n      \"type\": \"string\"\n    },\n    \"byteLength\": {\n      \"type\": \"integer\",\n      \"minimum\": 0\n    },\n    \"receivedAt\": {\n      \"type\": \"string\"\n    }\n  },\n  \"required\": [\n    \"eventId\",\n    \"kind\",\n    \"encoding\",\n    \"data\",\n    \"byteLength\",\n    \"receivedAt\"\n  ],\n  \"additionalProperties\": false\n}\n```\n\nLibrary registry key: `websocket.type.frame`.",
+      "description": "WebSocket Received Frame",
+      "id": "def_a8f9e5ea7f8f",
+      "version": 2,
+      "createdAt": "2026-10-22T00:00:00.000Z",
+      "updatedAt": "2026-10-22T00:00:00.000Z",
+      "builtin": false
+    },
+    {
+      "runtime": "javascript",
+      "color": "#58afa6",
+      "category": "WebSockets",
+      "inputs": [],
+      "outputs": [],
+      "code": "",
+      "name": "WebSocket Outgoing Message",
+      "kind": "type",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "kind": {
+            "type": "string",
+            "enum": [
+              "text",
+              "binary"
+            ]
+          },
+          "encoding": {
+            "type": "string",
+            "enum": [
+              "utf8",
+              "base64"
+            ]
+          },
+          "data": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "kind",
+          "encoding",
+          "data"
+        ],
+        "additionalProperties": false
+      },
+      "documentation": "Named WebSocket Outgoing Message block. Required fields are present; no undeclared fields. \n\nUses native Node 24 WebSocket client. No arbitrary handshake headers, TLS bypass, distributed listener or exactly-once guarantee. Use urlSecret/subscribeSecret for protected values. Errors and health omit raw remote errors, URLs and credential payloads. wss:// required except ws:// loopback mocks. Existing provider JSON types are reused. These v1 assets preserve exact socket/type/executor pins. Verified with isolated fixtures; external account access is unverified.\n\n## Audited socket contract (21 October 2026)\n\nInputs:\nNo data sockets.\n\nOutputs:\nNo data sockets.\n\nConfiguration:\nNo asset-specific configuration.\n\nKnown provider records and list elements have structural schemas. Explicit dynamic payloads, selected query results and provider extensions retain the recursive JSON Value vocabulary; they do not imply a known provider entity. Null is distinct from omission. Runtime validates the exact selected immutable type version; reading newer documentation never repins existing graphs. This audit used synthetic fixtures/local mocks and does not establish live provider authorization or delivery.\n\nAuthoritative JSON Schema:\n\n```json\n{\n  \"type\": \"object\",\n  \"properties\": {\n    \"kind\": {\n      \"type\": \"string\",\n      \"enum\": [\n        \"text\",\n        \"binary\"\n      ]\n    },\n    \"encoding\": {\n      \"type\": \"string\",\n      \"enum\": [\n        \"utf8\",\n        \"base64\"\n      ]\n    },\n    \"data\": {\n      \"type\": \"string\"\n    }\n  },\n  \"required\": [\n    \"kind\",\n    \"encoding\",\n    \"data\"\n  ],\n  \"additionalProperties\": false\n}\n```\n\nLibrary registry key: `websocket.type.message`.",
+      "description": "WebSocket Outgoing Message",
+      "id": "def_ab30e9fd6b53",
+      "version": 2,
+      "createdAt": "2026-10-22T00:00:00.000Z",
+      "updatedAt": "2026-10-22T00:00:00.000Z",
+      "builtin": false
+    },
+    {
+      "runtime": "javascript",
+      "color": "#58afa6",
+      "category": "WebSockets",
+      "inputs": [
+        {
+          "id": "exec",
+          "name": "Execute",
+          "type": "control"
+        },
+        {
+          "id": "value",
+          "name": "value",
+          "type": "def_ce355436a675",
+          "required": true,
+          "typeVersion": 2
+        }
+      ],
+      "outputs": [
+        {
+          "id": "next",
+          "name": "Next",
+          "type": "control"
+        },
+        {
+          "id": "pointer",
+          "name": "pointer",
+          "type": "string",
+          "required": true
+        },
+        {
+          "id": "value",
+          "name": "value",
+          "type": "def_498cab514ce2",
+          "required": true,
+          "typeVersion": 1
+        },
+        {
+          "id": "error",
+          "name": "On error",
+          "type": "control"
+        }
+      ],
+      "code": "return Object.fromEntries([\"pointer\",\"value\"].map(k=>[k,inputs.value[k]]));",
+      "name": "Decode WebSocket JSON Correlation",
+      "kind": "node",
+      "documentation": "Pure functional decode of a compact named block. Field enums/required/null behavior are enforced by the named type schema. No side effect.\n\nUses native Node 24 WebSocket client. No arbitrary handshake headers, TLS bypass, distributed listener or exactly-once guarantee. Use urlSecret/subscribeSecret for protected values. Errors and health omit raw remote errors, URLs and credential payloads. wss:// required except ws:// loopback mocks. Existing provider JSON types are reused. These v1 assets preserve exact socket/type/executor pins. Verified with isolated fixtures; external account access is unverified.\n\n## Audited socket contract (21 October 2026)\n\nInputs:\n- `value`: `@websocket.type.match`; required.\n\nOutputs:\n- `pointer`: `string`; required.\n- `value`: `@core.type.httpRequest.field.body`; required.\n\nConfiguration:\nNo asset-specific configuration.\n\nKnown provider records and list elements have structural schemas. Explicit dynamic payloads, selected query results and provider extensions retain the recursive JSON Value vocabulary; they do not imply a known provider entity. Null is distinct from omission. Runtime validates the exact selected immutable type version; reading newer documentation never repins existing graphs. This audit used synthetic fixtures/local mocks and does not establish live provider authorization or delivery.\n\nLibrary registry key: `websocket.codec.match.decode`.",
+      "description": "Decode WebSocket JSON Correlation",
+      "id": "def_b5263ff5f672",
+      "version": 2,
+      "createdAt": "2026-10-22T00:00:00.000Z",
+      "updatedAt": "2026-10-22T00:00:00.000Z",
+      "builtin": false
+    },
+    {
+      "runtime": "javascript",
+      "color": "#58afa6",
+      "category": "WebSockets",
+      "inputs": [
+        {
+          "id": "exec",
+          "name": "Execute",
+          "type": "control"
+        },
+        {
+          "id": "pointer",
+          "name": "pointer",
+          "type": "string",
+          "required": true
+        },
+        {
+          "id": "value",
+          "name": "value",
+          "type": "def_498cab514ce2",
+          "required": true,
+          "typeVersion": 1
+        }
+      ],
+      "outputs": [
+        {
+          "id": "next",
+          "name": "Next",
+          "type": "control"
+        },
+        {
+          "id": "value",
+          "name": "value",
+          "type": "def_ce355436a675",
+          "required": true,
+          "typeVersion": 2
+        },
+        {
+          "id": "error",
+          "name": "On error",
+          "type": "control"
+        }
+      ],
+      "code": "return {value:Object.fromEntries([\"pointer\",\"value\"].map(k=>[k,inputs[k]]))};",
+      "name": "Encode WebSocket JSON Correlation",
+      "kind": "node",
+      "documentation": "Pure functional encode of a compact named block. Field enums/required/null behavior are enforced by the named type schema. No side effect.\n\nUses native Node 24 WebSocket client. No arbitrary handshake headers, TLS bypass, distributed listener or exactly-once guarantee. Use urlSecret/subscribeSecret for protected values. Errors and health omit raw remote errors, URLs and credential payloads. wss:// required except ws:// loopback mocks. Existing provider JSON types are reused. These v1 assets preserve exact socket/type/executor pins. Verified with isolated fixtures; external account access is unverified.\n\n## Audited socket contract (21 October 2026)\n\nInputs:\n- `pointer`: `string`; required.\n- `value`: `@core.type.httpRequest.field.body`; required.\n\nOutputs:\n- `value`: `@websocket.type.match`; required.\n\nConfiguration:\nNo asset-specific configuration.\n\nKnown provider records and list elements have structural schemas. Explicit dynamic payloads, selected query results and provider extensions retain the recursive JSON Value vocabulary; they do not imply a known provider entity. Null is distinct from omission. Runtime validates the exact selected immutable type version; reading newer documentation never repins existing graphs. This audit used synthetic fixtures/local mocks and does not establish live provider authorization or delivery.\n\nLibrary registry key: `websocket.codec.match.encode`.",
+      "description": "Encode WebSocket JSON Correlation",
+      "id": "def_b6ab5dce6073",
+      "version": 2,
+      "createdAt": "2026-10-22T00:00:00.000Z",
+      "updatedAt": "2026-10-22T00:00:00.000Z",
+      "builtin": false
+    },
+    {
+      "runtime": "javascript",
+      "color": "#58afa6",
+      "category": "WebSockets",
+      "inputs": [],
+      "outputs": [],
+      "code": "if(Number(config.$retries??0)!==0)throw new Error('WebSocket operation requires $retries=0');if(config.confirmWrites!==true)throw new Error('Set confirmWrites=true after reviewing this send/request');return await execute(code,inputs,config,context);",
+      "name": "WebSocket Single Attempt",
+      "kind": "executor",
+      "documentation": "Executor rejects ONF retries for finite socket operations. Send/request additionally require confirmWrites=true. Network completion cannot prove peer processing; reconcile before manual repeat.\n\nUses native Node 24 WebSocket client. No arbitrary handshake headers, TLS bypass, distributed listener or exactly-once guarantee. Use urlSecret/subscribeSecret for protected values. Errors and health omit raw remote errors, URLs and credential payloads. wss:// required except ws:// loopback mocks. Existing provider JSON types are reused. These v1 assets preserve exact socket/type/executor pins. Verified with isolated fixtures; external account access is unverified.\n\n## Audited socket contract (21 October 2026)\n\nInputs:\nNo data sockets.\n\nOutputs:\nNo data sockets.\n\nConfiguration:\nNo asset-specific configuration.\n\nKnown provider records and list elements have structural schemas. Explicit dynamic payloads, selected query results and provider extensions retain the recursive JSON Value vocabulary; they do not imply a known provider entity. Null is distinct from omission. Runtime validates the exact selected immutable type version; reading newer documentation never repins existing graphs. This audit used synthetic fixtures/local mocks and does not establish live provider authorization or delivery.\n\nLibrary registry key: `websocket.executor.single.attempt`.",
+      "description": "WebSocket Single Attempt",
+      "id": "def_b72673f897b2",
+      "version": 2,
+      "createdAt": "2026-10-22T00:00:00.000Z",
+      "updatedAt": "2026-10-22T00:00:00.000Z",
+      "builtin": false
+    },
+    {
+      "runtime": "javascript",
+      "color": "#58afa6",
+      "category": "WebSockets",
+      "inputs": [
+        {
+          "id": "exec",
+          "name": "exec",
+          "type": "control",
+          "required": false
+        }
+      ],
+      "outputs": [
+        {
+          "id": "next",
+          "name": "next",
+          "type": "control",
+          "required": false
+        },
+        {
+          "id": "error",
+          "name": "error",
+          "type": "control",
+          "required": false
+        },
+        {
+          "id": "result",
+          "name": "result",
+          "type": "def_fec2bdb24d84",
+          "required": true,
+          "typeVersion": 2
+        }
+      ],
+      "code": "\nconst mode=\"receive\";if(Number(config.$retries??0)!==0)throw new Error('Finite WebSocket operations do not support automatic retry');\nif(Boolean(config.url)===Boolean(config.urlSecret))throw new Error('Specify exactly one URL or urlSecret');\nlet raw=config.urlSecret?context.secrets.get(config.urlSecret):config.url;let url;try{url=new URL(raw);}catch{throw new Error('Invalid WebSocket URL');}\nif(url.username||url.password||url.hash||String(raw).length>8192)throw new Error('Invalid WebSocket URL');if(url.protocol!=='wss:'&&!(url.protocol==='ws:'&&['127.0.0.1','[::1]','localhost'].includes(url.hostname)))throw new Error('WebSocket requires wss:// or loopback ws://');if(!config.urlSecret&&[...url.searchParams.keys()].some(k=>/token|secret|password|authorization|api.?key|signature|^sig$|^key$/i.test(k)))throw new Error('Credential URL requires urlSecret');\nconst timeout=config.timeoutMs??10000,maximum=config.maxMessageBytes??262144,maxFrames=config.maxFrames??1;if(!Number.isInteger(timeout)||timeout<100||timeout>60000||!Number.isInteger(maximum)||maximum<1||maximum>1048576||!Number.isInteger(maxFrames)||maxFrames<1||maxFrames>100)throw new Error('Invalid WebSocket limits');\nconst subscribe=config.subscribeSecret?context.secrets.get(config.subscribeSecret):undefined;if(subscribe!==undefined&&Buffer.byteLength(subscribe)>maximum)throw new Error('Subscription payload exceeds bound');\nif(inputs.match){const pointer=inputs.match.pointer;if(typeof pointer!=='string'||(pointer!==''&&!pointer.startsWith('/'))||/~(?:[^01]|$)/.test(pointer))throw new Error('Correlation requires a valid RFC6901 JSON pointer');}\nconst m=inputs.message;let outgoing;if(mode!=='receive'){if(!m||!['text','binary'].includes(m.kind)||m.encoding!==(m.kind==='text'?'utf8':'base64'))throw new Error('Invalid outgoing message encoding');if(m.kind==='binary'&&!/^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$/.test(m.data))throw new Error('Invalid base64');outgoing=m.kind==='text'?m.data:Buffer.from(m.data,'base64');if(Buffer.byteLength(outgoing)>maximum)throw new Error('Outgoing frame exceeds bound');}\nlet socket,timer,poll,settled=false;const frames=[];let bytes=0;const {randomUUID}=await import('node:crypto');\nconst matches=frame=>{if(!inputs.match)return true;if(frame.kind!=='text')return false;let value;try{value=JSON.parse(frame.data);}catch{return false;}const pointer=inputs.match.pointer;if(pointer!==''&&!pointer.startsWith('/'))throw new Error('Correlation pointer must be empty or begin with /');for(const token of pointer===''?[]:pointer.slice(1).split('/').map(s=>s.replace(/~1/g,'/').replace(/~0/g,'~'))){if(value===null||typeof value!=='object'||!Object.hasOwn(value,token))return false;value=value[token];}return JSON.stringify(value)===JSON.stringify(inputs.match.value);};\ntry{return await new Promise((resolve,reject)=>{\nconst finish=(error,value)=>{if(settled)return;settled=true;clearTimeout(timer);clearInterval(poll);error?reject(new Error(error)):resolve(value);};\ntimer=setTimeout(()=>mode==='receive'?finish(null,{result:{frames,complete:false,reason:'timeout'}}):finish('WebSocket timeout - external completion uncertain'),timeout);\ntry{socket=new WebSocket(url,config.protocols??[]);socket.binaryType='arraybuffer';}catch{finish('WebSocket connection failed');return;}\nsocket.addEventListener('open',()=>{if(settled)return;try{if(subscribe!==undefined)socket.send(subscribe);if(mode!=='receive'){socket.send(outgoing);if(mode==='send'){poll=setInterval(()=>{if(socket.bufferedAmount===0)finish(null,{receipt:{sent:true,byteLength:Buffer.byteLength(outgoing),acknowledged:false}});},5);}}}catch{finish('WebSocket send failed - external completion uncertain');}});\nsocket.addEventListener('message',event=>{if(settled)return;const text=typeof event.data==='string';if(!text&&!(event.data instanceof ArrayBuffer)){finish('Unsupported WebSocket frame');return;}const size=text?Buffer.byteLength(event.data):event.data.byteLength;if(size>maximum){finish('Received WebSocket frame exceeds byte bound');return;}bytes+=text?size:4*Math.ceil(size/3);if(bytes>2097152){finish('WebSocket result exceeds 2MB bound');return;}const frame={eventId:randomUUID(),kind:text?'text':'binary',encoding:text?'utf8':'base64',data:text?event.data:Buffer.from(event.data).toString('base64'),byteLength:size,receivedAt:new Date().toISOString()};\ntry{if(mode==='request'){if(matches(frame))finish(null,{frame});}else if(mode==='receive'){frames.push(frame);if(frames.length>=maxFrames)finish(null,{result:{frames,complete:true,reason:'limit'}});}}catch{finish('Invalid WebSocket correlation');}});\nsocket.addEventListener('error',()=>finish('WebSocket transport error'+(mode==='receive'?'':' - external completion uncertain')));\nsocket.addEventListener('close',()=>{if(mode==='receive')finish(null,{result:{frames,complete:false,reason:'peer_closed'}});else finish('WebSocket closed before completion - external completion uncertain');});\n});}finally{settled=true;clearTimeout(timer);clearInterval(poll);try{socket?.close(1000);}catch{}}\n",
+      "name": "WebSocket Receive Frames",
+      "kind": "node",
+      "configSchema": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string",
+            "description": "Public wss:// URL; use urlSecret when credential-bearing."
+          },
+          "urlSecret": {
+            "type": "string"
+          },
+          "protocols": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 10
+          },
+          "subscribeSecret": {
+            "type": "string"
+          },
+          "timeoutMs": {
+            "type": "integer",
+            "minimum": 100,
+            "maximum": 60000,
+            "default": 10000
+          },
+          "maxMessageBytes": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 1048576,
+            "default": 262144
+          },
+          "maxFrames": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 100,
+            "default": 1
+          }
+        },
+        "required": [],
+        "additionalProperties": false
+      },
+      "documentation": "Finite connection receives up to maxFrames within timeout, closes in finally and reports partial timeout/peer close. This is not a persistent trigger. Optional subscribeSecret sends raw text once on open.\n\nUses native Node 24 WebSocket client. No arbitrary handshake headers, TLS bypass, distributed listener or exactly-once guarantee. Use urlSecret/subscribeSecret for protected values. Errors and health omit raw remote errors, URLs and credential payloads. wss:// required except ws:// loopback mocks. Existing provider JSON types are reused. These v1 assets preserve exact socket/type/executor pins. Verified with isolated fixtures; external account access is unverified.\n\n## Audited socket contract (21 October 2026)\n\nInputs:\nNo data sockets.\n\nOutputs:\n- `result`: `@websocket.type.result`; required.\n\nConfiguration:\n- `url`: string; no automatic default. Public wss:// URL; use urlSecret when credential-bearing.\n- `urlSecret`: string; no automatic default\n- `protocols`: array; no automatic default\n- `subscribeSecret`: string; no automatic default\n- `timeoutMs`: integer; default 10000\n- `maxMessageBytes`: integer; default 262144\n- `maxFrames`: integer; default 1\n\nKnown provider records and list elements have structural schemas. Explicit dynamic payloads, selected query results and provider extensions retain the recursive JSON Value vocabulary; they do not imply a known provider entity. Null is distinct from omission. Runtime validates the exact selected immutable type version; reading newer documentation never repins existing graphs. This audit used synthetic fixtures/local mocks and does not establish live provider authorization or delivery.\n\nLibrary registry key: `websocket.receive`.",
+      "description": "WebSocket Receive Frames",
+      "id": "def_b742fa492178",
+      "version": 2,
+      "createdAt": "2026-10-22T00:00:00.000Z",
+      "updatedAt": "2026-10-22T00:00:00.000Z",
+      "builtin": false
+    },
+    {
+      "runtime": "javascript",
+      "color": "#58afa6",
+      "category": "WebSockets",
+      "inputs": [
+        {
+          "id": "exec",
+          "name": "exec",
+          "type": "control",
+          "required": false
+        },
+        {
+          "id": "message",
+          "name": "message",
+          "type": "def_ab30e9fd6b53",
+          "required": true,
+          "typeVersion": 2
+        },
+        {
+          "id": "match",
+          "name": "match",
+          "type": "def_ce355436a675",
+          "required": false,
+          "typeVersion": 2
+        }
+      ],
+      "outputs": [
+        {
+          "id": "next",
+          "name": "next",
+          "type": "control",
+          "required": false
+        },
+        {
+          "id": "error",
+          "name": "error",
+          "type": "control",
+          "required": false
+        },
+        {
+          "id": "frame",
+          "name": "frame",
+          "type": "def_a8f9e5ea7f8f",
+          "required": true,
+          "typeVersion": 2
+        }
+      ],
+      "code": "\nconst mode=\"request\";if(Number(config.$retries??0)!==0)throw new Error('Finite WebSocket operations do not support automatic retry');\nif(Boolean(config.url)===Boolean(config.urlSecret))throw new Error('Specify exactly one URL or urlSecret');\nlet raw=config.urlSecret?context.secrets.get(config.urlSecret):config.url;let url;try{url=new URL(raw);}catch{throw new Error('Invalid WebSocket URL');}\nif(url.username||url.password||url.hash||String(raw).length>8192)throw new Error('Invalid WebSocket URL');if(url.protocol!=='wss:'&&!(url.protocol==='ws:'&&['127.0.0.1','[::1]','localhost'].includes(url.hostname)))throw new Error('WebSocket requires wss:// or loopback ws://');if(!config.urlSecret&&[...url.searchParams.keys()].some(k=>/token|secret|password|authorization|api.?key|signature|^sig$|^key$/i.test(k)))throw new Error('Credential URL requires urlSecret');\nconst timeout=config.timeoutMs??10000,maximum=config.maxMessageBytes??262144,maxFrames=config.maxFrames??1;if(!Number.isInteger(timeout)||timeout<100||timeout>60000||!Number.isInteger(maximum)||maximum<1||maximum>1048576||!Number.isInteger(maxFrames)||maxFrames<1||maxFrames>100)throw new Error('Invalid WebSocket limits');\nconst subscribe=config.subscribeSecret?context.secrets.get(config.subscribeSecret):undefined;if(subscribe!==undefined&&Buffer.byteLength(subscribe)>maximum)throw new Error('Subscription payload exceeds bound');\nif(inputs.match){const pointer=inputs.match.pointer;if(typeof pointer!=='string'||(pointer!==''&&!pointer.startsWith('/'))||/~(?:[^01]|$)/.test(pointer))throw new Error('Correlation requires a valid RFC6901 JSON pointer');}\nconst m=inputs.message;let outgoing;if(mode!=='receive'){if(!m||!['text','binary'].includes(m.kind)||m.encoding!==(m.kind==='text'?'utf8':'base64'))throw new Error('Invalid outgoing message encoding');if(m.kind==='binary'&&!/^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$/.test(m.data))throw new Error('Invalid base64');outgoing=m.kind==='text'?m.data:Buffer.from(m.data,'base64');if(Buffer.byteLength(outgoing)>maximum)throw new Error('Outgoing frame exceeds bound');}\nlet socket,timer,poll,settled=false;const frames=[];let bytes=0;const {randomUUID}=await import('node:crypto');\nconst matches=frame=>{if(!inputs.match)return true;if(frame.kind!=='text')return false;let value;try{value=JSON.parse(frame.data);}catch{return false;}const pointer=inputs.match.pointer;if(pointer!==''&&!pointer.startsWith('/'))throw new Error('Correlation pointer must be empty or begin with /');for(const token of pointer===''?[]:pointer.slice(1).split('/').map(s=>s.replace(/~1/g,'/').replace(/~0/g,'~'))){if(value===null||typeof value!=='object'||!Object.hasOwn(value,token))return false;value=value[token];}return JSON.stringify(value)===JSON.stringify(inputs.match.value);};\ntry{return await new Promise((resolve,reject)=>{\nconst finish=(error,value)=>{if(settled)return;settled=true;clearTimeout(timer);clearInterval(poll);error?reject(new Error(error)):resolve(value);};\ntimer=setTimeout(()=>mode==='receive'?finish(null,{result:{frames,complete:false,reason:'timeout'}}):finish('WebSocket timeout - external completion uncertain'),timeout);\ntry{socket=new WebSocket(url,config.protocols??[]);socket.binaryType='arraybuffer';}catch{finish('WebSocket connection failed');return;}\nsocket.addEventListener('open',()=>{if(settled)return;try{if(subscribe!==undefined)socket.send(subscribe);if(mode!=='receive'){socket.send(outgoing);if(mode==='send'){poll=setInterval(()=>{if(socket.bufferedAmount===0)finish(null,{receipt:{sent:true,byteLength:Buffer.byteLength(outgoing),acknowledged:false}});},5);}}}catch{finish('WebSocket send failed - external completion uncertain');}});\nsocket.addEventListener('message',event=>{if(settled)return;const text=typeof event.data==='string';if(!text&&!(event.data instanceof ArrayBuffer)){finish('Unsupported WebSocket frame');return;}const size=text?Buffer.byteLength(event.data):event.data.byteLength;if(size>maximum){finish('Received WebSocket frame exceeds byte bound');return;}bytes+=text?size:4*Math.ceil(size/3);if(bytes>2097152){finish('WebSocket result exceeds 2MB bound');return;}const frame={eventId:randomUUID(),kind:text?'text':'binary',encoding:text?'utf8':'base64',data:text?event.data:Buffer.from(event.data).toString('base64'),byteLength:size,receivedAt:new Date().toISOString()};\ntry{if(mode==='request'){if(matches(frame))finish(null,{frame});}else if(mode==='receive'){frames.push(frame);if(frames.length>=maxFrames)finish(null,{result:{frames,complete:true,reason:'limit'}});}}catch{finish('Invalid WebSocket correlation');}});\nsocket.addEventListener('error',()=>finish('WebSocket transport error'+(mode==='receive'?'':' - external completion uncertain')));\nsocket.addEventListener('close',()=>{if(mode==='receive')finish(null,{result:{frames,complete:false,reason:'peer_closed'}});else finish('WebSocket closed before completion - external completion uncertain');});\n});}finally{settled=true;clearTimeout(timer);clearInterval(poll);try{socket?.close(1000);}catch{}}\n",
+      "name": "WebSocket Request Reply",
+      "kind": "node",
+      "configSchema": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string",
+            "description": "Public wss:// URL; use urlSecret when credential-bearing."
+          },
+          "urlSecret": {
+            "type": "string"
+          },
+          "protocols": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 10
+          },
+          "subscribeSecret": {
+            "type": "string"
+          },
+          "timeoutMs": {
+            "type": "integer",
+            "minimum": 100,
+            "maximum": 60000,
+            "default": 10000
+          },
+          "maxMessageBytes": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 1048576,
+            "default": 262144
+          },
+          "maxFrames": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 100,
+            "default": 1
+          },
+          "confirmWrites": {
+            "type": "boolean",
+            "default": false
+          }
+        },
+        "required": [
+          "confirmWrites"
+        ],
+        "additionalProperties": false
+      },
+      "documentation": "Open, send one frame and await matching JSON-pointer correlation (or first reply when match absent). Nonmatching frames are byte-bounded and discarded. Timeout/lost response is uncertain; no retry.\n\nUses native Node 24 WebSocket client. No arbitrary handshake headers, TLS bypass, distributed listener or exactly-once guarantee. Use urlSecret/subscribeSecret for protected values. Errors and health omit raw remote errors, URLs and credential payloads. wss:// required except ws:// loopback mocks. Existing provider JSON types are reused. These v1 assets preserve exact socket/type/executor pins. Verified with isolated fixtures; external account access is unverified.\n\n## Audited socket contract (21 October 2026)\n\nInputs:\n- `message`: `@websocket.type.message`; required.\n- `match`: `@websocket.type.match`; optional (absent stays absent).\n\nOutputs:\n- `frame`: `@websocket.type.frame`; required.\n\nConfiguration:\n- `url`: string; no automatic default. Public wss:// URL; use urlSecret when credential-bearing.\n- `urlSecret`: string; no automatic default\n- `protocols`: array; no automatic default\n- `subscribeSecret`: string; no automatic default\n- `timeoutMs`: integer; default 10000\n- `maxMessageBytes`: integer; default 262144\n- `maxFrames`: integer; default 1\n- `confirmWrites`: boolean; default false\n\nKnown provider records and list elements have structural schemas. Explicit dynamic payloads, selected query results and provider extensions retain the recursive JSON Value vocabulary; they do not imply a known provider entity. Null is distinct from omission. Runtime validates the exact selected immutable type version; reading newer documentation never repins existing graphs. This audit used synthetic fixtures/local mocks and does not establish live provider authorization or delivery.\n\nLibrary registry key: `websocket.request`.",
+      "executorId": "def_b72673f897b2",
+      "executorVersion": 2,
+      "description": "WebSocket Request Reply",
+      "id": "def_bcc02091725c",
+      "version": 2,
+      "createdAt": "2026-10-22T00:00:00.000Z",
+      "updatedAt": "2026-10-22T00:00:00.000Z",
+      "builtin": false
+    },
+    {
+      "name": "JSON Value",
+      "kind": "type",
+      "description": "ONF typed decoder outputs v1. Finite JSON scalar, null, typed record or typed list; arbitrary nesting is preserved.",
+      "documentation": "# JSON Value\n\nONF typed decoder outputs v1.\n\nFinite JSON scalar, null, typed record or typed list; arbitrary nesting is preserved.\n\nUse this named type on matching Encode/Decode sockets. Values are JSON data;\nthis type performs no network request, model call, authentication, or business action.\nExact type ID and version must agree on both ends of a wire. JSON Schema rejects\nincompatible values; formats are informational in ONF. Missing optional fields\nand explicit null are different. Unknown fields remain lossless where permitted.\nThe matching codecs split useful properties or collection entries and reassemble\nthe original value. They never coerce strings/numbers or silently drop unknown data.\n\n## Schema\n```json\n{\n  \"anyOf\": [\n    {\n      \"type\": \"string\"\n    },\n    {\n      \"type\": \"number\"\n    },\n    {\n      \"type\": \"boolean\"\n    },\n    {\n      \"type\": \"null\"\n    },\n    {\n      \"$ref\": \"#/definitions/json_record\"\n    },\n    {\n      \"$ref\": \"#/definitions/json_list\"\n    }\n  ],\n  \"definitions\": {\n    \"json_list\": {\n      \"type\": \"array\",\n      \"items\": {\n        \"$ref\": \"#/definitions/json_value\"\n      }\n    },\n    \"json_value\": {\n      \"anyOf\": [\n        {\n          \"type\": \"string\"\n        },\n        {\n          \"type\": \"number\"\n        },\n        {\n          \"type\": \"boolean\"\n        },\n        {\n          \"type\": \"null\"\n        },\n        {\n          \"$ref\": \"#/definitions/json_record\"\n        },\n        {\n          \"$ref\": \"#/definitions/json_list\"\n        }\n      ]\n    },\n    \"json_record\": {\n      \"type\": \"object\",\n      \"additionalProperties\": {\n        \"$ref\": \"#/definitions/json_value\"\n      }\n    }\n  }\n}\n```\n\n## Example JSON value\n```json\n\"example\"\n```\n\nExamples are synthetic. Null, collection, union and presence rules are defined by\nthe complete schema above; an empty example is not a claim every field is required.\nDo not put credentials, tokens, or unnecessary business data into JSON records.\n",
+      "category": "Typed data codecs",
+      "color": "#6d9cbe",
+      "inputs": [],
+      "outputs": [],
+      "code": "",
+      "configSchema": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      },
+      "schema": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "number"
+          },
+          {
+            "type": "boolean"
+          },
+          {
+            "type": "null"
+          },
+          {
+            "$ref": "#/definitions/json_record"
+          },
+          {
+            "$ref": "#/definitions/json_list"
+          }
+        ],
+        "definitions": {
+          "json_list": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/json_value"
+            }
+          },
+          "json_value": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/definitions/json_record"
+              },
+              {
+                "$ref": "#/definitions/json_list"
+              }
+            ]
+          },
+          "json_record": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/definitions/json_value"
+            }
+          }
+        }
+      },
+      "id": "def_c5fc8fea11ea",
+      "version": 1,
+      "createdAt": "2026-10-20T15:44:05.885Z",
+      "updatedAt": "2026-10-20T15:44:05.885Z",
+      "builtin": false
+    },
+    {
+      "runtime": "javascript",
+      "color": "#58afa6",
+      "category": "WebSockets",
+      "inputs": [],
+      "outputs": [
+        {
+          "id": "next",
+          "name": "next",
+          "type": "control",
+          "required": false
+        },
+        {
+          "id": "error",
+          "name": "error",
+          "type": "control",
+          "required": false
+        },
+        {
+          "id": "frame",
+          "name": "frame",
+          "type": "def_a8f9e5ea7f8f",
+          "required": true,
+          "typeVersion": 2
+        }
+      ],
+      "code": "const frame=context.input?.frame;if(!frame||!['text','binary'].includes(frame.kind))throw new Error('Expected a managed WebSocket frame or explicit synthetic fixture');return {frame};",
+      "name": "WebSocket Managed Subscription",
+      "kind": "trigger",
+      "configSchema": {
+        "type": "object",
+        "properties": {},
+        "required": [],
+        "additionalProperties": false
+      },
+      "documentation": "Host-managed subscription entry. Set saved node.trigger.kind=websocket, enabled=true and websocket:{url OR urlSecret,protocols?,subscribeSecret?,heartbeatSecret?,heartbeatIntervalSeconds?,idleTimeoutSeconds?,connectTimeoutMs?,maxMessageBytes?,maxQueueMessages?,maxQueueBytes?,maxPendingRuns?,reconnectMinMs?,reconnectMaxMs?}. workflow.enabled must also be true. Real persistent host lifecycle reconnects with bounded jitter, tracks health and stops on pause/delete/config/secret revisions/shutdown; saved enabled entries reconnect after restart. It enqueues one run per bounded frame. Receive queue is volatile; overflow disconnects and increments rejected/overflow counters. No replay, exactly-once, server-side cursor or durable-receive guarantee. Use provider correlation IDs and existing durable storage downstream. Manual run requires {frame:...} synthetic input. The trigger code itself only emits an already accepted frame; it does not pretend a returning child owns a persistent listener.\n\nUses native Node 24 WebSocket client. No arbitrary handshake headers, TLS bypass, distributed listener or exactly-once guarantee. Use urlSecret/subscribeSecret for protected values. Errors and health omit raw remote errors, URLs and credential payloads. wss:// required except ws:// loopback mocks. Existing provider JSON types are reused. These v1 assets preserve exact socket/type/executor pins. Verified with isolated fixtures; external account access is unverified.\n\n## Audited socket contract (21 October 2026)\n\nInputs:\nNo data sockets.\n\nOutputs:\n- `frame`: `@websocket.type.frame`; required.\n\nConfiguration:\nNo asset-specific configuration.\n\nKnown provider records and list elements have structural schemas. Explicit dynamic payloads, selected query results and provider extensions retain the recursive JSON Value vocabulary; they do not imply a known provider entity. Null is distinct from omission. Runtime validates the exact selected immutable type version; reading newer documentation never repins existing graphs. This audit used synthetic fixtures/local mocks and does not establish live provider authorization or delivery.\n\nLibrary registry key: `websocket.trigger.managed`.",
+      "description": "WebSocket Managed Subscription",
+      "id": "def_ca33183e7357",
+      "version": 2,
+      "createdAt": "2026-10-22T00:00:00.000Z",
+      "updatedAt": "2026-10-22T00:00:00.000Z",
+      "builtin": false
+    },
+    {
+      "runtime": "javascript",
+      "color": "#58afa6",
+      "category": "WebSockets",
+      "inputs": [],
+      "outputs": [],
+      "code": "",
+      "name": "WebSocket JSON Correlation",
+      "kind": "type",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "pointer": {
+            "type": "string"
+          },
+          "value": {
+            "$ref": "#/definitions/ONFJsonValue",
+            "description": "Explicit opaque JSON Value. This field is data-dependent, not a known provider record."
+          }
+        },
+        "required": [
+          "pointer",
+          "value"
+        ],
+        "additionalProperties": false,
+        "definitions": {
+          "ONFJsonValue": {
+            "description": "Opaque JSON Value: null, text, finite JSON number, boolean, recursively typed list or dictionary. Only used for explicitly dynamic payloads and extension fields.",
+            "anyOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "string"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/ONFJsonValue"
+                }
+              },
+              {
+                "type": "object",
+                "additionalProperties": {
+                  "$ref": "#/definitions/ONFJsonValue"
+                }
+              }
+            ]
+          }
+        }
+      },
+      "documentation": "Named WebSocket JSON Correlation block. Required fields are present; no undeclared fields. \n\nUses native Node 24 WebSocket client. No arbitrary handshake headers, TLS bypass, distributed listener or exactly-once guarantee. Use urlSecret/subscribeSecret for protected values. Errors and health omit raw remote errors, URLs and credential payloads. wss:// required except ws:// loopback mocks. Existing provider JSON types are reused. These v1 assets preserve exact socket/type/executor pins. Verified with isolated fixtures; external account access is unverified.\n\n## Audited socket contract (21 October 2026)\n\nInputs:\nNo data sockets.\n\nOutputs:\nNo data sockets.\n\nConfiguration:\nNo asset-specific configuration.\n\nKnown provider records and list elements have structural schemas. Explicit dynamic payloads, selected query results and provider extensions retain the recursive JSON Value vocabulary; they do not imply a known provider entity. Null is distinct from omission. Runtime validates the exact selected immutable type version; reading newer documentation never repins existing graphs. This audit used synthetic fixtures/local mocks and does not establish live provider authorization or delivery.\n\nAuthoritative JSON Schema:\n\n```json\n{\n  \"type\": \"object\",\n  \"properties\": {\n    \"pointer\": {\n      \"type\": \"string\"\n    },\n    \"value\": {\n      \"$ref\": \"#/definitions/ONFJsonValue\",\n      \"description\": \"Explicit opaque JSON Value. This field is data-dependent, not a known provider record.\"\n    }\n  },\n  \"required\": [\n    \"pointer\",\n    \"value\"\n  ],\n  \"additionalProperties\": false,\n  \"definitions\": {\n    \"ONFJsonValue\": {\n      \"description\": \"Opaque JSON Value: null, text, finite JSON number, boolean, recursively typed list or dictionary. Only used for explicitly dynamic payloads and extension fields.\",\n      \"anyOf\": [\n        {\n          \"type\": \"null\"\n        },\n        {\n          \"type\": \"string\"\n        },\n        {\n          \"type\": \"number\"\n        },\n        {\n          \"type\": \"boolean\"\n        },\n        {\n          \"type\": \"array\",\n          \"items\": {\n            \"$ref\": \"#/definitions/ONFJsonValue\"\n          }\n        },\n        {\n          \"type\": \"object\",\n          \"additionalProperties\": {\n            \"$ref\": \"#/definitions/ONFJsonValue\"\n          }\n        }\n      ]\n    }\n  }\n}\n```\n\nLibrary registry key: `websocket.type.match`.",
+      "description": "WebSocket JSON Correlation",
+      "id": "def_ce355436a675",
+      "version": 2,
+      "createdAt": "2026-10-22T00:00:00.000Z",
+      "updatedAt": "2026-10-22T00:00:00.000Z",
+      "builtin": false
+    },
+    {
+      "runtime": "javascript",
+      "color": "#58afa6",
+      "category": "WebSockets",
+      "inputs": [
+        {
+          "id": "exec",
+          "name": "Execute",
+          "type": "control"
+        },
+        {
+          "id": "sent",
+          "name": "sent",
+          "type": "boolean",
+          "required": true
+        },
+        {
+          "id": "byteLength",
+          "name": "byteLength",
+          "type": "number",
+          "required": true
+        },
+        {
+          "id": "acknowledged",
+          "name": "acknowledged",
+          "type": "boolean",
+          "required": true
+        }
+      ],
+      "outputs": [
+        {
+          "id": "next",
+          "name": "Next",
+          "type": "control"
+        },
+        {
+          "id": "value",
+          "name": "value",
+          "type": "def_312e28429fd9",
+          "required": true,
+          "typeVersion": 2
+        },
+        {
+          "id": "error",
+          "name": "On error",
+          "type": "control"
+        }
+      ],
+      "code": "return {value:Object.fromEntries([\"sent\",\"byteLength\",\"acknowledged\"].map(k=>[k,inputs[k]]))};",
+      "name": "Encode WebSocket Send Receipt",
+      "kind": "node",
+      "documentation": "Pure functional encode of a compact named block. Field enums/required/null behavior are enforced by the named type schema. No side effect.\n\nUses native Node 24 WebSocket client. No arbitrary handshake headers, TLS bypass, distributed listener or exactly-once guarantee. Use urlSecret/subscribeSecret for protected values. Errors and health omit raw remote errors, URLs and credential payloads. wss:// required except ws:// loopback mocks. Existing provider JSON types are reused. These v1 assets preserve exact socket/type/executor pins. Verified with isolated fixtures; external account access is unverified.\n\n## Audited socket contract (21 October 2026)\n\nInputs:\n- `sent`: `boolean`; required.\n- `byteLength`: `number`; required.\n- `acknowledged`: `boolean`; required.\n\nOutputs:\n- `value`: `@websocket.type.receipt`; required.\n\nConfiguration:\nNo asset-specific configuration.\n\nKnown provider records and list elements have structural schemas. Explicit dynamic payloads, selected query results and provider extensions retain the recursive JSON Value vocabulary; they do not imply a known provider entity. Null is distinct from omission. Runtime validates the exact selected immutable type version; reading newer documentation never repins existing graphs. This audit used synthetic fixtures/local mocks and does not establish live provider authorization or delivery.\n\nLibrary registry key: `websocket.codec.receipt.encode`.",
+      "description": "Encode WebSocket Send Receipt",
+      "id": "def_df221bea9c74",
+      "version": 2,
+      "createdAt": "2026-10-22T00:00:00.000Z",
+      "updatedAt": "2026-10-22T00:00:00.000Z",
+      "builtin": false
+    },
+    {
+      "runtime": "javascript",
+      "color": "#58afa6",
+      "category": "WebSockets",
+      "inputs": [
+        {
+          "id": "exec",
+          "name": "Execute",
+          "type": "control"
+        },
+        {
+          "id": "frames",
+          "name": "frames",
+          "type": "def_a544aca42932",
+          "required": true,
+          "typeVersion": 2
+        },
+        {
+          "id": "complete",
+          "name": "complete",
+          "type": "boolean",
+          "required": true
+        },
+        {
+          "id": "reason",
+          "name": "reason",
+          "type": "string",
+          "required": true
+        }
+      ],
+      "outputs": [
+        {
+          "id": "next",
+          "name": "Next",
+          "type": "control"
+        },
+        {
+          "id": "value",
+          "name": "value",
+          "type": "def_fec2bdb24d84",
+          "required": true,
+          "typeVersion": 2
+        },
+        {
+          "id": "error",
+          "name": "On error",
+          "type": "control"
+        }
+      ],
+      "code": "return {value:Object.fromEntries([\"frames\",\"complete\",\"reason\"].map(k=>[k,inputs[k]]))};",
+      "name": "Encode WebSocket Receive Result",
+      "kind": "node",
+      "documentation": "Pure functional encode of a compact named block. Field enums/required/null behavior are enforced by the named type schema. No side effect.\n\nUses native Node 24 WebSocket client. No arbitrary handshake headers, TLS bypass, distributed listener or exactly-once guarantee. Use urlSecret/subscribeSecret for protected values. Errors and health omit raw remote errors, URLs and credential payloads. wss:// required except ws:// loopback mocks. Existing provider JSON types are reused. These v1 assets preserve exact socket/type/executor pins. Verified with isolated fixtures; external account access is unverified.\n\n## Audited socket contract (21 October 2026)\n\nInputs:\n- `frames`: `@websocket.type.frames`; required.\n- `complete`: `boolean`; required.\n- `reason`: `string`; required.\n\nOutputs:\n- `value`: `@websocket.type.result`; required.\n\nConfiguration:\nNo asset-specific configuration.\n\nKnown provider records and list elements have structural schemas. Explicit dynamic payloads, selected query results and provider extensions retain the recursive JSON Value vocabulary; they do not imply a known provider entity. Null is distinct from omission. Runtime validates the exact selected immutable type version; reading newer documentation never repins existing graphs. This audit used synthetic fixtures/local mocks and does not establish live provider authorization or delivery.\n\nLibrary registry key: `websocket.codec.result.encode`.",
+      "description": "Encode WebSocket Receive Result",
+      "id": "def_e127cb7707f9",
+      "version": 2,
+      "createdAt": "2026-10-22T00:00:00.000Z",
+      "updatedAt": "2026-10-22T00:00:00.000Z",
+      "builtin": false
+    },
+    {
+      "runtime": "javascript",
+      "color": "#58afa6",
+      "category": "WebSockets",
+      "inputs": [
+        {
+          "id": "exec",
+          "name": "Execute",
+          "type": "control"
+        },
+        {
+          "id": "value",
+          "name": "value",
+          "type": "def_a544aca42932",
+          "required": true,
+          "typeVersion": 2
+        }
+      ],
+      "outputs": [
+        {
+          "id": "next",
+          "name": "Next",
+          "type": "control"
+        },
+        {
+          "id": "item",
+          "name": "item",
+          "type": "def_a8f9e5ea7f8f",
+          "required": false,
+          "typeVersion": 2
+        },
+        {
+          "id": "rest",
+          "name": "rest",
+          "type": "def_a544aca42932",
+          "required": true,
+          "typeVersion": 2
+        },
+        {
+          "id": "index",
+          "name": "index",
+          "type": "number",
+          "required": true
+        },
+        {
+          "id": "count",
+          "name": "count",
+          "type": "number",
+          "required": true
+        },
+        {
+          "id": "error",
+          "name": "On error",
+          "type": "control"
+        }
+      ],
+      "code": "const index=config.index??0,value=inputs.value;if(!Number.isInteger(index)||index<0||index>value.length)throw new Error('Index out of range');return {index,count:value.length,rest:value.filter((_,i)=>i!==index),...(index<value.length?{item:value[index]}:{})};",
+      "name": "Decode WebSocket Frame List",
+      "kind": "node",
+      "configSchema": {
+        "type": "object",
+        "properties": {
+          "index": {
+            "type": "integer",
+            "minimum": 0,
+            "default": 0
+          }
+        },
+        "required": [],
+        "additionalProperties": false
+      },
+      "documentation": "Pure functional list split. Empty lists omit item and retain an empty rest.\n\nUses native Node 24 WebSocket client. No arbitrary handshake headers, TLS bypass, distributed listener or exactly-once guarantee. Use urlSecret/subscribeSecret for protected values. Errors and health omit raw remote errors, URLs and credential payloads. wss:// required except ws:// loopback mocks. Existing provider JSON types are reused. These v1 assets preserve exact socket/type/executor pins. Verified with isolated fixtures; external account access is unverified.\n\n## Audited socket contract (21 October 2026)\n\nInputs:\n- `value`: `@websocket.type.frames`; required.\n\nOutputs:\n- `item`: `@websocket.type.frame`; optional (absent stays absent).\n- `rest`: `@websocket.type.frames`; required.\n- `index`: `number`; required.\n- `count`: `number`; required.\n\nConfiguration:\n- `index`: integer; default 0\n\nKnown provider records and list elements have structural schemas. Explicit dynamic payloads, selected query results and provider extensions retain the recursive JSON Value vocabulary; they do not imply a known provider entity. Null is distinct from omission. Runtime validates the exact selected immutable type version; reading newer documentation never repins existing graphs. This audit used synthetic fixtures/local mocks and does not establish live provider authorization or delivery.\n\nLibrary registry key: `websocket.codec.frames.decode`.",
+      "description": "Decode WebSocket Frame List",
+      "id": "def_ea6b7d87464d",
+      "version": 2,
+      "createdAt": "2026-10-22T00:00:00.000Z",
+      "updatedAt": "2026-10-22T00:00:00.000Z",
+      "builtin": false
+    },
+    {
+      "runtime": "javascript",
+      "color": "#58afa6",
+      "category": "WebSockets",
+      "inputs": [
+        {
+          "id": "exec",
+          "name": "Execute",
+          "type": "control"
+        },
+        {
+          "id": "item",
+          "name": "item",
+          "type": "def_a8f9e5ea7f8f",
+          "required": false,
+          "typeVersion": 2
+        },
+        {
+          "id": "rest",
+          "name": "rest",
+          "type": "def_a544aca42932",
+          "required": false,
+          "typeVersion": 2
+        },
+        {
+          "id": "index",
+          "name": "index",
+          "type": "number",
+          "required": false
+        }
+      ],
+      "outputs": [
+        {
+          "id": "next",
+          "name": "Next",
+          "type": "control"
+        },
+        {
+          "id": "value",
+          "name": "value",
+          "type": "def_a544aca42932",
+          "required": true,
+          "typeVersion": 2
+        },
+        {
+          "id": "error",
+          "name": "On error",
+          "type": "control"
+        }
+      ],
+      "code": "const value=[...(inputs.rest??[])],index=inputs.index??value.length;if(!Number.isInteger(index)||index<0||index>value.length)throw new Error('Index out of range');if(Object.hasOwn(inputs,'item'))value.splice(index,0,inputs.item);return {value};",
+      "name": "Encode WebSocket Frame List",
+      "kind": "node",
+      "documentation": "Pure functional list insert. Required frame fields and maximum100 count are enforced by the named type.\n\nUses native Node 24 WebSocket client. No arbitrary handshake headers, TLS bypass, distributed listener or exactly-once guarantee. Use urlSecret/subscribeSecret for protected values. Errors and health omit raw remote errors, URLs and credential payloads. wss:// required except ws:// loopback mocks. Existing provider JSON types are reused. These v1 assets preserve exact socket/type/executor pins. Verified with isolated fixtures; external account access is unverified.\n\n## Audited socket contract (21 October 2026)\n\nInputs:\n- `item`: `@websocket.type.frame`; optional (absent stays absent).\n- `rest`: `@websocket.type.frames`; optional (absent stays absent).\n- `index`: `number`; optional (absent stays absent).\n\nOutputs:\n- `value`: `@websocket.type.frames`; required.\n\nConfiguration:\nNo asset-specific configuration.\n\nKnown provider records and list elements have structural schemas. Explicit dynamic payloads, selected query results and provider extensions retain the recursive JSON Value vocabulary; they do not imply a known provider entity. Null is distinct from omission. Runtime validates the exact selected immutable type version; reading newer documentation never repins existing graphs. This audit used synthetic fixtures/local mocks and does not establish live provider authorization or delivery.\n\nLibrary registry key: `websocket.codec.frames.encode`.",
+      "description": "Encode WebSocket Frame List",
+      "id": "def_f93d15d8199a",
+      "version": 2,
+      "createdAt": "2026-10-22T00:00:00.000Z",
+      "updatedAt": "2026-10-22T00:00:00.000Z",
+      "builtin": false
+    },
+    {
+      "runtime": "javascript",
+      "color": "#58afa6",
+      "category": "WebSockets",
+      "inputs": [],
+      "outputs": [],
+      "code": "",
+      "name": "WebSocket Receive Result",
+      "kind": "type",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "frames": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "eventId": {
+                  "type": "string"
+                },
+                "kind": {
+                  "type": "string",
+                  "enum": [
+                    "text",
+                    "binary"
+                  ]
+                },
+                "encoding": {
+                  "type": "string",
+                  "enum": [
+                    "utf8",
+                    "base64"
+                  ]
+                },
+                "data": {
+                  "type": "string"
+                },
+                "byteLength": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "receivedAt": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "eventId",
+                "kind",
+                "encoding",
+                "data",
+                "byteLength",
+                "receivedAt"
+              ],
+              "additionalProperties": false
+            },
+            "maxItems": 100
+          },
+          "complete": {
+            "type": "boolean"
+          },
+          "reason": {
+            "type": "string",
+            "enum": [
+              "limit",
+              "matched",
+              "timeout",
+              "peer_closed"
+            ]
+          }
+        },
+        "required": [
+          "frames",
+          "complete",
+          "reason"
+        ],
+        "additionalProperties": false
+      },
+      "documentation": "Named WebSocket Receive Result block. Required fields are present; no undeclared fields. \n\nUses native Node 24 WebSocket client. No arbitrary handshake headers, TLS bypass, distributed listener or exactly-once guarantee. Use urlSecret/subscribeSecret for protected values. Errors and health omit raw remote errors, URLs and credential payloads. wss:// required except ws:// loopback mocks. Existing provider JSON types are reused. These v1 assets preserve exact socket/type/executor pins. Verified with isolated fixtures; external account access is unverified.\n\n## Audited socket contract (21 October 2026)\n\nInputs:\nNo data sockets.\n\nOutputs:\nNo data sockets.\n\nConfiguration:\nNo asset-specific configuration.\n\nKnown provider records and list elements have structural schemas. Explicit dynamic payloads, selected query results and provider extensions retain the recursive JSON Value vocabulary; they do not imply a known provider entity. Null is distinct from omission. Runtime validates the exact selected immutable type version; reading newer documentation never repins existing graphs. This audit used synthetic fixtures/local mocks and does not establish live provider authorization or delivery.\n\nAuthoritative JSON Schema:\n\n```json\n{\n  \"type\": \"object\",\n  \"properties\": {\n    \"frames\": {\n      \"type\": \"array\",\n      \"items\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"eventId\": {\n            \"type\": \"string\"\n          },\n          \"kind\": {\n            \"type\": \"string\",\n            \"enum\": [\n              \"text\",\n              \"binary\"\n            ]\n          },\n          \"encoding\": {\n            \"type\": \"string\",\n            \"enum\": [\n              \"utf8\",\n              \"base64\"\n            ]\n          },\n          \"data\": {\n            \"type\": \"string\"\n          },\n          \"byteLength\": {\n            \"type\": \"integer\",\n            \"minimum\": 0\n          },\n          \"receivedAt\": {\n            \"type\": \"string\"\n          }\n        },\n        \"required\": [\n          \"eventId\",\n          \"kind\",\n          \"encoding\",\n          \"data\",\n          \"byteLength\",\n          \"receivedAt\"\n        ],\n        \"additionalProperties\": false\n      },\n      \"maxItems\": 100\n    },\n    \"complete\": {\n      \"type\": \"boolean\"\n    },\n    \"reason\": {\n      \"type\": \"string\",\n      \"enum\": [\n        \"limit\",\n        \"matched\",\n        \"timeout\",\n        \"peer_closed\"\n      ]\n    }\n  },\n  \"required\": [\n    \"frames\",\n    \"complete\",\n    \"reason\"\n  ],\n  \"additionalProperties\": false\n}\n```\n\nLibrary registry key: `websocket.type.result`.",
+      "description": "WebSocket Receive Result",
+      "id": "def_fec2bdb24d84",
+      "version": 2,
+      "createdAt": "2026-10-22T00:00:00.000Z",
+      "updatedAt": "2026-10-22T00:00:00.000Z",
+      "builtin": false
+    },
+    {
+      "runtime": "javascript",
+      "color": "#58afa6",
+      "category": "WebSockets",
+      "inputs": [
+        {
+          "id": "exec",
+          "name": "Execute",
+          "type": "control"
+        },
+        {
+          "id": "frame",
+          "name": "frame",
+          "type": "def_a8f9e5ea7f8f",
+          "required": true,
+          "typeVersion": 2
+        }
+      ],
+      "outputs": [
+        {
+          "id": "next",
+          "name": "Next",
+          "type": "control"
+        },
+        {
+          "id": "json",
+          "name": "json",
+          "type": "def_c5fc8fea11ea",
+          "required": true,
+          "typeVersion": 1
+        },
+        {
+          "id": "error",
+          "name": "On error",
+          "type": "control"
+        }
+      ],
+      "code": "if(inputs.frame.kind!=='text'||inputs.frame.encoding!=='utf8')throw new Error('Expected text frame');return {json:JSON.parse(inputs.frame.data)};",
+      "name": "WebSocket Decode JSON Frame",
+      "kind": "node",
+      "documentation": "Pure JSON text parser; binary frames are rejected rather than misinterpreted.\n\nUses native Node 24 WebSocket client. No arbitrary handshake headers, TLS bypass, distributed listener or exactly-once guarantee. Use urlSecret/subscribeSecret for protected values. Errors and health omit raw remote errors, URLs and credential payloads. wss:// required except ws:// loopback mocks. Existing provider JSON types are reused. These v1 assets preserve exact socket/type/executor pins. Verified with isolated fixtures; external account access is unverified.\n\n## Audited socket contract (21 October 2026)\n\nInputs:\n- `frame`: `@websocket.type.frame`; required.\n\nOutputs:\n- `json`: `def_c5fc8fea11ea`; required.\n\nConfiguration:\nNo asset-specific configuration.\n\nKnown provider records and list elements have structural schemas. Explicit dynamic payloads, selected query results and provider extensions retain the recursive JSON Value vocabulary; they do not imply a known provider entity. Null is distinct from omission. Runtime validates the exact selected immutable type version; reading newer documentation never repins existing graphs. This audit used synthetic fixtures/local mocks and does not establish live provider authorization or delivery.\n\nLibrary registry key: `websocket.frame.json.decode`.",
+      "description": "WebSocket Decode JSON Frame",
+      "id": "def_fec85e2632fa",
+      "version": 2,
+      "createdAt": "2026-10-22T00:00:00.000Z",
+      "updatedAt": "2026-10-22T00:00:00.000Z",
+      "builtin": false
+    }
+  ],
+  "libraryPacks": [
+    {
+      "id": "onf.types",
+      "name": "Shared types",
+      "description": "General JSON, nullable, list and dictionary contracts without provider dependencies.",
+      "color": "#58afa6",
+      "revision": 2,
+      "createdAt": "2026-10-22T00:00:00.000Z",
+      "updatedAt": "2026-10-27T12:00:00.000Z"
+    },
+    {
+      "id": "onf.utilities",
+      "name": "Utilities",
+      "description": "General HTTP, text, date, collection, file, database and serialization tools.",
+      "color": "#58afa6",
+      "revision": 2,
+      "createdAt": "2026-10-22T00:00:00.000Z",
+      "updatedAt": "2026-10-27T12:00:00.000Z"
+    },
+    {
+      "id": "pack_websocket",
+      "name": "WebSockets",
+      "description": "WebSockets integration assets",
+      "color": "#58afa6",
+      "revision": 1,
+      "createdAt": "2026-10-22T00:00:00.000Z",
+      "updatedAt": "2026-10-22T00:00:00.000Z"
+    }
+  ],
+  "libraryFolders": [],
+  "libraryMetadata": [
+    {
+      "definitionId": "def_1fd7ed667c14",
+      "revision": 2,
+      "tags": [
+        "codec",
+        "decode",
+        "library-expansion",
+        "websocket"
+      ],
+      "packId": "pack_websocket",
+      "updatedAt": "2026-10-27T18:00:00.000Z",
+      "codec": {
+        "mode": "decode",
+        "name": "WebSocket Outgoing Message",
+        "pairId": "def_688de9a947ce"
+      }
+    },
+    {
+      "definitionId": "def_312e28429fd9",
+      "revision": 1,
+      "tags": [
+        "library-expansion",
+        "type",
+        "websocket"
+      ],
+      "packId": "pack_websocket",
+      "updatedAt": "2026-10-22T00:00:00.000Z"
+    },
+    {
+      "definitionId": "def_3c06390f51bc",
+      "revision": 2,
+      "tags": [
+        "codec",
+        "decode",
+        "library-expansion",
+        "websocket"
+      ],
+      "packId": "pack_websocket",
+      "updatedAt": "2026-10-27T18:00:00.000Z",
+      "codec": {
+        "mode": "decode",
+        "name": "WebSocket Send Receipt",
+        "pairId": "def_df221bea9c74"
+      }
+    },
+    {
+      "definitionId": "def_3e6c880e8af6",
+      "revision": 2,
+      "tags": [
+        "codec",
+        "decode",
+        "library-expansion",
+        "websocket"
+      ],
+      "packId": "pack_websocket",
+      "updatedAt": "2026-10-27T18:00:00.000Z",
+      "codec": {
+        "mode": "decode",
+        "name": "WebSocket Received Frame",
+        "pairId": "def_a8e1299b9384"
+      }
+    },
+    {
+      "definitionId": "def_498cab514ce2",
+      "revision": 1,
+      "tags": [
+        "library-expansion",
+        "type",
+        "typed-field",
+        "types"
+      ],
+      "packId": "onf.utilities",
+      "updatedAt": "2026-10-22T00:00:00.000Z"
+    },
+    {
+      "definitionId": "def_5c502cf1436b",
+      "revision": 2,
+      "tags": [
+        "codec",
+        "decode",
+        "library-expansion",
+        "websocket"
+      ],
+      "packId": "pack_websocket",
+      "updatedAt": "2026-10-27T18:00:00.000Z",
+      "codec": {
+        "mode": "decode",
+        "name": "WebSocket Receive Result",
+        "pairId": "def_e127cb7707f9"
+      }
+    },
+    {
+      "definitionId": "def_688de9a947ce",
+      "revision": 2,
+      "tags": [
+        "codec",
+        "encode",
+        "library-expansion",
+        "websocket"
+      ],
+      "packId": "pack_websocket",
+      "updatedAt": "2026-10-27T18:00:00.000Z",
+      "codec": {
+        "mode": "encode",
+        "name": "WebSocket Outgoing Message",
+        "pairId": "def_1fd7ed667c14"
+      }
+    },
+    {
+      "definitionId": "def_95bc4fb560bc",
+      "revision": 1,
+      "tags": [
+        "codec",
+        "encode",
+        "library-expansion",
+        "websocket"
+      ],
+      "packId": "pack_websocket",
+      "updatedAt": "2026-10-22T00:00:00.000Z"
+    },
+    {
+      "definitionId": "def_9af54e41bd50",
+      "revision": 1,
+      "tags": [
+        "library-expansion",
+        "websocket"
+      ],
+      "packId": "pack_websocket",
+      "updatedAt": "2026-10-22T00:00:00.000Z"
+    },
+    {
+      "definitionId": "def_a544aca42932",
+      "revision": 1,
+      "tags": [
+        "library-expansion",
+        "type",
+        "websocket"
+      ],
+      "packId": "pack_websocket",
+      "updatedAt": "2026-10-22T00:00:00.000Z"
+    },
+    {
+      "definitionId": "def_a8e1299b9384",
+      "revision": 2,
+      "tags": [
+        "codec",
+        "encode",
+        "library-expansion",
+        "websocket"
+      ],
+      "packId": "pack_websocket",
+      "updatedAt": "2026-10-27T18:00:00.000Z",
+      "codec": {
+        "mode": "encode",
+        "name": "WebSocket Received Frame",
+        "pairId": "def_3e6c880e8af6"
+      }
+    },
+    {
+      "definitionId": "def_a8f9e5ea7f8f",
+      "revision": 1,
+      "tags": [
+        "library-expansion",
+        "type",
+        "websocket"
+      ],
+      "packId": "pack_websocket",
+      "updatedAt": "2026-10-22T00:00:00.000Z"
+    },
+    {
+      "definitionId": "def_ab30e9fd6b53",
+      "revision": 1,
+      "tags": [
+        "library-expansion",
+        "type",
+        "websocket"
+      ],
+      "packId": "pack_websocket",
+      "updatedAt": "2026-10-22T00:00:00.000Z"
+    },
+    {
+      "definitionId": "def_b5263ff5f672",
+      "revision": 2,
+      "tags": [
+        "codec",
+        "decode",
+        "library-expansion",
+        "websocket"
+      ],
+      "packId": "pack_websocket",
+      "updatedAt": "2026-10-27T18:00:00.000Z",
+      "codec": {
+        "mode": "decode",
+        "name": "WebSocket JSON Correlation",
+        "pairId": "def_b6ab5dce6073"
+      }
+    },
+    {
+      "definitionId": "def_b6ab5dce6073",
+      "revision": 2,
+      "tags": [
+        "codec",
+        "encode",
+        "library-expansion",
+        "websocket"
+      ],
+      "packId": "pack_websocket",
+      "updatedAt": "2026-10-27T18:00:00.000Z",
+      "codec": {
+        "mode": "encode",
+        "name": "WebSocket JSON Correlation",
+        "pairId": "def_b5263ff5f672"
+      }
+    },
+    {
+      "definitionId": "def_b72673f897b2",
+      "revision": 1,
+      "tags": [
+        "executor",
+        "external-action",
+        "library-expansion",
+        "websocket"
+      ],
+      "packId": "pack_websocket",
+      "updatedAt": "2026-10-22T00:00:00.000Z"
+    },
+    {
+      "definitionId": "def_b742fa492178",
+      "revision": 1,
+      "tags": [
+        "library-expansion",
+        "websocket"
+      ],
+      "packId": "pack_websocket",
+      "updatedAt": "2026-10-22T00:00:00.000Z"
+    },
+    {
+      "definitionId": "def_bcc02091725c",
+      "revision": 1,
+      "tags": [
+        "library-expansion",
+        "websocket"
+      ],
+      "packId": "pack_websocket",
+      "updatedAt": "2026-10-22T00:00:00.000Z"
+    },
+    {
+      "definitionId": "def_c5fc8fea11ea",
+      "revision": 1,
+      "tags": [
+        "shared",
+        "type"
+      ],
+      "packId": "onf.types",
+      "updatedAt": "2026-10-22T00:00:00.000Z"
+    },
+    {
+      "definitionId": "def_ca33183e7357",
+      "revision": 1,
+      "tags": [
+        "library-expansion",
+        "managed",
+        "subscription",
+        "trigger",
+        "websocket"
+      ],
+      "packId": "pack_websocket",
+      "updatedAt": "2026-10-22T00:00:00.000Z"
+    },
+    {
+      "definitionId": "def_ce355436a675",
+      "revision": 1,
+      "tags": [
+        "library-expansion",
+        "type",
+        "websocket"
+      ],
+      "packId": "pack_websocket",
+      "updatedAt": "2026-10-22T00:00:00.000Z"
+    },
+    {
+      "definitionId": "def_df221bea9c74",
+      "revision": 2,
+      "tags": [
+        "codec",
+        "encode",
+        "library-expansion",
+        "websocket"
+      ],
+      "packId": "pack_websocket",
+      "updatedAt": "2026-10-27T18:00:00.000Z",
+      "codec": {
+        "mode": "encode",
+        "name": "WebSocket Send Receipt",
+        "pairId": "def_3c06390f51bc"
+      }
+    },
+    {
+      "definitionId": "def_e127cb7707f9",
+      "revision": 2,
+      "tags": [
+        "codec",
+        "encode",
+        "library-expansion",
+        "websocket"
+      ],
+      "packId": "pack_websocket",
+      "updatedAt": "2026-10-27T18:00:00.000Z",
+      "codec": {
+        "mode": "encode",
+        "name": "WebSocket Receive Result",
+        "pairId": "def_5c502cf1436b"
+      }
+    },
+    {
+      "definitionId": "def_ea6b7d87464d",
+      "revision": 2,
+      "tags": [
+        "codec",
+        "decode",
+        "library-expansion",
+        "websocket"
+      ],
+      "packId": "pack_websocket",
+      "updatedAt": "2026-10-27T18:00:00.000Z",
+      "codec": {
+        "mode": "decode",
+        "name": "WebSocket Frame List",
+        "pairId": "def_f93d15d8199a"
+      }
+    },
+    {
+      "definitionId": "def_f93d15d8199a",
+      "revision": 2,
+      "tags": [
+        "codec",
+        "encode",
+        "library-expansion",
+        "websocket"
+      ],
+      "packId": "pack_websocket",
+      "updatedAt": "2026-10-27T18:00:00.000Z",
+      "codec": {
+        "mode": "encode",
+        "name": "WebSocket Frame List",
+        "pairId": "def_ea6b7d87464d"
+      }
+    },
+    {
+      "definitionId": "def_fec2bdb24d84",
+      "revision": 1,
+      "tags": [
+        "library-expansion",
+        "type",
+        "websocket"
+      ],
+      "packId": "pack_websocket",
+      "updatedAt": "2026-10-22T00:00:00.000Z"
+    },
+    {
+      "definitionId": "def_fec85e2632fa",
+      "revision": 1,
+      "tags": [
+        "codec",
+        "decode",
+        "library-expansion",
+        "websocket"
+      ],
+      "packId": "pack_websocket",
+      "updatedAt": "2026-10-22T00:00:00.000Z"
+    }
+  ],
+  "libraryMigrations": {
+    "packs": [
+      {
+        "id": "onf.types",
+        "name": "Shared types",
+        "description": "Canonical JSON, nullable, text-list and Azure entity contracts.",
+        "color": "#58afa6",
+        "revision": 1,
+        "createdAt": "2026-10-22T00:00:00.000Z",
+        "updatedAt": "2026-10-22T00:00:00.000Z"
+      },
+      {
+        "id": "onf.utilities",
+        "name": "Utilities",
+        "description": "Typed HTTP, text, dates, collections, files, SQLite, XML, mail, codecs and reusable compositions.",
+        "color": "#58afa6",
+        "revision": 1,
+        "createdAt": "2026-10-22T00:00:00.000Z",
+        "updatedAt": "2026-10-22T00:00:00.000Z"
+      }
+    ],
+    "metadata": [
+      {
+        "definitionId": "def_1fd7ed667c14",
+        "revision": 1,
+        "tags": [
+          "codec",
+          "decode",
+          "library-expansion",
+          "websocket"
+        ],
+        "packId": "pack_websocket",
+        "updatedAt": "2026-10-22T00:00:00.000Z"
+      },
+      {
+        "definitionId": "def_3c06390f51bc",
+        "revision": 1,
+        "tags": [
+          "codec",
+          "decode",
+          "library-expansion",
+          "websocket"
+        ],
+        "packId": "pack_websocket",
+        "updatedAt": "2026-10-22T00:00:00.000Z"
+      },
+      {
+        "definitionId": "def_3e6c880e8af6",
+        "revision": 1,
+        "tags": [
+          "codec",
+          "decode",
+          "library-expansion",
+          "websocket"
+        ],
+        "packId": "pack_websocket",
+        "updatedAt": "2026-10-22T00:00:00.000Z"
+      },
+      {
+        "definitionId": "def_5c502cf1436b",
+        "revision": 1,
+        "tags": [
+          "codec",
+          "decode",
+          "library-expansion",
+          "websocket"
+        ],
+        "packId": "pack_websocket",
+        "updatedAt": "2026-10-22T00:00:00.000Z"
+      },
+      {
+        "definitionId": "def_688de9a947ce",
+        "revision": 1,
+        "tags": [
+          "codec",
+          "encode",
+          "library-expansion",
+          "websocket"
+        ],
+        "packId": "pack_websocket",
+        "updatedAt": "2026-10-22T00:00:00.000Z"
+      },
+      {
+        "definitionId": "def_a8e1299b9384",
+        "revision": 1,
+        "tags": [
+          "codec",
+          "encode",
+          "library-expansion",
+          "websocket"
+        ],
+        "packId": "pack_websocket",
+        "updatedAt": "2026-10-22T00:00:00.000Z"
+      },
+      {
+        "definitionId": "def_b5263ff5f672",
+        "revision": 1,
+        "tags": [
+          "codec",
+          "decode",
+          "library-expansion",
+          "websocket"
+        ],
+        "packId": "pack_websocket",
+        "updatedAt": "2026-10-22T00:00:00.000Z"
+      },
+      {
+        "definitionId": "def_b6ab5dce6073",
+        "revision": 1,
+        "tags": [
+          "codec",
+          "encode",
+          "library-expansion",
+          "websocket"
+        ],
+        "packId": "pack_websocket",
+        "updatedAt": "2026-10-22T00:00:00.000Z"
+      },
+      {
+        "definitionId": "def_df221bea9c74",
+        "revision": 1,
+        "tags": [
+          "codec",
+          "encode",
+          "library-expansion",
+          "websocket"
+        ],
+        "packId": "pack_websocket",
+        "updatedAt": "2026-10-22T00:00:00.000Z"
+      },
+      {
+        "definitionId": "def_e127cb7707f9",
+        "revision": 1,
+        "tags": [
+          "codec",
+          "encode",
+          "library-expansion",
+          "websocket"
+        ],
+        "packId": "pack_websocket",
+        "updatedAt": "2026-10-22T00:00:00.000Z"
+      },
+      {
+        "definitionId": "def_ea6b7d87464d",
+        "revision": 1,
+        "tags": [
+          "codec",
+          "decode",
+          "library-expansion",
+          "websocket"
+        ],
+        "packId": "pack_websocket",
+        "updatedAt": "2026-10-22T00:00:00.000Z"
+      },
+      {
+        "definitionId": "def_f93d15d8199a",
+        "revision": 1,
+        "tags": [
+          "codec",
+          "encode",
+          "library-expansion",
+          "websocket"
+        ],
+        "packId": "pack_websocket",
+        "updatedAt": "2026-10-22T00:00:00.000Z"
+      }
+    ]
+  }
+}

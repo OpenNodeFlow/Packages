@@ -8,7 +8,7 @@ Recommended starting packages, in order:
 2. **OpenNodeFlow Runtime** — storage, queues, variables, waits and execution coordination.
 3. **OpenNodeFlow Logic** — branching, comparisons, selection and general logic.
 4. **OpenNodeFlow Utilities** — HTTP, text, dates, collections, files and serialization.
-5. **OpenNodeFlow Shared Types** — general reusable data contracts.
+5. **OpenNodeFlow Types** — general reusable data contracts.
 
 ## Install
 

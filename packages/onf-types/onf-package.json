@@ -6,10 +6,10 @@
   "category": "Foundations",
   "tags": [
     "default",
-    "shared-types"
+    "types"
   ],
   "defaultPackage": true,
   "logo": "logo.png",
   "banner": "banner.png",
-  "displayName": "OpenNodeFlow Shared Types"
+  "displayName": "OpenNodeFlow Types"
 }

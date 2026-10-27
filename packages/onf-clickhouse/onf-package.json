@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "summary": "Bounded HTTPS SQL, typed ClickHouse metadata, table rows and confirmed database/table maintenance. No external driver required.",
+  "description": "Bounded HTTPS SQL, typed ClickHouse metadata, table rows and confirmed database/table maintenance. No external driver required.",
+  "website": "https://clickhouse.com/docs/interfaces/http",
+  "category": "Integrations",
+  "tags": [
+    "integration",
+    "clickhouse",
+    "database",
+    "sql"
+  ],
+  "defaultPackage": false,
+  "logo": "logo.png",
+  "banner": "banner.png"
+}

@@ -1334,6 +1334,42 @@
       "path": "packages/onf-bigquery/1.0.0.json",
       "sha256": "a0404b8e467a333137b3febd07890a9e5224a453e5c4be456a3071c418285b75",
       "config": "packages/onf-bigquery/onf-package.json"
+    },
+    {
+      "id": "onf.postgresql",
+      "name": "PostgreSQL",
+      "version": "1.0.1",
+      "description": "Bounded PostgreSQL queries, transactions, row operations, schema discovery and database statistics using an embedded pure JavaScript pg client.",
+      "path": "packages/onf-postgresql/1.0.1.json",
+      "sha256": "92848715b909b244831f287c7820f75571e96276f85cd955f75162de2a8cffa5",
+      "config": "packages/onf-postgresql/onf-package.json"
+    },
+    {
+      "id": "onf.mysql",
+      "name": "MySQL",
+      "version": "1.0.1",
+      "description": "Bounded MySQL prepared queries, transactions, safe row operations, schema and catalog discovery, with an embedded MySQL2 client.",
+      "path": "packages/onf-mysql/1.0.1.json",
+      "sha256": "2132d7b5e48d9e9a5a9968838ae0ff80495760b1a6d75c94a12651db650a7002",
+      "config": "packages/onf-mysql/onf-package.json"
+    },
+    {
+      "id": "onf.redis",
+      "name": "Redis",
+      "version": "1.0.0",
+      "description": "Bounded native Redis strings, hashes, lists, sets, sorted sets, keys, transactions and manual-acknowledgement streams, with an embedded upstream Redis client.",
+      "path": "packages/onf-redis/1.0.0.json",
+      "sha256": "b92082fb9ef45e430e95055ea173cc72cfb48ebfd93104ae3e7733b035eadd03",
+      "config": "packages/onf-redis/onf-package.json"
+    },
+    {
+      "id": "onf.clickhouse",
+      "name": "ClickHouse",
+      "version": "1.0.0",
+      "description": "Bounded HTTPS SQL, typed ClickHouse metadata, table rows and confirmed database/table maintenance. No external driver required.",
+      "path": "packages/onf-clickhouse/1.0.0.json",
+      "sha256": "d3afe6df409d64dcf88f35a51525e5a918a887d3ea77a0ce3d1d4559a87ff534",
+      "config": "packages/onf-clickhouse/onf-package.json"
     }
   ]
 }

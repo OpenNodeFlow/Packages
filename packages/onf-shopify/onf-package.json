@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "summary": "Typed Shopify Admin GraphQL products, variants, inventory, collections, customers, orders, drafts, fulfillment and metafields. Confirmed writes, bounded pages and redacted errors.",
+  "description": "Typed Shopify Admin GraphQL products, variants, inventory, collections, customers, orders, drafts, fulfillment and metafields. Confirmed writes, bounded pages and redacted errors.",
+  "website": "https://shopify.dev/docs/api/admin-graphql/2026-10",
+  "category": "Integrations",
+  "tags": [
+    "integration",
+    "shopify"
+  ],
+  "defaultPackage": false,
+  "logo": "logo.png",
+  "banner": "banner.png"
+}

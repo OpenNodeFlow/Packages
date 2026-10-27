@@ -1541,6 +1541,33 @@
       "path": "packages/onf-trello/1.0.0.json",
       "sha256": "c0647ec961b0efc3641a0642556e66137b66cd8979c70f7feaea2ec47c1e6481",
       "config": "packages/onf-trello/onf-package.json"
+    },
+    {
+      "id": "onf.stripe",
+      "name": "Stripe",
+      "version": "1.0.0",
+      "description": "Bounded typed Stripe customers, payments, refunds, subscriptions, invoices, reconciliation, Connect transfers, payouts and disputes with explicit write confirmation.",
+      "path": "packages/onf-stripe/1.0.0.json",
+      "sha256": "4c2cccb29207745f028ac597ec55e9cfc87796379ed575e7ec11370b00c73fd4",
+      "config": "packages/onf-stripe/onf-package.json"
+    },
+    {
+      "id": "onf.paypal",
+      "name": "PayPal",
+      "version": "1.0.0",
+      "description": "Bounded typed PayPal orders, payments, subscriptions, invoices, payouts, disputes and reporting with external bearer authentication.",
+      "path": "packages/onf-paypal/1.0.0.json",
+      "sha256": "cafedf89a35a49a54658f00bf499a0b821d69ea7983267559c8424b31de3f1ed",
+      "config": "packages/onf-paypal/onf-package.json"
+    },
+    {
+      "id": "onf.shopify",
+      "name": "Shopify",
+      "version": "1.0.0",
+      "description": "Typed Shopify Admin GraphQL products, variants, inventory, collections, customers, orders, drafts, fulfillment and metafields. Confirmed writes, bounded pages and redacted errors.",
+      "path": "packages/onf-shopify/1.0.0.json",
+      "sha256": "8f60d94f1aad90b2318d2030bdac2869de053d3dcebbd56ced733733942ece18",
+      "config": "packages/onf-shopify/onf-package.json"
     }
   ]
 }

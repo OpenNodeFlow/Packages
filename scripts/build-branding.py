@@ -53,5 +53,25 @@ for package_id, entry in families.items():
               'category': 'Foundations' if package_id in DEFAULT else 'Integrations',
               'tags': ['default', name.lower().replace(' ', '-')[:24]] if package_id in DEFAULT else ['integration', name.lower().replace(' ', '-')[:24]],
               'defaultPackage': package_id in DEFAULT, 'logo': 'logo.png', 'banner': 'banner.png'}
+    if package_id in DEFAULT:
+        config['displayName'] = {'onf.core': 'OpenNodeFlow Core', 'onf.runtime': 'OpenNodeFlow Runtime', 'onf.logic': 'OpenNodeFlow Logic', 'onf.utilities': 'OpenNodeFlow Utilities', 'onf.types': 'OpenNodeFlow Shared Types'}[package_id]
     (folder / 'onf-package.json').write_text(json.dumps(config, indent=2) + '\n', encoding='utf8', newline='\n')
 print(f'Created original artwork and metadata for {len(families)} package families.')
+
+# Source artwork is distinct from individual package covers.
+source_logo = Image.new('RGB', (192, 192), '#202326')
+draw = ImageDraw.Draw(source_logo)
+for x, y in [(48, 48), (144, 48), (96, 140)]:
+    draw.line((96, 96, x, y), fill='#d3a571', width=6)
+    draw.rounded_rectangle((x-18, y-18, x+18, y+18), radius=10, fill='#30383b', outline='#d3a571', width=3)
+draw.ellipse((74, 74, 118, 118), fill='#d3a571')
+source_logo.save(ROOT / 'logo.png', optimize=True)
+source_banner = Image.new('RGB', (1120, 280), '#202326')
+draw = ImageDraw.Draw(source_banner)
+for x in range(0, 1120, 32):
+    draw.line((x, 0, x+280, 280), fill='#292f32', width=1)
+for index, x in enumerate(range(80, 1120, 180)):
+    y = 100 + (index % 2) * 80
+    draw.line((x, y, x+90, y, x+90, 180 if y == 100 else 100, x+180, 180 if y == 100 else 100), fill='#d3a571', width=3)
+    draw.rounded_rectangle((x-18, y-18, x+18, y+18), radius=8, fill='#30383b', outline='#d3a571', width=3)
+source_banner.save(ROOT / 'banner.png', optimize=True)

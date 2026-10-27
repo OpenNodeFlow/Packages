@@ -10,5 +10,6 @@
   ],
   "defaultPackage": true,
   "logo": "logo.png",
-  "banner": "banner.png"
+  "banner": "banner.png",
+  "displayName": "OpenNodeFlow Shared Types"
 }

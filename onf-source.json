@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 1,
+  "displayName": "OpenNodeFlow Packages",
+  "summary": "The official collection of foundations and integrations for OpenNodeFlow.",
+  "description": "Start with Core, Runtime, Logic, Utilities and Shared Types. Add provider integrations as your workflows need them. Every installation is explicit and keeps its reviewed Git commit and release provenance.",
+  "website": "https://github.com/OpenNodeFlow/Packages",
+  "logo": "logo.png",
+  "banner": "banner.png"
+}

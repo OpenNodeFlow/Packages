@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "summary": "Native nonstream Ollama inference, model metadata and guarded local lifecycle operations with typed chat, tools and embeddings.",
+  "description": "Native nonstream Ollama inference, model metadata and guarded local lifecycle operations with typed chat, tools and embeddings.",
+  "website": "https://docs.ollama.com/api/introduction",
+  "category": "Integrations",
+  "tags": [
+    "integration",
+    "ollama",
+    "ai",
+    "embeddings",
+    "local-models"
+  ],
+  "defaultPackage": false,
+  "logo": "logo.png",
+  "banner": "banner.png"
+}

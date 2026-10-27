@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "summary": "Bounded native NATS publish, request/reply and JetStream management with typed binary helpers.",
+  "description": "Bounded native NATS publish, request/reply and JetStream management with typed binary helpers.",
+  "website": "https://docs.nats.io/",
+  "category": "Integrations",
+  "tags": [
+    "integration",
+    "nats"
+  ],
+  "defaultPackage": false,
+  "logo": "logo.png",
+  "banner": "banner.png"
+}

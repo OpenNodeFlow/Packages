@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "summary": "Bounded OpenAI Responses, embeddings, models, file metadata, batches, vector stores and upload lifecycle metadata.",
+  "description": "Bounded OpenAI Responses, embeddings, models, file metadata, batches, vector stores and upload lifecycle metadata.",
+  "website": "https://developers.openai.com/api/reference/resources/responses",
+  "category": "Integrations",
+  "tags": [
+    "integration",
+    "openai",
+    "ai",
+    "responses",
+    "embeddings"
+  ],
+  "defaultPackage": false,
+  "logo": "logo.png",
+  "banner": "banner.png"
+}

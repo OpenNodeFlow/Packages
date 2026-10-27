@@ -1685,6 +1685,105 @@
       "path": "packages/onf-intercom/1.0.0.json",
       "sha256": "3323e2bef7dd5fb935630d65e14c0b45d58c26ffc55e85a50e663abfe7f6336f",
       "config": "packages/onf-intercom/onf-package.json"
+    },
+    {
+      "id": "onf.freshdesk",
+      "name": "Freshdesk",
+      "version": "1.0.0",
+      "description": "Typed Freshdesk API v2 tickets, replies, private notes, contacts, companies, agents, groups, fields, search and knowledgebase.",
+      "path": "packages/onf-freshdesk/1.0.0.json",
+      "sha256": "fe36f6354cbb826d01f003c317426edde3cc649e13441e73cd027253febfe0df",
+      "config": "packages/onf-freshdesk/onf-package.json"
+    },
+    {
+      "id": "onf.calendly",
+      "name": "Calendly",
+      "version": "1.0.0",
+      "description": "Typed Calendly API v2 users, organizations, event types, scheduled events, invitees, availability, routing forms, single-use links and explicit cancellation.",
+      "path": "packages/onf-calendly/1.0.0.json",
+      "sha256": "5759cc031bfe3a9cde694496078b8c16864e418b7d66f6592c50d326d7319255",
+      "config": "packages/onf-calendly/onf-package.json"
+    },
+    {
+      "id": "onf.docusign",
+      "name": "Docusign",
+      "version": "1.0.0",
+      "description": "Typed eSignature v2.1 accounts, users, draft/send envelopes, recipients, tabs, templates, document metadata, audit, folders and brands.",
+      "path": "packages/onf-docusign/1.0.0.json",
+      "sha256": "3283fdf384e5e094c1a5313bb757149344b250fde88e5033b58ecdaa9929cca0",
+      "config": "packages/onf-docusign/onf-package.json"
+    },
+    {
+      "id": "onf.home-assistant",
+      "name": "Home Assistant",
+      "version": "1.0.0",
+      "description": "Bounded Home Assistant REST states, metadata, history, calendars and explicitly confirmed equipment actions.",
+      "path": "packages/onf-home-assistant/1.0.0.json",
+      "sha256": "948a7fb91250e8d5f1db8e13a4cea276eb040fdb5b61413da55dacf19f694422",
+      "config": "packages/onf-home-assistant/onf-package.json"
+    },
+    {
+      "id": "onf.nats",
+      "name": "NATS",
+      "version": "1.0.0",
+      "description": "Bounded native NATS publish, request/reply and JetStream management with typed binary helpers.",
+      "path": "packages/onf-nats/1.0.0.json",
+      "sha256": "40a729c239a84ecf761451d4f2f94ce77f7b4187374a05d624b80f2a379b493b",
+      "config": "packages/onf-nats/onf-package.json"
+    },
+    {
+      "id": "onf.openai",
+      "name": "OpenAI",
+      "version": "1.0.0",
+      "description": "Bounded OpenAI Responses, embeddings, models, file metadata, batches, vector stores and upload lifecycle metadata.",
+      "path": "packages/onf-openai/1.0.0.json",
+      "sha256": "662849ec562a1e1df04acb91a5d9c91cd4ffe7a779e1fe70b6cae81628fe31a6",
+      "config": "packages/onf-openai/onf-package.json"
+    },
+    {
+      "id": "onf.anthropic",
+      "name": "Anthropic Claude",
+      "version": "1.0.0",
+      "description": "Typed Claude Messages, token counts, model metadata and bounded message batches. Tool requests and results remain data.",
+      "path": "packages/onf-anthropic/1.0.0.json",
+      "sha256": "469fc22a154df677d2fc61f3f4ab1188e188923a0640fe3e23be2daed40735de",
+      "config": "packages/onf-anthropic/onf-package.json"
+    },
+    {
+      "id": "onf.ollama",
+      "name": "Ollama",
+      "version": "1.0.0",
+      "description": "Native nonstream Ollama inference, model metadata and guarded local lifecycle operations with typed chat, tools and embeddings.",
+      "path": "packages/onf-ollama/1.0.0.json",
+      "sha256": "1f83ee018447cd30f17c9c9fb3fda67d03029ddd2f68cf4b6565162c4dfbc7d5",
+      "config": "packages/onf-ollama/onf-package.json"
+    },
+    {
+      "id": "onf.vault",
+      "name": "HashiCorp Vault",
+      "version": "1.0.0",
+      "description": "Bounded Vault KV v1/v2, diagnostics and transit HTTP operations using externally managed protected tokens.",
+      "path": "packages/onf-vault/1.0.0.json",
+      "sha256": "56a8a2c9870a67875e964e2736afb87b81759202a469579840667d57e9c2f688",
+      "config": "packages/onf-vault/onf-package.json"
+    },
+    {
+      "id": "onf.keycloak",
+      "name": "Keycloak",
+      "version": "1.0.0",
+      "description": "Bounded Keycloak Admin REST users, groups, roles, mappings, sessions and sanitized metadata with guarded mutations.",
+      "path": "packages/onf-keycloak/1.0.0.json",
+      "sha256": "d18a2f4ce7fa6e7e2fe0424b58815c090719f13746b3c5d10fe426e8c3608854",
+      "config": "packages/onf-keycloak/onf-package.json"
+    },
+    {
+      "id": "onf.zabbix",
+      "name": "Zabbix",
+      "version": "1.0.0",
+      "description": "Bounded Zabbix 7.4 JSON-RPC monitoring, exact history/trends, explicit event acknowledgement and maintenance.",
+      "path": "packages/onf-zabbix/1.0.0.json",
+      "sha256": "b9e55eed201b847ae514f5e031e8d48c37060a24f439cfa108d92b9e21e3df7f",
+      "config": "packages/onf-zabbix/onf-package.json"
     }
   ]
 }

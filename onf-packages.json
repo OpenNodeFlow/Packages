@@ -1226,6 +1226,15 @@
       "path": "packages/onf-logic/2.3.0.json",
       "sha256": "e8b1d2ec620b658619c3374d16256efd24b45a41905ec216833ffbfbeb24ab92",
       "config": "packages/onf-logic/onf-package.json"
+    },
+    {
+      "id": "onf.runtime",
+      "name": "OpenNodeFlow Runtime",
+      "version": "2.4.0",
+      "description": "Durable workflow state, work queues, variables, waits and execution coordination. Structured tables with reviewed schemas and atomic row transactions.",
+      "path": "packages/runtime/2.4.0.json",
+      "sha256": "06e4c43fae36b928adaafeebf711f2dbab661779951d8b19de958832e90d9ce4",
+      "config": "packages/runtime/onf-package.json"
     }
   ]
 }

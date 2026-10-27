@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "summary": "Typed WhatsApp Cloud API messages, templates, media metadata, phone profiles, registration and offline webhook decoding.",
+  "description": "Typed WhatsApp Cloud API messages, templates, media metadata, phone profiles, registration and offline webhook decoding.",
+  "website": "https://www.postman.com/meta/whatsapp-business-platform/collection/wlk6lh4/whatsapp-cloud-api",
+  "category": "Integrations",
+  "tags": [
+    "integration",
+    "whatsapp-business"
+  ],
+  "defaultPackage": false,
+  "logo": "logo.png",
+  "banner": "banner.png"
+}

@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "summary": "Bounded native AMQP 0-9-1 publishing, basic.get settlement and queue/exchange operations.",
+  "description": "Bounded native AMQP 0-9-1 publishing, basic.get settlement and queue/exchange operations.",
+  "website": "https://www.rabbitmq.com/docs/confirms",
+  "category": "Integrations",
+  "tags": [
+    "integration",
+    "rabbitmq"
+  ],
+  "defaultPackage": false,
+  "logo": "logo.png",
+  "banner": "banner.png"
+}

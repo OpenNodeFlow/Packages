@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "summary": "Typed bounded Resend email delivery, scheduling, received email metadata, domains, contacts, segments, audiences, topics, templates and API key administration.",
+  "description": "Typed bounded Resend email delivery, scheduling, received email metadata, domains, contacts, segments, audiences, topics, templates and API key administration.",
+  "website": "https://resend.com/docs/api-reference/introduction",
+  "category": "Integrations",
+  "tags": [
+    "integration",
+    "resend"
+  ],
+  "defaultPackage": false,
+  "logo": "logo.png",
+  "banner": "banner.png"
+}

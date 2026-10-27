@@ -1640,6 +1640,33 @@
       "path": "packages/onf-sendgrid/1.0.0.json",
       "sha256": "f3357c0bff01b18d12071bec2bc2ff1e751dcb7952ec849d050443170f78f70b",
       "config": "packages/onf-sendgrid/onf-package.json"
+    },
+    {
+      "id": "onf.resend",
+      "name": "Resend",
+      "version": "1.0.0",
+      "description": "Typed bounded Resend email delivery, scheduling, received email metadata, domains, contacts, segments, audiences, topics, templates and API key administration.",
+      "path": "packages/onf-resend/1.0.0.json",
+      "sha256": "1dea50b630cd04500c51e73b1abc18ea8d3eb3cba705680b55667ba186e62fd0",
+      "config": "packages/onf-resend/onf-package.json"
+    },
+    {
+      "id": "onf.whatsapp-business",
+      "name": "WhatsApp Business",
+      "version": "1.0.0",
+      "description": "Typed WhatsApp Cloud API messages, templates, media metadata, phone profiles, registration and offline webhook decoding.",
+      "path": "packages/onf-whatsapp-business/1.0.0.json",
+      "sha256": "52878cb6bdcc0806825895d42b2d2d524684ff71b0f9c3c0cf40137737030a82",
+      "config": "packages/onf-whatsapp-business/onf-package.json"
+    },
+    {
+      "id": "onf.rabbitmq",
+      "name": "RabbitMQ",
+      "version": "1.0.0",
+      "description": "Bounded native AMQP 0-9-1 publishing, basic.get settlement and queue/exchange operations.",
+      "path": "packages/onf-rabbitmq/1.0.0.json",
+      "sha256": "44c2e6f1f834b64d9105cdc70ac295df9b01fe59d11fb4f3700e61bafeb6f37f",
+      "config": "packages/onf-rabbitmq/onf-package.json"
     }
   ]
 }

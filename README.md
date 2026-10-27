@@ -1,3 +1,5 @@
+![OpenNodeFlow package collection](banner.png)
+
 # OpenNodeFlow Packages
 
 The official public package source for OpenNodeFlow. Browse 37 package families covering workflow foundations, utilities and integrations. Packages are optional and installed through ONF.

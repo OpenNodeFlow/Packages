@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "summary": "Bounded MySQL prepared queries, transactions, safe row operations, schema and catalog discovery, with an embedded MySQL2 client.",
+  "description": "Bounded MySQL prepared queries, transactions, safe row operations, schema and catalog discovery, with an embedded MySQL2 client.",
+  "website": "https://sidorares.github.io/node-mysql2/docs",
+  "category": "Integrations",
+  "tags": [
+    "integration",
+    "mysql"
+  ],
+  "defaultPackage": false,
+  "logo": "logo.png",
+  "banner": "banner.png"
+}

@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "summary": "Typed Proxmox VE cluster, guest, storage, snapshot, backup, network and task operations with guarded writes and explicit task inspection.",
+  "description": "Typed Proxmox VE cluster, guest, storage, snapshot, backup, network and task operations with guarded writes and explicit task inspection.",
+  "website": "https://pve.proxmox.com/pve-docs/api-viewer/index.html",
+  "category": "Integrations",
+  "tags": [
+    "integration",
+    "proxmox-ve"
+  ],
+  "defaultPackage": false,
+  "logo": "logo.png",
+  "banner": "banner.png"
+}

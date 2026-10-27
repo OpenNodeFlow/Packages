@@ -1226,6 +1226,114 @@
       "path": "packages/onf-logic/2.3.0.json",
       "sha256": "e8b1d2ec620b658619c3374d16256efd24b45a41905ec216833ffbfbeb24ab92",
       "config": "packages/onf-logic/onf-package.json"
+    },
+    {
+      "id": "onf.s3",
+      "name": "S3-compatible Object Storage",
+      "version": "1.0.0",
+      "description": "Bounded S3 REST operations with AWS Signature Version 4, HTTPS and explicit mutation confirmation.",
+      "path": "packages/onf-s3/1.0.0.json",
+      "sha256": "a5de13f40ff5ba343623688c456ccdb07acd622a52fd1d7df438685d315b71f1",
+      "config": "packages/onf-s3/onf-package.json"
+    },
+    {
+      "id": "onf.aws-lambda",
+      "name": "AWS Lambda",
+      "version": "1.0.0",
+      "description": "Invoke Lambda functions and manage configuration, versions, aliases, concurrency, policies, layers and tags with signed AWS API requests.",
+      "path": "packages/onf-aws-lambda/1.0.0.json",
+      "sha256": "dce50ef49415b0a17adde25ba3a67de69787b1e9b9b0b708c66909008977c9c7",
+      "config": "packages/onf-aws-lambda/onf-package.json"
+    },
+    {
+      "id": "onf.amazon-sqs",
+      "name": "Amazon SQS",
+      "version": "1.0.0",
+      "description": "Bounded SQS queue and message operations with SigV4, explicit receipt acknowledgements and guarded writes.",
+      "path": "packages/onf-amazon-sqs/1.0.0.json",
+      "sha256": "48b014dbc8153bcebd17ac4d6901328366e22d5c690850fca5043f73e7ba624b",
+      "config": "packages/onf-amazon-sqs/onf-package.json"
+    },
+    {
+      "id": "onf.cloudflare",
+      "name": "Cloudflare",
+      "version": "1.0.0",
+      "description": "Scoped Cloudflare zone, typed DNS record and explicit cache purge operations.",
+      "path": "packages/onf-cloudflare/1.0.0.json",
+      "sha256": "5d813b222d5c7626efd17945f2730b0aecbca274d0840ebbf00d0302344433ae",
+      "config": "packages/onf-cloudflare/onf-package.json"
+    },
+    {
+      "id": "onf.google-cloud-storage",
+      "name": "Google Cloud Storage",
+      "version": "1.0.0",
+      "description": "Typed Google Cloud Storage buckets, object metadata and generation-guarded bounded byte transfers.",
+      "path": "packages/onf-google-cloud-storage/1.0.0.json",
+      "sha256": "e792f998aa90f2180014076864697c4aaee3e39bfd32c4d5402e95dc2c104701",
+      "config": "packages/onf-google-cloud-storage/onf-package.json"
+    },
+    {
+      "id": "onf.google-pubsub",
+      "name": "Google Pub/Sub",
+      "version": "1.0.0",
+      "description": "Typed Pub/Sub topics, pull subscriptions, bounded publish/pull, explicit acknowledgements, snapshots and schema revisions.",
+      "path": "packages/onf-google-pubsub/1.0.0.json",
+      "sha256": "accf048c3e31f7dd127e1d05bdee3372581b82f1399dcaf843ad1a104330a8b6",
+      "config": "packages/onf-google-pubsub/onf-package.json"
+    },
+    {
+      "id": "onf.digitalocean",
+      "name": "DigitalOcean",
+      "version": "1.0.0",
+      "description": "Typed DigitalOcean cloud resources, guarded mutations, explicit action tracking and bounded monitoring reads.",
+      "path": "packages/onf-digitalocean/1.0.0.json",
+      "sha256": "3d8c2d5c5ab9043520cace856e1af7d8b2d0358cf60e83bb554ad64d948e36b3",
+      "config": "packages/onf-digitalocean/onf-package.json"
+    },
+    {
+      "id": "onf.hetzner-cloud",
+      "name": "Hetzner Cloud",
+      "version": "1.0.0",
+      "description": "Typed Hetzner Cloud resources, guarded infrastructure changes, manual pagination and explicit asynchronous action status.",
+      "path": "packages/onf-hetzner-cloud/1.0.0.json",
+      "sha256": "972815b7383004c13581f9cb63a5b4b2fbf8dd64bc57d354aa8f307691742031",
+      "config": "packages/onf-hetzner-cloud/onf-package.json"
+    },
+    {
+      "id": "onf.proxmox-ve",
+      "name": "Proxmox VE",
+      "version": "1.0.0",
+      "description": "Typed Proxmox VE cluster, guest, storage, snapshot, backup, network and task operations with guarded writes and explicit task inspection.",
+      "path": "packages/onf-proxmox-ve/1.0.0.json",
+      "sha256": "e22a282af56cdeeeb1d4f1f59450bf65a98cb9724cfc32a5233548385b958cfd",
+      "config": "packages/onf-proxmox-ve/onf-package.json"
+    },
+    {
+      "id": "onf.postgresql",
+      "name": "PostgreSQL",
+      "version": "1.0.0",
+      "description": "Bounded PostgreSQL queries, transactions, row operations, schema discovery and database statistics using an embedded pure JavaScript pg client.",
+      "path": "packages/onf-postgresql/1.0.0.json",
+      "sha256": "57e53b9a80dde95712a615240e6cb70fa2b7fea40ba4519d669d7a917d0549d1",
+      "config": "packages/onf-postgresql/onf-package.json"
+    },
+    {
+      "id": "onf.mysql",
+      "name": "MySQL",
+      "version": "1.0.0",
+      "description": "Bounded MySQL prepared queries, transactions, safe row operations, schema and catalog discovery, with an embedded MySQL2 client.",
+      "path": "packages/onf-mysql/1.0.0.json",
+      "sha256": "9c83141e5d094c0509525cad81f8c96b9822e661061fbcf63c09711e3f4161e0",
+      "config": "packages/onf-mysql/onf-package.json"
+    },
+    {
+      "id": "onf.bigquery",
+      "name": "BigQuery",
+      "version": "1.0.0",
+      "description": "Typed BigQuery datasets, tables, jobs, bounded query results, dry runs, explicit streaming inserts, routines, models and projects.",
+      "path": "packages/onf-bigquery/1.0.0.json",
+      "sha256": "a0404b8e467a333137b3febd07890a9e5224a453e5c4be456a3071c418285b75",
+      "config": "packages/onf-bigquery/onf-package.json"
     }
   ]
 }

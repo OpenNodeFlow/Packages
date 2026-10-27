@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "summary": "Scoped Cloudflare zone, typed DNS record and explicit cache purge operations.",
+  "description": "Scoped Cloudflare zone, typed DNS record and explicit cache purge operations.",
+  "website": "https://developers.cloudflare.com/api/resources/zones/",
+  "category": "Integrations",
+  "tags": [
+    "integration",
+    "cloudflare"
+  ],
+  "defaultPackage": false,
+  "logo": "logo.png",
+  "banner": "banner.png"
+}

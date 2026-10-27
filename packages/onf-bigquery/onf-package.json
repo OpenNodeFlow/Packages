@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "summary": "Typed BigQuery datasets, tables, jobs, bounded query results, dry runs, explicit streaming inserts, routines, models and projects.",
+  "description": "Typed BigQuery datasets, tables, jobs, bounded query results, dry runs, explicit streaming inserts, routines, models and projects.",
+  "website": "https://docs.cloud.google.com/bigquery/docs/reference/rest/v2",
+  "category": "Integrations",
+  "tags": [
+    "integration",
+    "bigquery"
+  ],
+  "defaultPackage": false,
+  "logo": "logo.png",
+  "banner": "banner.png"
+}

@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "summary": "Invoke Lambda functions and manage configuration, versions, aliases, concurrency, policies, layers and tags with signed AWS API requests.",
+  "description": "Invoke Lambda functions and manage configuration, versions, aliases, concurrency, policies, layers and tags with signed AWS API requests.",
+  "website": "https://docs.aws.amazon.com/lambda/latest/api/API_ListFunctions.html",
+  "category": "Integrations",
+  "tags": [
+    "integration",
+    "aws-lambda"
+  ],
+  "defaultPackage": false,
+  "logo": "logo.png",
+  "banner": "banner.png"
+}

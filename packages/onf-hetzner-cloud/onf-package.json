@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "summary": "Typed Hetzner Cloud resources, guarded infrastructure changes, manual pagination and explicit asynchronous action status.",
+  "description": "Typed Hetzner Cloud resources, guarded infrastructure changes, manual pagination and explicit asynchronous action status.",
+  "website": "https://docs.hetzner.cloud/reference/cloud",
+  "category": "Integrations",
+  "tags": [
+    "integration",
+    "hetzner-cloud"
+  ],
+  "defaultPackage": false,
+  "logo": "logo.png",
+  "banner": "banner.png"
+}

@@ -1568,6 +1568,24 @@
       "path": "packages/onf-shopify/1.0.0.json",
       "sha256": "8f60d94f1aad90b2318d2030bdac2869de053d3dcebbd56ced733733942ece18",
       "config": "packages/onf-shopify/onf-package.json"
+    },
+    {
+      "id": "onf.mqtt",
+      "name": "MQTT",
+      "version": "1.0.0",
+      "description": "Native bounded MQTT3.1.1 publish, retained messages, clean-session receive and correlated JSON requests, with topic/payload helpers and an embedded MQTT.js client.",
+      "path": "packages/onf-mqtt/1.0.0.json",
+      "sha256": "e71c2615dd6230bbd7d9e2213653c2957a7af982314f3f0a092c2f9a780ae3c4",
+      "config": "packages/onf-mqtt/onf-package.json"
+    },
+    {
+      "id": "onf.modbus-tcp",
+      "name": "Modbus TCP",
+      "version": "1.0.0",
+      "description": "Bounded native Modbus TCP reads and confirmed equipment writes, exact register numerics and register-map helpers.",
+      "path": "packages/onf-modbus-tcp/1.0.0.json",
+      "sha256": "35405ae5a20728ab07c903d68b3cce25b13e2d09871648b8e2b69eb861adcd98",
+      "config": "packages/onf-modbus-tcp/onf-package.json"
     }
   ]
 }

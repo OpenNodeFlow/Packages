@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "summary": "Native bounded MQTT3.1.1 publish, retained messages, clean-session receive and correlated JSON requests, with topic/payload helpers and an embedded MQTT.js client.",
+  "description": "Native bounded MQTT3.1.1 publish, retained messages, clean-session receive and correlated JSON requests, with topic/payload helpers and an embedded MQTT.js client.",
+  "website": "https://mqtt.org/",
+  "category": "Integrations",
+  "tags": [
+    "mqtt",
+    "iot",
+    "messaging",
+    "native"
+  ],
+  "defaultPackage": false,
+  "logo": "logo.png",
+  "banner": "banner.png"
+}

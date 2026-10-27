@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "summary": "Microsoft Teams integration assets",
+  "description": "Microsoft Teams integration assets",
+  "website": "https://github.com/OpenNodeFlow/Packages",
+  "category": "Integrations",
+  "tags": [
+    "integration",
+    "microsoft-teams"
+  ],
+  "defaultPackage": false,
+  "logo": "logo.png",
+  "banner": "banner.png"
+}

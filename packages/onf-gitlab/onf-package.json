@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "summary": "Projects, issues, merge requests, pipelines and jobs. Additional developer ecosystem; installation/account access is not assumed.",
+  "description": "Projects, issues, merge requests, pipelines and jobs. Additional developer ecosystem; installation/account access is not assumed.",
+  "website": "https://github.com/OpenNodeFlow/Packages",
+  "category": "Integrations",
+  "tags": [
+    "integration",
+    "gitlab"
+  ],
+  "defaultPackage": false,
+  "logo": "logo.png",
+  "banner": "banner.png"
+}

@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "summary": "General JSON, nullable, list and dictionary contracts without provider dependencies.",
+  "description": "General JSON, nullable, list and dictionary contracts without provider dependencies.",
+  "website": "https://github.com/OpenNodeFlow/Packages",
+  "category": "Foundations",
+  "tags": [
+    "default",
+    "shared-types"
+  ],
+  "defaultPackage": true,
+  "logo": "logo.png",
+  "banner": "banner.png"
+}

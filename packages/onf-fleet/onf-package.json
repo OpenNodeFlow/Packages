@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "summary": "Read-only Rancher Fleet operator inspection through explicit installed CRD endpoints. No reconcile, rollout, restore, backup execution or secret object reads.",
+  "description": "Read-only Rancher Fleet operator inspection through explicit installed CRD endpoints. No reconcile, rollout, restore, backup execution or secret object reads.",
+  "website": "https://github.com/OpenNodeFlow/Packages",
+  "category": "Integrations",
+  "tags": [
+    "integration",
+    "rancher-fleet"
+  ],
+  "defaultPackage": false,
+  "logo": "logo.png",
+  "banner": "banner.png"
+}

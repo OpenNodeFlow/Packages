@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "summary": "Core, apps, batch and networking v1 operations. Use trusted API CA and namespace RBAC; no kubeconfig/private key transport or TLS bypass.",
+  "description": "Core, apps, batch and networking v1 operations. Use trusted API CA and namespace RBAC; no kubeconfig/private key transport or TLS bypass.",
+  "website": "https://github.com/OpenNodeFlow/Packages",
+  "category": "Integrations",
+  "tags": [
+    "integration",
+    "kubernetes"
+  ],
+  "defaultPackage": false,
+  "logo": "logo.png",
+  "banner": "banner.png"
+}

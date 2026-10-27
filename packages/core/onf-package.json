@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "summary": "Essential entries, constants and custom code for every workflow.",
+  "description": "Essential entries, constants and custom code for every workflow.",
+  "website": "https://github.com/OpenNodeFlow/Packages",
+  "category": "Foundations",
+  "tags": [
+    "default",
+    "core"
+  ],
+  "defaultPackage": true,
+  "logo": "logo.png",
+  "banner": "banner.png"
+}

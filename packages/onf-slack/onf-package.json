@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "summary": "Conversation history, threaded messages and developer notifications. Additional developer ecosystem; installation/account access is not assumed.",
+  "description": "Conversation history, threaded messages and developer notifications. Additional developer ecosystem; installation/account access is not assumed.",
+  "website": "https://github.com/OpenNodeFlow/Packages",
+  "category": "Integrations",
+  "tags": [
+    "integration",
+    "slack"
+  ],
+  "defaultPackage": false,
+  "logo": "logo.png",
+  "banner": "banner.png"
+}

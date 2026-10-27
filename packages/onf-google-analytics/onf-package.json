@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "summary": "Google Analytics 4 integration assets",
+  "description": "Google Analytics 4 integration assets",
+  "website": "https://github.com/OpenNodeFlow/Packages",
+  "category": "Integrations",
+  "tags": [
+    "integration",
+    "google-analytics-4"
+  ],
+  "defaultPackage": false,
+  "logo": "logo.png",
+  "banner": "banner.png"
+}

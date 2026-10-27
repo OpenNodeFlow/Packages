@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "summary": "Engine v1.53 (Docker 29+) over an existing trusted authenticated HTTPS proxy. No Unix socket, streaming logs, prune or implicit TLS bypass.",
+  "description": "Engine v1.53 (Docker 29+) over an existing trusted authenticated HTTPS proxy. No Unix socket, streaming logs, prune or implicit TLS bypass.",
+  "website": "https://github.com/OpenNodeFlow/Packages",
+  "category": "Integrations",
+  "tags": [
+    "integration",
+    "docker-engine"
+  ],
+  "defaultPackage": false,
+  "logo": "logo.png",
+  "banner": "banner.png"
+}

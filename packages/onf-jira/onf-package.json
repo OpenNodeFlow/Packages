@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "summary": "Issue search, project discovery, comments and transitions. Additional developer ecosystem; installation/account access is not assumed.",
+  "description": "Issue search, project discovery, comments and transitions. Additional developer ecosystem; installation/account access is not assumed.",
+  "website": "https://github.com/OpenNodeFlow/Packages",
+  "category": "Integrations",
+  "tags": [
+    "integration",
+    "jira-cloud"
+  ],
+  "defaultPackage": false,
+  "logo": "logo.png",
+  "banner": "banner.png"
+}

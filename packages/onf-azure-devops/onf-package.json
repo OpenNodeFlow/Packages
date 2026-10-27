@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "summary": "Reusable project/build/pipeline/agent/release operations complementing the installed typed Azure event and PR workflows. Existing repository and PR type identities are reused.",
+  "description": "Reusable project/build/pipeline/agent/release operations complementing the installed typed Azure event and PR workflows. Existing repository and PR type identities are reused.",
+  "website": "https://github.com/OpenNodeFlow/Packages",
+  "category": "Integrations",
+  "tags": [
+    "integration",
+    "devops"
+  ],
+  "defaultPackage": false,
+  "logo": "logo.png",
+  "banner": "banner.png"
+}

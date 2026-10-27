@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "summary": "Google Ads integration assets",
+  "description": "Google Ads integration assets",
+  "website": "https://github.com/OpenNodeFlow/Packages",
+  "category": "Integrations",
+  "tags": [
+    "integration",
+    "google-ads"
+  ],
+  "defaultPackage": false,
+  "logo": "logo.png",
+  "banner": "banner.png"
+}

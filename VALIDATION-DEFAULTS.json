@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-27",
+  "method": "Actual v2 PackageService preview and atomic install with mocked Git in fresh temporary SQLite; five defaults in reverse order",
+  "packageReleases": 5,
+  "distinctDefinitions": 523,
+  "currentAssets": 523,
+  "retainedDefinitions": 0,
+  "currentAssetIssues": 0,
+  "oldOrganizationRollbackRejected": true,
+  "workflows": 0,
+  "nodeBodiesExecuted": 0,
+  "liveProviderCalls": 0,
+  "packages": [
+    {
+      "id": "onf.logic",
+      "name": "Logic",
+      "version": "2.2.0",
+      "description": "Reusable branching, comparison, selection, validation and boolean logic.",
+      "path": "packages/onf-logic/2.2.0.json",
+      "sha256": "a30b32b1cb72e8ecef4344ffee732b76a6d83148d3003718331efef9377790b3",
+      "config": "packages/onf-logic/onf-package.json"
+    },
+    {
+      "id": "onf.utilities",
+      "name": "Utilities",
+      "version": "2.2.0",
+      "description": "General HTTP, text, date, collection, file, database and serialization tools.",
+      "path": "packages/onf-utilities/2.2.0.json",
+      "sha256": "4f606a88cc2126b2f04143df958eee769de67b4aa5aba908105a48d7a0bcae9c",
+      "config": "packages/onf-utilities/onf-package.json"
+    },
+    {
+      "id": "onf.types",
+      "name": "Shared types",
+      "version": "2.2.0",
+      "description": "General JSON, nullable, list and dictionary contracts without provider dependencies.",
+      "path": "packages/onf-types/2.2.0.json",
+      "sha256": "60d51ba18084c32598239c486d38d68007705d2d44978bce1ec61f6120fac3f0",
+      "config": "packages/onf-types/onf-package.json"
+    },
+    {
+      "id": "onf.runtime",
+      "name": "OpenNodeFlow Runtime",
+      "version": "2.2.0",
+      "description": "Durable workflow state, work queues, variables, waits and execution coordination.",
+      "path": "packages/runtime/2.2.0.json",
+      "sha256": "af22521454ee5facfd062fdab2e7b21ebc89d3300d35bbd05d10d1111ef280a5",
+      "config": "packages/runtime/onf-package.json"
+    },
+    {
+      "id": "onf.core",
+      "name": "OpenNodeFlow Core",
+      "version": "2.2.0",
+      "description": "Essential entries, constants and custom code for every workflow.",
+      "path": "packages/core/2.2.0.json",
+      "sha256": "8030467e0d80ae900ca7498e2291dce49372be0b0c14dbd073cd8fedc7f2c66f",
+      "config": "packages/core/onf-package.json"
+    }
+  ]
+}

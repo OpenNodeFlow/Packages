@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "summary": "Peer, access group, policy and current Network API operations using PAT Token authentication; deprecated Routes API omitted.",
+  "description": "Peer, access group, policy and current Network API operations using PAT Token authentication; deprecated Routes API omitted.",
+  "website": "https://github.com/OpenNodeFlow/Packages",
+  "category": "Integrations",
+  "tags": [
+    "integration",
+    "netbird"
+  ],
+  "defaultPackage": false,
+  "logo": "logo.png",
+  "banner": "banner.png"
+}

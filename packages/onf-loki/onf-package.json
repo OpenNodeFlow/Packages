@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "summary": "Loki operations with explicit resource scope and bounded responses.",
+  "description": "Loki operations with explicit resource scope and bounded responses.",
+  "website": "https://github.com/OpenNodeFlow/Packages",
+  "category": "Integrations",
+  "tags": [
+    "integration",
+    "loki"
+  ],
+  "defaultPackage": false,
+  "logo": "logo.png",
+  "banner": "banner.png"
+}

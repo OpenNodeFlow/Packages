@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "summary": "General HTTP, text, date, collection, file, database and serialization tools.",
+  "description": "General HTTP, text, date, collection, file, database and serialization tools.",
+  "website": "https://github.com/OpenNodeFlow/Packages",
+  "category": "Foundations",
+  "tags": [
+    "default",
+    "utilities"
+  ],
+  "defaultPackage": true,
+  "logo": "logo.png",
+  "banner": "banner.png"
+}

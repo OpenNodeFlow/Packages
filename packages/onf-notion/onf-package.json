@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "summary": "Page, block and data-source automation using the split data-source API. Additional developer ecosystem; installation/account access is not assumed.",
+  "description": "Page, block and data-source automation using the split data-source API. Additional developer ecosystem; installation/account access is not assumed.",
+  "website": "https://github.com/OpenNodeFlow/Packages",
+  "category": "Integrations",
+  "tags": [
+    "integration",
+    "notion"
+  ],
+  "defaultPackage": false,
+  "logo": "logo.png",
+  "banner": "banner.png"
+}

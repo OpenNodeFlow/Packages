@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "summary": "Reusable branching, comparison, selection, validation and boolean logic.",
+  "description": "Reusable branching, comparison, selection, validation and boolean logic.",
+  "website": "https://github.com/OpenNodeFlow/Packages",
+  "category": "Foundations",
+  "tags": [
+    "default",
+    "logic"
+  ],
+  "defaultPackage": true,
+  "logo": "logo.png",
+  "banner": "banner.png"
+}

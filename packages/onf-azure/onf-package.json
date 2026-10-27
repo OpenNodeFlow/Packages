@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "summary": "Azure cloud management and service integrations.",
+  "description": "Azure cloud management and service integrations.",
+  "website": "https://github.com/OpenNodeFlow/Packages",
+  "category": "Integrations",
+  "tags": [
+    "integration",
+    "azure"
+  ],
+  "defaultPackage": false,
+  "logo": "logo.png",
+  "banner": "banner.png"
+}

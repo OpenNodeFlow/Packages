@@ -560,6 +560,339 @@
       "description": "Incident observation, acknowledgements, resolutions and service ownership. Additional developer ecosystem; installation/account access is not assumed.",
       "path": "packages/onf-pagerduty/2.1.0.json",
       "sha256": "dd005f5560efe931e95b9a9dcceb75effde16dd10d8542a1a2751751a737b6f3"
+    },
+    {
+      "id": "onf.core",
+      "name": "OpenNodeFlow Core",
+      "version": "2.2.0",
+      "description": "Essential entries, constants and custom code for every workflow.",
+      "path": "packages/core/2.2.0.json",
+      "sha256": "8030467e0d80ae900ca7498e2291dce49372be0b0c14dbd073cd8fedc7f2c66f",
+      "config": "packages/core/onf-package.json"
+    },
+    {
+      "id": "onf.runtime",
+      "name": "OpenNodeFlow Runtime",
+      "version": "2.2.0",
+      "description": "Durable workflow state, work queues, variables, waits and execution coordination.",
+      "path": "packages/runtime/2.2.0.json",
+      "sha256": "af22521454ee5facfd062fdab2e7b21ebc89d3300d35bbd05d10d1111ef280a5",
+      "config": "packages/runtime/onf-package.json"
+    },
+    {
+      "id": "onf.types",
+      "name": "Shared types",
+      "version": "2.2.0",
+      "description": "General JSON, nullable, list and dictionary contracts without provider dependencies.",
+      "path": "packages/onf-types/2.2.0.json",
+      "sha256": "60d51ba18084c32598239c486d38d68007705d2d44978bce1ec61f6120fac3f0",
+      "config": "packages/onf-types/onf-package.json"
+    },
+    {
+      "id": "onf.utilities",
+      "name": "Utilities",
+      "version": "2.2.0",
+      "description": "General HTTP, text, date, collection, file, database and serialization tools.",
+      "path": "packages/onf-utilities/2.2.0.json",
+      "sha256": "4f606a88cc2126b2f04143df958eee769de67b4aa5aba908105a48d7a0bcae9c",
+      "config": "packages/onf-utilities/onf-package.json"
+    },
+    {
+      "id": "onf.microsoft-teams",
+      "name": "Microsoft Teams",
+      "version": "2.2.0",
+      "description": "Microsoft Teams integration assets",
+      "path": "packages/onf-microsoft-teams/2.2.0.json",
+      "sha256": "76df2e0a58547ef081f37ef099be8092401261e7e6e6475db47c31c4d66d9ddc",
+      "config": "packages/onf-microsoft-teams/onf-package.json"
+    },
+    {
+      "id": "onf.hubspot",
+      "name": "HubSpot",
+      "version": "2.2.0",
+      "description": "HubSpot integration assets",
+      "path": "packages/onf-hubspot/2.2.0.json",
+      "sha256": "f87b5d1c37e1d4a7ffbe0e289690345911cfbb00cf9976a675bc794289a09c7e",
+      "config": "packages/onf-hubspot/onf-package.json"
+    },
+    {
+      "id": "onf.xero",
+      "name": "Xero",
+      "version": "2.2.0",
+      "description": "Xero integration assets",
+      "path": "packages/onf-xero/2.2.0.json",
+      "sha256": "4f8158db871cc8333f241c6972e4c3ef93d3cecb037a31da02df0b1332f0a630",
+      "config": "packages/onf-xero/onf-package.json"
+    },
+    {
+      "id": "onf.google-analytics",
+      "name": "Google Analytics 4",
+      "version": "2.2.0",
+      "description": "Google Analytics 4 integration assets",
+      "path": "packages/onf-google-analytics/2.2.0.json",
+      "sha256": "ee3c8967bb70d4493eee65167f18e028a420d6fca558b6ecef9445168202ebf1",
+      "config": "packages/onf-google-analytics/onf-package.json"
+    },
+    {
+      "id": "onf.google-ads",
+      "name": "Google Ads",
+      "version": "2.2.0",
+      "description": "Google Ads integration assets",
+      "path": "packages/onf-google-ads/2.2.0.json",
+      "sha256": "debab8607ebc8ba6298c3fb1389e2c605516c98a480d3cf6e9eb0bc2763cbc8d",
+      "config": "packages/onf-google-ads/onf-package.json"
+    },
+    {
+      "id": "onf.websocket",
+      "name": "WebSockets",
+      "version": "2.2.0",
+      "description": "WebSockets integration assets",
+      "path": "packages/onf-websocket/2.2.0.json",
+      "sha256": "5d9f2db656049cdac6777c9e75c1efd14add9ebdc5ce9e1bc848d0900bd4a641",
+      "config": "packages/onf-websocket/onf-package.json"
+    },
+    {
+      "id": "onf.azure",
+      "name": "Azure",
+      "version": "2.2.0",
+      "description": "Azure cloud management and service integrations.",
+      "path": "packages/onf-azure/2.2.0.json",
+      "sha256": "bc881add4aa4f495a711738511b0a46c1b5db686f06b0b0af80dd641a110bd4d",
+      "config": "packages/onf-azure/onf-package.json"
+    },
+    {
+      "id": "onf.azure-devops",
+      "name": "DevOps",
+      "version": "2.2.0",
+      "description": "Reusable project/build/pipeline/agent/release operations complementing the installed typed Azure event and PR workflows. Existing repository and PR type identities are reused.",
+      "path": "packages/onf-azure-devops/2.2.0.json",
+      "sha256": "44b47aa82c236e9a0c575fa774e261e62a683d8f1b9726d472cf49f7ba47fed0",
+      "config": "packages/onf-azure-devops/onf-package.json"
+    },
+    {
+      "id": "onf.kubernetes",
+      "name": "Kubernetes",
+      "version": "2.2.0",
+      "description": "Core, apps, batch and networking v1 operations. Use trusted API CA and namespace RBAC; no kubeconfig/private key transport or TLS bypass.",
+      "path": "packages/onf-kubernetes/2.2.0.json",
+      "sha256": "3a2c1905d501cd27a4f3944a12b352a2d3729054900df204d0df3214b4c54340",
+      "config": "packages/onf-kubernetes/onf-package.json"
+    },
+    {
+      "id": "onf.prometheus",
+      "name": "Prometheus",
+      "version": "2.2.0",
+      "description": "Prometheus operations with explicit resource scope and bounded responses.",
+      "path": "packages/onf-prometheus/2.2.0.json",
+      "sha256": "5a30f1a7c0300b2c5554ff4978d1a3ae90a407e49cb3a225e1c46f880fe6f9b4",
+      "config": "packages/onf-prometheus/onf-package.json"
+    },
+    {
+      "id": "onf.loki",
+      "name": "Loki",
+      "version": "2.2.0",
+      "description": "Loki operations with explicit resource scope and bounded responses.",
+      "path": "packages/onf-loki/2.2.0.json",
+      "sha256": "9ad8e0e6ce38d9940bf6d5123500b275bcd50bc1163516051714adb007dcf4b4",
+      "config": "packages/onf-loki/onf-package.json"
+    },
+    {
+      "id": "onf.grafana",
+      "name": "Grafana",
+      "version": "2.2.0",
+      "description": "Grafana operations with explicit resource scope and bounded responses.",
+      "path": "packages/onf-grafana/2.2.0.json",
+      "sha256": "0d7dae42c989dc7ea978229e8204b374dab01e8f60d057194e20db9670215cf4",
+      "config": "packages/onf-grafana/onf-package.json"
+    },
+    {
+      "id": "onf.alertmanager",
+      "name": "Alertmanager",
+      "version": "2.2.0",
+      "description": "Alertmanager operations with explicit resource scope and bounded responses.",
+      "path": "packages/onf-alertmanager/2.2.0.json",
+      "sha256": "ab10a302b93d24be67af495e6e99067f5196a7cd7d951110c313c0e8c36a4349",
+      "config": "packages/onf-alertmanager/onf-package.json"
+    },
+    {
+      "id": "onf.docker",
+      "name": "Docker Engine",
+      "version": "2.2.0",
+      "description": "Engine v1.53 (Docker 29+) over an existing trusted authenticated HTTPS proxy. No Unix socket, streaming logs, prune or implicit TLS bypass.",
+      "path": "packages/onf-docker/2.2.0.json",
+      "sha256": "356681bbf7a06ae80b7728be87f111dde151fc319c83bc711e9a0f5db4e66152",
+      "config": "packages/onf-docker/onf-package.json"
+    },
+    {
+      "id": "onf.rancher",
+      "name": "Rancher",
+      "version": "2.2.0",
+      "description": "Rancher Kubernetes-style RK-API management resources. No legacy /v3 action guessing, downstream provisioning or cluster deletion.",
+      "path": "packages/onf-rancher/2.2.0.json",
+      "sha256": "3bd0595ca79cdca7e23c492eb3672a5d99d6e11650718fe70f5646a3f8f3507d",
+      "config": "packages/onf-rancher/onf-package.json"
+    },
+    {
+      "id": "onf.netbird",
+      "name": "NetBird",
+      "version": "2.2.0",
+      "description": "Peer, access group, policy and current Network API operations using PAT Token authentication; deprecated Routes API omitted.",
+      "path": "packages/onf-netbird/2.2.0.json",
+      "sha256": "004cc3d208d5fbccd9a67a073515534df52ddcc7508852b6e4fcdd64ae4f34d0",
+      "config": "packages/onf-netbird/onf-package.json"
+    },
+    {
+      "id": "onf.pushgateway",
+      "name": "Prometheus Pushgateway",
+      "version": "2.2.0",
+      "description": "Prometheus Pushgateway operations with explicit resource scope and bounded responses.",
+      "path": "packages/onf-pushgateway/2.2.0.json",
+      "sha256": "a3b4f4b6f27215c3c7c39160a447284faf3fe810a22e7bb3511dd959f05593c0",
+      "config": "packages/onf-pushgateway/onf-package.json"
+    },
+    {
+      "id": "onf.cert-manager",
+      "name": "cert-manager",
+      "version": "2.2.0",
+      "description": "Read-only cert-manager operator inspection through explicit installed CRD endpoints. No reconcile, rollout, restore, backup execution or secret object reads.",
+      "path": "packages/onf-cert-manager/2.2.0.json",
+      "sha256": "6b0cd43694091d2af2de2d72d795978e7830a3f7cee350784bb4b3f1874c8730",
+      "config": "packages/onf-cert-manager/onf-package.json"
+    },
+    {
+      "id": "onf.cloudnative-pg",
+      "name": "CloudNativePG",
+      "version": "2.2.0",
+      "description": "Read-only CloudNativePG operator inspection through explicit installed CRD endpoints. No reconcile, rollout, restore, backup execution or secret object reads.",
+      "path": "packages/onf-cloudnative-pg/2.2.0.json",
+      "sha256": "456fadb82ac974cd4e995356fc6e4fadbef4538f69df2b3940a17ab60b664ae5",
+      "config": "packages/onf-cloudnative-pg/onf-package.json"
+    },
+    {
+      "id": "onf.longhorn",
+      "name": "Longhorn",
+      "version": "2.2.0",
+      "description": "Read-only Longhorn operator inspection through explicit installed CRD endpoints. No reconcile, rollout, restore, backup execution or secret object reads.",
+      "path": "packages/onf-longhorn/2.2.0.json",
+      "sha256": "2c70d64059a9635ce8d22f0e2f1c5bc3163c91c681eaf37913526f49bc340865",
+      "config": "packages/onf-longhorn/onf-package.json"
+    },
+    {
+      "id": "onf.traefik",
+      "name": "Traefik",
+      "version": "2.2.0",
+      "description": "Read-only Traefik operator inspection through explicit installed CRD endpoints. No reconcile, rollout, restore, backup execution or secret object reads.",
+      "path": "packages/onf-traefik/2.2.0.json",
+      "sha256": "2d4a39e78d99ca0ee6824ad6690ad019df83e45887f5a4b69f6e6f5f82c9487d",
+      "config": "packages/onf-traefik/onf-package.json"
+    },
+    {
+      "id": "onf.fleet",
+      "name": "Rancher Fleet",
+      "version": "2.2.0",
+      "description": "Read-only Rancher Fleet operator inspection through explicit installed CRD endpoints. No reconcile, rollout, restore, backup execution or secret object reads.",
+      "path": "packages/onf-fleet/2.2.0.json",
+      "sha256": "b32947bea9c68e63d7ba7486b896baaa0981cba41cd52a01b45f4e293c4210ff",
+      "config": "packages/onf-fleet/onf-package.json"
+    },
+    {
+      "id": "onf.github",
+      "name": "GitHub",
+      "version": "2.2.0",
+      "description": "Repository, issue, pull request and workflow automation. Additional developer ecosystem; installation/account access is not assumed.",
+      "path": "packages/onf-github/2.2.0.json",
+      "sha256": "2945f8ad4610bf7e809ca41aa57312d1f0df7579807671864995526b83d27293",
+      "config": "packages/onf-github/onf-package.json"
+    },
+    {
+      "id": "onf.gitlab",
+      "name": "GitLab",
+      "version": "2.2.0",
+      "description": "Projects, issues, merge requests, pipelines and jobs. Additional developer ecosystem; installation/account access is not assumed.",
+      "path": "packages/onf-gitlab/2.2.0.json",
+      "sha256": "801d5525f510aedb28abd3ef8507f96b62aded124926a778918ee3493c61ce28",
+      "config": "packages/onf-gitlab/onf-package.json"
+    },
+    {
+      "id": "onf.gitea",
+      "name": "Gitea",
+      "version": "2.2.0",
+      "description": "Self-hosted repository and review automation. Additional developer ecosystem; installation/account access is not assumed.",
+      "path": "packages/onf-gitea/2.2.0.json",
+      "sha256": "222b1abf23d7fbd4fdec7989da1a7711ef7963e0a5b858c92505f9288c4811d4",
+      "config": "packages/onf-gitea/onf-package.json"
+    },
+    {
+      "id": "onf.jira",
+      "name": "Jira Cloud",
+      "version": "2.2.0",
+      "description": "Issue search, project discovery, comments and transitions. Additional developer ecosystem; installation/account access is not assumed.",
+      "path": "packages/onf-jira/2.2.0.json",
+      "sha256": "1b5d6c9b1f4184e9d7323ccb60b7a44fb37192e033e6ed253c53e3dec8ba13e7",
+      "config": "packages/onf-jira/onf-package.json"
+    },
+    {
+      "id": "onf.confluence",
+      "name": "Confluence Cloud",
+      "version": "2.2.0",
+      "description": "Spaces, pages and comments using Confluence Cloud v2. Additional developer ecosystem; installation/account access is not assumed.",
+      "path": "packages/onf-confluence/2.2.0.json",
+      "sha256": "40db5e406fe30c666547973b51e568c6727e28706bf61caf9cbe303c2c5cff95",
+      "config": "packages/onf-confluence/onf-package.json"
+    },
+    {
+      "id": "onf.slack",
+      "name": "Slack",
+      "version": "2.2.0",
+      "description": "Conversation history, threaded messages and developer notifications. Additional developer ecosystem; installation/account access is not assumed.",
+      "path": "packages/onf-slack/2.2.0.json",
+      "sha256": "abb223a21e20512d756bddbec03082d3cc427ebfca9da46f9d7e1695e9d07770",
+      "config": "packages/onf-slack/onf-package.json"
+    },
+    {
+      "id": "onf.discord",
+      "name": "Discord",
+      "version": "2.2.0",
+      "description": "Bot channel messages, reactions and channel discovery. Additional developer ecosystem; installation/account access is not assumed.",
+      "path": "packages/onf-discord/2.2.0.json",
+      "sha256": "798f111847eb96ed3c2ef632717a3327b9d679e7bdc18b65f589601aa3f4f48a",
+      "config": "packages/onf-discord/onf-package.json"
+    },
+    {
+      "id": "onf.notion",
+      "name": "Notion",
+      "version": "2.2.0",
+      "description": "Page, block and data-source automation using the split data-source API. Additional developer ecosystem; installation/account access is not assumed.",
+      "path": "packages/onf-notion/2.2.0.json",
+      "sha256": "793eccdfad2593fa3b63cec54680481da227f5fc47ac9797c45ae4b487ffcd0c",
+      "config": "packages/onf-notion/onf-package.json"
+    },
+    {
+      "id": "onf.sentry",
+      "name": "Sentry",
+      "version": "2.2.0",
+      "description": "Issue triage, event diagnostics and release metadata. Additional developer ecosystem; installation/account access is not assumed.",
+      "path": "packages/onf-sentry/2.2.0.json",
+      "sha256": "9842ab28c2f69045410d4402ef39bac8bc3a3eca1697efc021fe6c16e5738c0e",
+      "config": "packages/onf-sentry/onf-package.json"
+    },
+    {
+      "id": "onf.pagerduty",
+      "name": "PagerDuty",
+      "version": "2.2.0",
+      "description": "Incident observation, acknowledgements, resolutions and service ownership. Additional developer ecosystem; installation/account access is not assumed.",
+      "path": "packages/onf-pagerduty/2.2.0.json",
+      "sha256": "186c31e85569b6b7f96bf746f999c682a66b0e98421aba1b0f9f7a3e9d0e5620",
+      "config": "packages/onf-pagerduty/onf-package.json"
+    },
+    {
+      "id": "onf.logic",
+      "name": "Logic",
+      "version": "2.2.0",
+      "description": "Reusable branching, comparison, selection, validation and boolean logic.",
+      "path": "packages/onf-logic/2.2.0.json",
+      "sha256": "a30b32b1cb72e8ecef4344ffee732b76a6d83148d3003718331efef9377790b3",
+      "config": "packages/onf-logic/onf-package.json"
     }
   ]
 }

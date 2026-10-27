@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "summary": "HubSpot integration assets",
+  "description": "HubSpot integration assets",
+  "website": "https://github.com/OpenNodeFlow/Packages",
+  "category": "Integrations",
+  "tags": [
+    "integration",
+    "hubspot"
+  ],
+  "defaultPackage": false,
+  "logo": "logo.png",
+  "banner": "banner.png"
+}

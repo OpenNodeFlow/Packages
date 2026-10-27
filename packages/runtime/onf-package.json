@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "summary": "Durable workflow state, work queues, variables, waits and execution coordination.",
+  "description": "Durable workflow state, work queues, variables, waits and execution coordination.",
+  "website": "https://github.com/OpenNodeFlow/Packages",
+  "category": "Foundations",
+  "tags": [
+    "default",
+    "runtime"
+  ],
+  "defaultPackage": true,
+  "logo": "logo.png",
+  "banner": "banner.png"
+}

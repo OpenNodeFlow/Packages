@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "summary": "Rancher Kubernetes-style RK-API management resources. No legacy /v3 action guessing, downstream provisioning or cluster deletion.",
+  "description": "Rancher Kubernetes-style RK-API management resources. No legacy /v3 action guessing, downstream provisioning or cluster deletion.",
+  "website": "https://github.com/OpenNodeFlow/Packages",
+  "category": "Integrations",
+  "tags": [
+    "integration",
+    "rancher"
+  ],
+  "defaultPackage": false,
+  "logo": "logo.png",
+  "banner": "banner.png"
+}

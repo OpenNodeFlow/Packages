@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "summary": "Repository, issue, pull request and workflow automation. Additional developer ecosystem; installation/account access is not assumed.",
+  "description": "Repository, issue, pull request and workflow automation. Additional developer ecosystem; installation/account access is not assumed.",
+  "website": "https://github.com/OpenNodeFlow/Packages",
+  "category": "Integrations",
+  "tags": [
+    "integration",
+    "github"
+  ],
+  "defaultPackage": false,
+  "logo": "logo.png",
+  "banner": "banner.png"
+}

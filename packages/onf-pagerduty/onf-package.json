@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "summary": "Incident observation, acknowledgements, resolutions and service ownership. Additional developer ecosystem; installation/account access is not assumed.",
+  "description": "Incident observation, acknowledgements, resolutions and service ownership. Additional developer ecosystem; installation/account access is not assumed.",
+  "website": "https://github.com/OpenNodeFlow/Packages",
+  "category": "Integrations",
+  "tags": [
+    "integration",
+    "pagerduty"
+  ],
+  "defaultPackage": false,
+  "logo": "logo.png",
+  "banner": "banner.png"
+}

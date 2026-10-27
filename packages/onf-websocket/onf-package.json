@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "summary": "WebSockets integration assets",
+  "description": "WebSockets integration assets",
+  "website": "https://github.com/OpenNodeFlow/Packages",
+  "category": "Integrations",
+  "tags": [
+    "integration",
+    "websockets"
+  ],
+  "defaultPackage": false,
+  "logo": "logo.png",
+  "banner": "banner.png"
+}

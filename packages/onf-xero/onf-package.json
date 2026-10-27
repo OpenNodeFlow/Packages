@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "summary": "Xero integration assets",
+  "description": "Xero integration assets",
+  "website": "https://github.com/OpenNodeFlow/Packages",
+  "category": "Integrations",
+  "tags": [
+    "integration",
+    "xero"
+  ],
+  "defaultPackage": false,
+  "logo": "logo.png",
+  "banner": "banner.png"
+}

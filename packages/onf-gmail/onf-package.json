@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "summary": "Typed bounded Gmail messages, threads, drafts, labels, attachments, profile and history with explicit send and deletion gates.",
+  "description": "Typed bounded Gmail messages, threads, drafts, labels, attachments, profile and history with explicit send and deletion gates.",
+  "website": "https://developers.google.com/workspace/gmail/api/reference/rest/v1",
+  "category": "Integrations",
+  "tags": [
+    "integration",
+    "gmail"
+  ],
+  "defaultPackage": false,
+  "logo": "logo.png",
+  "banner": "banner.png"
+}

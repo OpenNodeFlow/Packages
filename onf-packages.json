@@ -1370,6 +1370,60 @@
       "path": "packages/onf-clickhouse/1.0.0.json",
       "sha256": "d3afe6df409d64dcf88f35a51525e5a918a887d3ea77a0ce3d1d4559a87ff534",
       "config": "packages/onf-clickhouse/onf-package.json"
+    },
+    {
+      "id": "onf.qdrant",
+      "name": "Qdrant",
+      "version": "1.0.0",
+      "description": "Typed bounded HTTPS vector collections, points, hybrid queries, payload filters/indexes, aliases and snapshots.",
+      "path": "packages/onf-qdrant/1.0.0.json",
+      "sha256": "70e9b63dcd67a925b0f8ebd51712e55e275878eba63fdff150d1538557241470",
+      "config": "packages/onf-qdrant/onf-package.json"
+    },
+    {
+      "id": "onf.pinecone",
+      "name": "Pinecone",
+      "version": "1.0.0",
+      "description": "Version-pinned Pinecone vector indexes, namespaces, records, backups, collections and inference over bounded HTTPS REST.",
+      "path": "packages/onf-pinecone/1.0.0.json",
+      "sha256": "84c3fd1107b748b404a53ec16ee053b591aced6fba48f5ae6bb0a442c20cbfc5",
+      "config": "packages/onf-pinecone/onf-package.json"
+    },
+    {
+      "id": "onf.google-sheets",
+      "name": "Google Sheets",
+      "version": "1.0.0",
+      "description": "Typed Google Sheets values, spreadsheet metadata, filters, formatting, sheets, dimensions, named ranges and explicit batch mutations.",
+      "path": "packages/onf-google-sheets/1.0.0.json",
+      "sha256": "8304abf8f417e064f0245f007550074449b1cc865fcaf0b5a741fa63aa70d50d",
+      "config": "packages/onf-google-sheets/onf-package.json"
+    },
+    {
+      "id": "onf.google-drive",
+      "name": "Google Drive",
+      "version": "1.0.0",
+      "description": "Typed Google Drive files, sharing, shared drives, changes, revisions, comments and bounded byte transfers.",
+      "path": "packages/onf-google-drive/1.0.0.json",
+      "sha256": "91cc5f9e57f6ea13d363eba3baa04dc4333bb5e3253eec5181b3a10a323b1f82",
+      "config": "packages/onf-google-drive/onf-package.json"
+    },
+    {
+      "id": "onf.gmail",
+      "name": "Gmail",
+      "version": "1.0.0",
+      "description": "Typed bounded Gmail messages, threads, drafts, labels, attachments, profile and history with explicit send and deletion gates.",
+      "path": "packages/onf-gmail/1.0.0.json",
+      "sha256": "1ac7c59ff33187b56edf2e38d0cc46879ec7f5ce0de8ad2378ceb3599afa1cfd",
+      "config": "packages/onf-gmail/onf-package.json"
+    },
+    {
+      "id": "onf.google-calendar",
+      "name": "Google Calendar",
+      "version": "1.0.0",
+      "description": "Typed Google Calendar events, recurrence instances, calendars, sharing rules, settings, colors and free/busy.",
+      "path": "packages/onf-google-calendar/1.0.0.json",
+      "sha256": "d193174951d550201fdb10b0ac50cb29fbcbc3287b845353517783ac0b99e887",
+      "config": "packages/onf-google-calendar/onf-package.json"
     }
   ]
 }

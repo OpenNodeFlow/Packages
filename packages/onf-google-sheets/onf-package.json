@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "summary": "Typed Google Sheets values, spreadsheet metadata, filters, formatting, sheets, dimensions, named ranges and explicit batch mutations.",
+  "description": "Typed Google Sheets values, spreadsheet metadata, filters, formatting, sheets, dimensions, named ranges and explicit batch mutations.",
+  "website": "https://developers.google.com/workspace/sheets/api/reference/rest",
+  "category": "Integrations",
+  "tags": [
+    "integration",
+    "google-sheets"
+  ],
+  "defaultPackage": false,
+  "logo": "logo.png",
+  "banner": "banner.png"
+}

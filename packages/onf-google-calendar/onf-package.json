@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "summary": "Typed Google Calendar events, recurrence instances, calendars, sharing rules, settings, colors and free/busy.",
+  "description": "Typed Google Calendar events, recurrence instances, calendars, sharing rules, settings, colors and free/busy.",
+  "website": "https://developers.google.com/workspace/calendar/api/v3/reference",
+  "category": "Integrations",
+  "tags": [
+    "integration",
+    "google-calendar"
+  ],
+  "defaultPackage": false,
+  "logo": "logo.png",
+  "banner": "banner.png"
+}

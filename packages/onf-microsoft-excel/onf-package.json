@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "summary": "Typed Microsoft Graph workbook sessions, worksheets, range values/formulas, tables, rows, columns, named items and charts with explicit guarded mutations.",
+  "description": "Typed Microsoft Graph workbook sessions, worksheets, range values/formulas, tables, rows, columns, named items and charts with explicit guarded mutations.",
+  "website": "https://learn.microsoft.com/en-us/graph/api/resources/excel?view=graph-rest-1.0",
+  "category": "Integrations",
+  "tags": [
+    "integration",
+    "microsoft-excel"
+  ],
+  "defaultPackage": false,
+  "logo": "logo.png",
+  "banner": "banner.png"
+}

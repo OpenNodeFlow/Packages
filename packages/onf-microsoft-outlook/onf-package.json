@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "summary": "Bounded typed Microsoft Graph mail, drafts, folders, attachments, categories and calendars with explicit mutation confirmations.",
+  "description": "Bounded typed Microsoft Graph mail, drafts, folders, attachments, categories and calendars with explicit mutation confirmations.",
+  "website": "https://learn.microsoft.com/en-us/graph/api/resources/mail-api-overview?view=graph-rest-1.0",
+  "category": "Integrations",
+  "tags": [
+    "integration",
+    "microsoft-outlook"
+  ],
+  "defaultPackage": false,
+  "logo": "logo.png",
+  "banner": "banner.png"
+}

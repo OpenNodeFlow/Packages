@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "summary": "Bounded Microsoft Graph file, folder, version, permission, site and list operations with externally supplied OAuth access tokens.",
+  "description": "Bounded Microsoft Graph file, folder, version, permission, site and list operations with externally supplied OAuth access tokens.",
+  "website": "https://learn.microsoft.com/en-us/graph/onedrive-concept-overview",
+  "category": "Integrations",
+  "tags": [
+    "integration",
+    "microsoft",
+    "onedrive",
+    "sharepoint",
+    "files"
+  ],
+  "defaultPackage": false,
+  "logo": "logo.png",
+  "banner": "banner.png"
+}

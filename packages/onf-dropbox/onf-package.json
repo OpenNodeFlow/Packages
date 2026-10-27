@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "summary": "Typed Dropbox API v2 files, folders, search, revision-aware transfers, sharing, accounts and quotas.",
+  "description": "Typed Dropbox API v2 files, folders, search, revision-aware transfers, sharing, accounts and quotas.",
+  "website": "https://docs.dropboxapi.com/dropbox-api/api-reference/all-endpoints",
+  "category": "Integrations",
+  "tags": [
+    "integration",
+    "dropbox"
+  ],
+  "defaultPackage": false,
+  "logo": "logo.png",
+  "banner": "banner.png"
+}

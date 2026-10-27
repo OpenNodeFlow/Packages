@@ -1424,6 +1424,51 @@
       "path": "packages/onf-google-calendar/1.0.0.json",
       "sha256": "d193174951d550201fdb10b0ac50cb29fbcbc3287b845353517783ac0b99e887",
       "config": "packages/onf-google-calendar/onf-package.json"
+    },
+    {
+      "id": "onf.microsoft-outlook",
+      "name": "Microsoft Outlook",
+      "version": "1.0.0",
+      "description": "Bounded typed Microsoft Graph mail, drafts, folders, attachments, categories and calendars with explicit mutation confirmations.",
+      "path": "packages/onf-microsoft-outlook/1.0.0.json",
+      "sha256": "faf9b9f963e88117abbfe9f6bc23eaa2962a261078bad3a8e735974b4743dfb7",
+      "config": "packages/onf-microsoft-outlook/onf-package.json"
+    },
+    {
+      "id": "onf.onedrive-sharepoint",
+      "name": "OneDrive / SharePoint",
+      "version": "1.0.0",
+      "description": "Bounded Microsoft Graph file, folder, version, permission, site and list operations with externally supplied OAuth access tokens.",
+      "path": "packages/onf-onedrive-sharepoint/1.0.0.json",
+      "sha256": "3c6b4f06d0842b557ab9ce1f2152f803b85bf6c3ed5846f3480da90ac1ef9590",
+      "config": "packages/onf-onedrive-sharepoint/onf-package.json"
+    },
+    {
+      "id": "onf.microsoft-excel",
+      "name": "Microsoft Excel",
+      "version": "1.0.0",
+      "description": "Typed Microsoft Graph workbook sessions, worksheets, range values/formulas, tables, rows, columns, named items and charts with explicit guarded mutations.",
+      "path": "packages/onf-microsoft-excel/1.0.0.json",
+      "sha256": "5f161bef9e59faaa84fcb7b4c0fb13eff1eca51d7e66748716f7efbd823fa073",
+      "config": "packages/onf-microsoft-excel/onf-package.json"
+    },
+    {
+      "id": "onf.dropbox",
+      "name": "Dropbox",
+      "version": "1.0.0",
+      "description": "Typed Dropbox API v2 files, folders, search, revision-aware transfers, sharing, accounts and quotas.",
+      "path": "packages/onf-dropbox/1.0.0.json",
+      "sha256": "3e2b3924cc876c018912eced9720b14b8aee6ff1c11e4d6f65d50cb3fbc1deab",
+      "config": "packages/onf-dropbox/onf-package.json"
+    },
+    {
+      "id": "onf.box",
+      "name": "Box",
+      "version": "1.0.0",
+      "description": "Typed Box API 2.0 files, folders, search, bounded uploads/downloads, versions, comments, collaborations, shared links, users and metadata.",
+      "path": "packages/onf-box/1.0.0.json",
+      "sha256": "8fbf6800fa9d516bfb7da628f08a59957e23a2b6c40cd579bbfc6fd20a509290",
+      "config": "packages/onf-box/onf-package.json"
     }
   ]
 }

@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "summary": "Typed Zendesk tickets, replies, users, organizations, groups, tags, views, macros, search and metadata.",
+  "description": "Typed Zendesk tickets, replies, users, organizations, groups, tags, views, macros, search and metadata.",
+  "website": "https://developer.zendesk.com/api-reference/ticketing/tickets/tickets/",
+  "category": "Integrations",
+  "tags": [
+    "integration",
+    "zendesk"
+  ],
+  "defaultPackage": false,
+  "logo": "logo.png",
+  "banner": "banner.png"
+}

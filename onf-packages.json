@@ -1667,6 +1667,24 @@
       "path": "packages/onf-rabbitmq/1.0.0.json",
       "sha256": "44c2e6f1f834b64d9105cdc70ac295df9b01fe59d11fb4f3700e61bafeb6f37f",
       "config": "packages/onf-rabbitmq/onf-package.json"
+    },
+    {
+      "id": "onf.zendesk",
+      "name": "Zendesk",
+      "version": "1.0.0",
+      "description": "Typed Zendesk tickets, replies, users, organizations, groups, tags, views, macros, search and metadata.",
+      "path": "packages/onf-zendesk/1.0.0.json",
+      "sha256": "3abfeee728aaba9a6103758928b1ef7b22904417a015d166bef7351d9884332a",
+      "config": "packages/onf-zendesk/onf-package.json"
+    },
+    {
+      "id": "onf.intercom",
+      "name": "Intercom",
+      "version": "1.0.0",
+      "description": "Typed Intercom contacts, companies, conversations, replies, tags, notes, teams and Help Center content with explicit confirmed writes.",
+      "path": "packages/onf-intercom/1.0.0.json",
+      "sha256": "3323e2bef7dd5fb935630d65e14c0b45d58c26ffc55e85a50e663abfe7f6336f",
+      "config": "packages/onf-intercom/onf-package.json"
     }
   ]
 }

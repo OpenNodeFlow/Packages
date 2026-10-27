@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "summary": "Typed Intercom contacts, companies, conversations, replies, tags, notes, teams and Help Center content with explicit confirmed writes.",
+  "description": "Typed Intercom contacts, companies, conversations, replies, tags, notes, teams and Help Center content with explicit confirmed writes.",
+  "website": "https://developers.intercom.com/docs/references/2.14/rest-api/api.intercom.io",
+  "category": "Integrations",
+  "tags": [
+    "integration",
+    "intercom"
+  ],
+  "defaultPackage": false,
+  "logo": "logo.png",
+  "banner": "banner.png"
+}

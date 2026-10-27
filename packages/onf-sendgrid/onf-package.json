@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "summary": "Typed bounded SendGrid mail, scheduled batches, templates, contacts, lists, segments, suppressions, verified senders, statistics and address validation.",
+  "description": "Typed bounded SendGrid mail, scheduled batches, templates, contacts, lists, segments, suppressions, verified senders, statistics and address validation.",
+  "website": "https://www.twilio.com/docs/sendgrid/api-reference/mail-send/mail-send",
+  "category": "Integrations",
+  "tags": [
+    "integration",
+    "sendgrid"
+  ],
+  "defaultPackage": false,
+  "logo": "logo.png",
+  "banner": "banner.png"
+}

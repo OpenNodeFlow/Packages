@@ -1613,6 +1613,33 @@
       "path": "packages/onf-freshbooks/1.0.0.json",
       "sha256": "5b13c5aae2130d0efd544a15d2c4d02c75a37be0f6b15374e02bff58b84055cc",
       "config": "packages/onf-freshbooks/onf-package.json"
+    },
+    {
+      "id": "onf.telegram",
+      "name": "Telegram",
+      "version": "1.0.0",
+      "description": "Bounded typed Telegram Bot API messaging, media metadata, polls, bot settings, members, invites and forum topics.",
+      "path": "packages/onf-telegram/1.0.0.json",
+      "sha256": "d25171be841f38f2ff1cd4c47f2fd71157bd9fc0a1c460472ec0ac50652e87f6",
+      "config": "packages/onf-telegram/onf-package.json"
+    },
+    {
+      "id": "onf.twilio",
+      "name": "Twilio",
+      "version": "1.0.0",
+      "description": "Typed Twilio SMS/MMS, call and recording controls, account and phone metadata, Messaging Services, Verify and usage pages.",
+      "path": "packages/onf-twilio/1.0.0.json",
+      "sha256": "109db92b97f7bfd34930261bac65e332f8f77fc32aa0169bc9b6081c9b426eb5",
+      "config": "packages/onf-twilio/onf-package.json"
+    },
+    {
+      "id": "onf.sendgrid",
+      "name": "SendGrid",
+      "version": "1.0.0",
+      "description": "Typed bounded SendGrid mail, scheduled batches, templates, contacts, lists, segments, suppressions, verified senders, statistics and address validation.",
+      "path": "packages/onf-sendgrid/1.0.0.json",
+      "sha256": "f3357c0bff01b18d12071bec2bc2ff1e751dcb7952ec849d050443170f78f70b",
+      "config": "packages/onf-sendgrid/onf-package.json"
     }
   ]
 }

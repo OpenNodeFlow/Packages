@@ -1586,6 +1586,33 @@
       "path": "packages/onf-modbus-tcp/1.0.0.json",
       "sha256": "35405ae5a20728ab07c903d68b3cce25b13e2d09871648b8e2b69eb861adcd98",
       "config": "packages/onf-modbus-tcp/onf-package.json"
+    },
+    {
+      "id": "onf.woocommerce",
+      "name": "WooCommerce",
+      "version": "1.0.0",
+      "description": "Typed WooCommerce REST v3 catalog, stock, orders, refunds, customers, coupons, shipping, tax and reports with bounded requests and confirmed writes.",
+      "path": "packages/onf-woocommerce/1.0.0.json",
+      "sha256": "4cfc12e33b1cd40fce8804b91738a6705d11e2df00f5fedb983209f1e21d2813",
+      "config": "packages/onf-woocommerce/onf-package.json"
+    },
+    {
+      "id": "onf.quickbooks",
+      "name": "QuickBooks Online",
+      "version": "1.0.0",
+      "description": "Typed QuickBooks Online accounting resources, guarded sparse writes, bounded queries and financial report cells with exact decimal strings.",
+      "path": "packages/onf-quickbooks/1.0.0.json",
+      "sha256": "b3b3d28c06dca55b5a3046ff4c146917824afc7d9400927a0cdeee810b57c0c2",
+      "config": "packages/onf-quickbooks/onf-package.json"
+    },
+    {
+      "id": "onf.freshbooks",
+      "name": "FreshBooks",
+      "version": "1.0.0",
+      "description": "Typed FreshBooks accounting, project and time resources with explicit account/business routes, exact decimal strings and confirmed writes.",
+      "path": "packages/onf-freshbooks/1.0.0.json",
+      "sha256": "5b13c5aae2130d0efd544a15d2c4d02c75a37be0f6b15374e02bff58b84055cc",
+      "config": "packages/onf-freshbooks/onf-package.json"
     }
   ]
 }

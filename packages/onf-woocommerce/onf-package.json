@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "summary": "Typed WooCommerce REST v3 catalog, stock, orders, refunds, customers, coupons, shipping, tax and reports with bounded requests and confirmed writes.",
+  "description": "Typed WooCommerce REST v3 catalog, stock, orders, refunds, customers, coupons, shipping, tax and reports with bounded requests and confirmed writes.",
+  "website": "https://developer.woocommerce.com/docs/apis/rest-api/v3/",
+  "category": "Integrations",
+  "tags": [
+    "integration",
+    "woocommerce"
+  ],
+  "defaultPackage": false,
+  "logo": "logo.png",
+  "banner": "banner.png"
+}

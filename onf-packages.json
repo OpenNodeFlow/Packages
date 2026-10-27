@@ -1514,6 +1514,33 @@
       "path": "packages/onf-asana/1.0.0.json",
       "sha256": "0b062b1bd14e56fbfebbcce2c40a4821cdd517fb4ef9fa150c501434f7d44ed5",
       "config": "packages/onf-asana/onf-package.json"
+    },
+    {
+      "id": "onf.clickup",
+      "name": "ClickUp",
+      "version": "1.0.0",
+      "description": "Typed ClickUp v2 workspaces, spaces, folders, lists, tasks/subtasks, status, comments, checklists, custom fields, tags, time tracking and goals.",
+      "path": "packages/onf-clickup/1.0.0.json",
+      "sha256": "b661891c8b7d6411ab3cdb66087eed971b07699bfb909d4e2004c7187bc5744e",
+      "config": "packages/onf-clickup/onf-package.json"
+    },
+    {
+      "id": "onf.linear",
+      "name": "Linear",
+      "version": "1.0.0",
+      "description": "Typed fixed-document Linear GraphQL issues, projects, teams, users, workflow states, labels, comments, cycles, milestones, relations and attachment metadata.",
+      "path": "packages/onf-linear/1.0.0.json",
+      "sha256": "bbf420450a6f07eed63587e2236a1b1fd70304581babb397ef6f63a4520e7c49",
+      "config": "packages/onf-linear/onf-package.json"
+    },
+    {
+      "id": "onf.trello",
+      "name": "Trello",
+      "version": "1.0.0",
+      "description": "Typed Trello boards, lists, cards, checklists, check items, labels, members, comments, attachment metadata, custom fields and organizations.",
+      "path": "packages/onf-trello/1.0.0.json",
+      "sha256": "c0647ec961b0efc3641a0642556e66137b66cd8979c70f7feaea2ec47c1e6481",
+      "config": "packages/onf-trello/onf-package.json"
     }
   ]
 }

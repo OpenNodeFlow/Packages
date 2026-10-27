@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "summary": "Typed fixed-document Linear GraphQL issues, projects, teams, users, workflow states, labels, comments, cycles, milestones, relations and attachment metadata.",
+  "description": "Typed fixed-document Linear GraphQL issues, projects, teams, users, workflow states, labels, comments, cycles, milestones, relations and attachment metadata.",
+  "website": "https://linear.app/developers/graphql",
+  "category": "Integrations",
+  "tags": [
+    "integration",
+    "linear"
+  ],
+  "defaultPackage": false,
+  "logo": "logo.png",
+  "banner": "banner.png"
+}

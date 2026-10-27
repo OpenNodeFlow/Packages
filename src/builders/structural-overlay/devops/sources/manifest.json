@@ -1,0 +1,110 @@
+[
+  {
+    "file": "GitInterfaces.ts",
+    "url": "https://raw.githubusercontent.com/microsoft/azure-devops-node-api/master/api/interfaces/GitInterfaces.ts",
+    "sha256": "698d3ea08ee1f0f2b9c66ca18ea594daa491829ac28ef76b746135adda5e0df9",
+    "readAt": "2026-10-23T08:28:19.457Z"
+  },
+  {
+    "file": "BuildInterfaces.ts",
+    "url": "https://raw.githubusercontent.com/microsoft/azure-devops-node-api/master/api/interfaces/BuildInterfaces.ts",
+    "sha256": "6e1e0947a0dcc0502b6227276e66d58b1e12076adb8fd43ddc68219bcd4627fe",
+    "readAt": "2026-10-23T08:28:19.970Z"
+  },
+  {
+    "file": "ReleaseInterfaces.ts",
+    "url": "https://raw.githubusercontent.com/microsoft/azure-devops-node-api/master/api/interfaces/ReleaseInterfaces.ts",
+    "sha256": "f3d2c1b7f5aacb4f9e6cbd93a3756299d016c040857bb48edae0c5f54ac4355d",
+    "readAt": "2026-10-23T08:28:20.263Z"
+  },
+  {
+    "file": "WorkItemTrackingInterfaces.ts",
+    "url": "https://raw.githubusercontent.com/microsoft/azure-devops-node-api/master/api/interfaces/WorkItemTrackingInterfaces.ts",
+    "sha256": "d61a229d39712dc5c0aa3e2d65d5c57eeaa9dc5ff397bf87fd70bef59ca02d7d",
+    "readAt": "2026-10-23T08:28:20.546Z"
+  },
+  {
+    "file": "CoreInterfaces.ts",
+    "url": "https://raw.githubusercontent.com/microsoft/azure-devops-node-api/master/api/interfaces/CoreInterfaces.ts",
+    "sha256": "c41ac63d252910b2c8a8f0b8114cbd04813b5583e291beddba2a74e7d239d98d",
+    "readAt": "2026-10-23T08:28:20.878Z"
+  },
+  {
+    "file": "PipelinesInterfaces.ts",
+    "url": "https://raw.githubusercontent.com/microsoft/azure-devops-node-api/master/api/interfaces/PipelinesInterfaces.ts",
+    "sha256": "284555347792cd20ab7b9635a6757030940b2be4b9ed4809a53379813905d499",
+    "readAt": "2026-10-23T08:28:21.228Z"
+  },
+  {
+    "file": "TaskAgentInterfaces.ts",
+    "url": "https://raw.githubusercontent.com/microsoft/azure-devops-node-api/master/api/interfaces/TaskAgentInterfaces.ts",
+    "sha256": "790bb8d5f6774b42f822965af3f0d10c642d6591f90bbb08cb73263bee488fb1",
+    "readAt": "2026-10-23T08:28:22.019Z"
+  },
+  {
+    "file": "ServiceEndpointInterfaces.ts",
+    "url": "https://raw.githubusercontent.com/microsoft/azure-devops-node-api/master/api/interfaces/ServiceEndpointInterfaces.ts",
+    "sha256": "7b0b287d73c92b37b99cbb3566a8635b040885c03af05b1a340e10c2547c8101",
+    "readAt": "2026-10-23T08:28:22.378Z"
+  },
+  {
+    "file": "VSSInterfaces.ts",
+    "url": "https://raw.githubusercontent.com/microsoft/azure-devops-node-api/master/api/interfaces/common/VSSInterfaces.ts",
+    "sha256": "61614c93fc9afa3a36d985069faec40c871bc1bdfba989e0f2c59b275a985300",
+    "readAt": "2026-10-23T08:28:22.974Z"
+  },
+  {
+    "file": "TestInterfaces.ts",
+    "url": "https://raw.githubusercontent.com/microsoft/azure-devops-node-api/master/api/interfaces/TestInterfaces.ts",
+    "sha256": "ea60ce646ce0aa9d01d4ac7728a78b231ed212ff9c1f8efe91ad2e075830d45d",
+    "readAt": "2026-10-23T08:37:04.264Z"
+  },
+  {
+    "file": "PolicyInterfaces.ts",
+    "url": "https://raw.githubusercontent.com/microsoft/azure-devops-node-api/master/api/interfaces/PolicyInterfaces.ts",
+    "sha256": "61dfa0c861c7046d1324197e7427d1f465e4342e1d893b68c8976f26d0bd9f6f",
+    "readAt": "2026-10-23T08:37:04.287Z"
+  },
+  {
+    "file": "DistributedTaskCommonInterfaces.ts",
+    "url": "https://raw.githubusercontent.com/microsoft/azure-devops-node-api/master/api/interfaces/DistributedTaskCommonInterfaces.ts",
+    "sha256": "d687874984acf3cc805e730aa18942cf334595b73637ab0b1ddae0ce696b4d57",
+    "readAt": "2026-10-23T08:37:04.288Z"
+  },
+  {
+    "file": "FormInputInterfaces.ts",
+    "url": "https://raw.githubusercontent.com/microsoft/azure-devops-node-api/master/api/interfaces/common/FormInputInterfaces.ts",
+    "sha256": "ae1d65d7edc0fdabacea260d1ed60ecdadf2a1e755c6354614ae423c895f764b",
+    "readAt": "2026-10-23T08:37:04.306Z"
+  },
+  {
+    "file": "TfvcInterfaces.ts",
+    "url": "https://raw.githubusercontent.com/microsoft/azure-devops-node-api/master/api/interfaces/TfvcInterfaces.ts",
+    "sha256": "bd06b8f7678d230ff1cb764a4a8c00d8dbf73bd68f4680879f5569f6227684a2",
+    "readAt": "2026-10-23T08:37:04.336Z"
+  },
+  {
+    "file": "GraphInterfaces.ts",
+    "url": "https://raw.githubusercontent.com/microsoft/azure-devops-node-api/master/api/interfaces/GraphInterfaces.ts",
+    "sha256": "9a188f242752ddd32c716df9205848b5fd898577904db902cb9e0d5b4ee42918",
+    "readAt": "2026-10-23T08:37:04.705Z"
+  },
+  {
+    "file": "IdentitiesInterfaces.ts",
+    "url": "https://raw.githubusercontent.com/microsoft/azure-devops-node-api/master/api/interfaces/IdentitiesInterfaces.ts",
+    "sha256": "a48be008eccd06677f1c9a18d654b403e87975d8cde6406d8824e5b53c57c4bf",
+    "readAt": "2026-10-23T08:37:04.709Z"
+  },
+  {
+    "file": "System.ts",
+    "url": "https://raw.githubusercontent.com/microsoft/azure-devops-node-api/master/api/interfaces/common/System.ts",
+    "sha256": "a86c05b258e2362282dfa5dff52d2de43da781c56a0a19a72ffdb55b7509d9cd",
+    "readAt": "2026-10-23T08:37:05.068Z"
+  },
+  {
+    "file": "SystemDataInterfaces.ts",
+    "url": "https://raw.githubusercontent.com/microsoft/azure-devops-node-api/master/api/interfaces/common/SystemDataInterfaces.ts",
+    "sha256": "802c300ec109eb4caa2f21b0deac8abc86b977f63b060b70242f800f66ce9d07",
+    "readAt": "2026-10-23T08:37:05.069Z"
+  }
+]

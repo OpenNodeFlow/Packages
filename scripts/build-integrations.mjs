@@ -1,9 +1,12 @@
 // Reproducible generic source build. No application installation, HTTP or provider operation.
-import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
+import { readFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
+import { fileURLToPath } from 'node:url';
+import { packageReleaseOptions, preparePackageReleases } from './package-releases.mjs';
 import { buildAll, resolveDefinition } from '../src/builders/catalog-all.mjs';
 import { buildCurrentDeveloperCatalog } from '../src/builders/azure-pack-consolidation-20261022/catalog-policy.mjs';
 const root=new URL('../',import.meta.url),stamp='2026-10-22T00:00:00.000Z';
+const options=packageReleaseOptions(process.argv.slice(2));
 const read=path=>JSON.parse(readFileSync(new URL(path,root),'utf8'));
 const registry=read('src/builders/registry.json'),canonical=read('src/builders/canonical-types.json');
 const developer=buildCurrentDeveloperCatalog();
@@ -57,7 +60,7 @@ for(const pair of developer.pairs) {
 }
 // Existing functional source codecs remain usable even when their historic naming is ambiguous;
 // only the explicitly declared developer pair list is linked automatically.
-const catalog=read('onf-packages.json');catalog.packages=catalog.packages.filter(p=>p.id==='onf.core'||p.id==='onf.runtime');
+const releases=[];
 for(const [owner,libraryPack] of packs) {
   const selected=[...entries].filter(([,d])=>owners.get(d.id)===owner).map(([pin])=>pin);
   if(!selected.length)continue;
@@ -70,14 +73,16 @@ for(const [owner,libraryPack] of packs) {
   const metadata=ids.map(definitionId=>({definitionId,revision:1,tags:tags.get(definitionId)||[],packId:owners.get(definitionId),...(pairs.has(definitionId)?{codec:pairs.get(definitionId)}:{}),updatedAt:stamp}));
   const usedPacks=[...new Set(metadata.map(m=>m.packId))].sort().map(id=>packs.get(id));
   const id=owner.startsWith('pack_')?'onf.'+owner.slice(5).replaceAll('_','-'):owner;
-  const manifest={schemaVersion:1,id,name:libraryPack.name,version:'2.0.0',description:libraryPack.description,permissions:{secrets:[],network:definitions.some(d=>/\bfetch\s*\(|\bWebSocket\b/.test(d.code)),filesystem:definitions.some(d=>d.runtime==='python'||/node:fs|node:sqlite|\bopen\(/.test(d.code)),description:'Provider operations may read/write/delete external resources, refresh OAuth tokens, send mail, access local files or mutate ONF state when deliberately executed. Required credential names are configured per node; inspect each pinned definition help and connection settings. Declarations are advisory, not a sandbox. Installation runs no code.'},definitions,libraryPacks:usedPacks,libraryFolders:[],libraryMetadata:metadata};
-  const directory=id.replaceAll('.','-'),path=`packages/${directory}/2.0.0.json`;
+  const manifest={schemaVersion:1,id,name:libraryPack.name,version:options.version,description:libraryPack.description,permissions:{secrets:[],network:definitions.some(d=>/\bfetch\s*\(|\bWebSocket\b/.test(d.code)),filesystem:definitions.some(d=>d.runtime==='python'||/node:fs|node:sqlite|\bopen\(/.test(d.code)),description:'Provider operations may read/write/delete external resources, refresh OAuth tokens, send mail, access local files or mutate ONF state when deliberately executed. Required credential names are configured per node; inspect each pinned definition help and connection settings. Declarations are advisory, not a sandbox. Installation runs no code.'},definitions,libraryPacks:usedPacks,libraryFolders:[],libraryMetadata:metadata};
+  const directory=id.replaceAll('.','-'),path=`packages/${directory}/${options.version}.json`;
   const bytes=JSON.stringify(manifest,null,2)+'\n';
   if(Buffer.byteLength(bytes)>8*1024*1024)throw new Error('Manifest exceeds loader byte bound '+id);
   if(definitions.length>2000)throw new Error('Manifest exceeds definition count bound '+id);
-  mkdirSync(new URL(`packages/${directory}/`,root),{recursive:true});writeFileSync(new URL(path,root),bytes);
-  catalog.packages.push({id,name:manifest.name,version:manifest.version,description:manifest.description,path,sha256:createHash('sha256').update(bytes).digest('hex')});
+  releases.push({bytes,entry:{id,name:manifest.name,version:manifest.version,description:manifest.description,path,sha256:createHash('sha256').update(bytes).digest('hex')}});
   console.log(`${id}: ${selected.length} owned definitions, ${definitions.length} with immutable dependency closure`);
 }
-writeFileSync(new URL('onf-packages.json',root),JSON.stringify(catalog,null,2)+'\n');
-writeFileSync(new URL('CATALOG-SUMMARY.json',root),JSON.stringify({schemaVersion:1,ownedDefinitionCount:entries.size,packages:catalog.packages.length,historicalSourceBaseline:'Generic audited source factories 21-22 October 2026; canonical IDs/pins preserved; later structural overlay requires independent migration',excluded:['Private PR workflow controllers','Office endpoint/policy/model routing','Runtime exports/data/history/secrets','Live provider verification']},null,2)+'\n');
+const releasePlan=preparePackageReleases(fileURLToPath(root),releases);
+if(!options.check) {
+  releasePlan.write({summary:{schemaVersion:1,ownedDefinitionCount:entries.size,packages:releasePlan.catalog.packages.length,historicalSourceBaseline:'Generic audited source factories 21-22 October 2026; canonical IDs/pins preserved; later structural overlay requires independent migration',excluded:['Private PR workflow controllers','Office endpoint/policy/model routing','Runtime exports/data/history/secrets','Live provider verification']}});
+}
+console.log(`${options.check?'Validated without writes':'Completed'}: ${releasePlan.added} new package releases; existing releases preserved`);

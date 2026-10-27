@@ -1,0 +1,221 @@
+{
+  "schemaVersion": 1,
+  "sourceBaseline": "Reviewed static public contracts 23 October 2026",
+  "files": [
+    {
+      "source": "work/pack-contract-audit-20261023/common.mjs",
+      "sha256": "af84a4a7f98f3d49637efd0bf856e41b7e0e997603b6a81312372448b610b26f",
+      "destination": "src/builders/structural-overlay/common.mjs",
+      "adaptedSha256": "af84a4a7f98f3d49637efd0bf856e41b7e0e997603b6a81312372448b610b26f"
+    },
+    {
+      "source": "work/pack-contract-audit-20261023/collaboration/contracts.mjs",
+      "sha256": "942912d26bf0537f8ca423edd5e385883501069e6a6932559df6022a3199eb0b",
+      "destination": "src/builders/structural-overlay/collaboration/contracts.mjs",
+      "adaptedSha256": "4d28f7102d8471c2b99fe93857c190340a0df4b336283008d4043cb2ae417bf5"
+    },
+    {
+      "source": "work/pack-contract-audit-20261023/collaboration/changes.mjs",
+      "sha256": "7cd1474e29650300e9168298e3d39d562e0018bc0ade77a5774732b9f94520d9",
+      "destination": "src/builders/structural-overlay/collaboration/changes.mjs",
+      "adaptedSha256": "ed4ad38beb5ca71470c42996c8918295dcd2bf43543bb2c381627b8a1746bbd6"
+    },
+    {
+      "source": "work/pack-contract-audit-20261023/cloud-infra/index.mjs",
+      "sha256": "cec22352ca89d0deeaf3337c609c0a77dfb31724594c3bacd53da8728d2de135",
+      "destination": "src/builders/structural-overlay/cloud-infra/index.mjs",
+      "adaptedSha256": "cec22352ca89d0deeaf3337c609c0a77dfb31724594c3bacd53da8728d2de135"
+    },
+    {
+      "source": "work/pack-contract-audit-20261023/cloud-infra/graph.mjs",
+      "sha256": "b82a31e6d02008beb701ffa9de70c465b73fd168ab47272f3ee199b89b5f9b83",
+      "destination": "src/builders/structural-overlay/cloud-infra/graph.mjs",
+      "adaptedSha256": "a82fc0bc5d94c37971e5b2378d0b35632532db12e5ee8d716ae5f2faf309d570"
+    },
+    {
+      "source": "work/pack-contract-audit-20261023/cloud-infra/manual-contracts.mjs",
+      "sha256": "eab5dd6b314f5e25ab9538fff9b0373b47e2ad3818b6fb172111a4667ed0061f",
+      "destination": "src/builders/structural-overlay/cloud-infra/manual-contracts.mjs",
+      "adaptedSha256": "eab5dd6b314f5e25ab9538fff9b0373b47e2ad3818b6fb172111a4667ed0061f"
+    },
+    {
+      "source": "work/pack-contract-audit-20261023/cloud-infra/source-contracts.json",
+      "sha256": "12af8ee2dae95b2ffb39c06ac52c00b721c136572037f3327527e0cba35cca89",
+      "destination": "src/builders/structural-overlay/cloud-infra/source-contracts.json",
+      "adaptedSha256": "12af8ee2dae95b2ffb39c06ac52c00b721c136572037f3327527e0cba35cca89"
+    },
+    {
+      "source": "work/pack-contract-audit-20261023/devops/index.mjs",
+      "sha256": "a41c98ef2df5ee40983cf2f0c4dfb0ead676edfd4794bbd8d0e2096a6dfed4ab",
+      "destination": "src/builders/structural-overlay/devops/index.mjs",
+      "adaptedSha256": "4b14f3af192acde81ff432297da67f81ec99ab8138c85b1f0447556ee166e382"
+    },
+    {
+      "source": "work/pack-contract-audit-20261023/devops/contracts.mjs",
+      "sha256": "dee6a485a2f7bb49b9ae5063b20b8b2ffb7dc61060c6aa56e762d7e3cbd1b761",
+      "destination": "src/builders/structural-overlay/devops/contracts.mjs",
+      "adaptedSha256": "93c6009a1b7c437661e7d1747d58482aec351718698f7825d99609aed17222de"
+    },
+    {
+      "source": "work/pack-contract-audit-20261023/devops/models.mjs",
+      "sha256": "9f95d6d269be5866313f63024eea0bf8291ef5dedfad2c7c15303f566864d7b5",
+      "destination": "src/builders/structural-overlay/devops/models.mjs",
+      "adaptedSha256": "9f95d6d269be5866313f63024eea0bf8291ef5dedfad2c7c15303f566864d7b5"
+    },
+    {
+      "source": "work/pack-contract-audit-20261023/devops/sdk-schema.mjs",
+      "sha256": "699cdc109e01a05a553ad120f1f7a2d3ceccff14ef0100a16f57e41b1dbcf4e0",
+      "destination": "src/builders/structural-overlay/devops/sdk-schema.mjs",
+      "adaptedSha256": "1205d90072645a91ca5325dbe286719758d8c49aa2829840e35546d1b72e9f9a"
+    },
+    {
+      "source": "work/pack-contract-audit-20261023/devops/operations.mjs",
+      "sha256": "0ce49072bf93d87790a6f4d3ab4e4d44fadf49fc192731a77a7f5a69e9b5c360",
+      "destination": "src/builders/structural-overlay/devops/operations.mjs",
+      "adaptedSha256": "4f7ddfd57b838fb6085c2bed1895cf33ae02cad4e935b035893f3ff312fae7f1"
+    },
+    {
+      "source": "work/pack-contract-audit-20261023/devops/sources/BuildInterfaces.ts",
+      "sha256": "6e1e0947a0dcc0502b6227276e66d58b1e12076adb8fd43ddc68219bcd4627fe",
+      "destination": "src/builders/structural-overlay/devops/sources/BuildInterfaces.ts",
+      "adaptedSha256": "6e1e0947a0dcc0502b6227276e66d58b1e12076adb8fd43ddc68219bcd4627fe"
+    },
+    {
+      "source": "work/pack-contract-audit-20261023/devops/sources/CoreInterfaces.ts",
+      "sha256": "c41ac63d252910b2c8a8f0b8114cbd04813b5583e291beddba2a74e7d239d98d",
+      "destination": "src/builders/structural-overlay/devops/sources/CoreInterfaces.ts",
+      "adaptedSha256": "c41ac63d252910b2c8a8f0b8114cbd04813b5583e291beddba2a74e7d239d98d"
+    },
+    {
+      "source": "work/pack-contract-audit-20261023/devops/sources/DistributedTaskCommonInterfaces.ts",
+      "sha256": "d687874984acf3cc805e730aa18942cf334595b73637ab0b1ddae0ce696b4d57",
+      "destination": "src/builders/structural-overlay/devops/sources/DistributedTaskCommonInterfaces.ts",
+      "adaptedSha256": "d687874984acf3cc805e730aa18942cf334595b73637ab0b1ddae0ce696b4d57"
+    },
+    {
+      "source": "work/pack-contract-audit-20261023/devops/sources/FormInputInterfaces.ts",
+      "sha256": "ae1d65d7edc0fdabacea260d1ed60ecdadf2a1e755c6354614ae423c895f764b",
+      "destination": "src/builders/structural-overlay/devops/sources/FormInputInterfaces.ts",
+      "adaptedSha256": "ae1d65d7edc0fdabacea260d1ed60ecdadf2a1e755c6354614ae423c895f764b"
+    },
+    {
+      "source": "work/pack-contract-audit-20261023/devops/sources/GitInterfaces.ts",
+      "sha256": "698d3ea08ee1f0f2b9c66ca18ea594daa491829ac28ef76b746135adda5e0df9",
+      "destination": "src/builders/structural-overlay/devops/sources/GitInterfaces.ts",
+      "adaptedSha256": "698d3ea08ee1f0f2b9c66ca18ea594daa491829ac28ef76b746135adda5e0df9"
+    },
+    {
+      "source": "work/pack-contract-audit-20261023/devops/sources/GraphInterfaces.ts",
+      "sha256": "9a188f242752ddd32c716df9205848b5fd898577904db902cb9e0d5b4ee42918",
+      "destination": "src/builders/structural-overlay/devops/sources/GraphInterfaces.ts",
+      "adaptedSha256": "9a188f242752ddd32c716df9205848b5fd898577904db902cb9e0d5b4ee42918"
+    },
+    {
+      "source": "work/pack-contract-audit-20261023/devops/sources/IdentitiesInterfaces.ts",
+      "sha256": "a48be008eccd06677f1c9a18d654b403e87975d8cde6406d8824e5b53c57c4bf",
+      "destination": "src/builders/structural-overlay/devops/sources/IdentitiesInterfaces.ts",
+      "adaptedSha256": "a48be008eccd06677f1c9a18d654b403e87975d8cde6406d8824e5b53c57c4bf"
+    },
+    {
+      "source": "work/pack-contract-audit-20261023/devops/sources/manifest.json",
+      "sha256": "a7b07fb53b47839ad8832af1951d786a58c500940e2c2a3a102353304af8671c",
+      "destination": "src/builders/structural-overlay/devops/sources/manifest.json",
+      "adaptedSha256": "a7b07fb53b47839ad8832af1951d786a58c500940e2c2a3a102353304af8671c"
+    },
+    {
+      "source": "work/pack-contract-audit-20261023/devops/sources/model-fields.json",
+      "sha256": "eef42f02428665b50b6efedd26f25bbcc58fd847d4741d75899d279567500216",
+      "destination": "src/builders/structural-overlay/devops/sources/model-fields.json",
+      "adaptedSha256": "eef42f02428665b50b6efedd26f25bbcc58fd847d4741d75899d279567500216"
+    },
+    {
+      "source": "work/pack-contract-audit-20261023/devops/sources/PipelinesInterfaces.ts",
+      "sha256": "284555347792cd20ab7b9635a6757030940b2be4b9ed4809a53379813905d499",
+      "destination": "src/builders/structural-overlay/devops/sources/PipelinesInterfaces.ts",
+      "adaptedSha256": "284555347792cd20ab7b9635a6757030940b2be4b9ed4809a53379813905d499"
+    },
+    {
+      "source": "work/pack-contract-audit-20261023/devops/sources/PolicyInterfaces.ts",
+      "sha256": "61dfa0c861c7046d1324197e7427d1f465e4342e1d893b68c8976f26d0bd9f6f",
+      "destination": "src/builders/structural-overlay/devops/sources/PolicyInterfaces.ts",
+      "adaptedSha256": "61dfa0c861c7046d1324197e7427d1f465e4342e1d893b68c8976f26d0bd9f6f"
+    },
+    {
+      "source": "work/pack-contract-audit-20261023/devops/sources/ReleaseInterfaces.ts",
+      "sha256": "f3d2c1b7f5aacb4f9e6cbd93a3756299d016c040857bb48edae0c5f54ac4355d",
+      "destination": "src/builders/structural-overlay/devops/sources/ReleaseInterfaces.ts",
+      "adaptedSha256": "f3d2c1b7f5aacb4f9e6cbd93a3756299d016c040857bb48edae0c5f54ac4355d"
+    },
+    {
+      "source": "work/pack-contract-audit-20261023/devops/sources/ServiceEndpointInterfaces.ts",
+      "sha256": "7b0b287d73c92b37b99cbb3566a8635b040885c03af05b1a340e10c2547c8101",
+      "destination": "src/builders/structural-overlay/devops/sources/ServiceEndpointInterfaces.ts",
+      "adaptedSha256": "7b0b287d73c92b37b99cbb3566a8635b040885c03af05b1a340e10c2547c8101"
+    },
+    {
+      "source": "work/pack-contract-audit-20261023/devops/sources/System.ts",
+      "sha256": "a86c05b258e2362282dfa5dff52d2de43da781c56a0a19a72ffdb55b7509d9cd",
+      "destination": "src/builders/structural-overlay/devops/sources/System.ts",
+      "adaptedSha256": "a86c05b258e2362282dfa5dff52d2de43da781c56a0a19a72ffdb55b7509d9cd"
+    },
+    {
+      "source": "work/pack-contract-audit-20261023/devops/sources/SystemDataInterfaces.ts",
+      "sha256": "802c300ec109eb4caa2f21b0deac8abc86b977f63b060b70242f800f66ce9d07",
+      "destination": "src/builders/structural-overlay/devops/sources/SystemDataInterfaces.ts",
+      "adaptedSha256": "802c300ec109eb4caa2f21b0deac8abc86b977f63b060b70242f800f66ce9d07"
+    },
+    {
+      "source": "work/pack-contract-audit-20261023/devops/sources/TaskAgentInterfaces.ts",
+      "sha256": "790bb8d5f6774b42f822965af3f0d10c642d6591f90bbb08cb73263bee488fb1",
+      "destination": "src/builders/structural-overlay/devops/sources/TaskAgentInterfaces.ts",
+      "adaptedSha256": "790bb8d5f6774b42f822965af3f0d10c642d6591f90bbb08cb73263bee488fb1"
+    },
+    {
+      "source": "work/pack-contract-audit-20261023/devops/sources/TestInterfaces.ts",
+      "sha256": "ea60ce646ce0aa9d01d4ac7728a78b231ed212ff9c1f8efe91ad2e075830d45d",
+      "destination": "src/builders/structural-overlay/devops/sources/TestInterfaces.ts",
+      "adaptedSha256": "ea60ce646ce0aa9d01d4ac7728a78b231ed212ff9c1f8efe91ad2e075830d45d"
+    },
+    {
+      "source": "work/pack-contract-audit-20261023/devops/sources/TfvcInterfaces.ts",
+      "sha256": "bd06b8f7678d230ff1cb764a4a8c00d8dbf73bd68f4680879f5569f6227684a2",
+      "destination": "src/builders/structural-overlay/devops/sources/TfvcInterfaces.ts",
+      "adaptedSha256": "bd06b8f7678d230ff1cb764a4a8c00d8dbf73bd68f4680879f5569f6227684a2"
+    },
+    {
+      "source": "work/pack-contract-audit-20261023/devops/sources/VSSInterfaces.ts",
+      "sha256": "61614c93fc9afa3a36d985069faec40c871bc1bdfba989e0f2c59b275a985300",
+      "destination": "src/builders/structural-overlay/devops/sources/VSSInterfaces.ts",
+      "adaptedSha256": "61614c93fc9afa3a36d985069faec40c871bc1bdfba989e0f2c59b275a985300"
+    },
+    {
+      "source": "work/pack-contract-audit-20261023/devops/sources/WorkItemTrackingInterfaces.ts",
+      "sha256": "d61a229d39712dc5c0aa3e2d65d5c57eeaa9dc5ff397bf87fd70bef59ca02d7d",
+      "destination": "src/builders/structural-overlay/devops/sources/WorkItemTrackingInterfaces.ts",
+      "adaptedSha256": "d61a229d39712dc5c0aa3e2d65d5c57eeaa9dc5ff397bf87fd70bef59ca02d7d"
+    },
+    {
+      "source": "work/library-type-reuse-round2.mjs",
+      "sha256": "8139be039bf036a1c791b1ec1e28e60386a540bf378a847ecd648ff09cdcdc6c",
+      "destination": "src/builders/structural-overlay/schema-match.mjs",
+      "adaptedSha256": "b5c3301f34e18f31510086fb70661197355aba1e209b10a725b9e10eb34b322d",
+      "extraction": "Only the pure matchesJsonSchema function; no imports, app operations or publisher logic."
+    }
+  ],
+  "adaptations": [
+    "Only the already public 2.0.0 manifests are the baseline; no runtime/library snapshot imports.",
+    "Cloud schema matcher is extracted as a pure standalone helper; SDK parsing uses pinned local TypeScript.",
+    "Collaboration excludes model gateway and model chat families and their normalized contexts.",
+    "Azure DevOps includes public SDK models, timeline and operation paging only; excludes office callback policy, PR controller context and private workflow reports.",
+    "Existing public canonical IDs are reused; new generic structural IDs are deterministic. Existing release bytes and definition revisions remain unchanged.",
+    "Nullable Text List receives a documented schema and paired codecs; nullable JSON reuses the existing finite JSON vocabulary that already permits null.",
+    "Current authoring uses logical asset identity; immutable artifact and definition revision fields remain transport/provenance details."
+  ],
+  "inventory": {
+    "existingDefinitionUpdates": 846,
+    "newDefinitions": 2565,
+    "newTypes": 853,
+    "newCodecNodes": 1712,
+    "newPackageReleases": 34
+  }
+}

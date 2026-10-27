@@ -1,0 +1,4023 @@
+{
+  "schemaVersion": 1,
+  "id": "onf.types",
+  "name": "Shared types",
+  "version": "2.1.0",
+  "description": "Canonical JSON, nullable, text-list and Azure entity contracts.",
+  "permissions": {
+    "secrets": [],
+    "network": false,
+    "filesystem": false,
+    "description": "Provider operations may read or change external resources when deliberately executed. Review each asset and connection. Installation runs no code; declarations are advisory, not a sandbox."
+  },
+  "definitions": [
+    {
+      "name": "Nullable Boolean",
+      "kind": "type",
+      "description": "ONF typed decoder outputs v1. Explicit null or Boolean; omission remains a separate socket-presence state.",
+      "documentation": "# Nullable Boolean\n\nONF typed decoder outputs v1.\n\nExplicit null or Boolean; omission remains a separate socket-presence state.\n\nUse this named type on matching Encode/Decode sockets. Values are JSON data;\nthis type performs no network request, model call, authentication, or business action.\nExact type ID and version must agree on both ends of a wire. JSON Schema rejects\nincompatible values; formats are informational in ONF. Missing optional fields\nand explicit null are different. Unknown fields remain lossless where permitted.\nThe matching codecs split useful properties or collection entries and reassemble\nthe original value. They never coerce strings/numbers or silently drop unknown data.\n\n## Schema\n```json\n{\n  \"anyOf\": [\n    {\n      \"type\": \"boolean\"\n    },\n    {\n      \"type\": \"null\"\n    }\n  ]\n}\n```\n\n## Example JSON value\n```json\nfalse\n```\n\nExamples are synthetic. Null, collection, union and presence rules are defined by\nthe complete schema above; an empty example is not a claim every field is required.\nDo not put credentials, tokens, or unnecessary business data into JSON records.\n",
+      "category": "Typed data codecs",
+      "color": "#6d9cbe",
+      "inputs": [],
+      "outputs": [],
+      "code": "",
+      "configSchema": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      },
+      "schema": {
+        "anyOf": [
+          {
+            "type": "boolean"
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "id": "def_23b3031131b2",
+      "version": 1,
+      "createdAt": "2026-10-20T15:44:12.497Z",
+      "updatedAt": "2026-10-20T15:44:12.497Z",
+      "builtin": false
+    },
+    {
+      "name": "Nullable JSON Record",
+      "kind": "type",
+      "description": "ONF typed decoder outputs v1. Explicit null or JSON Record; omission remains a separate socket-presence state.",
+      "documentation": "# Nullable JSON Record\n\nONF typed decoder outputs v1.\n\nExplicit null or JSON Record; omission remains a separate socket-presence state.\n\nUse this named type on matching Encode/Decode sockets. Values are JSON data;\nthis type performs no network request, model call, authentication, or business action.\nExact type ID and version must agree on both ends of a wire. JSON Schema rejects\nincompatible values; formats are informational in ONF. Missing optional fields\nand explicit null are different. Unknown fields remain lossless where permitted.\nThe matching codecs split useful properties or collection entries and reassemble\nthe original value. They never coerce strings/numbers or silently drop unknown data.\n\n## Schema\n```json\n{\n  \"anyOf\": [\n    {\n      \"$ref\": \"#/definitions/json_record\"\n    },\n    {\n      \"type\": \"null\"\n    }\n  ],\n  \"definitions\": {\n    \"json_list\": {\n      \"type\": \"array\",\n      \"items\": {\n        \"$ref\": \"#/definitions/json_value\"\n      }\n    },\n    \"json_value\": {\n      \"anyOf\": [\n        {\n          \"type\": \"string\"\n        },\n        {\n          \"type\": \"number\"\n        },\n        {\n          \"type\": \"boolean\"\n        },\n        {\n          \"type\": \"null\"\n        },\n        {\n          \"$ref\": \"#/definitions/json_record\"\n        },\n        {\n          \"$ref\": \"#/definitions/json_list\"\n        }\n      ]\n    },\n    \"json_record\": {\n      \"type\": \"object\",\n      \"additionalProperties\": {\n        \"$ref\": \"#/definitions/json_value\"\n      }\n    }\n  }\n}\n```\n\n## Example JSON value\n```json\n{}\n```\n\nExamples are synthetic. Null, collection, union and presence rules are defined by\nthe complete schema above; an empty example is not a claim every field is required.\nDo not put credentials, tokens, or unnecessary business data into JSON records.\n",
+      "category": "Typed data codecs",
+      "color": "#6d9cbe",
+      "inputs": [],
+      "outputs": [],
+      "code": "",
+      "configSchema": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      },
+      "schema": {
+        "anyOf": [
+          {
+            "$ref": "#/definitions/json_record"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "definitions": {
+          "json_list": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/json_value"
+            }
+          },
+          "json_value": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/definitions/json_record"
+              },
+              {
+                "$ref": "#/definitions/json_list"
+              }
+            ]
+          },
+          "json_record": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/definitions/json_value"
+            }
+          }
+        }
+      },
+      "id": "def_3e907b41dc80",
+      "version": 1,
+      "createdAt": "2026-10-20T15:44:12.762Z",
+      "updatedAt": "2026-10-20T15:44:12.762Z",
+      "builtin": false
+    },
+    {
+      "name": "Azure Repository",
+      "kind": "type",
+      "description": "ONF typed decoder outputs v1. Azure Repository",
+      "documentation": "# Azure Repository\n\nONF typed decoder outputs v1.\n\nAzure Repository\n\nUse this named type on matching Encode/Decode sockets. Values are JSON data;\nthis type performs no network request, model call, authentication, or business action.\nExact type ID and version must agree on both ends of a wire. JSON Schema rejects\nincompatible values; formats are informational in ONF. Missing optional fields\nand explicit null are different. Unknown fields remain lossless where permitted.\nThe matching codecs split useful properties or collection entries and reassemble\nthe original value. They never coerce strings/numbers or silently drop unknown data.\n\n## Schema\n```json\n{\n  \"type\": \"object\",\n  \"properties\": {\n    \"id\": {\n      \"anyOf\": [\n        {\n          \"anyOf\": [\n            {\n              \"type\": \"string\"\n            },\n            {\n              \"type\": \"null\"\n            }\n          ]\n        },\n        {\n          \"$ref\": \"#/definitions/json_value\"\n        }\n      ]\n    },\n    \"name\": {\n      \"anyOf\": [\n        {\n          \"anyOf\": [\n            {\n              \"type\": \"string\"\n            },\n            {\n              \"type\": \"null\"\n            }\n          ]\n        },\n        {\n          \"$ref\": \"#/definitions/json_value\"\n        }\n      ]\n    },\n    \"url\": {\n      \"anyOf\": [\n        {\n          \"anyOf\": [\n            {\n              \"type\": \"string\"\n            },\n            {\n              \"type\": \"null\"\n            }\n          ]\n        },\n        {\n          \"$ref\": \"#/definitions/json_value\"\n        }\n      ]\n    },\n    \"project\": {\n      \"anyOf\": [\n        {\n          \"anyOf\": [\n            {\n              \"$ref\": \"#/definitions/azure_project\"\n            },\n            {\n              \"type\": \"null\"\n            }\n          ]\n        },\n        {\n          \"$ref\": \"#/definitions/json_value\"\n        }\n      ]\n    },\n    \"defaultBranch\": {\n      \"anyOf\": [\n        {\n          \"anyOf\": [\n            {\n              \"type\": \"string\"\n            },\n            {\n              \"type\": \"null\"\n            }\n          ]\n        },\n        {\n          \"$ref\": \"#/definitions/json_value\"\n        }\n      ]\n    },\n    \"remoteUrl\": {\n      \"anyOf\": [\n        {\n          \"anyOf\": [\n            {\n              \"type\": \"string\"\n            },\n            {\n              \"type\": \"null\"\n            }\n          ]\n        },\n        {\n          \"$ref\": \"#/definitions/json_value\"\n        }\n      ]\n    },\n    \"sshUrl\": {\n      \"anyOf\": [\n        {\n          \"anyOf\": [\n            {\n              \"type\": \"string\"\n            },\n            {\n              \"type\": \"null\"\n            }\n          ]\n        },\n        {\n          \"$ref\": \"#/definitions/json_value\"\n        }\n      ]\n    },\n    \"webUrl\": {\n      \"anyOf\": [\n        {\n          \"anyOf\": [\n            {\n              \"type\": \"string\"\n            },\n            {\n              \"type\": \"null\"\n            }\n          ]\n        },\n        {\n          \"$ref\": \"#/definitions/json_value\"\n        }\n      ]\n    },\n    \"size\": {\n      \"anyOf\": [\n        {\n          \"anyOf\": [\n            {\n              \"type\": \"number\"\n            },\n            {\n              \"type\": \"null\"\n            }\n          ]\n        },\n        {\n          \"$ref\": \"#/definitions/json_value\"\n        }\n      ]\n    },\n    \"isDisabled\": {\n      \"anyOf\": [\n        {\n          \"anyOf\": [\n            {\n              \"type\": \"boolean\"\n            },\n            {\n              \"type\": \"null\"\n            }\n          ]\n        },\n        {\n          \"$ref\": \"#/definitions/json_value\"\n        }\n      ]\n    },\n    \"isFork\": {\n      \"anyOf\": [\n        {\n          \"anyOf\": [\n            {\n              \"type\": \"boolean\"\n            },\n            {\n              \"type\": \"null\"\n            }\n          ]\n        },\n        {\n          \"$ref\": \"#/definitions/json_value\"\n        }\n      ]\n    },\n    \"parentRepository\": {\n      \"anyOf\": [\n        {\n          \"anyOf\": [\n            {\n              \"$ref\": \"#/definitions/json_record\"\n            },\n            {\n              \"type\": \"null\"\n            }\n          ]\n        },\n        {\n          \"$ref\": \"#/definitions/json_value\"\n        }\n      ]\n    },\n    \"_links\": {\n      \"anyOf\": [\n        {\n          \"anyOf\": [\n            {\n              \"$ref\": \"#/definitions/azure_links\"\n            },\n            {\n              \"type\": \"null\"\n            }\n          ]\n        },\n        {\n          \"$ref\": \"#/definitions/json_value\"\n        }\n      ]\n    },\n    \"type\": {\n      \"anyOf\": [\n        {\n          \"anyOf\": [\n            {\n              \"type\": \"string\"\n            },\n            {\n              \"type\": \"null\"\n            }\n          ]\n        },\n        {\n          \"$ref\": \"#/definitions/json_value\"\n        }\n      ]\n    }\n  },\n  \"required\": [],\n  \"additionalProperties\": {\n    \"$ref\": \"#/definitions/json_value\"\n  },\n  \"definitions\": {\n    \"json_record\": {\n      \"type\": \"object\",\n      \"additionalProperties\": {\n        \"$ref\": \"#/definitions/json_value\"\n      }\n    },\n    \"json_list\": {\n      \"type\": \"array\",\n      \"items\": {\n        \"$ref\": \"#/definitions/json_value\"\n      }\n    },\n    \"json_value\": {\n      \"anyOf\": [\n        {\n          \"type\": \"string\"\n        },\n        {\n          \"type\": \"number\"\n        },\n        {\n          \"type\": \"boolean\"\n        },\n        {\n          \"type\": \"null\"\n        },\n        {\n          \"$ref\": \"#/definitions/json_record\"\n        },\n        {\n          \"$ref\": \"#/definitions/json_list\"\n        }\n      ]\n    },\n    \"azure_project\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"id\": {\n          \"anyOf\": [\n            {\n              \"anyOf\": [\n                {\n                  \"type\": \"string\"\n                },\n                {\n                  \"type\": \"null\"\n                }\n              ]\n            },\n            {\n              \"$ref\": \"#/definitions/json_value\"\n            }\n          ]\n        },\n        \"name\": {\n          \"anyOf\": [\n            {\n              \"anyOf\": [\n                {\n                  \"type\": \"string\"\n                },\n                {\n                  \"type\": \"null\"\n                }\n              ]\n            },\n            {\n              \"$ref\": \"#/definitions/json_value\"\n            }\n          ]\n        },\n        \"url\": {\n          \"anyOf\": [\n            {\n              \"anyOf\": [\n                {\n                  \"type\": \"string\"\n                },\n                {\n                  \"type\": \"null\"\n                }\n              ]\n            },\n            {\n              \"$ref\": \"#/definitions/json_value\"\n            }\n          ]\n        },\n        \"state\": {\n          \"anyOf\": [\n            {\n              \"anyOf\": [\n                {\n                  \"type\": \"string\"\n                },\n                {\n                  \"type\": \"null\"\n                }\n              ]\n            },\n            {\n              \"$ref\": \"#/definitions/json_value\"\n            }\n          ]\n        },\n        \"description\": {\n          \"anyOf\": [\n            {\n              \"anyOf\": [\n                {\n                  \"type\": \"string\"\n                },\n                {\n                  \"type\": \"null\"\n                }\n              ]\n            },\n            {\n              \"$ref\": \"#/definitions/json_value\"\n            }\n          ]\n        },\n        \"visibility\": {\n          \"anyOf\": [\n            {\n              \"anyOf\": [\n                {\n                  \"type\": \"string\"\n                },\n                {\n                  \"type\": \"null\"\n                }\n              ]\n            },\n            {\n              \"$ref\": \"#/definitions/json_value\"\n            }\n          ]\n        },\n        \"revision\": {\n          \"anyOf\": [\n            {\n              \"anyOf\": [\n                {\n                  \"type\": \"number\"\n                },\n                {\n                  \"type\": \"null\"\n                }\n              ]\n            },\n            {\n              \"$ref\": \"#/definitions/json_value\"\n            }\n          ]\n        },\n        \"lastUpdateTime\": {\n          \"anyOf\": [\n            {\n              \"anyOf\": [\n                {\n                  \"type\": \"string\"\n                },\n                {\n                  \"type\": \"null\"\n                }\n              ]\n            },\n            {\n              \"$ref\": \"#/definitions/json_value\"\n            }\n          ]\n        }\n      },\n      \"required\": [],\n      \"additionalProperties\": {\n        \"$ref\": \"#/definitions/json_value\"\n      }\n    },\n    \"azure_links\": {\n      \"type\": \"object\",\n      \"additionalProperties\": {\n        \"$ref\": \"#/definitions/json_value\"\n      }\n    }\n  }\n}\n```\n\n## Example JSON value\n```json\n{}\n```\n\nExamples are synthetic. Null, collection, union and presence rules are defined by\nthe complete schema above; an empty example is not a claim every field is required.\nDo not put credentials, tokens, or unnecessary business data into JSON records.\n\n\n23 October 2026 contract correction: Source-backed Azure DevOps contract. Known fields are structural, with explicit nullable values and recursive finite JSON only for documented provider extension bags. Unknown extension fields roundtrip through remainder; absence and explicit null remain distinct. Source: https://learn.microsoft.com/en-us/rest/api/azure/devops/?view=azure-devops-rest-7.1 and Microsoft azure-devops-node-api DTO declarations captured in devops/sources/manifest.json. Pure transformation; no provider calls or state changes.",
+      "category": "Typed data codecs",
+      "color": "#6d9cbe",
+      "inputs": [],
+      "outputs": [],
+      "code": "",
+      "configSchema": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      },
+      "schema": {
+        "type": "object",
+        "properties": {
+          "_links": {
+            "anyOf": [
+              {
+                "type": "object",
+                "additionalProperties": {
+                  "anyOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "href": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        }
+                      },
+                      "additionalProperties": {
+                        "$ref": "#/definitions/ONFJsonValue"
+                      }
+                    },
+                    {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "href": {
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          }
+                        },
+                        "additionalProperties": {
+                          "$ref": "#/definitions/ONFJsonValue"
+                        }
+                      }
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "creationDate": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "defaultBranch": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "isDisabled": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "isFork": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "isInMaintenance": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "parentRepository": {
+            "anyOf": [
+              {
+                "$ref": "#/definitions/sdk_GitInterfaces_GitRepositoryRef"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "project": {
+            "anyOf": [
+              {
+                "$ref": "#/definitions/sdk_CoreInterfaces_TeamProjectReference"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "remoteUrl": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "size": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "sshUrl": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "url": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "validRemoteUrls": {
+            "anyOf": [
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "webUrl": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "additionalProperties": {
+          "$ref": "#/definitions/ONFJsonValue"
+        },
+        "definitions": {
+          "ONFJsonValue": {
+            "anyOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "string"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/ONFJsonValue"
+                }
+              },
+              {
+                "type": "object",
+                "additionalProperties": {
+                  "$ref": "#/definitions/ONFJsonValue"
+                }
+              }
+            ]
+          },
+          "sdk_GitInterfaces_GitRepositoryRef": {
+            "type": "object",
+            "properties": {
+              "collection": {
+                "anyOf": [
+                  {
+                    "$ref": "#/definitions/sdk_CoreInterfaces_TeamProjectCollectionReference"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "id": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "isFork": {
+                "anyOf": [
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "name": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "project": {
+                "anyOf": [
+                  {
+                    "$ref": "#/definitions/sdk_CoreInterfaces_TeamProjectReference"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "remoteUrl": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "sshUrl": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "url": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": {
+              "$ref": "#/definitions/ONFJsonValue"
+            }
+          },
+          "sdk_CoreInterfaces_TeamProjectReference": {
+            "type": "object",
+            "properties": {
+              "abbreviation": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "defaultTeamImageUrl": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "description": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "id": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "lastUpdateTime": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "name": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "revision": {
+                "anyOf": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "state": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "url": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "visibility": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": {
+              "$ref": "#/definitions/ONFJsonValue"
+            }
+          },
+          "sdk_CoreInterfaces_TeamProjectCollectionReference": {
+            "type": "object",
+            "properties": {
+              "avatarUrl": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "id": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "name": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "url": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": {
+              "$ref": "#/definitions/ONFJsonValue"
+            }
+          }
+        }
+      },
+      "id": "def_690ea53cafe0",
+      "version": 2,
+      "createdAt": "2026-10-20T15:44:06.778Z",
+      "updatedAt": "2026-10-27T00:00:00.000Z",
+      "builtin": false
+    },
+    {
+      "name": "Azure Pull Request",
+      "kind": "type",
+      "description": "Composable Azure DevOps contract v1. Shared raw-name PR properties across created, updated, merge-attempt and PR-comment events. Repository and identity stay nested.",
+      "documentation": "# Azure Pull Request\n\nShared raw-name PR properties across created, updated, merge-attempt and PR-comment events. Repository and identity stay nested.\n\nThis is a JSON Schema socket contract, not an executable node. Use the matching\nDecode / Encode nodes. Known optional properties preserve explicit null; absent\nand null remain distinct. Unknown properties remain in the owning component or\nEventConfig resource remainder, with no second complete event/resource copy.\nCustom socket IDs and versions must match; publish dependent nodes with explicit\ntypeVersion pins. This schema uses local JSON Schema only, no global `$ref`.\n\n## Accepted shape\n```json\n{\n  \"pullRequestId\": 123,\n  \"title\": \"Example\",\n  \"description\": null\n}\n```\n\n## Schema\n```json\n{\n  \"type\": \"object\",\n  \"properties\": {\n    \"pullRequestId\": {\n      \"type\": [\n        \"null\",\n        \"number\"\n      ]\n    },\n    \"codeReviewId\": {\n      \"type\": [\n        \"null\",\n        \"number\"\n      ]\n    },\n    \"status\": {\n      \"type\": [\n        \"null\",\n        \"string\"\n      ]\n    },\n    \"title\": {\n      \"type\": [\n        \"null\",\n        \"string\"\n      ]\n    },\n    \"description\": {\n      \"type\": [\n        \"null\",\n        \"string\"\n      ]\n    },\n    \"sourceRefName\": {\n      \"type\": [\n        \"null\",\n        \"string\"\n      ]\n    },\n    \"targetRefName\": {\n      \"type\": [\n        \"null\",\n        \"string\"\n      ]\n    },\n    \"creationDate\": {\n      \"type\": [\n        \"null\",\n        \"string\"\n      ]\n    },\n    \"closedDate\": {\n      \"type\": [\n        \"null\",\n        \"string\"\n      ]\n    },\n    \"mergeStatus\": {\n      \"type\": [\n        \"null\",\n        \"string\"\n      ]\n    },\n    \"mergeId\": {\n      \"type\": [\n        \"null\",\n        \"string\"\n      ]\n    },\n    \"mergeFailureMessage\": {\n      \"type\": [\n        \"null\",\n        \"string\"\n      ]\n    },\n    \"mergeFailureType\": {\n      \"type\": [\n        \"null\",\n        \"string\"\n      ]\n    },\n    \"url\": {\n      \"type\": [\n        \"null\",\n        \"string\"\n      ]\n    },\n    \"artifactId\": {\n      \"type\": [\n        \"null\",\n        \"string\"\n      ]\n    },\n    \"isDraft\": {\n      \"type\": [\n        \"boolean\",\n        \"null\"\n      ]\n    },\n    \"supportsIterations\": {\n      \"type\": [\n        \"boolean\",\n        \"null\"\n      ]\n    },\n    \"repository\": {\n      \"type\": [\n        \"null\",\n        \"object\"\n      ]\n    },\n    \"createdBy\": {\n      \"type\": [\n        \"null\",\n        \"object\"\n      ]\n    },\n    \"closedBy\": {\n      \"type\": [\n        \"null\",\n        \"object\"\n      ]\n    },\n    \"autoCompleteSetBy\": {\n      \"type\": [\n        \"null\",\n        \"object\"\n      ]\n    },\n    \"reviewers\": {\n      \"type\": [\n        \"array\",\n        \"null\"\n      ]\n    },\n    \"labels\": {\n      \"type\": [\n        \"array\",\n        \"null\"\n      ]\n    },\n    \"commits\": {\n      \"type\": [\n        \"array\",\n        \"null\"\n      ]\n    },\n    \"workItemRefs\": {\n      \"type\": [\n        \"array\",\n        \"null\"\n      ]\n    },\n    \"completionOptions\": {\n      \"type\": [\n        \"null\",\n        \"object\"\n      ]\n    },\n    \"mergeOptions\": {\n      \"type\": [\n        \"null\",\n        \"object\"\n      ]\n    },\n    \"lastMergeSourceCommit\": {\n      \"type\": [\n        \"null\",\n        \"object\"\n      ]\n    },\n    \"lastMergeTargetCommit\": {\n      \"type\": [\n        \"null\",\n        \"object\"\n      ]\n    },\n    \"lastMergeCommit\": {\n      \"type\": [\n        \"null\",\n        \"object\"\n      ]\n    },\n    \"forkSource\": {\n      \"type\": [\n        \"null\",\n        \"object\"\n      ]\n    },\n    \"_links\": {\n      \"type\": [\n        \"null\",\n        \"object\"\n      ]\n    }\n  },\n  \"additionalProperties\": false\n}\n```\n\nPure data; no requests, secrets or persistent state. Schema format annotations do\nnot enforce timestamp formatting in ONF. A type does not fetch missing Azure data.\n\n\n23 October 2026 contract correction: Source-backed Azure DevOps contract. Known fields are structural, with explicit nullable values and recursive finite JSON only for documented provider extension bags. Unknown extension fields roundtrip through remainder; absence and explicit null remain distinct. Source: https://learn.microsoft.com/en-us/rest/api/azure/devops/?view=azure-devops-rest-7.1 and Microsoft azure-devops-node-api DTO declarations captured in devops/sources/manifest.json. Pure transformation; no provider calls or state changes.",
+      "category": "Azure DevOps composable",
+      "color": "#58afa6",
+      "inputs": [],
+      "outputs": [],
+      "code": "",
+      "configSchema": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      },
+      "schema": {
+        "type": "object",
+        "properties": {
+          "_links": {
+            "anyOf": [
+              {
+                "type": "object",
+                "additionalProperties": {
+                  "anyOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "href": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        }
+                      },
+                      "additionalProperties": {
+                        "$ref": "#/definitions/ONFJsonValue"
+                      }
+                    },
+                    {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "href": {
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          }
+                        },
+                        "additionalProperties": {
+                          "$ref": "#/definitions/ONFJsonValue"
+                        }
+                      }
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "artifactId": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "autoCompleteSetBy": {
+            "anyOf": [
+              {
+                "$ref": "#/definitions/sdk_VSSInterfaces_IdentityRef"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "closedBy": {
+            "anyOf": [
+              {
+                "$ref": "#/definitions/sdk_VSSInterfaces_IdentityRef"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "closedDate": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "codeReviewId": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "commits": {
+            "anyOf": [
+              {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/sdk_GitInterfaces_GitCommitRef"
+                }
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "completionOptions": {
+            "anyOf": [
+              {
+                "$ref": "#/definitions/sdk_GitInterfaces_GitPullRequestCompletionOptions"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "completionQueueTime": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "createdBy": {
+            "anyOf": [
+              {
+                "$ref": "#/definitions/sdk_VSSInterfaces_IdentityRef"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "creationDate": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "description": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "forkSource": {
+            "anyOf": [
+              {
+                "$ref": "#/definitions/sdk_GitInterfaces_GitForkRef"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "hasMultipleMergeBases": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "ignoreTargetRefAndChooseDynamically": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "isDraft": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "labels": {
+            "anyOf": [
+              {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/sdk_CoreInterfaces_WebApiTagDefinition"
+                }
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "lastMergeCommit": {
+            "anyOf": [
+              {
+                "$ref": "#/definitions/sdk_GitInterfaces_GitCommitRef"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "lastMergeSourceCommit": {
+            "anyOf": [
+              {
+                "$ref": "#/definitions/sdk_GitInterfaces_GitCommitRef"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "lastMergeTargetCommit": {
+            "anyOf": [
+              {
+                "$ref": "#/definitions/sdk_GitInterfaces_GitCommitRef"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "mergeFailureMessage": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "mergeFailureType": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "mergeId": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "mergeOptions": {
+            "anyOf": [
+              {
+                "$ref": "#/definitions/sdk_GitInterfaces_GitPullRequestMergeOptions"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "mergeStatus": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "pullRequestId": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "remoteUrl": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "repository": {
+            "anyOf": [
+              {
+                "$ref": "#/definitions/sdk_GitInterfaces_GitRepository"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "reviewers": {
+            "anyOf": [
+              {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/sdk_GitInterfaces_IdentityRefWithVote"
+                }
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "sourceRefName": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "status": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "supportsIterations": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "targetRefName": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "title": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "url": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "workItemRefs": {
+            "anyOf": [
+              {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/sdk_VSSInterfaces_ResourceRef"
+                }
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "additionalProperties": {
+          "$ref": "#/definitions/ONFJsonValue"
+        },
+        "definitions": {
+          "ONFJsonValue": {
+            "anyOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "string"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/ONFJsonValue"
+                }
+              },
+              {
+                "type": "object",
+                "additionalProperties": {
+                  "$ref": "#/definitions/ONFJsonValue"
+                }
+              }
+            ]
+          },
+          "sdk_VSSInterfaces_IdentityRef": {
+            "type": "object",
+            "properties": {
+              "_links": {
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "additionalProperties": {
+                      "anyOf": [
+                        {
+                          "type": "object",
+                          "properties": {
+                            "href": {
+                              "type": [
+                                "string",
+                                "null"
+                              ]
+                            }
+                          },
+                          "additionalProperties": {
+                            "$ref": "#/definitions/ONFJsonValue"
+                          }
+                        },
+                        {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "href": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              }
+                            },
+                            "additionalProperties": {
+                              "$ref": "#/definitions/ONFJsonValue"
+                            }
+                          }
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "descriptor": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "displayName": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "url": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "directoryAlias": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "id": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "imageUrl": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "inactive": {
+                "anyOf": [
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "isAadIdentity": {
+                "anyOf": [
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "isContainer": {
+                "anyOf": [
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "isDeletedInOrigin": {
+                "anyOf": [
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "profileUrl": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "uniqueName": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "hasDeclined": {
+                "anyOf": [
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "isFlagged": {
+                "anyOf": [
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "isReapprove": {
+                "anyOf": [
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "isRequired": {
+                "anyOf": [
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "reviewerUrl": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "vote": {
+                "anyOf": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "votedFor": {
+                "anyOf": [
+                  {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/definitions/sdk_GitInterfaces_IdentityRefWithVote"
+                    }
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": {
+              "$ref": "#/definitions/ONFJsonValue"
+            }
+          },
+          "sdk_GitInterfaces_GitCommitRef": {
+            "type": "object",
+            "properties": {
+              "_links": {
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "additionalProperties": {
+                      "anyOf": [
+                        {
+                          "type": "object",
+                          "properties": {
+                            "href": {
+                              "type": [
+                                "string",
+                                "null"
+                              ]
+                            }
+                          },
+                          "additionalProperties": {
+                            "$ref": "#/definitions/ONFJsonValue"
+                          }
+                        },
+                        {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "href": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              }
+                            },
+                            "additionalProperties": {
+                              "$ref": "#/definitions/ONFJsonValue"
+                            }
+                          }
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "author": {
+                "anyOf": [
+                  {
+                    "$ref": "#/definitions/sdk_GitInterfaces_GitUserDate"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "changeCounts": {
+                "anyOf": [
+                  {
+                    "$ref": "#/definitions/sdk_GitInterfaces_ChangeCountDictionary"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "changes": {
+                "anyOf": [
+                  {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/definitions/sdk_GitInterfaces_GitChange"
+                    }
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "comment": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "commentTruncated": {
+                "anyOf": [
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "commitId": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "committer": {
+                "anyOf": [
+                  {
+                    "$ref": "#/definitions/sdk_GitInterfaces_GitUserDate"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "commitTooManyChanges": {
+                "anyOf": [
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "parents": {
+                "anyOf": [
+                  {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "push": {
+                "anyOf": [
+                  {
+                    "$ref": "#/definitions/sdk_GitInterfaces_GitPushRef"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "remoteUrl": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "statuses": {
+                "anyOf": [
+                  {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/definitions/sdk_GitInterfaces_GitStatus"
+                    }
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "url": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "workItems": {
+                "anyOf": [
+                  {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/definitions/sdk_VSSInterfaces_ResourceRef"
+                    }
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": {
+              "$ref": "#/definitions/ONFJsonValue"
+            }
+          },
+          "sdk_GitInterfaces_GitPullRequestCompletionOptions": {
+            "type": "object",
+            "properties": {
+              "autoCompleteIgnoreConfigIds": {
+                "anyOf": [
+                  {
+                    "type": "array",
+                    "items": {
+                      "type": "number"
+                    }
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "bypassPolicy": {
+                "anyOf": [
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "bypassReason": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "deleteSourceBranch": {
+                "anyOf": [
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "mergeCommitMessage": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "mergeStrategy": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "squashMerge": {
+                "anyOf": [
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "transitionWorkItems": {
+                "anyOf": [
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "triggeredByAutoComplete": {
+                "anyOf": [
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": {
+              "$ref": "#/definitions/ONFJsonValue"
+            }
+          },
+          "sdk_GitInterfaces_GitForkRef": {
+            "type": "object",
+            "properties": {
+              "_links": {
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "additionalProperties": {
+                      "anyOf": [
+                        {
+                          "type": "object",
+                          "properties": {
+                            "href": {
+                              "type": [
+                                "string",
+                                "null"
+                              ]
+                            }
+                          },
+                          "additionalProperties": {
+                            "$ref": "#/definitions/ONFJsonValue"
+                          }
+                        },
+                        {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "href": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              }
+                            },
+                            "additionalProperties": {
+                              "$ref": "#/definitions/ONFJsonValue"
+                            }
+                          }
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "creator": {
+                "anyOf": [
+                  {
+                    "$ref": "#/definitions/sdk_VSSInterfaces_IdentityRef"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "isLocked": {
+                "anyOf": [
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "isLockedBy": {
+                "anyOf": [
+                  {
+                    "$ref": "#/definitions/sdk_VSSInterfaces_IdentityRef"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "name": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "objectId": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "peeledObjectId": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "statuses": {
+                "anyOf": [
+                  {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/definitions/sdk_GitInterfaces_GitStatus"
+                    }
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "url": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "repository": {
+                "anyOf": [
+                  {
+                    "$ref": "#/definitions/sdk_GitInterfaces_GitRepository"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": {
+              "$ref": "#/definitions/ONFJsonValue"
+            }
+          },
+          "sdk_CoreInterfaces_WebApiTagDefinition": {
+            "type": "object",
+            "properties": {
+              "active": {
+                "anyOf": [
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "id": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "name": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "url": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": {
+              "$ref": "#/definitions/ONFJsonValue"
+            }
+          },
+          "sdk_GitInterfaces_GitPullRequestMergeOptions": {
+            "type": "object",
+            "properties": {
+              "conflictAuthorshipCommits": {
+                "anyOf": [
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "detectRenameFalsePositives": {
+                "anyOf": [
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "disableRenames": {
+                "anyOf": [
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": {
+              "$ref": "#/definitions/ONFJsonValue"
+            }
+          },
+          "sdk_GitInterfaces_GitRepository": {
+            "type": "object",
+            "properties": {
+              "_links": {
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "additionalProperties": {
+                      "anyOf": [
+                        {
+                          "type": "object",
+                          "properties": {
+                            "href": {
+                              "type": [
+                                "string",
+                                "null"
+                              ]
+                            }
+                          },
+                          "additionalProperties": {
+                            "$ref": "#/definitions/ONFJsonValue"
+                          }
+                        },
+                        {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "href": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              }
+                            },
+                            "additionalProperties": {
+                              "$ref": "#/definitions/ONFJsonValue"
+                            }
+                          }
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "creationDate": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "defaultBranch": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "id": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "isDisabled": {
+                "anyOf": [
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "isFork": {
+                "anyOf": [
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "isInMaintenance": {
+                "anyOf": [
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "name": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "parentRepository": {
+                "anyOf": [
+                  {
+                    "$ref": "#/definitions/sdk_GitInterfaces_GitRepositoryRef"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "project": {
+                "anyOf": [
+                  {
+                    "$ref": "#/definitions/sdk_CoreInterfaces_TeamProjectReference"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "remoteUrl": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "size": {
+                "anyOf": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "sshUrl": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "url": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "validRemoteUrls": {
+                "anyOf": [
+                  {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "webUrl": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": {
+              "$ref": "#/definitions/ONFJsonValue"
+            }
+          },
+          "sdk_GitInterfaces_IdentityRefWithVote": {
+            "type": "object",
+            "properties": {
+              "_links": {
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "additionalProperties": {
+                      "anyOf": [
+                        {
+                          "type": "object",
+                          "properties": {
+                            "href": {
+                              "type": [
+                                "string",
+                                "null"
+                              ]
+                            }
+                          },
+                          "additionalProperties": {
+                            "$ref": "#/definitions/ONFJsonValue"
+                          }
+                        },
+                        {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "href": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              }
+                            },
+                            "additionalProperties": {
+                              "$ref": "#/definitions/ONFJsonValue"
+                            }
+                          }
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "descriptor": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "displayName": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "url": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "directoryAlias": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "id": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "imageUrl": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "inactive": {
+                "anyOf": [
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "isAadIdentity": {
+                "anyOf": [
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "isContainer": {
+                "anyOf": [
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "isDeletedInOrigin": {
+                "anyOf": [
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "profileUrl": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "uniqueName": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "hasDeclined": {
+                "anyOf": [
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "isFlagged": {
+                "anyOf": [
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "isReapprove": {
+                "anyOf": [
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "isRequired": {
+                "anyOf": [
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "reviewerUrl": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "vote": {
+                "anyOf": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "votedFor": {
+                "anyOf": [
+                  {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/definitions/sdk_GitInterfaces_IdentityRefWithVote"
+                    }
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": {
+              "$ref": "#/definitions/ONFJsonValue"
+            }
+          },
+          "sdk_VSSInterfaces_ResourceRef": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "url": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": {
+              "$ref": "#/definitions/ONFJsonValue"
+            }
+          },
+          "sdk_GitInterfaces_GitRepositoryRef": {
+            "type": "object",
+            "properties": {
+              "collection": {
+                "anyOf": [
+                  {
+                    "$ref": "#/definitions/sdk_CoreInterfaces_TeamProjectCollectionReference"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "id": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "isFork": {
+                "anyOf": [
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "name": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "project": {
+                "anyOf": [
+                  {
+                    "$ref": "#/definitions/sdk_CoreInterfaces_TeamProjectReference"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "remoteUrl": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "sshUrl": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "url": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": {
+              "$ref": "#/definitions/ONFJsonValue"
+            }
+          },
+          "sdk_CoreInterfaces_TeamProjectReference": {
+            "type": "object",
+            "properties": {
+              "abbreviation": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "defaultTeamImageUrl": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "description": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "id": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "lastUpdateTime": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "name": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "revision": {
+                "anyOf": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "state": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "url": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "visibility": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": {
+              "$ref": "#/definitions/ONFJsonValue"
+            }
+          },
+          "sdk_CoreInterfaces_TeamProjectCollectionReference": {
+            "type": "object",
+            "properties": {
+              "avatarUrl": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "id": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "name": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "url": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": {
+              "$ref": "#/definitions/ONFJsonValue"
+            }
+          },
+          "sdk_GitInterfaces_GitStatus": {
+            "type": "object",
+            "properties": {
+              "_links": {
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "additionalProperties": {
+                      "anyOf": [
+                        {
+                          "type": "object",
+                          "properties": {
+                            "href": {
+                              "type": [
+                                "string",
+                                "null"
+                              ]
+                            }
+                          },
+                          "additionalProperties": {
+                            "$ref": "#/definitions/ONFJsonValue"
+                          }
+                        },
+                        {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "href": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              }
+                            },
+                            "additionalProperties": {
+                              "$ref": "#/definitions/ONFJsonValue"
+                            }
+                          }
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "context": {
+                "anyOf": [
+                  {
+                    "$ref": "#/definitions/sdk_GitInterfaces_GitStatusContext"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "createdBy": {
+                "anyOf": [
+                  {
+                    "$ref": "#/definitions/sdk_VSSInterfaces_IdentityRef"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "creationDate": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "description": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "id": {
+                "anyOf": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "state": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "targetUrl": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "updatedDate": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": {
+              "$ref": "#/definitions/ONFJsonValue"
+            }
+          },
+          "sdk_GitInterfaces_GitStatusContext": {
+            "type": "object",
+            "properties": {
+              "genre": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "name": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": {
+              "$ref": "#/definitions/ONFJsonValue"
+            }
+          },
+          "sdk_GitInterfaces_GitUserDate": {
+            "type": "object",
+            "properties": {
+              "date": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "email": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "imageUrl": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "name": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": {
+              "$ref": "#/definitions/ONFJsonValue"
+            }
+          },
+          "sdk_GitInterfaces_ChangeCountDictionary": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "$ref": "#/definitions/ONFJsonValue"
+            }
+          },
+          "sdk_GitInterfaces_GitChange": {
+            "type": "object",
+            "properties": {
+              "changeType": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "item": {
+                "anyOf": [
+                  {
+                    "$ref": "#/definitions/sdk_GitInterfaces_GitItem"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "newContent": {
+                "anyOf": [
+                  {
+                    "$ref": "#/definitions/sdk_GitInterfaces_ItemContent"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "sourceServerItem": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "url": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "changeId": {
+                "anyOf": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "newContentTemplate": {
+                "anyOf": [
+                  {
+                    "$ref": "#/definitions/sdk_GitInterfaces_GitTemplate"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "originalPath": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": {
+              "$ref": "#/definitions/ONFJsonValue"
+            }
+          },
+          "sdk_GitInterfaces_GitPushRef": {
+            "type": "object",
+            "properties": {
+              "_links": {
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "additionalProperties": {
+                      "anyOf": [
+                        {
+                          "type": "object",
+                          "properties": {
+                            "href": {
+                              "type": [
+                                "string",
+                                "null"
+                              ]
+                            }
+                          },
+                          "additionalProperties": {
+                            "$ref": "#/definitions/ONFJsonValue"
+                          }
+                        },
+                        {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "href": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              }
+                            },
+                            "additionalProperties": {
+                              "$ref": "#/definitions/ONFJsonValue"
+                            }
+                          }
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "date": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "pushCorrelationId": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "pushedBy": {
+                "anyOf": [
+                  {
+                    "$ref": "#/definitions/sdk_VSSInterfaces_IdentityRef"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "pushId": {
+                "anyOf": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "url": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": {
+              "$ref": "#/definitions/ONFJsonValue"
+            }
+          },
+          "sdk_GitInterfaces_GitItem": {
+            "type": "object",
+            "properties": {
+              "_links": {
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "additionalProperties": {
+                      "anyOf": [
+                        {
+                          "type": "object",
+                          "properties": {
+                            "href": {
+                              "type": [
+                                "string",
+                                "null"
+                              ]
+                            }
+                          },
+                          "additionalProperties": {
+                            "$ref": "#/definitions/ONFJsonValue"
+                          }
+                        },
+                        {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "href": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              }
+                            },
+                            "additionalProperties": {
+                              "$ref": "#/definitions/ONFJsonValue"
+                            }
+                          }
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "content": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "contentMetadata": {
+                "anyOf": [
+                  {
+                    "$ref": "#/definitions/sdk_GitInterfaces_FileContentMetadata"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "isFolder": {
+                "anyOf": [
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "isSymLink": {
+                "anyOf": [
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "path": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "url": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "commitId": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "gitObjectType": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "latestProcessedChange": {
+                "anyOf": [
+                  {
+                    "$ref": "#/definitions/sdk_GitInterfaces_GitCommitRef"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "objectId": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "originalObjectId": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "submoduleWebUrl": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": {
+              "$ref": "#/definitions/ONFJsonValue"
+            }
+          },
+          "sdk_GitInterfaces_ItemContent": {
+            "type": "object",
+            "properties": {
+              "content": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "contentType": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": {
+              "$ref": "#/definitions/ONFJsonValue"
+            }
+          },
+          "sdk_GitInterfaces_GitTemplate": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "type": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": {
+              "$ref": "#/definitions/ONFJsonValue"
+            }
+          },
+          "sdk_GitInterfaces_FileContentMetadata": {
+            "type": "object",
+            "properties": {
+              "contentType": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "encoding": {
+                "anyOf": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "extension": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "fileName": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "isBinary": {
+                "anyOf": [
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "isImage": {
+                "anyOf": [
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "vsLink": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": {
+              "$ref": "#/definitions/ONFJsonValue"
+            }
+          }
+        }
+      },
+      "id": "def_9e98014d1ecd",
+      "version": 2,
+      "createdAt": "2026-10-20T14:54:21.410Z",
+      "updatedAt": "2026-10-27T00:00:00.000Z",
+      "builtin": false
+    },
+    {
+      "name": "Nullable Number",
+      "kind": "type",
+      "description": "ONF typed decoder outputs v1. Explicit null or Number; omission remains a separate socket-presence state.",
+      "documentation": "# Nullable Number\n\nONF typed decoder outputs v1.\n\nExplicit null or Number; omission remains a separate socket-presence state.\n\nUse this named type on matching Encode/Decode sockets. Values are JSON data;\nthis type performs no network request, model call, authentication, or business action.\nExact type ID and version must agree on both ends of a wire. JSON Schema rejects\nincompatible values; formats are informational in ONF. Missing optional fields\nand explicit null are different. Unknown fields remain lossless where permitted.\nThe matching codecs split useful properties or collection entries and reassemble\nthe original value. They never coerce strings/numbers or silently drop unknown data.\n\n## Schema\n```json\n{\n  \"anyOf\": [\n    {\n      \"type\": \"number\"\n    },\n    {\n      \"type\": \"null\"\n    }\n  ]\n}\n```\n\n## Example JSON value\n```json\n0\n```\n\nExamples are synthetic. Null, collection, union and presence rules are defined by\nthe complete schema above; an empty example is not a claim every field is required.\nDo not put credentials, tokens, or unnecessary business data into JSON records.\n",
+      "category": "Typed data codecs",
+      "color": "#6d9cbe",
+      "inputs": [],
+      "outputs": [],
+      "code": "",
+      "configSchema": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      },
+      "schema": {
+        "anyOf": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "id": "def_a5280518223d",
+      "version": 1,
+      "createdAt": "2026-10-20T15:44:12.544Z",
+      "updatedAt": "2026-10-20T15:44:12.544Z",
+      "builtin": false
+    },
+    {
+      "name": "Nullable String",
+      "kind": "type",
+      "description": "ONF typed decoder outputs v1. Explicit null or String; omission remains a separate socket-presence state.",
+      "documentation": "# Nullable String\n\nONF typed decoder outputs v1.\n\nExplicit null or String; omission remains a separate socket-presence state.\n\nUse this named type on matching Encode/Decode sockets. Values are JSON data;\nthis type performs no network request, model call, authentication, or business action.\nExact type ID and version must agree on both ends of a wire. JSON Schema rejects\nincompatible values; formats are informational in ONF. Missing optional fields\nand explicit null are different. Unknown fields remain lossless where permitted.\nThe matching codecs split useful properties or collection entries and reassemble\nthe original value. They never coerce strings/numbers or silently drop unknown data.\n\n## Schema\n```json\n{\n  \"anyOf\": [\n    {\n      \"type\": \"string\"\n    },\n    {\n      \"type\": \"null\"\n    }\n  ]\n}\n```\n\n## Example JSON value\n```json\n\"example\"\n```\n\nExamples are synthetic. Null, collection, union and presence rules are defined by\nthe complete schema above; an empty example is not a claim every field is required.\nDo not put credentials, tokens, or unnecessary business data into JSON records.\n",
+      "category": "Typed data codecs",
+      "color": "#6d9cbe",
+      "inputs": [],
+      "outputs": [],
+      "code": "",
+      "configSchema": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      },
+      "schema": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "id": "def_a653164ce2cf",
+      "version": 1,
+      "createdAt": "2026-10-20T15:44:12.451Z",
+      "updatedAt": "2026-10-20T15:44:12.451Z",
+      "builtin": false
+    },
+    {
+      "name": "Azure Project",
+      "kind": "type",
+      "description": "ONF typed decoder outputs v1. Azure Project",
+      "documentation": "# Azure Project\n\nONF typed decoder outputs v1.\n\nAzure Project\n\nUse this named type on matching Encode/Decode sockets. Values are JSON data;\nthis type performs no network request, model call, authentication, or business action.\nExact type ID and version must agree on both ends of a wire. JSON Schema rejects\nincompatible values; formats are informational in ONF. Missing optional fields\nand explicit null are different. Unknown fields remain lossless where permitted.\nThe matching codecs split useful properties or collection entries and reassemble\nthe original value. They never coerce strings/numbers or silently drop unknown data.\n\n## Schema\n```json\n{\n  \"type\": \"object\",\n  \"properties\": {\n    \"id\": {\n      \"anyOf\": [\n        {\n          \"anyOf\": [\n            {\n              \"type\": \"string\"\n            },\n            {\n              \"type\": \"null\"\n            }\n          ]\n        },\n        {\n          \"$ref\": \"#/definitions/json_value\"\n        }\n      ]\n    },\n    \"name\": {\n      \"anyOf\": [\n        {\n          \"anyOf\": [\n            {\n              \"type\": \"string\"\n            },\n            {\n              \"type\": \"null\"\n            }\n          ]\n        },\n        {\n          \"$ref\": \"#/definitions/json_value\"\n        }\n      ]\n    },\n    \"url\": {\n      \"anyOf\": [\n        {\n          \"anyOf\": [\n            {\n              \"type\": \"string\"\n            },\n            {\n              \"type\": \"null\"\n            }\n          ]\n        },\n        {\n          \"$ref\": \"#/definitions/json_value\"\n        }\n      ]\n    },\n    \"state\": {\n      \"anyOf\": [\n        {\n          \"anyOf\": [\n            {\n              \"type\": \"string\"\n            },\n            {\n              \"type\": \"null\"\n            }\n          ]\n        },\n        {\n          \"$ref\": \"#/definitions/json_value\"\n        }\n      ]\n    },\n    \"description\": {\n      \"anyOf\": [\n        {\n          \"anyOf\": [\n            {\n              \"type\": \"string\"\n            },\n            {\n              \"type\": \"null\"\n            }\n          ]\n        },\n        {\n          \"$ref\": \"#/definitions/json_value\"\n        }\n      ]\n    },\n    \"visibility\": {\n      \"anyOf\": [\n        {\n          \"anyOf\": [\n            {\n              \"type\": \"string\"\n            },\n            {\n              \"type\": \"null\"\n            }\n          ]\n        },\n        {\n          \"$ref\": \"#/definitions/json_value\"\n        }\n      ]\n    },\n    \"revision\": {\n      \"anyOf\": [\n        {\n          \"anyOf\": [\n            {\n              \"type\": \"number\"\n            },\n            {\n              \"type\": \"null\"\n            }\n          ]\n        },\n        {\n          \"$ref\": \"#/definitions/json_value\"\n        }\n      ]\n    },\n    \"lastUpdateTime\": {\n      \"anyOf\": [\n        {\n          \"anyOf\": [\n            {\n              \"type\": \"string\"\n            },\n            {\n              \"type\": \"null\"\n            }\n          ]\n        },\n        {\n          \"$ref\": \"#/definitions/json_value\"\n        }\n      ]\n    }\n  },\n  \"required\": [],\n  \"additionalProperties\": {\n    \"$ref\": \"#/definitions/json_value\"\n  },\n  \"definitions\": {\n    \"json_record\": {\n      \"type\": \"object\",\n      \"additionalProperties\": {\n        \"$ref\": \"#/definitions/json_value\"\n      }\n    },\n    \"json_list\": {\n      \"type\": \"array\",\n      \"items\": {\n        \"$ref\": \"#/definitions/json_value\"\n      }\n    },\n    \"json_value\": {\n      \"anyOf\": [\n        {\n          \"type\": \"string\"\n        },\n        {\n          \"type\": \"number\"\n        },\n        {\n          \"type\": \"boolean\"\n        },\n        {\n          \"type\": \"null\"\n        },\n        {\n          \"$ref\": \"#/definitions/json_record\"\n        },\n        {\n          \"$ref\": \"#/definitions/json_list\"\n        }\n      ]\n    }\n  }\n}\n```\n\n## Example JSON value\n```json\n{}\n```\n\nExamples are synthetic. Null, collection, union and presence rules are defined by\nthe complete schema above; an empty example is not a claim every field is required.\nDo not put credentials, tokens, or unnecessary business data into JSON records.\n\n\n23 October 2026 contract correction: Source-backed Azure DevOps contract. Known fields are structural, with explicit nullable values and recursive finite JSON only for documented provider extension bags. Unknown extension fields roundtrip through remainder; absence and explicit null remain distinct. Source: https://learn.microsoft.com/en-us/rest/api/azure/devops/?view=azure-devops-rest-7.1 and Microsoft azure-devops-node-api DTO declarations captured in devops/sources/manifest.json. Pure transformation; no provider calls or state changes.",
+      "category": "Typed data codecs",
+      "color": "#6d9cbe",
+      "inputs": [],
+      "outputs": [],
+      "code": "",
+      "configSchema": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      },
+      "schema": {
+        "type": "object",
+        "properties": {
+          "abbreviation": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "defaultTeamImageUrl": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "description": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "lastUpdateTime": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "revision": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "state": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "url": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "visibility": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "_links": {
+            "anyOf": [
+              {
+                "type": "object",
+                "additionalProperties": {
+                  "anyOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "href": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        }
+                      },
+                      "additionalProperties": {
+                        "$ref": "#/definitions/ONFJsonValue"
+                      }
+                    },
+                    {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "href": {
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          }
+                        },
+                        "additionalProperties": {
+                          "$ref": "#/definitions/ONFJsonValue"
+                        }
+                      }
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "capabilities": {
+            "anyOf": [
+              {
+                "type": "object",
+                "properties": {},
+                "additionalProperties": {
+                  "type": "object",
+                  "properties": {},
+                  "additionalProperties": {
+                    "type": "string"
+                  }
+                }
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "defaultTeam": {
+            "anyOf": [
+              {
+                "$ref": "#/definitions/sdk_CoreInterfaces_WebApiTeamRef"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "additionalProperties": {
+          "$ref": "#/definitions/ONFJsonValue"
+        },
+        "definitions": {
+          "ONFJsonValue": {
+            "anyOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "string"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/ONFJsonValue"
+                }
+              },
+              {
+                "type": "object",
+                "additionalProperties": {
+                  "$ref": "#/definitions/ONFJsonValue"
+                }
+              }
+            ]
+          },
+          "sdk_CoreInterfaces_WebApiTeamRef": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "name": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "url": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": {
+              "$ref": "#/definitions/ONFJsonValue"
+            }
+          }
+        }
+      },
+      "id": "def_b04c995df0e8",
+      "version": 2,
+      "createdAt": "2026-10-20T15:44:06.700Z",
+      "updatedAt": "2026-10-27T00:00:00.000Z",
+      "builtin": false
+    },
+    {
+      "name": "JSON Value",
+      "kind": "type",
+      "description": "ONF typed decoder outputs v1. Finite JSON scalar, null, typed record or typed list; arbitrary nesting is preserved.",
+      "documentation": "# JSON Value\n\nONF typed decoder outputs v1.\n\nFinite JSON scalar, null, typed record or typed list; arbitrary nesting is preserved.\n\nUse this named type on matching Encode/Decode sockets. Values are JSON data;\nthis type performs no network request, model call, authentication, or business action.\nExact type ID and version must agree on both ends of a wire. JSON Schema rejects\nincompatible values; formats are informational in ONF. Missing optional fields\nand explicit null are different. Unknown fields remain lossless where permitted.\nThe matching codecs split useful properties or collection entries and reassemble\nthe original value. They never coerce strings/numbers or silently drop unknown data.\n\n## Schema\n```json\n{\n  \"anyOf\": [\n    {\n      \"type\": \"string\"\n    },\n    {\n      \"type\": \"number\"\n    },\n    {\n      \"type\": \"boolean\"\n    },\n    {\n      \"type\": \"null\"\n    },\n    {\n      \"$ref\": \"#/definitions/json_record\"\n    },\n    {\n      \"$ref\": \"#/definitions/json_list\"\n    }\n  ],\n  \"definitions\": {\n    \"json_list\": {\n      \"type\": \"array\",\n      \"items\": {\n        \"$ref\": \"#/definitions/json_value\"\n      }\n    },\n    \"json_value\": {\n      \"anyOf\": [\n        {\n          \"type\": \"string\"\n        },\n        {\n          \"type\": \"number\"\n        },\n        {\n          \"type\": \"boolean\"\n        },\n        {\n          \"type\": \"null\"\n        },\n        {\n          \"$ref\": \"#/definitions/json_record\"\n        },\n        {\n          \"$ref\": \"#/definitions/json_list\"\n        }\n      ]\n    },\n    \"json_record\": {\n      \"type\": \"object\",\n      \"additionalProperties\": {\n        \"$ref\": \"#/definitions/json_value\"\n      }\n    }\n  }\n}\n```\n\n## Example JSON value\n```json\n\"example\"\n```\n\nExamples are synthetic. Null, collection, union and presence rules are defined by\nthe complete schema above; an empty example is not a claim every field is required.\nDo not put credentials, tokens, or unnecessary business data into JSON records.\n",
+      "category": "Typed data codecs",
+      "color": "#6d9cbe",
+      "inputs": [],
+      "outputs": [],
+      "code": "",
+      "configSchema": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      },
+      "schema": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "number"
+          },
+          {
+            "type": "boolean"
+          },
+          {
+            "type": "null"
+          },
+          {
+            "$ref": "#/definitions/json_record"
+          },
+          {
+            "$ref": "#/definitions/json_list"
+          }
+        ],
+        "definitions": {
+          "json_list": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/json_value"
+            }
+          },
+          "json_value": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/definitions/json_record"
+              },
+              {
+                "$ref": "#/definitions/json_list"
+              }
+            ]
+          },
+          "json_record": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/definitions/json_value"
+            }
+          }
+        }
+      },
+      "id": "def_c5fc8fea11ea",
+      "version": 1,
+      "createdAt": "2026-10-20T15:44:05.885Z",
+      "updatedAt": "2026-10-20T15:44:05.885Z",
+      "builtin": false
+    },
+    {
+      "name": "Text List",
+      "kind": "type",
+      "description": "ONF typed decoder outputs v1. Text List",
+      "documentation": "# Text List\n\nONF typed decoder outputs v1.\n\nText List\n\nUse this named type on matching Encode/Decode sockets. Values are JSON data;\nthis type performs no network request, model call, authentication, or business action.\nExact type ID and version must agree on both ends of a wire. JSON Schema rejects\nincompatible values; formats are informational in ONF. Missing optional fields\nand explicit null are different. Unknown fields remain lossless where permitted.\nThe matching codecs split useful properties or collection entries and reassemble\nthe original value. They never coerce strings/numbers or silently drop unknown data.\n\n## Schema\n```json\n{\n  \"type\": \"array\",\n  \"items\": {\n    \"type\": \"string\"\n  }\n}\n```\n\n## Example JSON value\n```json\n[]\n```\n\nExamples are synthetic. Null, collection, union and presence rules are defined by\nthe complete schema above; an empty example is not a claim every field is required.\nDo not put credentials, tokens, or unnecessary business data into JSON records.\n",
+      "category": "Typed data codecs",
+      "color": "#6d9cbe",
+      "inputs": [],
+      "outputs": [],
+      "code": "",
+      "configSchema": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      },
+      "schema": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "id": "def_e80efa95bff5",
+      "version": 1,
+      "createdAt": "2026-10-20T15:44:06.317Z",
+      "updatedAt": "2026-10-20T15:44:06.317Z",
+      "builtin": false
+    },
+    {
+      "name": "JSON Record",
+      "kind": "type",
+      "description": "ONF typed decoder outputs v1. Dynamic string-key dictionary; each value is a recursively validated JSON Value. Decode offers entries and key lookup.",
+      "documentation": "# JSON Record\n\nONF typed decoder outputs v1.\n\nDynamic string-key dictionary; each value is a recursively validated JSON Value. Decode offers entries and key lookup.\n\nUse this named type on matching Encode/Decode sockets. Values are JSON data;\nthis type performs no network request, model call, authentication, or business action.\nExact type ID and version must agree on both ends of a wire. JSON Schema rejects\nincompatible values; formats are informational in ONF. Missing optional fields\nand explicit null are different. Unknown fields remain lossless where permitted.\nThe matching codecs split useful properties or collection entries and reassemble\nthe original value. They never coerce strings/numbers or silently drop unknown data.\n\n## Schema\n```json\n{\n  \"type\": \"object\",\n  \"additionalProperties\": {\n    \"$ref\": \"#/definitions/json_value\"\n  },\n  \"definitions\": {\n    \"json_record\": {\n      \"type\": \"object\",\n      \"additionalProperties\": {\n        \"$ref\": \"#/definitions/json_value\"\n      }\n    },\n    \"json_list\": {\n      \"type\": \"array\",\n      \"items\": {\n        \"$ref\": \"#/definitions/json_value\"\n      }\n    },\n    \"json_value\": {\n      \"anyOf\": [\n        {\n          \"type\": \"string\"\n        },\n        {\n          \"type\": \"number\"\n        },\n        {\n          \"type\": \"boolean\"\n        },\n        {\n          \"type\": \"null\"\n        },\n        {\n          \"$ref\": \"#/definitions/json_record\"\n        },\n        {\n          \"$ref\": \"#/definitions/json_list\"\n        }\n      ]\n    }\n  }\n}\n```\n\n## Example JSON value\n```json\n{}\n```\n\nExamples are synthetic. Null, collection, union and presence rules are defined by\nthe complete schema above; an empty example is not a claim every field is required.\nDo not put credentials, tokens, or unnecessary business data into JSON records.\n",
+      "category": "Typed data codecs",
+      "color": "#6d9cbe",
+      "inputs": [],
+      "outputs": [],
+      "code": "",
+      "configSchema": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      },
+      "schema": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/definitions/json_value"
+        },
+        "definitions": {
+          "json_record": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/definitions/json_value"
+            }
+          },
+          "json_list": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/json_value"
+            }
+          },
+          "json_value": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/definitions/json_record"
+              },
+              {
+                "$ref": "#/definitions/json_list"
+              }
+            ]
+          }
+        }
+      },
+      "id": "def_f9962f86c7f4",
+      "version": 1,
+      "createdAt": "2026-10-20T15:44:05.928Z",
+      "updatedAt": "2026-10-20T15:44:05.928Z",
+      "builtin": false
+    },
+    {
+      "name": "JSON List",
+      "kind": "type",
+      "description": "ONF typed decoder outputs v1. Ordered extensible JSON values; Decode offers typed index access.",
+      "documentation": "# JSON List\n\nONF typed decoder outputs v1.\n\nOrdered extensible JSON values; Decode offers typed index access.\n\nUse this named type on matching Encode/Decode sockets. Values are JSON data;\nthis type performs no network request, model call, authentication, or business action.\nExact type ID and version must agree on both ends of a wire. JSON Schema rejects\nincompatible values; formats are informational in ONF. Missing optional fields\nand explicit null are different. Unknown fields remain lossless where permitted.\nThe matching codecs split useful properties or collection entries and reassemble\nthe original value. They never coerce strings/numbers or silently drop unknown data.\n\n## Schema\n```json\n{\n  \"type\": \"array\",\n  \"items\": {\n    \"$ref\": \"#/definitions/json_value\"\n  },\n  \"definitions\": {\n    \"json_record\": {\n      \"type\": \"object\",\n      \"additionalProperties\": {\n        \"$ref\": \"#/definitions/json_value\"\n      }\n    },\n    \"json_list\": {\n      \"type\": \"array\",\n      \"items\": {\n        \"$ref\": \"#/definitions/json_value\"\n      }\n    },\n    \"json_value\": {\n      \"anyOf\": [\n        {\n          \"type\": \"string\"\n        },\n        {\n          \"type\": \"number\"\n        },\n        {\n          \"type\": \"boolean\"\n        },\n        {\n          \"type\": \"null\"\n        },\n        {\n          \"$ref\": \"#/definitions/json_record\"\n        },\n        {\n          \"$ref\": \"#/definitions/json_list\"\n        }\n      ]\n    }\n  }\n}\n```\n\n## Example JSON value\n```json\n[]\n```\n\nExamples are synthetic. Null, collection, union and presence rules are defined by\nthe complete schema above; an empty example is not a claim every field is required.\nDo not put credentials, tokens, or unnecessary business data into JSON records.\n",
+      "category": "Typed data codecs",
+      "color": "#6d9cbe",
+      "inputs": [],
+      "outputs": [],
+      "code": "",
+      "configSchema": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      },
+      "schema": {
+        "type": "array",
+        "items": {
+          "$ref": "#/definitions/json_value"
+        },
+        "definitions": {
+          "json_record": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/definitions/json_value"
+            }
+          },
+          "json_list": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/json_value"
+            }
+          },
+          "json_value": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/definitions/json_record"
+              },
+              {
+                "$ref": "#/definitions/json_list"
+              }
+            ]
+          }
+        }
+      },
+      "id": "def_ffc66f61eee4",
+      "version": 1,
+      "createdAt": "2026-10-20T15:44:05.960Z",
+      "updatedAt": "2026-10-20T15:44:05.960Z",
+      "builtin": false
+    }
+  ],
+  "libraryPacks": [
+    {
+      "id": "onf.types",
+      "name": "Shared types",
+      "description": "Canonical JSON, nullable, text-list and Azure entity contracts.",
+      "color": "#58afa6",
+      "revision": 1,
+      "createdAt": "2026-10-22T00:00:00.000Z",
+      "updatedAt": "2026-10-22T00:00:00.000Z"
+    }
+  ],
+  "libraryFolders": [],
+  "libraryMetadata": [
+    {
+      "definitionId": "def_23b3031131b2",
+      "revision": 1,
+      "tags": [
+        "shared",
+        "type"
+      ],
+      "packId": "onf.types",
+      "updatedAt": "2026-10-22T00:00:00.000Z"
+    },
+    {
+      "definitionId": "def_3e907b41dc80",
+      "revision": 1,
+      "tags": [
+        "shared",
+        "type"
+      ],
+      "packId": "onf.types",
+      "updatedAt": "2026-10-22T00:00:00.000Z"
+    },
+    {
+      "definitionId": "def_690ea53cafe0",
+      "revision": 1,
+      "tags": [
+        "shared",
+        "type"
+      ],
+      "packId": "onf.types",
+      "updatedAt": "2026-10-22T00:00:00.000Z"
+    },
+    {
+      "definitionId": "def_9e98014d1ecd",
+      "revision": 1,
+      "tags": [
+        "shared",
+        "type"
+      ],
+      "packId": "onf.types",
+      "updatedAt": "2026-10-22T00:00:00.000Z"
+    },
+    {
+      "definitionId": "def_a5280518223d",
+      "revision": 1,
+      "tags": [
+        "shared",
+        "type"
+      ],
+      "packId": "onf.types",
+      "updatedAt": "2026-10-22T00:00:00.000Z"
+    },
+    {
+      "definitionId": "def_a653164ce2cf",
+      "revision": 1,
+      "tags": [
+        "shared",
+        "type"
+      ],
+      "packId": "onf.types",
+      "updatedAt": "2026-10-22T00:00:00.000Z"
+    },
+    {
+      "definitionId": "def_b04c995df0e8",
+      "revision": 1,
+      "tags": [
+        "shared",
+        "type"
+      ],
+      "packId": "onf.types",
+      "updatedAt": "2026-10-22T00:00:00.000Z"
+    },
+    {
+      "definitionId": "def_c5fc8fea11ea",
+      "revision": 1,
+      "tags": [
+        "shared",
+        "type"
+      ],
+      "packId": "onf.types",
+      "updatedAt": "2026-10-22T00:00:00.000Z"
+    },
+    {
+      "definitionId": "def_e80efa95bff5",
+      "revision": 1,
+      "tags": [
+        "shared",
+        "type"
+      ],
+      "packId": "onf.types",
+      "updatedAt": "2026-10-22T00:00:00.000Z"
+    },
+    {
+      "definitionId": "def_f9962f86c7f4",
+      "revision": 1,
+      "tags": [
+        "shared",
+        "type"
+      ],
+      "packId": "onf.types",
+      "updatedAt": "2026-10-22T00:00:00.000Z"
+    },
+    {
+      "definitionId": "def_ffc66f61eee4",
+      "revision": 1,
+      "tags": [
+        "shared",
+        "type"
+      ],
+      "packId": "onf.types",
+      "updatedAt": "2026-10-22T00:00:00.000Z"
+    }
+  ]
+}

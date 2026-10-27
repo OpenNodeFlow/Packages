@@ -1,8 +1,8 @@
-![OpenNodeFlow package collection](banner.png)
+![OpenNodeFlow package collection](banner-expansion-2026-10-27.png)
 
 # OpenNodeFlow Packages
 
-The official public package source for OpenNodeFlow. Browse 49 package families covering workflow foundations, utilities and integrations. Packages are optional and installed through ONF.
+The official public package source for OpenNodeFlow. Browse 97 package families covering workflow foundations, utilities and integrations. Packages are optional and installed through ONF.
 
 Recommended starting packages, in order:
 
@@ -22,6 +22,8 @@ Recommended starting packages, in order:
 
 Refreshing checks availability; it does not install or run anything. Installed node code runs with the ONF worker's permissions when used by a workflow. Read each asset's included documentation before configuring provider access or executing it.
 
+New Direct operations expose useful typed command fields while earlier operation revisions remain available. Upgrades can retain visible legacy operations; fresh and upgraded libraries therefore differ. FreshBooks, Intercom and OneDrive/SharePoint also include configuration-only operation revision 2. Workflows explicitly pinned to their historical revision 1 must deliberately adopt the corrected revision before execution; historical snapshots retain their original configuration defect.
+
 Runtime includes 15 typed Queue operations. Manage queues under **Storage → Queues** and use a scheduled or manually triggered consumer flow to claim work. Queue items do not start workflows automatically; ambiguous external outcomes require explicit recovery.
 
 ## Files
@@ -29,7 +31,7 @@ Runtime includes 15 typed Queue operations. Manage queues under **Storage → Qu
 | Path | Purpose |
 | --- | --- |
 | `onf-packages.json` | Catalog of package releases and their SHA256 digests. |
-| `onf-source.json`, `logo.png`, `banner.png` | Source card metadata and artwork. |
+| `onf-source.json`, `logo.png`, `banner*.png` | Source card metadata and artwork. |
 | `packages/<family>/<release>.json` | Installable definitions, dependencies and embedded asset documentation. |
 | `packages/<family>/onf-package.json` | Package display name, description, category, tags and website. |
 | `packages/<family>/logo.png`, `banner.png` | Package card artwork. |

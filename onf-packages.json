@@ -1469,6 +1469,51 @@
       "path": "packages/onf-box/1.0.0.json",
       "sha256": "8fbf6800fa9d516bfb7da628f08a59957e23a2b6c40cd579bbfc6fd20a509290",
       "config": "packages/onf-box/onf-package.json"
+    },
+    {
+      "id": "onf.salesforce",
+      "name": "Salesforce",
+      "version": "1.0.0",
+      "description": "Pinned Salesforce REST CRM records, custom scalar fields, metadata and bounded collections.",
+      "path": "packages/onf-salesforce/1.0.0.json",
+      "sha256": "ae81c025357a12f0b5140f5473e9ca4930ae56bba15ae8a54195c57b10b156bd",
+      "config": "packages/onf-salesforce/onf-package.json"
+    },
+    {
+      "id": "onf.airtable",
+      "name": "Airtable",
+      "version": "1.0.0",
+      "description": "Typed Airtable bases, schemas, views, records and comments with bounded one-page Web API operations.",
+      "path": "packages/onf-airtable/1.0.0.json",
+      "sha256": "2d22840ed8e7393dcad585d6b6c32c9e047c7cac2a376c7c85a540e57fd89b3c",
+      "config": "packages/onf-airtable/onf-package.json"
+    },
+    {
+      "id": "onf.baserow",
+      "name": "Baserow",
+      "version": "1.0.0",
+      "description": "Typed Baserow workspaces, databases, tables, fields, rows, views, filters and sorts with bounded REST operations.",
+      "path": "packages/onf-baserow/1.0.0.json",
+      "sha256": "eeac0a62ce5fefae8ecc7d489ae39c1b0b06e4584166b967845daeefd2fc896f",
+      "config": "packages/onf-baserow/onf-package.json"
+    },
+    {
+      "id": "onf.monday",
+      "name": "monday.com",
+      "version": "1.0.0",
+      "description": "Typed monday.com GraphQL board, group, item, column, workspace, team, update and asset metadata operations.",
+      "path": "packages/onf-monday/1.0.0.json",
+      "sha256": "e424dfe702e037042a1ffa1f215cb3a02e998696e01a54efb7b7c875d01c8ff8",
+      "config": "packages/onf-monday/onf-package.json"
+    },
+    {
+      "id": "onf.asana",
+      "name": "Asana",
+      "version": "1.0.0",
+      "description": "Typed Asana tasks, subtasks, projects, workspaces, sections, comments, custom fields, tags, users, teams and memberships with bounded batch updates.",
+      "path": "packages/onf-asana/1.0.0.json",
+      "sha256": "0b062b1bd14e56fbfebbcce2c40a4821cdd517fb4ef9fa150c501434f7d44ed5",
+      "config": "packages/onf-asana/onf-package.json"
     }
   ]
 }

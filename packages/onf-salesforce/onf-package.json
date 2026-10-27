@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "summary": "Pinned Salesforce REST CRM records, custom scalar fields, metadata and bounded collections.",
+  "description": "Pinned Salesforce REST CRM records, custom scalar fields, metadata and bounded collections.",
+  "website": "https://developer.salesforce.com/docs/platform/api-rest/guide/resources-list.html",
+  "category": "Integrations",
+  "tags": [
+    "salesforce",
+    "crm",
+    "rest",
+    "oauth"
+  ],
+  "defaultPackage": false,
+  "logo": "logo.png",
+  "banner": "banner.png"
+}

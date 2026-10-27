@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "summary": "Typed monday.com GraphQL board, group, item, column, workspace, team, update and asset metadata operations.",
+  "description": "Typed monday.com GraphQL board, group, item, column, workspace, team, update and asset metadata operations.",
+  "website": "https://developer.monday.com/api-reference/docs/basics",
+  "category": "Integrations",
+  "tags": [
+    "integration",
+    "monday"
+  ],
+  "defaultPackage": false,
+  "logo": "logo.png",
+  "banner": "banner.png"
+}

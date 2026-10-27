@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "summary": "Typed Airtable bases, schemas, views, records and comments with bounded one-page Web API operations.",
+  "description": "Typed Airtable bases, schemas, views, records and comments with bounded one-page Web API operations.",
+  "website": "https://airtable.com/developers/web/api/introduction",
+  "category": "Integrations",
+  "tags": [
+    "integration",
+    "airtable"
+  ],
+  "defaultPackage": false,
+  "logo": "logo.png",
+  "banner": "banner.png"
+}

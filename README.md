@@ -26,6 +26,8 @@ New Direct operations expose useful typed command fields while earlier operation
 
 Runtime includes 15 typed Queue operations. Manage queues under **Storage → Queues** and use a scheduled or manually triggered consumer flow to claim work. Queue items do not start workflows automatically; ambiguous external outcomes require explicit recovery.
 
+Runtime 2.5.0 combines Direct queue and storage operations with the structured-table operations introduced in 2.4.0. These include Table Insert, Update, Read, Query, Delete and Transaction with named request/result types. These require an ONF build supporting structured tables. Create the schema under **Storage → Data**, then configure the namespace, table and schema revision on each node. Transactions are explicit bounded batches; changing a schema requires reviewing existing rows and workflow contracts.
+
 ## Files
 
 | Path | Purpose |
@@ -37,3 +39,5 @@ Runtime includes 15 typed Queue operations. Manage queues under **Storage → Qu
 | `packages/<family>/logo.png`, `banner.png` | Package card artwork. |
 
 ONF reads these files directly from a refreshed Git commit. No npm installation or build step is needed to use this repository. Earlier release files remain available for compatibility and provenance.
+
+Maintenance validation runs locally in the private Package-Resources repository. Jamie disabled GitHub-hosted testing on 27 October 2026: do not add, restore or run GitHub Actions test/CI workflows without his later explicit instruction.

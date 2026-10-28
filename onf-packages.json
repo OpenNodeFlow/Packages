@@ -2203,9 +2203,9 @@
       "id": "onf.runtime",
       "name": "OpenNodeFlow Runtime",
       "version": "2.4.0",
-      "description": "Durable workflow state, work queues, variables, waits and execution coordination.",
+      "description": "Durable workflow state, work queues, variables, waits and execution coordination. Structured tables with reviewed schemas and atomic row transactions.",
       "path": "packages/runtime/2.4.0.json",
-      "sha256": "da753f6de41cd328bf5e4914aaf3a40c4081f3a413a7c16090789a69fdb991ab",
+      "sha256": "06e4c43fae36b928adaafeebf711f2dbab661779951d8b19de958832e90d9ce4",
       "config": "packages/runtime/onf-package.json"
     },
     {
@@ -2360,6 +2360,15 @@
       "path": "packages/onf-xero/2.4.0.json",
       "sha256": "4084cded1cfca7ffd793861e086228ce167f6692dda6e3752e9ef3240f942fc1",
       "config": "packages/onf-xero/onf-package.json"
+    },
+    {
+      "id": "onf.runtime",
+      "name": "OpenNodeFlow Runtime",
+      "version": "2.5.0",
+      "description": "Durable workflow state, work queues, variables, waits and execution coordination.",
+      "path": "packages/runtime/2.5.0.json",
+      "sha256": "f2c129c2f785d622222e6c0f36a0b1ceca7aa5acf74e1b9602a7fdd49d636976",
+      "config": "packages/runtime/onf-package.json"
     }
   ]
 }

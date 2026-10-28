@@ -2369,6 +2369,798 @@
       "path": "packages/runtime/2.5.0.json",
       "sha256": "f2c129c2f785d622222e6c0f36a0b1ceca7aa5acf74e1b9602a7fdd49d636976",
       "config": "packages/runtime/onf-package.json"
+    },
+    {
+      "id": "onf.core",
+      "name": "OpenNodeFlow Core",
+      "version": "2.6.0",
+      "description": "Essential entries, constants and custom code for every workflow.",
+      "path": "packages/core/2.6.0.json",
+      "sha256": "7f2e30c05dfee56b01a1c3524988d5f72e49fb4e1f5e56c83c700a4a494e22af",
+      "config": "packages/core/onf-package.json"
+    },
+    {
+      "id": "onf.utilities",
+      "name": "Utilities",
+      "version": "2.6.0",
+      "description": "General HTTP, text, date, collection, file, database and serialization tools.",
+      "path": "packages/onf-utilities/2.6.0.json",
+      "sha256": "78979a8170785c81b547cdc833cff15ad6e5f9f5057d90ff2d0414ec539fcd2a",
+      "config": "packages/onf-utilities/onf-package.json"
+    },
+    {
+      "id": "onf.websocket",
+      "name": "WebSockets",
+      "version": "2.6.0",
+      "description": "WebSockets integration assets",
+      "path": "packages/onf-websocket/2.6.0.json",
+      "sha256": "2dbfea06ec705d4d1f7c4d039b17ae56df0c6a43fd9ba8ae3978b423616e1739",
+      "config": "packages/onf-websocket/onf-package.json"
+    },
+    {
+      "id": "onf.azure-devops",
+      "name": "DevOps",
+      "version": "2.6.0",
+      "description": "Reusable project/build/pipeline/agent/release operations complementing the installed typed Azure event and PR workflows. Existing repository and PR type identities are reused.",
+      "path": "packages/onf-azure-devops/2.6.0.json",
+      "sha256": "91c5b9525997df892e0a1d2394ed6f8f1f056081b48b71a8deae0b30b591d3eb",
+      "config": "packages/onf-azure-devops/onf-package.json"
+    },
+    {
+      "id": "onf.github",
+      "name": "GitHub",
+      "version": "2.6.0",
+      "description": "Repository, issue, pull request and workflow automation. Additional developer ecosystem; installation/account access is not assumed.",
+      "path": "packages/onf-github/2.6.0.json",
+      "sha256": "37b3983aa421eb4105e051063f404aaba81389ade5445bf0f6927e3815990d6c",
+      "config": "packages/onf-github/onf-package.json"
+    },
+    {
+      "id": "onf.gitlab",
+      "name": "GitLab",
+      "version": "2.6.0",
+      "description": "Projects, issues, merge requests, pipelines and jobs. Additional developer ecosystem; installation/account access is not assumed.",
+      "path": "packages/onf-gitlab/2.6.0.json",
+      "sha256": "d16275d4a8d0aaac51cb15b7e85ce44ef7ff003a26e8fcf4f5d7a4db37361fd9",
+      "config": "packages/onf-gitlab/onf-package.json"
+    },
+    {
+      "id": "onf.gitea",
+      "name": "Gitea",
+      "version": "2.6.0",
+      "description": "Self-hosted repository and review automation. Additional developer ecosystem; installation/account access is not assumed.",
+      "path": "packages/onf-gitea/2.6.0.json",
+      "sha256": "aa26b94a1d2f32459447c9deebde7f99bd7d5933e899ed78f62b105d58cede29",
+      "config": "packages/onf-gitea/onf-package.json"
+    },
+    {
+      "id": "onf.jira",
+      "name": "Jira Cloud",
+      "version": "2.6.0",
+      "description": "Issue search, project discovery, comments and transitions. Additional developer ecosystem; installation/account access is not assumed.",
+      "path": "packages/onf-jira/2.6.0.json",
+      "sha256": "3c103fa169dc36bc79927e8b74c879ac0ee1d05cd18c0fb810e737a9bea745e8",
+      "config": "packages/onf-jira/onf-package.json"
+    },
+    {
+      "id": "onf.confluence",
+      "name": "Confluence Cloud",
+      "version": "2.6.0",
+      "description": "Spaces, pages and comments using Confluence Cloud v2. Additional developer ecosystem; installation/account access is not assumed.",
+      "path": "packages/onf-confluence/2.6.0.json",
+      "sha256": "3468e107984d5c2970a8dbd765090a859a44effa3e9882c608d71d133e2a43bb",
+      "config": "packages/onf-confluence/onf-package.json"
+    },
+    {
+      "id": "onf.slack",
+      "name": "Slack",
+      "version": "2.6.0",
+      "description": "Conversation history, threaded messages and developer notifications. Additional developer ecosystem; installation/account access is not assumed.",
+      "path": "packages/onf-slack/2.6.0.json",
+      "sha256": "ac1d114d4947ee4d291bd7e0608e276bfbc91e1227e7a05b230138382799ab31",
+      "config": "packages/onf-slack/onf-package.json"
+    },
+    {
+      "id": "onf.discord",
+      "name": "Discord",
+      "version": "2.6.0",
+      "description": "Bot channel messages, reactions and channel discovery. Additional developer ecosystem; installation/account access is not assumed.",
+      "path": "packages/onf-discord/2.6.0.json",
+      "sha256": "af70e836eada999acc725910ddf342377eb3f47570316827a184934d2d1222e9",
+      "config": "packages/onf-discord/onf-package.json"
+    },
+    {
+      "id": "onf.notion",
+      "name": "Notion",
+      "version": "2.6.0",
+      "description": "Page, block and data-source automation using the split data-source API. Additional developer ecosystem; installation/account access is not assumed.",
+      "path": "packages/onf-notion/2.6.0.json",
+      "sha256": "977bd86082ade38188acc733b8074c6deec30f83aa4549151d4f1ac7910321ad",
+      "config": "packages/onf-notion/onf-package.json"
+    },
+    {
+      "id": "onf.sentry",
+      "name": "Sentry",
+      "version": "2.6.0",
+      "description": "Issue triage, event diagnostics and release metadata. Additional developer ecosystem; installation/account access is not assumed.",
+      "path": "packages/onf-sentry/2.6.0.json",
+      "sha256": "47d638f8d322b2bcf97fafe2fabc329074c07467c1741565f528ceb12c508914",
+      "config": "packages/onf-sentry/onf-package.json"
+    },
+    {
+      "id": "onf.pagerduty",
+      "name": "PagerDuty",
+      "version": "2.6.0",
+      "description": "Incident observation, acknowledgements, resolutions and service ownership. Additional developer ecosystem; installation/account access is not assumed.",
+      "path": "packages/onf-pagerduty/2.6.0.json",
+      "sha256": "26026aa1fee446b671a258567cb539a155a81ef161d2dc0f22bf5b09070012d1",
+      "config": "packages/onf-pagerduty/onf-package.json"
+    },
+    {
+      "id": "onf.home-assistant",
+      "name": "Home Assistant",
+      "version": "1.2.0",
+      "description": "Bounded Home Assistant REST states, metadata, history, calendars and explicitly confirmed equipment actions.",
+      "path": "packages/onf-home-assistant/1.2.0.json",
+      "sha256": "b43d32609152172eb00bfd9856d81b758a1da35c901a2824358e838c8cb2e4e5",
+      "config": "packages/onf-home-assistant/onf-package.json"
+    },
+    {
+      "id": "onf.microsoft-teams",
+      "name": "Microsoft Teams",
+      "version": "2.6.0",
+      "description": "Microsoft Teams integration assets",
+      "path": "packages/onf-microsoft-teams/2.6.0.json",
+      "sha256": "1b814d779bcdbcf1eb95496ff7d094513822fc17ce0aea9e67b28784031b0e6a",
+      "config": "packages/onf-microsoft-teams/onf-package.json"
+    },
+    {
+      "id": "onf.hubspot",
+      "name": "HubSpot",
+      "version": "2.6.0",
+      "description": "HubSpot integration assets",
+      "path": "packages/onf-hubspot/2.6.0.json",
+      "sha256": "45a5f1f5cdffcf2563bb805a67e0c5bcd75139562ca6d558cba7e4a3dad87766",
+      "config": "packages/onf-hubspot/onf-package.json"
+    },
+    {
+      "id": "onf.xero",
+      "name": "Xero",
+      "version": "2.6.0",
+      "description": "Xero integration assets",
+      "path": "packages/onf-xero/2.6.0.json",
+      "sha256": "149503b805acd4c1325dd30a5889bb69e636d9aabe9a54ff4c277414e1139e58",
+      "config": "packages/onf-xero/onf-package.json"
+    },
+    {
+      "id": "onf.google-drive",
+      "name": "Google Drive",
+      "version": "1.2.0",
+      "description": "Typed Google Drive files, sharing, shared drives, changes, revisions, comments and bounded byte transfers.",
+      "path": "packages/onf-google-drive/1.2.0.json",
+      "sha256": "49f1696da9231f90721af5fc9cf39dccb4982402b219bf0a1a875d0c552bf794",
+      "config": "packages/onf-google-drive/onf-package.json"
+    },
+    {
+      "id": "onf.google-calendar",
+      "name": "Google Calendar",
+      "version": "1.2.0",
+      "description": "Typed Google Calendar events, recurrence instances, calendars, sharing rules, settings, colors and free/busy.",
+      "path": "packages/onf-google-calendar/1.2.0.json",
+      "sha256": "aea33430d5391cc6e81ed77f12bc94e4164f8fb1bb71349ae946aec332512593",
+      "config": "packages/onf-google-calendar/onf-package.json"
+    },
+    {
+      "id": "onf.gmail",
+      "name": "Gmail",
+      "version": "1.2.0",
+      "description": "Typed bounded Gmail messages, threads, drafts, labels, attachments, profile and history with explicit send and deletion gates.",
+      "path": "packages/onf-gmail/1.2.0.json",
+      "sha256": "95aa9e6d41022d2ec5185a132b71e7daafc5b2407fe51e355c166d4607d913ed",
+      "config": "packages/onf-gmail/onf-package.json"
+    },
+    {
+      "id": "onf.microsoft-outlook",
+      "name": "Microsoft Outlook",
+      "version": "1.2.0",
+      "description": "Bounded typed Microsoft Graph mail, drafts, folders, attachments, categories and calendars with explicit mutation confirmations.",
+      "path": "packages/onf-microsoft-outlook/1.2.0.json",
+      "sha256": "fc932f7a0c0eb99e69792d21616ccf37f912484a7d4e0e44c40320ab90f1bdf4",
+      "config": "packages/onf-microsoft-outlook/onf-package.json"
+    },
+    {
+      "id": "onf.onedrive-sharepoint",
+      "name": "OneDrive / SharePoint",
+      "version": "1.2.0",
+      "description": "Bounded Microsoft Graph file, folder, version, permission, site and list operations with externally supplied OAuth access tokens.",
+      "path": "packages/onf-onedrive-sharepoint/1.2.0.json",
+      "sha256": "48445e2e3ee778ab6d07c19bf6a2575ace2e9de09365a2bd35e0c7836a40e08c",
+      "config": "packages/onf-onedrive-sharepoint/onf-package.json"
+    },
+    {
+      "id": "onf.microsoft-excel",
+      "name": "Microsoft Excel",
+      "version": "1.2.0",
+      "description": "Typed Microsoft Graph workbook sessions, worksheets, range values/formulas, tables, rows, columns, named items and charts with explicit guarded mutations.",
+      "path": "packages/onf-microsoft-excel/1.2.0.json",
+      "sha256": "bf202bee31a17221a93c5b4fcf238948c298f39bc64641f2b23599be551179f0",
+      "config": "packages/onf-microsoft-excel/onf-package.json"
+    },
+    {
+      "id": "onf.box",
+      "name": "Box",
+      "version": "1.2.0",
+      "description": "Typed Box API 2.0 files, folders, search, bounded uploads/downloads, versions, comments, collaborations, shared links, users and metadata.",
+      "path": "packages/onf-box/1.2.0.json",
+      "sha256": "60e839b05563287c64358f7afa19ce3150252828ce75fcf0649bcd030c121d1e",
+      "config": "packages/onf-box/onf-package.json"
+    },
+    {
+      "id": "onf.airtable",
+      "name": "Airtable",
+      "version": "1.2.0",
+      "description": "Typed Airtable bases, schemas, views, records and comments with bounded one-page Web API operations.",
+      "path": "packages/onf-airtable/1.2.0.json",
+      "sha256": "1b7de5e07e6168040f0cbfc090fe7a7c77b3ac5cf0709f80a67555fbaf97ad92",
+      "config": "packages/onf-airtable/onf-package.json"
+    },
+    {
+      "id": "onf.monday",
+      "name": "monday.com",
+      "version": "1.2.0",
+      "description": "Typed monday.com GraphQL board, group, item, column, workspace, team, update and asset metadata operations.",
+      "path": "packages/onf-monday/1.2.0.json",
+      "sha256": "730498ba84b6adf735322046a32157b9b74c346a04c4a60263babd9ea555a393",
+      "config": "packages/onf-monday/onf-package.json"
+    },
+    {
+      "id": "onf.asana",
+      "name": "Asana",
+      "version": "1.2.0",
+      "description": "Typed Asana tasks, subtasks, projects, workspaces, sections, comments, custom fields, tags, users, teams and memberships with bounded batch updates.",
+      "path": "packages/onf-asana/1.2.0.json",
+      "sha256": "93496c1136d3fa2f4abfb0270c9f8cb5158bd8709fbffac014f86bda9ee424ac",
+      "config": "packages/onf-asana/onf-package.json"
+    },
+    {
+      "id": "onf.trello",
+      "name": "Trello",
+      "version": "1.2.0",
+      "description": "Typed Trello boards, lists, cards, checklists, check items, labels, members, comments, attachment metadata, custom fields and organizations.",
+      "path": "packages/onf-trello/1.2.0.json",
+      "sha256": "7d05e81d859a3a24916828bb358243cb91819d0bff805b90d196a9c42f5f3c5c",
+      "config": "packages/onf-trello/onf-package.json"
+    },
+    {
+      "id": "onf.salesforce",
+      "name": "Salesforce",
+      "version": "1.2.0",
+      "description": "Pinned Salesforce REST CRM records, custom scalar fields, metadata and bounded collections.",
+      "path": "packages/onf-salesforce/1.2.0.json",
+      "sha256": "a98426eddd1ad044de922cd08010f7cfda10d1cde51cef6a87831dc74f791851",
+      "config": "packages/onf-salesforce/onf-package.json"
+    },
+    {
+      "id": "onf.google-sheets",
+      "name": "Google Sheets",
+      "version": "1.2.0",
+      "description": "Typed Google Sheets values, spreadsheet metadata, filters, formatting, sheets, dimensions, named ranges and explicit batch mutations.",
+      "path": "packages/onf-google-sheets/1.2.0.json",
+      "sha256": "59650e2e1731a99b436656b2c04456ece744829cfb8fae7c6dca1ab777261cb5",
+      "config": "packages/onf-google-sheets/onf-package.json"
+    },
+    {
+      "id": "onf.clickup",
+      "name": "ClickUp",
+      "version": "1.2.0",
+      "description": "Typed ClickUp v2 workspaces, spaces, folders, lists, tasks/subtasks, status, comments, checklists, custom fields, tags, time tracking and goals.",
+      "path": "packages/onf-clickup/1.2.0.json",
+      "sha256": "4876d344227a5fb750d2e2ac3c9f892889f0f97b286dc37c9235668dfab2454b",
+      "config": "packages/onf-clickup/onf-package.json"
+    },
+    {
+      "id": "onf.linear",
+      "name": "Linear",
+      "version": "1.2.0",
+      "description": "Typed fixed-document Linear GraphQL issues, projects, teams, users, workflow states, labels, comments, cycles, milestones, relations and attachment metadata.",
+      "path": "packages/onf-linear/1.2.0.json",
+      "sha256": "e43b9bab97300f00f03ca58d9bc5c76e78203194ecf3aca70319163c15d1cd82",
+      "config": "packages/onf-linear/onf-package.json"
+    },
+    {
+      "id": "onf.baserow",
+      "name": "Baserow",
+      "version": "1.2.0",
+      "description": "Typed Baserow workspaces, databases, tables, fields, rows, views, filters and sorts with bounded REST operations.",
+      "path": "packages/onf-baserow/1.2.0.json",
+      "sha256": "060a8557f128916e75d1e34d10ee3b8a1d4503a65732340801f919a9b79f907a",
+      "config": "packages/onf-baserow/onf-package.json"
+    },
+    {
+      "id": "onf.dropbox",
+      "name": "Dropbox",
+      "version": "1.2.0",
+      "description": "Typed Dropbox API v2 files, folders, search, revision-aware transfers, sharing, accounts and quotas.",
+      "path": "packages/onf-dropbox/1.2.0.json",
+      "sha256": "88f89cfbbfc890ee18f23ca2287d3fecb84997b5d9871cd005f53032f5524534",
+      "config": "packages/onf-dropbox/onf-package.json"
+    },
+    {
+      "id": "onf.google-ads",
+      "name": "Google Ads",
+      "version": "2.6.0",
+      "description": "Google Ads integration assets",
+      "path": "packages/onf-google-ads/2.6.0.json",
+      "sha256": "56c836e5fc2c4ae36edec88263cc734ba1f5d5553edebee37167a8b281273ec1",
+      "config": "packages/onf-google-ads/onf-package.json"
+    },
+    {
+      "id": "onf.kubernetes",
+      "name": "Kubernetes",
+      "version": "2.6.0",
+      "description": "Core, apps, batch and networking v1 operations. Use trusted API CA and namespace RBAC; no kubeconfig/private key transport or TLS bypass.",
+      "path": "packages/onf-kubernetes/2.6.0.json",
+      "sha256": "1dd70bfef8628ae27a024ebef2e1374e55675b5133379f507087fe5eb305d194",
+      "config": "packages/onf-kubernetes/onf-package.json"
+    },
+    {
+      "id": "onf.cert-manager",
+      "name": "cert-manager",
+      "version": "2.6.0",
+      "description": "Read-only cert-manager operator inspection through explicit installed CRD endpoints. No reconcile, rollout, restore, backup execution or secret object reads.",
+      "path": "packages/onf-cert-manager/2.6.0.json",
+      "sha256": "2180764c4a7f8fe571752765dc67fa84272d723aff202cbcaeb64a81afa9c6de",
+      "config": "packages/onf-cert-manager/onf-package.json"
+    },
+    {
+      "id": "onf.cloudnative-pg",
+      "name": "CloudNativePG",
+      "version": "2.6.0",
+      "description": "Read-only CloudNativePG operator inspection through explicit installed CRD endpoints. No reconcile, rollout, restore, backup execution or secret object reads.",
+      "path": "packages/onf-cloudnative-pg/2.6.0.json",
+      "sha256": "914017cbc2663b55a615ac5fc05e9fa18d812cf3137ce92575f47adede229752",
+      "config": "packages/onf-cloudnative-pg/onf-package.json"
+    },
+    {
+      "id": "onf.longhorn",
+      "name": "Longhorn",
+      "version": "2.6.0",
+      "description": "Read-only Longhorn operator inspection through explicit installed CRD endpoints. No reconcile, rollout, restore, backup execution or secret object reads.",
+      "path": "packages/onf-longhorn/2.6.0.json",
+      "sha256": "de29c04287cb99091dcf967abc01932dbf90bc4cefe0f29e3e28c774feaf11af",
+      "config": "packages/onf-longhorn/onf-package.json"
+    },
+    {
+      "id": "onf.fleet",
+      "name": "Rancher Fleet",
+      "version": "2.6.0",
+      "description": "Read-only Rancher Fleet operator inspection through explicit installed CRD endpoints. No reconcile, rollout, restore, backup execution or secret object reads.",
+      "path": "packages/onf-fleet/2.6.0.json",
+      "sha256": "984d97563324a9a3190d626ab799cfa38670b9e4fd03f8d1af7d87b34f0d5d41",
+      "config": "packages/onf-fleet/onf-package.json"
+    },
+    {
+      "id": "onf.rancher",
+      "name": "Rancher",
+      "version": "2.6.0",
+      "description": "Rancher Kubernetes-style RK-API management resources. No legacy /v3 action guessing, downstream provisioning or cluster deletion.",
+      "path": "packages/onf-rancher/2.6.0.json",
+      "sha256": "f21540df98d3fa4caf12c31fa075a504a089daf6c63dc98079525a99deac162a",
+      "config": "packages/onf-rancher/onf-package.json"
+    },
+    {
+      "id": "onf.netbird",
+      "name": "NetBird",
+      "version": "2.6.0",
+      "description": "Peer, access group, policy and current Network API operations using PAT Token authentication; deprecated Routes API omitted.",
+      "path": "packages/onf-netbird/2.6.0.json",
+      "sha256": "3d4991bc6399c6d14d5059243d0384bd9d8ae65414997c5555cfe38aeb16f589",
+      "config": "packages/onf-netbird/onf-package.json"
+    },
+    {
+      "id": "onf.digitalocean",
+      "name": "DigitalOcean",
+      "version": "1.2.0",
+      "description": "Typed DigitalOcean cloud resources, guarded mutations, explicit action tracking and bounded monitoring reads.",
+      "path": "packages/onf-digitalocean/1.2.0.json",
+      "sha256": "05f822e57a2a81416aab0166970aa52c8da2a6df9ab306a0ad53b1f0051bf850",
+      "config": "packages/onf-digitalocean/onf-package.json"
+    },
+    {
+      "id": "onf.hetzner-cloud",
+      "name": "Hetzner Cloud",
+      "version": "1.2.0",
+      "description": "Typed Hetzner Cloud resources, guarded infrastructure changes, manual pagination and explicit asynchronous action status.",
+      "path": "packages/onf-hetzner-cloud/1.2.0.json",
+      "sha256": "68c639c0c90105932209bebe1da936da24411e016ffff4c188f960de32879c2a",
+      "config": "packages/onf-hetzner-cloud/onf-package.json"
+    },
+    {
+      "id": "onf.proxmox-ve",
+      "name": "Proxmox VE",
+      "version": "1.2.0",
+      "description": "Typed Proxmox VE cluster, guest, storage, snapshot, backup, network and task operations with guarded writes and explicit task inspection.",
+      "path": "packages/onf-proxmox-ve/1.2.0.json",
+      "sha256": "96c566754bfab1fe5ba702fa277bf1034158e4f6d4fb57ccf23b647b8a9c4e3e",
+      "config": "packages/onf-proxmox-ve/onf-package.json"
+    },
+    {
+      "id": "onf.cloudflare",
+      "name": "Cloudflare",
+      "version": "1.2.0",
+      "description": "Scoped Cloudflare zone, typed DNS record and explicit cache purge operations.",
+      "path": "packages/onf-cloudflare/1.2.0.json",
+      "sha256": "72d7131e5efaec735f4d3ce49568b05fe2017b07d35640701abfb8fb671848c6",
+      "config": "packages/onf-cloudflare/onf-package.json"
+    },
+    {
+      "id": "onf.traefik",
+      "name": "Traefik",
+      "version": "2.6.0",
+      "description": "Read-only Traefik operator inspection through explicit installed CRD endpoints. No reconcile, rollout, restore, backup execution or secret object reads.",
+      "path": "packages/onf-traefik/2.6.0.json",
+      "sha256": "cbe805079ea3b0570f9d4a887f2852e86b8d32ad42d491754b7ee847b17e8d39",
+      "config": "packages/onf-traefik/onf-package.json"
+    },
+    {
+      "id": "onf.keycloak",
+      "name": "Keycloak",
+      "version": "1.2.0",
+      "description": "Bounded Keycloak Admin REST users, groups, roles, mappings, sessions and sanitized metadata with guarded mutations.",
+      "path": "packages/onf-keycloak/1.2.0.json",
+      "sha256": "d4062f00907e2ab7c260d8c378ac4ded68318a1227653e171fdebefecfe83f08",
+      "config": "packages/onf-keycloak/onf-package.json"
+    },
+    {
+      "id": "onf.zabbix",
+      "name": "Zabbix",
+      "version": "1.2.0",
+      "description": "Bounded Zabbix 7.4 JSON-RPC monitoring, exact history/trends, explicit event acknowledgement and maintenance.",
+      "path": "packages/onf-zabbix/1.2.0.json",
+      "sha256": "77792dd9e49096cce52a263391bd112f52db2c79e9878a2cff34710e6aac7475",
+      "config": "packages/onf-zabbix/onf-package.json"
+    },
+    {
+      "id": "onf.alertmanager",
+      "name": "Alertmanager",
+      "version": "2.6.0",
+      "description": "Alertmanager operations with explicit resource scope and bounded responses.",
+      "path": "packages/onf-alertmanager/2.6.0.json",
+      "sha256": "6d32d6acc0d35ccc8bb12fe789591b31283a57535b26abff97f215cde99f5c96",
+      "config": "packages/onf-alertmanager/onf-package.json"
+    },
+    {
+      "id": "onf.prometheus",
+      "name": "Prometheus",
+      "version": "2.6.0",
+      "description": "Prometheus operations with explicit resource scope and bounded responses.",
+      "path": "packages/onf-prometheus/2.6.0.json",
+      "sha256": "dfac3f386274e3db75617e87c5589b65441aa19bcac6b98b2bf357f49fdd9394",
+      "config": "packages/onf-prometheus/onf-package.json"
+    },
+    {
+      "id": "onf.loki",
+      "name": "Loki",
+      "version": "2.6.0",
+      "description": "Loki operations with explicit resource scope and bounded responses.",
+      "path": "packages/onf-loki/2.6.0.json",
+      "sha256": "cef55c2960d017eac6fd836d11ce521d51b2450a6d70c90b13c6b8b3e59c2447",
+      "config": "packages/onf-loki/onf-package.json"
+    },
+    {
+      "id": "onf.grafana",
+      "name": "Grafana",
+      "version": "2.6.0",
+      "description": "Grafana operations with explicit resource scope and bounded responses.",
+      "path": "packages/onf-grafana/2.6.0.json",
+      "sha256": "31122eddf336b731a29706a0cd4992897d00b9e4fabeba35500e9bda7d6c3b49",
+      "config": "packages/onf-grafana/onf-package.json"
+    },
+    {
+      "id": "onf.azure",
+      "name": "Azure",
+      "version": "2.6.0",
+      "description": "Azure cloud management and service integrations.",
+      "path": "packages/onf-azure/2.6.0.json",
+      "sha256": "511406f4909f3f2fc7363516dd3d73caba0838d65c66ae507b8542f0c41823c1",
+      "config": "packages/onf-azure/onf-package.json"
+    },
+    {
+      "id": "onf.docker",
+      "name": "Docker Engine",
+      "version": "2.6.0",
+      "description": "Engine v1.53 (Docker 29+) over an existing trusted authenticated HTTPS proxy. No Unix socket, streaming logs, prune or implicit TLS bypass.",
+      "path": "packages/onf-docker/2.6.0.json",
+      "sha256": "ceed95f8d1a484b955eb2c0193a95c8e691cda71c7c9be4a942bd15efd9c3b86",
+      "config": "packages/onf-docker/onf-package.json"
+    },
+    {
+      "id": "onf.aws-lambda",
+      "name": "AWS Lambda",
+      "version": "1.2.0",
+      "description": "Invoke Lambda functions and manage configuration, versions, aliases, concurrency, policies, layers and tags with signed AWS API requests.",
+      "path": "packages/onf-aws-lambda/1.2.0.json",
+      "sha256": "4f3b70ce0660a8b838abde4e4887bdf3d7f67dbaab5c60a260dd4cab0f36f5ac",
+      "config": "packages/onf-aws-lambda/onf-package.json"
+    },
+    {
+      "id": "onf.vault",
+      "name": "HashiCorp Vault",
+      "version": "1.2.0",
+      "description": "Bounded Vault KV v1/v2, diagnostics and transit HTTP operations using externally managed protected tokens.",
+      "path": "packages/onf-vault/1.2.0.json",
+      "sha256": "4c20573dc84393a7f88704785cf5d2fb02f40524e01c009ec2205e6e39a73499",
+      "config": "packages/onf-vault/onf-package.json"
+    },
+    {
+      "id": "onf.s3",
+      "name": "S3-compatible Object Storage",
+      "version": "1.2.0",
+      "description": "Bounded S3 REST operations with AWS Signature Version 4, HTTPS and explicit mutation confirmation.",
+      "path": "packages/onf-s3/1.2.0.json",
+      "sha256": "7eb7fe3c26c2a624b8152d9a0ef95132a471e80a7d6d6bf834f3fba7391feb96",
+      "config": "packages/onf-s3/onf-package.json"
+    },
+    {
+      "id": "onf.amazon-sqs",
+      "name": "Amazon SQS",
+      "version": "1.2.0",
+      "description": "Bounded SQS queue and message operations with SigV4, explicit receipt acknowledgements and guarded writes.",
+      "path": "packages/onf-amazon-sqs/1.2.0.json",
+      "sha256": "376e1da8357846164d8f9cdb9b3ed29e1d321e3d9a0776e029e988ef94cf7923",
+      "config": "packages/onf-amazon-sqs/onf-package.json"
+    },
+    {
+      "id": "onf.google-cloud-storage",
+      "name": "Google Cloud Storage",
+      "version": "1.2.0",
+      "description": "Typed Google Cloud Storage buckets, object metadata and generation-guarded bounded byte transfers.",
+      "path": "packages/onf-google-cloud-storage/1.2.0.json",
+      "sha256": "05a6f0d4c0be9746149156c7695d3f2bd3475bc23ee7d8349855e3fc5409ce4a",
+      "config": "packages/onf-google-cloud-storage/onf-package.json"
+    },
+    {
+      "id": "onf.google-pubsub",
+      "name": "Google Pub/Sub",
+      "version": "1.2.0",
+      "description": "Typed Pub/Sub topics, pull subscriptions, bounded publish/pull, explicit acknowledgements, snapshots and schema revisions.",
+      "path": "packages/onf-google-pubsub/1.2.0.json",
+      "sha256": "95de20cbcad8786684cd4a79657c76d7ce670b87dd7c620b314b441fb86619d0",
+      "config": "packages/onf-google-pubsub/onf-package.json"
+    },
+    {
+      "id": "onf.postgresql",
+      "name": "PostgreSQL",
+      "version": "1.2.0",
+      "description": "Bounded PostgreSQL queries, transactions, row operations, schema discovery and database statistics using an embedded pure JavaScript pg client.",
+      "path": "packages/onf-postgresql/1.2.0.json",
+      "sha256": "2d908ceacb27477d57bd4897ef656a4b1ee35dec74c770096466985700b8ff5a",
+      "config": "packages/onf-postgresql/onf-package.json"
+    },
+    {
+      "id": "onf.mysql",
+      "name": "MySQL",
+      "version": "1.2.0",
+      "description": "Bounded MySQL prepared queries, transactions, safe row operations, schema and catalog discovery, with an embedded MySQL2 client.",
+      "path": "packages/onf-mysql/1.2.0.json",
+      "sha256": "c1542d1063209498c456f4743b98a87a2833429198138eada6c674cc3a1fe027",
+      "config": "packages/onf-mysql/onf-package.json"
+    },
+    {
+      "id": "onf.bigquery",
+      "name": "BigQuery",
+      "version": "1.2.0",
+      "description": "Typed BigQuery datasets, tables, jobs, bounded query results, dry runs, explicit streaming inserts, routines, models and projects.",
+      "path": "packages/onf-bigquery/1.2.0.json",
+      "sha256": "ae70c222e45e97a6685315d4273194539accbd830d81a539878eb912ae06d1ed",
+      "config": "packages/onf-bigquery/onf-package.json"
+    },
+    {
+      "id": "onf.redis",
+      "name": "Redis",
+      "version": "1.2.0",
+      "description": "Bounded native Redis strings, hashes, lists, sets, sorted sets, keys, transactions and manual-acknowledgement streams, with an embedded upstream Redis client.",
+      "path": "packages/onf-redis/1.2.0.json",
+      "sha256": "12735d13a2078d39fcf85f5ab929b9a3158f34f6c325371096fbb1b00ca2e718",
+      "config": "packages/onf-redis/onf-package.json"
+    },
+    {
+      "id": "onf.stripe",
+      "name": "Stripe",
+      "version": "1.2.0",
+      "description": "Bounded typed Stripe customers, payments, refunds, subscriptions, invoices, reconciliation, Connect transfers, payouts and disputes with explicit write confirmation.",
+      "path": "packages/onf-stripe/1.2.0.json",
+      "sha256": "4666454f290598467b2ab35698f9d212c50c02728a093cbc573a1b82cc510f1b",
+      "config": "packages/onf-stripe/onf-package.json"
+    },
+    {
+      "id": "onf.paypal",
+      "name": "PayPal",
+      "version": "1.2.0",
+      "description": "Bounded typed PayPal orders, payments, subscriptions, invoices, payouts, disputes and reporting with external bearer authentication.",
+      "path": "packages/onf-paypal/1.2.0.json",
+      "sha256": "db7e0ab3c26ae9951304b56f5e1ed79afd863d110193e0423dd857f3a4f2efab",
+      "config": "packages/onf-paypal/onf-package.json"
+    },
+    {
+      "id": "onf.shopify",
+      "name": "Shopify",
+      "version": "1.2.0",
+      "description": "Typed Shopify Admin GraphQL products, variants, inventory, collections, customers, orders, drafts, fulfillment and metafields. Confirmed writes, bounded pages and redacted errors.",
+      "path": "packages/onf-shopify/1.2.0.json",
+      "sha256": "335ec8f63c2489a57b9ab0d03260f2189ab0f7ac9f766624af678e5cbcc9dd9b",
+      "config": "packages/onf-shopify/onf-package.json"
+    },
+    {
+      "id": "onf.woocommerce",
+      "name": "WooCommerce",
+      "version": "1.2.0",
+      "description": "Typed WooCommerce REST v3 catalog, stock, orders, refunds, customers, coupons, shipping, tax and reports with bounded requests and confirmed writes.",
+      "path": "packages/onf-woocommerce/1.2.0.json",
+      "sha256": "b8346f026b7ea5c8ed487e516a36292874ef9298010b7159c5d1f2edbedbf674",
+      "config": "packages/onf-woocommerce/onf-package.json"
+    },
+    {
+      "id": "onf.quickbooks",
+      "name": "QuickBooks Online",
+      "version": "1.2.0",
+      "description": "Typed QuickBooks Online accounting resources, guarded sparse writes, bounded queries and financial report cells with exact decimal strings.",
+      "path": "packages/onf-quickbooks/1.2.0.json",
+      "sha256": "963be1e379e3613a21a42de5ae3850cb16f44540b9fab3c9c871ce038958b5f0",
+      "config": "packages/onf-quickbooks/onf-package.json"
+    },
+    {
+      "id": "onf.freshbooks",
+      "name": "FreshBooks",
+      "version": "1.2.0",
+      "description": "Typed FreshBooks accounting, project and time resources with explicit account/business routes, exact decimal strings and confirmed writes.",
+      "path": "packages/onf-freshbooks/1.2.0.json",
+      "sha256": "d007dc20eaf63179229cebcef03fafa84d5be95deb3e534d66bcd6376a8131ad",
+      "config": "packages/onf-freshbooks/onf-package.json"
+    },
+    {
+      "id": "onf.twilio",
+      "name": "Twilio",
+      "version": "1.2.0",
+      "description": "Typed Twilio SMS/MMS, call and recording controls, account and phone metadata, Messaging Services, Verify and usage pages.",
+      "path": "packages/onf-twilio/1.2.0.json",
+      "sha256": "4f78fad412c58da83dbfb9f7ffe14fbbfbeb2b733319c32d74274911a29daa7a",
+      "config": "packages/onf-twilio/onf-package.json"
+    },
+    {
+      "id": "onf.sendgrid",
+      "name": "SendGrid",
+      "version": "1.2.0",
+      "description": "Typed bounded SendGrid mail, scheduled batches, templates, contacts, lists, segments, suppressions, verified senders, statistics and address validation.",
+      "path": "packages/onf-sendgrid/1.2.0.json",
+      "sha256": "91bb165f88ecb70e19360694e194eb90317473eba92ff05b8e3332c3bea771d9",
+      "config": "packages/onf-sendgrid/onf-package.json"
+    },
+    {
+      "id": "onf.resend",
+      "name": "Resend",
+      "version": "1.2.0",
+      "description": "Typed bounded Resend email delivery, scheduling, received email metadata, domains, contacts, segments, audiences, topics, templates and API key administration.",
+      "path": "packages/onf-resend/1.2.0.json",
+      "sha256": "0631db5d97d6d6ba45d1753d276012addfaee5a3d00808a5f93cd9035ac23add",
+      "config": "packages/onf-resend/onf-package.json"
+    },
+    {
+      "id": "onf.whatsapp-business",
+      "name": "WhatsApp Business",
+      "version": "1.2.0",
+      "description": "Typed WhatsApp Cloud API messages, templates, media metadata, phone profiles, registration and offline webhook decoding.",
+      "path": "packages/onf-whatsapp-business/1.2.0.json",
+      "sha256": "70a5bb1d5bdc3020eac75146da12db212bb4b3be24164aeb87cbe2636463fa97",
+      "config": "packages/onf-whatsapp-business/onf-package.json"
+    },
+    {
+      "id": "onf.mqtt",
+      "name": "MQTT",
+      "version": "1.2.0",
+      "description": "Native bounded MQTT3.1.1 publish, retained messages, clean-session receive and correlated JSON requests, with topic/payload helpers and an embedded MQTT.js client.",
+      "path": "packages/onf-mqtt/1.2.0.json",
+      "sha256": "84f369f63720bfd07a6fef727419be9e62c12cd653c8d1cc8d635565b75ca73e",
+      "config": "packages/onf-mqtt/onf-package.json"
+    },
+    {
+      "id": "onf.modbus-tcp",
+      "name": "Modbus TCP",
+      "version": "1.2.0",
+      "description": "Bounded native Modbus TCP reads and confirmed equipment writes, exact register numerics and register-map helpers.",
+      "path": "packages/onf-modbus-tcp/1.2.0.json",
+      "sha256": "189060b7b4108367ddee1e8e0d7b5bdd2a50f6d4767c6fd4c350d7200d4b2c1a",
+      "config": "packages/onf-modbus-tcp/onf-package.json"
+    },
+    {
+      "id": "onf.rabbitmq",
+      "name": "RabbitMQ",
+      "version": "1.2.0",
+      "description": "Bounded native AMQP 0-9-1 publishing, basic.get settlement and queue/exchange operations.",
+      "path": "packages/onf-rabbitmq/1.2.0.json",
+      "sha256": "f96177b2d174f8a80e375490d41ae1ed93507fb597d5f5baba843e1d0b38ab8a",
+      "config": "packages/onf-rabbitmq/onf-package.json"
+    },
+    {
+      "id": "onf.zendesk",
+      "name": "Zendesk",
+      "version": "1.2.0",
+      "description": "Typed Zendesk tickets, replies, users, organizations, groups, tags, views, macros, search and metadata.",
+      "path": "packages/onf-zendesk/1.2.0.json",
+      "sha256": "866dc40426d96968025e4de041add76e035e15018fb2a1b87155015b885f2a2b",
+      "config": "packages/onf-zendesk/onf-package.json"
+    },
+    {
+      "id": "onf.intercom",
+      "name": "Intercom",
+      "version": "1.2.0",
+      "description": "Typed Intercom contacts, companies, conversations, replies, tags, notes, teams and Help Center content with explicit confirmed writes.",
+      "path": "packages/onf-intercom/1.2.0.json",
+      "sha256": "4389f816c003e2fd923134d170c4e0c788aa86ccc1e12b62968872067a881a65",
+      "config": "packages/onf-intercom/onf-package.json"
+    },
+    {
+      "id": "onf.freshdesk",
+      "name": "Freshdesk",
+      "version": "1.2.0",
+      "description": "Typed Freshdesk API v2 tickets, replies, private notes, contacts, companies, agents, groups, fields, search and knowledgebase.",
+      "path": "packages/onf-freshdesk/1.2.0.json",
+      "sha256": "8006315c08b3a0a0c54f65fafcd16352e8b21299a33dc1347b3ff2d11fdf54e3",
+      "config": "packages/onf-freshdesk/onf-package.json"
+    },
+    {
+      "id": "onf.calendly",
+      "name": "Calendly",
+      "version": "1.2.0",
+      "description": "Typed Calendly API v2 users, organizations, event types, scheduled events, invitees, availability, routing forms, single-use links and explicit cancellation.",
+      "path": "packages/onf-calendly/1.2.0.json",
+      "sha256": "b54ca58b96557eb6599f2c291e780c5d9396bb2c6da8c4c6059227cd09cc5613",
+      "config": "packages/onf-calendly/onf-package.json"
+    },
+    {
+      "id": "onf.docusign",
+      "name": "Docusign",
+      "version": "1.2.0",
+      "description": "Typed eSignature v2.1 accounts, users, draft/send envelopes, recipients, tabs, templates, document metadata, audit, folders and brands.",
+      "path": "packages/onf-docusign/1.2.0.json",
+      "sha256": "8c4a5dcd05bdd74c829be38d415a6e7b06fda6f449c12dfb823bd71012990d33",
+      "config": "packages/onf-docusign/onf-package.json"
+    },
+    {
+      "id": "onf.nats",
+      "name": "NATS",
+      "version": "1.2.0",
+      "description": "Bounded native NATS publish, request/reply and JetStream management with typed binary helpers.",
+      "path": "packages/onf-nats/1.2.0.json",
+      "sha256": "5566666cd16ba4932baf3b69fc41a6c756e5c8e71a481c143fdd6e30b958e2dd",
+      "config": "packages/onf-nats/onf-package.json"
+    },
+    {
+      "id": "onf.openai",
+      "name": "OpenAI",
+      "version": "1.2.0",
+      "description": "Bounded OpenAI Responses, embeddings, models, file metadata, batches, vector stores and upload lifecycle metadata.",
+      "path": "packages/onf-openai/1.2.0.json",
+      "sha256": "6596a12ebf57692894fc128f04b6230f1c879385a19ba748a2e68fffe7dd6efb",
+      "config": "packages/onf-openai/onf-package.json"
+    },
+    {
+      "id": "onf.telegram",
+      "name": "Telegram",
+      "version": "1.2.0",
+      "description": "Bounded typed Telegram Bot API messaging, media metadata, polls, bot settings, members, invites and forum topics.",
+      "path": "packages/onf-telegram/1.2.0.json",
+      "sha256": "c8e72cb3b0c12a7f6668f06e4a1a26481ddb65e18beddea9e30ff80010be078e",
+      "config": "packages/onf-telegram/onf-package.json"
+    },
+    {
+      "id": "onf.anthropic",
+      "name": "Anthropic Claude",
+      "version": "1.2.0",
+      "description": "Typed Claude Messages, token counts, model metadata and bounded message batches. Tool requests and results remain data.",
+      "path": "packages/onf-anthropic/1.2.0.json",
+      "sha256": "cc8be44cbdb859cc29a929b83c30b1ab0301a2524672cf995d1e3845f8bc274c",
+      "config": "packages/onf-anthropic/onf-package.json"
     }
   ]
 }

@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "summary": "Typed ClickUp v2 workspaces, spaces, folders, lists, tasks/subtasks, status, comments, checklists, custom fields, tags, time tracking and goals.",
+  "description": "Typed ClickUp v2 workspaces, spaces, folders, lists, tasks/subtasks, status, comments, checklists, custom fields, tags, time tracking and goals.",
+  "website": "https://developer.clickup.com/openapi/clickup-api-v2-reference.json",
+  "category": "Integrations",
+  "tags": [
+    "integration",
+    "clickup"
+  ],
+  "defaultPackage": false,
+  "logo": "logo.png",
+  "banner": "banner.png"
+}

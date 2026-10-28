@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "summary": "Typed Baserow workspaces, databases, tables, fields, rows, views, filters and sorts with bounded REST operations.",
+  "description": "Typed Baserow workspaces, databases, tables, fields, rows, views, filters and sorts with bounded REST operations.",
+  "website": "https://baserow.io/docs/apis/rest-api",
+  "category": "Integrations",
+  "tags": [
+    "integration",
+    "baserow"
+  ],
+  "defaultPackage": false,
+  "logo": "logo.png",
+  "banner": "banner.png"
+}

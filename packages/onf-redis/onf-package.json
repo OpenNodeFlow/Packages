@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "summary": "Bounded native Redis strings, hashes, lists, sets, sorted sets, keys, transactions and manual-acknowledgement streams, with an embedded upstream Redis client.",
+  "description": "Bounded native Redis strings, hashes, lists, sets, sorted sets, keys, transactions and manual-acknowledgement streams, with an embedded upstream Redis client.",
+  "website": "https://redis.io/",
+  "category": "Integrations",
+  "tags": [
+    "database",
+    "redis",
+    "cache",
+    "streams"
+  ],
+  "defaultPackage": false,
+  "logo": "logo.png",
+  "banner": "banner.png"
+}

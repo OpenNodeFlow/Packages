@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "summary": "Bounded Keycloak Admin REST users, groups, roles, mappings, sessions and sanitized metadata with guarded mutations.",
+  "description": "Bounded Keycloak Admin REST users, groups, roles, mappings, sessions and sanitized metadata with guarded mutations.",
+  "website": "https://www.keycloak.org/docs-api/latest/rest-api/index.html",
+  "category": "Integrations",
+  "tags": [
+    "integration",
+    "keycloak"
+  ],
+  "defaultPackage": false,
+  "logo": "logo.png",
+  "banner": "banner.png"
+}

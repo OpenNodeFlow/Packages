@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "summary": "Bounded typed Telegram Bot API messaging, media metadata, polls, bot settings, members, invites and forum topics.",
+  "description": "Bounded typed Telegram Bot API messaging, media metadata, polls, bot settings, members, invites and forum topics.",
+  "website": "https://core.telegram.org/bots/api",
+  "category": "Integrations",
+  "tags": [
+    "integration",
+    "telegram"
+  ],
+  "defaultPackage": false,
+  "logo": "logo.png",
+  "banner": "banner.png"
+}

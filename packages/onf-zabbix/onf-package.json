@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "summary": "Bounded Zabbix 7.4 JSON-RPC monitoring, exact history/trends, explicit event acknowledgement and maintenance.",
+  "description": "Bounded Zabbix 7.4 JSON-RPC monitoring, exact history/trends, explicit event acknowledgement and maintenance.",
+  "website": "https://www.zabbix.com/documentation/7.4/en/manual/api",
+  "category": "Integrations",
+  "tags": [
+    "integration",
+    "zabbix"
+  ],
+  "defaultPackage": false,
+  "logo": "logo.png",
+  "banner": "banner.png"
+}

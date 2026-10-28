@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "summary": "Typed DigitalOcean cloud resources, guarded mutations, explicit action tracking and bounded monitoring reads.",
+  "description": "Typed DigitalOcean cloud resources, guarded mutations, explicit action tracking and bounded monitoring reads.",
+  "website": "https://docs.digitalocean.com/reference/api/reference/",
+  "category": "Integrations",
+  "tags": [
+    "integration",
+    "digitalocean"
+  ],
+  "defaultPackage": false,
+  "logo": "logo.png",
+  "banner": "banner.png"
+}

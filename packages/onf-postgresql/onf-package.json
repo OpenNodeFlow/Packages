@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "summary": "Bounded PostgreSQL queries, transactions, row operations, schema discovery and database statistics using an embedded pure JavaScript pg client.",
+  "description": "Bounded PostgreSQL queries, transactions, row operations, schema discovery and database statistics using an embedded pure JavaScript pg client.",
+  "website": "https://node-postgres.com/features/queries",
+  "category": "Integrations",
+  "tags": [
+    "integration",
+    "postgresql"
+  ],
+  "defaultPackage": false,
+  "logo": "logo.png",
+  "banner": "banner.png"
+}

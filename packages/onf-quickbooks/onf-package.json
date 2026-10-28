@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "summary": "Typed QuickBooks Online accounting resources, guarded sparse writes, bounded queries and financial report cells with exact decimal strings.",
+  "description": "Typed QuickBooks Online accounting resources, guarded sparse writes, bounded queries and financial report cells with exact decimal strings.",
+  "website": "https://developer.intuit.com/docs/api/accounting/invoice",
+  "category": "Integrations",
+  "tags": [
+    "integration",
+    "quickbooks"
+  ],
+  "defaultPackage": false,
+  "logo": "logo.png",
+  "banner": "banner.png"
+}

@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "summary": "Bounded SQS queue and message operations with SigV4, explicit receipt acknowledgements and guarded writes.",
+  "description": "Bounded SQS queue and message operations with SigV4, explicit receipt acknowledgements and guarded writes.",
+  "website": "https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/Welcome.html",
+  "category": "Integrations",
+  "tags": [
+    "integration",
+    "amazon-sqs"
+  ],
+  "defaultPackage": false,
+  "logo": "logo.png",
+  "banner": "banner.png"
+}

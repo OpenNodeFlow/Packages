@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "summary": "Bounded typed Stripe customers, payments, refunds, subscriptions, invoices, reconciliation, Connect transfers, payouts and disputes with explicit write confirmation.",
+  "description": "Bounded typed Stripe customers, payments, refunds, subscriptions, invoices, reconciliation, Connect transfers, payouts and disputes with explicit write confirmation.",
+  "website": "https://docs.stripe.com/api/versioning",
+  "category": "Integrations",
+  "tags": [
+    "integration",
+    "stripe"
+  ],
+  "defaultPackage": false,
+  "logo": "logo.png",
+  "banner": "banner.png"
+}

@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "summary": "Typed bounded HTTPS vector collections, points, hybrid queries, payload filters/indexes, aliases and snapshots.",
+  "description": "Typed bounded HTTPS vector collections, points, hybrid queries, payload filters/indexes, aliases and snapshots.",
+  "website": "https://api.qdrant.tech/api-reference",
+  "category": "Integrations",
+  "tags": [
+    "integration",
+    "qdrant",
+    "vector-database",
+    "search"
+  ],
+  "defaultPackage": false,
+  "logo": "logo.png",
+  "banner": "banner.png"
+}

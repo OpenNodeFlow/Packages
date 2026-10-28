@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "summary": "Typed FreshBooks accounting, project and time resources with explicit account/business routes, exact decimal strings and confirmed writes.",
+  "description": "Typed FreshBooks accounting, project and time resources with explicit account/business routes, exact decimal strings and confirmed writes.",
+  "website": "https://www.freshbooks.com/api/start",
+  "category": "Integrations",
+  "tags": [
+    "integration",
+    "freshbooks"
+  ],
+  "defaultPackage": false,
+  "logo": "logo.png",
+  "banner": "banner.png"
+}

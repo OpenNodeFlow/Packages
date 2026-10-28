@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "summary": "Bounded typed PayPal orders, payments, subscriptions, invoices, payouts, disputes and reporting with external bearer authentication.",
+  "description": "Bounded typed PayPal orders, payments, subscriptions, invoices, payouts, disputes and reporting with external bearer authentication.",
+  "website": "https://developer.paypal.com/api/orders/v2",
+  "category": "Integrations",
+  "tags": [
+    "integration",
+    "paypal"
+  ],
+  "defaultPackage": false,
+  "logo": "logo.png",
+  "banner": "banner.png"
+}

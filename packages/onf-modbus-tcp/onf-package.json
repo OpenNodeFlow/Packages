@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "summary": "Bounded native Modbus TCP reads and confirmed equipment writes, exact register numerics and register-map helpers.",
+  "description": "Bounded native Modbus TCP reads and confirmed equipment writes, exact register numerics and register-map helpers.",
+  "website": "https://www.modbus.org/",
+  "category": "Integrations",
+  "tags": [
+    "industrial",
+    "modbus",
+    "tcp",
+    "registers"
+  ],
+  "defaultPackage": false,
+  "logo": "logo.png",
+  "banner": "banner.png"
+}

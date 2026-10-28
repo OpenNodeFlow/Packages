@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "summary": "Typed Trello boards, lists, cards, checklists, check items, labels, members, comments, attachment metadata, custom fields and organizations.",
+  "description": "Typed Trello boards, lists, cards, checklists, check items, labels, members, comments, attachment metadata, custom fields and organizations.",
+  "website": "https://developer.atlassian.com/cloud/trello/rest/",
+  "category": "Integrations",
+  "tags": [
+    "integration",
+    "trello"
+  ],
+  "defaultPackage": false,
+  "logo": "logo.png",
+  "banner": "banner.png"
+}

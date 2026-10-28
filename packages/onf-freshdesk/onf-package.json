@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "summary": "Typed Freshdesk API v2 tickets, replies, private notes, contacts, companies, agents, groups, fields, search and knowledgebase.",
+  "description": "Typed Freshdesk API v2 tickets, replies, private notes, contacts, companies, agents, groups, fields, search and knowledgebase.",
+  "website": "https://developers.freshdesk.com/api/",
+  "category": "Integrations",
+  "tags": [
+    "integration",
+    "freshdesk"
+  ],
+  "defaultPackage": false,
+  "logo": "logo.png",
+  "banner": "banner.png"
+}

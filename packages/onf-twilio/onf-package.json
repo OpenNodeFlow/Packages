@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "summary": "Typed Twilio SMS/MMS, call and recording controls, account and phone metadata, Messaging Services, Verify and usage pages.",
+  "description": "Typed Twilio SMS/MMS, call and recording controls, account and phone metadata, Messaging Services, Verify and usage pages.",
+  "website": "https://www.twilio.com/docs/messaging/api/message-resource",
+  "category": "Integrations",
+  "tags": [
+    "integration",
+    "twilio"
+  ],
+  "defaultPackage": false,
+  "logo": "logo.png",
+  "banner": "banner.png"
+}

@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "summary": "Bounded S3 REST operations with AWS Signature Version 4, HTTPS and explicit mutation confirmation.",
+  "description": "Bounded S3 REST operations with AWS Signature Version 4, HTTPS and explicit mutation confirmation.",
+  "website": "https://docs.aws.amazon.com/AmazonS3/latest/API/Welcome.html",
+  "category": "Integrations",
+  "tags": [
+    "integration",
+    "s3"
+  ],
+  "defaultPackage": false,
+  "logo": "logo.png",
+  "banner": "banner.png"
+}

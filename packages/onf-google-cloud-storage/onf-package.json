@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "summary": "Typed Google Cloud Storage buckets, object metadata and generation-guarded bounded byte transfers.",
+  "description": "Typed Google Cloud Storage buckets, object metadata and generation-guarded bounded byte transfers.",
+  "website": "https://docs.cloud.google.com/storage/docs/json_api/v1",
+  "category": "Integrations",
+  "tags": [
+    "integration",
+    "google-cloud-storage"
+  ],
+  "defaultPackage": false,
+  "logo": "logo.png",
+  "banner": "banner.png"
+}

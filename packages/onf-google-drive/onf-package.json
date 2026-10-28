@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "summary": "Typed Google Drive files, sharing, shared drives, changes, revisions, comments and bounded byte transfers.",
+  "description": "Typed Google Drive files, sharing, shared drives, changes, revisions, comments and bounded byte transfers.",
+  "website": "https://developers.google.com/workspace/drive/api/reference/rest/v3",
+  "category": "Integrations",
+  "tags": [
+    "integration",
+    "google-drive"
+  ],
+  "defaultPackage": false,
+  "logo": "logo.png",
+  "banner": "banner.png"
+}

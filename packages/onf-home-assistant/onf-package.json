@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "summary": "Bounded Home Assistant REST states, metadata, history, calendars and explicitly confirmed equipment actions.",
+  "description": "Bounded Home Assistant REST states, metadata, history, calendars and explicitly confirmed equipment actions.",
+  "website": "https://contributors.home-assistant.io/core/internals/rest-api/",
+  "category": "Integrations",
+  "tags": [
+    "integration",
+    "home-assistant"
+  ],
+  "defaultPackage": false,
+  "logo": "logo.png",
+  "banner": "banner.png"
+}

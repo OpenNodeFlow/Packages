@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "summary": "Typed Box API 2.0 files, folders, search, bounded uploads/downloads, versions, comments, collaborations, shared links, users and metadata.",
+  "description": "Typed Box API 2.0 files, folders, search, bounded uploads/downloads, versions, comments, collaborations, shared links, users and metadata.",
+  "website": "https://developer.box.com/reference/",
+  "category": "Integrations",
+  "tags": [
+    "integration",
+    "box"
+  ],
+  "defaultPackage": false,
+  "logo": "logo.png",
+  "banner": "banner.png"
+}

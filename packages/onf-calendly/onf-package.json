@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "summary": "Typed Calendly API v2 users, organizations, event types, scheduled events, invitees, availability, routing forms, single-use links and explicit cancellation.",
+  "description": "Typed Calendly API v2 users, organizations, event types, scheduled events, invitees, availability, routing forms, single-use links and explicit cancellation.",
+  "website": "https://developer.calendly.com/api-docs/overview/api/reference",
+  "category": "Integrations",
+  "tags": [
+    "integration",
+    "calendly"
+  ],
+  "defaultPackage": false,
+  "logo": "logo.png",
+  "banner": "banner.png"
+}

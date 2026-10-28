@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "summary": "Typed eSignature v2.1 accounts, users, draft/send envelopes, recipients, tabs, templates, document metadata, audit, folders and brands.",
+  "description": "Typed eSignature v2.1 accounts, users, draft/send envelopes, recipients, tabs, templates, document metadata, audit, folders and brands.",
+  "website": "https://developers.docusign.com/docs/esign-rest-api/",
+  "category": "Integrations",
+  "tags": [
+    "integration",
+    "docusign"
+  ],
+  "defaultPackage": false,
+  "logo": "logo.png",
+  "banner": "banner.png"
+}

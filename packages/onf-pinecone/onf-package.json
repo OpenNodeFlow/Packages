@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "summary": "Version-pinned Pinecone vector indexes, namespaces, records, backups, collections and inference over bounded HTTPS REST.",
+  "description": "Version-pinned Pinecone vector indexes, namespaces, records, backups, collections and inference over bounded HTTPS REST.",
+  "website": "https://docs.pinecone.io/reference/api/introduction",
+  "category": "Integrations",
+  "tags": [
+    "integration",
+    "pinecone",
+    "vector-database",
+    "search",
+    "inference"
+  ],
+  "defaultPackage": false,
+  "logo": "logo.png",
+  "banner": "banner.png"
+}

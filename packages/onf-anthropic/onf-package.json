@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "summary": "Typed Claude Messages, token counts, model metadata and bounded message batches. Tool requests and results remain data.",
+  "description": "Typed Claude Messages, token counts, model metadata and bounded message batches. Tool requests and results remain data.",
+  "website": "https://platform.claude.com/docs/en/api/overview",
+  "category": "Integrations",
+  "tags": [
+    "integration",
+    "anthropic",
+    "claude",
+    "ai",
+    "batches"
+  ],
+  "defaultPackage": false,
+  "logo": "logo.png",
+  "banner": "banner.png"
+}

@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "summary": "Typed Asana tasks, subtasks, projects, workspaces, sections, comments, custom fields, tags, users, teams and memberships with bounded batch updates.",
+  "description": "Typed Asana tasks, subtasks, projects, workspaces, sections, comments, custom fields, tags, users, teams and memberships with bounded batch updates.",
+  "website": "https://developers.asana.com/reference/rest-api-reference",
+  "category": "Integrations",
+  "tags": [
+    "integration",
+    "asana"
+  ],
+  "defaultPackage": false,
+  "logo": "logo.png",
+  "banner": "banner.png"
+}

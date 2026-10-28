@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "summary": "Typed Pub/Sub topics, pull subscriptions, bounded publish/pull, explicit acknowledgements, snapshots and schema revisions.",
+  "description": "Typed Pub/Sub topics, pull subscriptions, bounded publish/pull, explicit acknowledgements, snapshots and schema revisions.",
+  "website": "https://docs.cloud.google.com/pubsub/docs/reference/rest/v1",
+  "category": "Integrations",
+  "tags": [
+    "integration",
+    "google-pubsub"
+  ],
+  "defaultPackage": false,
+  "logo": "logo.png",
+  "banner": "banner.png"
+}

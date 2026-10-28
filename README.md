@@ -22,6 +22,10 @@ Recommended starting packages, in order:
 
 Refreshing checks availability; it does not install or run anything. Installed node code runs with the ONF worker's permissions when used by a workflow. Read each asset's included documentation before configuring provider access or executing it.
 
+Event releases require a V2 runtime supporting package-declared ingress. Explicitly select the saved entry mode (Webhook, Poll, WebSocket or Schedule), configure its fields, create and acknowledge the matching profile under **Infrastructure → Ingress**, bind the node and save before deliberate activation. Installing creates no profile, secret, subscription, relay, listener, workflow or enabled automation. Retained triggers newly declaring ingress also need an explicit compatible binding after upgrade.
+
+Direct callbacks support only their documented authentication contract. Entries marked **external relay** are typed receivers for a separately deployed provider-aware verifier/protocol adapter; no relay is bundled. Polls make bounded read requests with documented baseline/cursor behavior, including resumable Drive/Gmail feeds. A trigger checkpoint commits before downstream completion; downstream failure does not rewind it. Read each provider's setup and delivery limits in the included asset documentation. No live provider interoperability is implied by synthetic validation.
+
 New Direct operations expose useful typed command fields while earlier operation revisions remain available. Upgrades can retain visible legacy operations; fresh and upgraded libraries therefore differ. FreshBooks, Intercom and OneDrive/SharePoint also include configuration-only operation revision 2. Workflows explicitly pinned to their historical revision 1 must deliberately adopt the corrected revision before execution; historical snapshots retain their original configuration defect.
 
 Runtime includes 15 typed Queue operations. Manage queues under **Storage → Queues** and use a scheduled or manually triggered consumer flow to claim work. Queue items do not start workflows automatically; ambiguous external outcomes require explicit recovery.

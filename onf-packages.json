@@ -3161,6 +3161,15 @@
       "path": "packages/onf-anthropic/1.2.0.json",
       "sha256": "cc8be44cbdb859cc29a929b83c30b1ab0301a2524672cf995d1e3845f8bc274c",
       "config": "packages/onf-anthropic/onf-package.json"
+    },
+    {
+      "id": "onf.netbird",
+      "name": "NetBird",
+      "version": "2.7.0",
+      "description": "Peer, access group, policy and current Network API operations using PAT Token authentication; deprecated Routes API omitted.",
+      "path": "packages/onf-netbird/2.7.0.json",
+      "sha256": "60cc1e59b286ca5fe7e3455e7398cba6606f99524f9b38046adaf4a346f95da1",
+      "config": "packages/onf-netbird/onf-package.json"
     }
   ]
 }

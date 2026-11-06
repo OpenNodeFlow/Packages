@@ -1,5 +1,7 @@
 ![OpenNodeFlow package collection](banner-expansion-2026-10-27.png)
 
+NetBird 2.7.0 documents native per-node For Each using its existing typed lists and resource decoders. See [native For Each guide](docs/foreach.md).
+
 # OpenNodeFlow Packages
 
 The official public package source for OpenNodeFlow. Browse 97 package families covering workflow foundations, utilities and integrations. Packages are optional and installed through ONF.

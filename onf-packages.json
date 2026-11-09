@@ -3179,6 +3179,15 @@
       "path": "packages/onf-netbird/2.8.0.json",
       "sha256": "17b1673062e066dbddfd87b60762e0ed7cb22b9be70e199213160d4b428c8b5f",
       "config": "packages/onf-netbird/onf-package.json"
+    },
+    {
+      "id": "onf.sql-server",
+      "name": "Microsoft SQL Server",
+      "version": "1.0.0",
+      "description": "Typed SQL Server queries, transactions, row operations and catalog discovery using the provisioned trusted Tedious runtime.",
+      "path": "packages/onf-sql-server/1.0.0.json",
+      "sha256": "e658352042478da5228c0df19895b9d09d88aa64c6dd5d7ff05e671c0e70eea2",
+      "config": "packages/onf-sql-server/onf-package.json"
     }
   ]
 }

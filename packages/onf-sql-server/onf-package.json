@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "summary": "Typed SQL Server queries, transactions, row operations and catalog discovery using the provisioned trusted Tedious runtime.",
+  "description": "Typed SQL Server queries, transactions, row operations and catalog discovery using the provisioned trusted Tedious runtime.",
+  "website": "https://tediousjs.github.io/tedious/api-connection.html",
+  "category": "Integrations",
+  "tags": [
+    "integration",
+    "sql-server"
+  ],
+  "defaultPackage": false,
+  "logo": "logo.png",
+  "banner": "banner.png"
+}

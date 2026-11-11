@@ -3188,6 +3188,15 @@
       "path": "packages/onf-sql-server/1.0.0.json",
       "sha256": "e658352042478da5228c0df19895b9d09d88aa64c6dd5d7ff05e671c0e70eea2",
       "config": "packages/onf-sql-server/onf-package.json"
+    },
+    {
+      "id": "onf.netbird",
+      "name": "NetBird",
+      "version": "2.8.1",
+      "description": "Peer, access group, policy and current Network API operations using PAT Token authentication; deprecated Routes API omitted.",
+      "path": "packages/onf-netbird/2.8.1.json",
+      "sha256": "b4c2bf66acd2b9fc8c0b1192cb46b27bc37398979ed7ca640ca2eea689882b09",
+      "config": "packages/onf-netbird/onf-package.json"
     }
   ]
 }

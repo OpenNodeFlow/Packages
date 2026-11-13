@@ -3197,6 +3197,15 @@
       "path": "packages/onf-netbird/2.8.1.json",
       "sha256": "b4c2bf66acd2b9fc8c0b1192cb46b27bc37398979ed7ca640ca2eea689882b09",
       "config": "packages/onf-netbird/onf-package.json"
+    },
+    {
+      "id": "onf.azure-devops",
+      "name": "DevOps",
+      "version": "2.7.0",
+      "description": "Reusable project/build/pipeline/agent/release operations complementing the installed typed Azure event and PR workflows. Existing repository and PR type identities are reused.",
+      "path": "packages/onf-azure-devops/2.7.0.json",
+      "sha256": "930366daeec259ed0542aa4ed0adf1afda582c973a0d1165a0073410b715e0e4",
+      "config": "packages/onf-azure-devops/onf-package.json"
     }
   ]
 }
